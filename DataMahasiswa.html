@@ -3,177 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mahasiswa - EvoLevel Dashboard</title>
+    <title>WEB NEXT GEN 😎</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
 
-          body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-            color: white; min-height: 100vh; margin: 0; overflow-x: hidden;
-        }
 
-        /* SIDEBAR KIRI */
-          .sidebar {
-            background-color: rgba(27, 38, 59, 0.8); backdrop-filter: blur(15px);
-            height: 90vh; padding: 30px 20px;
+/* SIDEBAR */
+ .sidebar {
+            background-color: #1b263b; height: 85vh; padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
-            position: fixed; width: 260px; top: 5vh; left: 20px; border-radius: 30px;
-            z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow-x: hidden;
+            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; overflow-y: auto; overflow-x: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
-        .img-menu-icon { width: 20px; height: 20px; margin-right: 15px; opacity: 0.7; }
-
         .menu-link {
-            display: flex; align-items: center; color: #adb5bd;
-            text-decoration: none; padding: 12px 18px;
-            border-radius: 15px; margin-bottom: 8px; transition: 0.3s; font-size: 14px;
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+            transition: 0.3s; font-size: 0.85rem;
         }
 
-        .menu-link:hover { background: rgba(255, 255, 255, 0.05); color: white; }
-
-        .menu-link.active {
-            background: #4cc9f0; color: #0d1b2a !important; font-weight: 600;
-            box-shadow: 0 4px 12px rgba(76, 201, 240, 0.2); /* Cahaya dikurangi */
-        }
-
-        .menu-link.active .img-menu-icon { filter: brightness(0); opacity: 1; }
-
-         .menu-link:hover, .menu-link.active {
-             background-color: #4cc9f0; color: #0d1b2a !important; font-weight: 600;
-             box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
+         /* EFEK HOVER NYA */
+        .menu-link:hover, .menu-link.active {
+            background:linear-gradient(90deg,#4cc9f0,#4361ee);
+            border:none; border-radius:20px; padding:12px;
+            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
         .menu-link.active .img-menu-icon { filter: brightness(0); } 
-
         .profile-section {
-             margin-top: auto; background: rgba(255, 255, 255, 0.07);
+            margin-top: auto; background: rgba(255, 255, 255, 0.07);
             padding: 15px; border-radius: 20px; display: flex; align-items: center;}
 
 
-             .content-area, .main-wrapper { margin-left: 300px !important; padding: 50px 40px; }
 
 
-/* --- KOTAK TABEL TRANSPARANT --- */
-        .glass-container {background: rgba(255, 255, 255, 0.03);
-                          backdrop-filter: blur(20px);
-                          border-radius: 35px;
-                          border: 1px solid rgba(255, 255, 255, 0.08);
-                          padding: 35px;
-                          box-shadow: 0 20px 60px rgba(0,0,0,0.4);}
 
+/* MAIN */
+.main-wrapper {
+    margin-left: 300px;
+    padding: 40px;
+    width: calc(100% - 300px);
+}
+
+
+/* KOTAK KANAN */
+.glass-container {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(76, 201, 240, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+
+/* DESAIN INPUT */
+        .pill-input {border-radius: 50px; background: rgba(255, 255, 255, 0.08) !important;
+                    border: 1px solid rgba(76, 201, 240, 0.4) !important;
+                    color: white !important; padding: 10px 25px;
+                    outline: none;}
+
+        .pill-input:focus {border-color: #4cc9f0 !important;
+                           background: rgba(255, 255, 225, 0.1) !important;
+                           box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
+                           outline: none; color: white !important;}
+
+        .pill-input option {background: #0d1b2a; color: white;}
+        .pill-input::placeholder {color: white !important; opacity: 0.8; font-size: 0.85rem;}
+        .pill-input::-webkit-input-placeholder {color: white !important;}
+
+
+
+/* --- TABEL BIRU UNGU --- */
+        .table-custom {width: 100%; border-collapse: separate; border-spacing: 0 15px;}
+        .table-custom thead th {color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem;}
         
-/* --- DROPDOWN (MAMA) --- */
-        .pill-control {border-radius: 50px;
-                       background: rgba(255, 255, 255, 0.08) !important;
-                       border: 1px solid rgba(76, 201, 240, 0.4) !important;
-                       color: white !important; padding: 10px 25px;
-                       outline: none;}
+        .table-custom tbody tr {background: rgba(255, 255, 255, 0.02); transition: 0.4s ease;}
 
-/* DROPDOWN (ANAK) */
-        .pill-control option {background: #1b263b; color: white; padding: 10px;}
+        .table-custom tbody td {padding: 18px 15px; border: none;
+                                vertical-align: middle; font-weight: 500;}
 
-        
-        
-/* --- TABEL CANTIK--- */
-        .table-evo {width: 100%;
-                    border-collapse: separate;
-                    border-spacing: 0 12px;}
+        .table-custom tbody tr td:first-child {border-top-left-radius: 15px;
+                                               border-bottom-left-radius: 15px;}
 
-        .table-evo thead th {color: #4cc9f0; font-size: 0.8rem;
-                             text-transform: uppercase; padding-bottom: 15px; border: none;}
-
-        .table-evo tbody tr {background: rgba(255, 255, 255, 0.02); transition: 0.4s;}
-
-        .table-evo tbody tr:hover {background: rgba(76, 201, 240, 0.12); transform: scale(1.01);}
-
-        .table-evo td {padding: 18px; border: none; vertical-align: middle;}
-
-        .table-evo td:first-child { border-radius: 20px 0 0 20px; }
-        .table-evo td:last-child { border-radius: 0 20px 20px 0; }
-
- 
-        
-/* --- TOMBOL AKTIVITAS --- */
-        .btn-pill {border-radius: 50px; padding: 8px 20px; border: none; font-weight: 600;
-                   font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
-                   transition: 0.3s;}
-        .btn-pill:hover { filter: brightness(1.2); transform: translateY(-2px); }
-
-        
-/* ---KOTAK LUNCUR ATO NGAMBANG --- */
-        .modal-glass {background: rgba(13, 27, 42, 0.95); backdrop-filter: blur(25px);
-                      border-radius: 35px; border: 1px solid #4cc9f0; color: white;}
-
-        .modal.fade .modal-dialog {transform: translateY(-50px);
-                                  transition: transform 0.4s ease-out;}
-        .modal.show .modal-dialog { transform: translateY(0); }
+        .table-custom tbody tr td:last-child {border-top-right-radius: 15px;
+                                              border-bottom-right-radius: 15px;}
+  
+        .table-custom tbody tr:hover {background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
+                                      transform: translateX(8px);}
 
 
 
+/* BUTTON */
+        .btn-edit { 
+                   background: #ffd700 !important; 
+                   border: 1px solid rgba(255, 215, 0, 0.3) !important;
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700}
+        .btn-edit:hover { 
+                   background: #ffd700 !important; color: #0d1b2a !important; 
+                   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);}
 
-/* PAGINATION KANAN */
-    .page-link-custom {width: 38px; height: 38px; display: flex;
+        .btn-note { 
+                   background: rgba(255, 75, 75, 0.1) !important; color: #9a9090 !important; 
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;}
+        .btn-note:hover {background: #9a9090 !important; color: white !important;}
+
+
+
+        .btn-simpan { 
+                   background: #4cc9f0 !important; 
+                   border: 1px solid rgb(76, 201, 240) !important;
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700}
+        .btn-simpan:hover { 
+                   background: #4cc9f0 !important; color: #0d1b2a !important; 
+                   box-shadow: 0 0 7px rgb(76, 201, 240);}
+
+/* STAT CARD */
+.stat-card {
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+/* GRADIENT VARIATIONS */
+.stat-blue {
+    background: linear-gradient(135deg, rgba(76,201,240,0.15), rgba(67,97,238,0.15));
+    border: 1px solid rgba(76,201,240,0.3);
+}
+
+.stat-green {
+    background: linear-gradient(135deg, rgba(46,204,113,0.15), rgba(39,174,96,0.15));
+    border: 1px solid rgba(46,204,113,0.3);
+}
+
+.stat-purple {
+    background: linear-gradient(135deg, rgba(155,89,182,0.15), rgba(114,9,183,0.15));
+    border: 1px solid rgba(155,89,182,0.3);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+
+
+
+/* MODAL */
+.modal-glass {
+    background: rgba(13,27,42,0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid #4cc9f0;
+}
+
+
+
+
+
+
+
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+
+            /* --- HALAMAN NOMOR. KANAN --- */
+        .page-link-custom {width: 38px; height: 38px; display: flex;
                        align-items: center; justify-content: center;
                        text-decoration: none; color: white;
                        background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
                        border-radius: 12px; transition: 0.3s; font-weight: 600;}
 
-    .page-link-custom:hover {background: rgba(76, 201, 240, 0.2);
-                             color: #4cc9f0;
+        .page-link-custom:hover {background: rgba(76, 201, 240, 0.2);
+                              color: #4cc9f0;
                               border-color: #4cc9f0;}
 
-    .page-link-custom.active {background: #4cc9f0; color: #0d1b2a;
+        .page-link-custom.active {background: #4cc9f0; color: #0d1b2a;
                               box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
                               border: none;}
 
-     .menu-link {display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+        .menu-link {display: flex; align-items: center; color: #adb5bd; text-decoration: none;
                  padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
                  transition: 0.3s; font-size: 0.85rem;}
+              
 
-       
-/* EFEK ACTIVE DAN HOVER */
-        .menu-link:hover, .menu-link.active {
-             background-color: #4cc9f0; color: #0d1b2a !important; font-weight: 600;
-             box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
+/* DESAIN EXCEL */      
+        .btn-export-all {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white; border: none; border-radius: 50px; padding: 10px 25px;
+            font-weight: 600; transition: 0.3s; box-shadow: 0 5px 8px #2ecc714d;}
 
-        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
-        .menu-link.active .img-menu-icon { filter: brightness(0); } 
+        .btn-export-all:hover { transform: scale(1.05); box-shadow: 0 0 8px #2ecc7180; }
+        .btn-excel {background: rgba(46, 204, 113, 0.15); border: 1px solid rgba(46, 204, 113, 0.4);
+                    border-radius: 12px; padding: 8px 12px; transition: 0.3s;}
 
-        .profile-section {
-             margin-top: auto; background: rgba(255, 255, 255, 0.07);
-            padding: 15px; border-radius: 20px; display: flex; align-items: center;}
+        .btn-excel:hover {background: #2ecc71;box-shadow: 0 0 10px rgba(46,204,113,0.6);}
+        .btn-excel img,
+        .btn-export-all img {filter: none !important;}
 
-        /* --- BAGIAN CSS (Ganti yang ini aja) --- */
-.main-wrapper { 
-    margin-left: 280px; /* Jarak pas dari sidebar */
-    padding: 40px; 
-    width: calc(100% - 280px); /* Memastikan lebar konten nggak 'balapan' keluar layar */
-    min-height: 100vh;
+.btn-note {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
 }
 
-.stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 20px;
-    height: 100%; /* Biar tinggi kotak 3 itu sejajar rapi */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+.btn-note:hover {
+    background: rgba(255,255,255,0.2);
 }
 
-/* Biar row nya nggak bikin scroll horizontal */
-.row {
-    --bs-gutter-x: 1.5rem;
-    margin-right: 0;
-    margin-left: 0;
+.btn-pill img {
+    filter: none !important;
 }
-    
-    </style>
+
+
+
+/* FIX DROPDOWN DARK MODE */
+.pill-control {
+    background: rgba(255,255,255,0.08) !important;
+    color: white !important; padding: 15px; border-color: #4cc9f0;
+}
+
+/* OPTION DALAM DROPDOWN */
+.pill-control option {
+   
+    color: white !important;
+}
+
+/* BIAR SELECT NYA IKUT DARK */
+select.form-select {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: white !important;
+}
+
+/* ARROW DROPDOWN BIAR GA PUTIH  */
+select.form-select:focus {
+    box-shadow: 0 0 5px #4cc9f0;
+    border-color: #4cc9f0;
+}
+
+select.form-select {
+    border-radius: 50px;
+    padding-right: 30px;
+    appearance: none;
+}
+
+/* DETAIL SCROLLBAR */
+         ::-webkit-scrollbar {width: 6px;}
+
+         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+
+
+</style>
 </head>
 
 
@@ -183,29 +288,30 @@
 
     <div class="sidebar">
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+        
         <nav>
-            <a href="DashboardDosenTI.html" class="menu-link">
+            <a href="DashboardDosen.html" class="menu-link">
                 <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
             </a>
             <a href="DataMahasiswa.html" class="menu-link active">
                 <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
             </a>
-            <a href="DataNilai.html" class="menu-link">
+             <a href="DataNilai.html" class="menu-link">
                 <img src="data nilai.png" class="img-menu-icon"> Data Nilai
             </a>
-            <a href="data-kelas.html" class="menu-link">
+            <a href="DataKelas.html" class="menu-link">
                 <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
             </a>
-            <a href="mata-pelajaran.html" class="menu-link">
-                <img src="mata kuliah (2).png" class="img-menu-icon"> Mata Kuliah
+             <a href="DataMataKuliah.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
             </a>
-            <a href="data-topik.html" class="menu-link">
+            <a href="DataTopik.html" class="menu-link">
                 <img src="data topik.png" class="img-menu-icon"> Data Topik
             </a>
-            <a href="bank-soal.html" class="menu-link">
-                <img src="bank.png" class="img-menu-icon"> Bank Soal
+            <a href="DataSoal.html" class="menu-link">
+                <img src="bank.png" class="img-menu-icon"> Data Soal
             </a>
-            <a href="data-evaluasi.html" class="menu-link">
+            <a href="DataEvaluasi.html" class="menu-link">
                 <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
             </a>
             <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
@@ -216,41 +322,41 @@
         <div class="profile-section mt-4">
             <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
-                <p class="small fw-bold mb-0 text-white">Dosen Informatika</p>
+                <p class="small fw-bold mb-0 text-white" id="sidebarNama">Dosen ABC</p>
                 <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
     </div>
 
-    <div class="main-wrapper">
 
+    <div class="main-wrapper">
         <div class="row g-4 mb-4">
             <div class="col-md-4">
-            <div class="stat-card" style="background: rgba(76, 201, 240, 0.05); border-left: 5px solid #4cc9f0;">
+            <div class="stat-card stat-blue" style="background: rgba(76, 201, 240, 0.05); border-left: 5px solid #4cc9f0;">
             <p class="small mb-1 text-light">Total Database</p>
             <h4 class="fw-bold m-0 text-primary">1.254 <small style="font-size: 12px;" class="text-primary">Mahasiswa</small></h4>
         </div>
     </div>
         <div class="col-md-4">
-            <div class="stat-card" style="background: rgba(46, 204, 113, 0.05); border-left: 5px solid #2ecc71;">
+            <div class="stat-card stat-green" style="background: rgba(46, 204, 113, 0.05); border-left: 5px solid #2ecc71;">
             <p class="text-white small mb-1">Status Keaktifan</p>
             <h4 class="fw-bold m-0 text-primary">98.2% <small style="font-size: 12px;" class="text-primary">Aktif</small></h4>
         </div>
     </div>
     <div class="col-md-4">
-            <div class="stat-card" style="background: rgba(155, 89, 182, 0.05); border-left: 5px solid #9b59b2;">
+            <div class="stat-card stat-purple" style="background: rgba(155, 89, 182, 0.05); border-left: 5px solid #9b59b2;">
             <p class="text-white small mb-1">Prodi Terbanyak</p>
-            <h4 class="fw-bold m-0" style="color: #4cc9f0;">PTI</h4>
+            <h4 class="fw-bold m-0" style="color: #4cc9f0;" id="statProdi">PTI</h4>
         </div>
     </div>
 </div>
 
 
 
-        <div class="glass-container">
+        <div class="glass-container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-5">
-                <h2 class="fw-bold m-0">Data Siswa <span style="color: #4cc9f0;">Per Kelas</span></h2>
-                <button class="btn-pill bg-success text-white">
+                <h2 class="fw-bold m-0">Data Siswa <span style="color: #4cc9f0;" id="judulProdi">Per Kelas</span></h2>
+                <button class="btn-export-all">
                     <img src="excel (2).png" width="16"> Export Excel
                 </button>
             </div>
@@ -258,27 +364,29 @@
             <div class="row g-3 mb-4">
                 <div class="col-md-3">
                     <label class="small text-white mb-2 d-block">Pilih Kelas</label>
-                    <select class="form-select pill-control">
+                    <select class="form-select pill-input" id="filterKelas">
                         <option>-- Pilih Kelas --</option>
-                        <option>Kelas 04 (Ilkom)</option>
                         <option>Kelas 01 (TI)</option>
-                        <option>Kelas 08 (PTI)</option>
+                        <option>Kelas 01 (ILKOM)</option>
+                        <option>Kelas 01 (PTI)</option>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label class="small text-white mb-2 d-block">Tampilkan</label>
-                    <select class="form-select pill-control">
+                    <select class="form-select pill-input">
                         <option>10</option>
+                        <option>20</option>
                         <option>50</option>
                     </select>
                 </div>
+                
                 <div class="col-md-7 text-end align-self-end">
-                    <input type="text" class="form-control pill-control w-75 d-inline-block" placeholder="Cari nama atau email...">
+                    <input type="text" class="form-control pill-input w-75 d-inline-block" placeholder="Cari nama atau email...">
                 </div>
             </div>
 
-            <div class="table-responsive">
-                <table class="table-evo">
+            <div class="scroll-wrapper">
+                <table class="table-custom w-100">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -291,29 +399,29 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td class="fw-bold">Wayan Winatta <span class="badge bg-success ms-2" style="font-size: 0.5rem;">Online</span></td>
-                            <td>wayan456@gmail.com</td>
-                            <td>Kelas 01</td>
-                            <td class="text-center">
-                                <button class="btn-pill bg-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <img src="edit.png" width="16">Edit
-                                </button>
-                                <button class="btn-pill" style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal">
-                                    <img src="note.png" width="16"> Note
-                                </button>
-                        </tr>
-                        <tr>
-                         </td>
-                            <td>2</td>
-                            <td class="fw-bold">Dita Damayanti <span class="badge bg-danger ms-2" style="font-size: 0.5rem;">Off</span></td>
+                            <td class="fw-bold">Dita Damayanti<span class="badge bg-success ms-2" style="font-size: 0.5rem;">Online</span></td>
                             <td>Dita123@gmail.com</td>
                             <td>Kelas 01</td>
                             <td class="text-center">
-                                <button class="btn-pill bg-warning" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    <img src="edit.png" width="16">Edit
+                                <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    Edit
                                 </button>
-                                <button class="btn-pill" style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal">
-                                    <img src="note.png" width="16"> Note
+                                <button class="btn-note " style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal" >
+                                    Note
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="fw-bold">Wayan Winatta<span class="badge bg-danger ms-2" style="font-size: 0.5rem;">Off</span></td>
+                            <td>Wayan456@gmail.com</td>
+                            <td>Kelas 01</td>
+                            <td class="text-center">
+                                <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
+                                    Edit
+                                </button>
+                                <button class="btn-note" style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal">
+                                    Note
                                 </button>
                             </td>
                         </tr>
@@ -322,14 +430,15 @@
             </div>
 
           <div class="d-flex justify-content-between align-items-center mt-4">
-    <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 mahasiswa</p>
-    
-    <div class="pagination-container d-flex gap-2">
-        <a href="#" class="page-link-custom">«</a> 
-        <a href="#" class="page-link-custom active">1</a>
-        <a href="#" class="page-link-custom">2</a>
-        <a href="#" class="page-link-custom">3</a>
-        <a href="#" class="page-link-custom">»</a>
+          <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 mahasiswa</p>
+          <div class="pagination-container d-flex gap-2">
+              <a href="#" class="page-link-custom">«</a> 
+              <a href="#" class="page-link-custom active">1</a>
+              <a href="#" class="page-link-custom">2</a>
+              <a href="#" class="page-link-custom">3</a>
+              <a href="#" class="page-link-custom">»</a>
+           </div>
+        </div>
     </div>
 </div>
 
@@ -337,17 +446,17 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
                 <div class="modal-header border-0">
-                    <h5 class="fw-bold text-white">✏️ Edit Data Mahasiswa</h5>
+                    <h5 class="fw-bold text-warning">Edit Data Mahasiswa</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <label class="small mb-2">Nama Lengkap</label>
-                    <input type="text" class="form-control pill-control mb-3">
+                    <input type="text" class="form-control pill-control mb-3" style="border-radius: 12px;">
                     <label class="small mb-2">Email</label>
-                    <input type="email" class="form-control pill-control mb-3">
+                    <input type="email" class="form-control pill-control mb-3" style="border-radius: 12px;">
                 </div>
                 <div class="modal-footer border-0">
-                    <button class="btn-pill bg-primary text-white w-100 justify-content-center">Simpan Perubahan</button>
+                     <button type="button" class="btn btn-edit w-100 py-2 fw-bold justify-content-center" data-bs-dismiss="modal">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -356,17 +465,43 @@
     <div class="modal fade" id="noteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
-                <h5 class="fw-bold mb-3">📝 Catatan Dosen</h5>
-                <textarea class=" text-white pill-control" style="height: 150px; border-radius: 20px;" placeholder="Tulis catatan di sini..."></textarea>
+                <h5 class="fw-bold mb-3">Catatan Dosen</h5>
+                <textarea class="form-control pill-control" style="height: 150px; border-radius: 20px;"></textarea>
                 <div class="d-flex gap-2 mt-4">
-                    <button class="btn-pill bg-danger text-white flex-grow-1 justify-content-center">Hapus</button>
-                    <button class="btn-pill bg-success text-white flex-grow-1 justify-content-center">Simpan Note</button>
+                    
+                    <button class="btn-simpan flex-grow-1 justify-content-center">Simpan Note</button>
                 </div>
             </div>
         </div>
     </div>
     
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.onload = function() {
+        // Ambil data dari penyimpanan browser
+        const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
+        const prodiPilihan = localStorage.getItem("selectedFocus") || "TI";
+
+        
+        document.getElementById("sidebarNama").innerText = namaDosen;
+        document.getElementById("statProdi").innerText = prodiPilihan;
+        document.getElementById("judulProdi").innerText = "Prodi " + prodiPilihan;
+
+       
+        const select = document.getElementById("filterKelas");
+        if(prodiPilihan === "TI") {
+            select.innerHTML = '<option>Kelas 01 (TI)</option>';
+        } else if(prodiPilihan === "PTI") {
+            select.innerHTML = '<option>Kelas 01 (PTI)</option>';
+        } else {
+            select.innerHTML = '<option>Kelas 01 (Ilkom)</option>';
+        }
+    }
+
+</script>
+
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
