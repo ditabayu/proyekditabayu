@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistik TI - UPKSAINTEK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #180721; 
+            --sidebar-bg: #280f3c;
+            --card-bg: #29183d;
+            --accent: #a648ed;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-body); color: rgb(255, 255, 255); margin: 0; overflow-x: hidden; }
+
+         /* --- SIDEBAR KONSISTEN (Sama dengan Statistik) --- */
+         .sidebar {
+            background-color: var(--card-bg); 
+            height: 90vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
+            width: 260px; top: 5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column;
+        }
+
+        .menu-link {
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px; transition: 0.3s;
+        }
+
+        .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
+        
+        .menu-link.active { 
+            background-color: var(--accent); 
+            color: #0d1b2a !important; 
+            font-weight: 600; 
+        }
+
+        .profile-section {
+            margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; display: flex; align-items: center;
+        }
+
+        /* MAIN CONTENT */
+        .main-content { margin-left: 310px; padding: 40px; }
+
+        .title-icon {
+            width: 40px; height: 40px; margin-left: 10px; vertical-align: middle;
+            filter: drop-shadow(0 0 10px var(--accent)); object-fit: contain;
+        }
+
+        /* BENTO CARDS */
+        .bento-card {
+            background: rgba(27, 38, 59, 0.6);
+            border-radius: 24px; padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%; transition: 0.3s;
+        }
+
+        .val-large { font-size: 2.5rem; font-weight: 800; color: var(--gold); margin: 0; }
+        .val-label { color: #adb5bd; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* MULTICOLOR BAR CHART */
+        .chart-placeholder {
+            width: 100%; height: 200px;
+            background: linear-gradient(rgba(255, 255, 255, 0.02), transparent);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex; align-items: flex-end; justify-content: space-around;
+            padding: 10px; border-radius: 10px;
+        }
+
+        .bar { 
+            width: 35px; 
+            border-radius: 8px 8px 0 0; 
+            transition: 0.5s; 
+        }
+
+        /* Variasi Warna Bar */
+        .bar-1 { background: linear-gradient(to top, #4cc9f0, #4361ee); box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3); }
+        .bar-2 { background: linear-gradient(to top, #ff006e, #fb5607); box-shadow: 0 4px 15px rgba(255, 0, 110, 0.3); }
+        .bar-3 { background: linear-gradient(to top, #7209b7, #b5179e); box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3); }
+        .bar-4 { background: linear-gradient(to top, #00f5d4, #00bbff); box-shadow: 0 4px 15px rgba(0, 245, 212, 0.3); }
+        .bar-5 { background: linear-gradient(to top, #fee440, #ff9e00); box-shadow: 0 4px 15px rgba(254, 228, 64, 0.3); }
+        .bar-6 { background: linear-gradient(to top, #9d4edd, #5a189a); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3); }
+        .bar-7 { background: linear-gradient(to top, #4cc9f0, #4895ef); box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3); }
+
+        /* PROGRESS BAR TETAP PREMIUM */
+        .progress-wrapper { margin-bottom: 25px; }
+        .skill-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .skill-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; }
+        .skill-percent { 
+            background: rgba(236, 51, 38, 0.1); 
+            color: var(--accent); 
+            padding: 2px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
+            border: 1px solid rgb(178, 106, 228);
+        }
+
+        .progress { height: 12px; background: rgba(236, 10, 10, 0.034); border-radius: 20px; overflow: visible; border: 1px solid rgba(227, 10, 220, 0.851); }
+        .progress-bar { background: var(--premium-gradient); border-radius: 20px; position: relative; box-shadow: 0 0 15px rgba(240, 76, 218, 0.5); }
+        .progress-bar::after { content: ''; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; background: white; border-radius: 50%; box-shadow: 0 0 10px white; }
+
+        html { zoom: 90%; }
+    </style>
+</head>
+
+
+
+<body>
+
+    <div class="sidebar">
+        <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
+        <nav>
+ <a href="DASHBOARDMAHASISWAILKOM.html" class="menu-link">
+                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> Dashboard
+            </a>
+            <a href="ISIMATERIMAHASISWAILKOM.html" class="menu-link">
+                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> Materi
+     </a>
+            <a href="ISILATIHANSOALILKOM.html" class="menu-link">
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> Latihan Soal
+     </a>
+     <a href="LEADERBOARDILKOM.html" class="menu-link">
+                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> Leaderboard
+            </a>
+            <a href="STATISTIKAMAHASISWAILKOM.html" class="menu-link active">
+                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> Statistik
+     </a>
+            <a href="#" class="menu-link text-danger mt-3">
+                <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> Keluar
+            </a>    
+        </nav>
+
+
+        <div class="profile-section">
+            <img src="reading-book.png" class="rounded-circle me-2" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent);">
+            <div style="overflow: hidden;">
+                <p class="small fw-bold mb-0 text-white">mahasiswa</p>
+                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">mahasiswa@upksaintek.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="mb-5">
+            <h2 class="fw-bold">
+                Statistik Belajar 
+                <img src="c:\Users\Lenovo\Downloads\statistik mahasiswa.png" class="title-icon" alt="Ikon Statistik">
+            </h2>
+            <p class="opacity-75">Progres belajar kamu selama ini, tetap semangat terus ya anak muda!!</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="bento-card text-center d-flex flex-column justify-content-center">
+                    <p class="val-label">Total XP</p>
+                    <p class="val-large">45,200</p>
+                    <small class="text-success" style="font-weight: 600;">↑ 12% Minggu Ini</small>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="bento-card">
+                    <h6 class="fw-bold mb-4" style="font-size: 0.9rem; opacity: 0.8;">AKTIVITAS BELAJAR (7 HARI TERAKHIR)</h6>
+                    <div class="chart-placeholder">
+                        <div class="bar bar-1" style="height: 45%;"></div>
+                        <div class="bar bar-2" style="height: 75%;"></div>
+                        <div class="bar bar-3" style="height: 60%;"></div>
+                        <div class="bar bar-4" style="height: 95%;"></div>
+                        <div class="bar bar-5" style="height: 55%;"></div>
+                        <div class="bar bar-6" style="height: 80%;"></div>
+                        <div class="bar bar-7" style="height: 70%;"></div>
+                    </div>
+                    <div class="d-flex justify-content-around mt-2 opacity-50" style="font-size: 10px; letter-spacing: 1px;">
+                        <span>SEN</span><span>SEL</span><span>RAB</span><span>KAM</span><span>JUM</span><span>SAB</span><span>MIN</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="bento-card">
+                    <h6 class="fw-bold mb-4" style="font-size: 0.9rem; opacity: 0.8;">PENGUASAAN SKILL ILMU KOMPUTER</h6>
+                    
+                    <div class="progress-wrapper">
+                        <div class="skill-info">
+                            <span class="skill-name">Java Programming & Logic</span>
+                            <span class="skill-percent">92%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar" style="width: 92%"></div></div>
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="skill-info">
+                            <span class="skill-name">Web Development (HTML, CSS, Flask)</span>
+                            <span class="skill-percent">78%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar" style="width: 78%"></div></div>
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="skill-info">
+                            <span class="skill-name">Database Systems & SQL</span>
+                            <span class="skill-percent">64%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar" style="width: 64%"></div></div>
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="skill-info">
+                            <span class="skill-name">UI/UX Design Concept</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

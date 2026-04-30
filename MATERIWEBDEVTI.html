@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Belajar Pro - Web Development</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0d1b2a;
+            --sidebar-bg: rgba(27, 38, 59, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --lavender: #E4A0F7;
+            --orchid: #AF69EE;
+            --lilac: #B660CD;
+            --electric: #8F00FF;
+            --lollipop: #81007F;
+            --grape: #6F2DA8;
+            --cyan: #4cc9f0;
+        }
+
+        body {font-family: 'Poppins', sans-serif; background-color: var(--bg-dark);
+              color: white; margin: 0; scroll-behavior: smooth;}
+
+        .top-nav {position: fixed; top: 0; width: 100%; height: 70px;
+                  background: rgba(13, 27, 42, 0.9); backdrop-filter: blur(10px);
+                  z-index: 1000; display: flex; align-items: center; padding: 0 40px;
+                  border-bottom: 1px solid rgba(255,255,255,0.05);}
+
+        .sidebar-learning {width: 280px; max-height: 70vh; background: var(--sidebar-bg);
+                           backdrop-filter: blur(20px); position: fixed;
+                           top: 100px; left: 30px; border-radius: 30px;
+                           padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);
+                           z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                           overflow-y: auto; overflow-x: hidden;}
+
+        .sidebar-learning::-webkit-scrollbar {width: 5px;}
+        .sidebar-learning::-webkit-scrollbar-thumb {background: rgba(76, 201, 240, 0.3);
+                                                    border-radius: 10px;}
+
+        .nav-item-materi {display: flex; align-items: center; justify-content: space-between;
+                          color: #adb5bd; text-decoration: none; padding: 14px 18px;
+                          border-radius: 15px; margin-bottom: 10px; transition: 0.3s;
+                          font-size: 0.85rem;}
+
+        .nav-item-materi:hover, .nav-item-materi.active {background: rgba(76, 201, 240, 0.1);
+                                                        color: var(--cyan);
+                                                        transform: translateX(8px);
+                                                        font-weight: 600;}
+
+        .icon-sub { width: 18px; opacity: 0.8; }
+
+        .content-container { margin-left: 350px; padding: 100px 50px 100px 20px;}
+
+        .materi-card {background: var(--card-bg); backdrop-filter: blur(10px);
+                      border-radius: 35px; padding: 50px;
+                      margin-bottom: 60px;
+                      border: 1px solid rgba(255, 255, 255, 0.05);
+                      border-left: 6px solid var(--cyan); 
+                      text-align: justify;
+                      line-height: 1.8;
+                      box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+
+        .border-lavender { border-left-color: var(--lavender);}
+        .border-orchid { border-left-color: var(--orchid);}
+        .border-lilac { border-left-color: var(--lilac);}
+        .border-electric { border-left-color: var(--electric);}
+        .border-lollipop { border-left-color: var(--lollipop);}
+        .border-grape { border-left-color: var(--grape);}
+
+        .materi-card h2 {font-weight: 700; margin-bottom: 25px;}
+
+        .img-materi {display: block; margin: 35px auto;
+                    width: 80%; max-height: 350px; object-fit: cover; 
+                    border-radius: 20px; border: 2px solid rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+                    transition: 0.4s ease-in-out;}
+                    
+        .img-materi:hover {transform: scale(1.02); border-color: var(--cyan);}
+
+        .badge-kategori {background: rgba(255,255,255,0.1);
+                         padding: 5px 15px; border-radius: 50px;
+                         font-size: 0.7rem; text-transform: uppercase;
+                         letter-spacing: 1px; margin-bottom: 15px;
+                         display: inline-block;}
+        
+        code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 5px; color: var(--cyan); }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-nav">
+        <a href="ISIPEMBELAJARANMAHASISWA.html" class="text-decoration-none text-info fw-bold small me-4">← KELUAR MODE BELAJAR</a>
+        <div class="ms-auto d-flex align-items-center">
+            <span class="small text-decoration-none text-info small me-3">Web Development: Modul 01-06</span>
+            <img src="LOGO WEB DEVELOPMENT.png" width="25">
+        </div>
+    </div>
+
+    <div class="sidebar-learning">
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Daftar Materi</h6>
+            <p class="text-white" style="font-size: 11px;">Klik untuk pindah materi</p>
+        </div>
+        
+        <nav>
+            <a href="#intro" class="nav-item-materi">
+                <span>01. Apa itu web development?</span>
+                <img src="icon no 1.png" class="icon-sub">
+            </a>
+            <a href="#html" class="nav-item-materi">
+                <span>02. Struktur HTML5</span>
+                <img src="ikon no 2.png" class="icon-sub">
+            </a>
+            <a href="#css" class="nav-item-materi">
+                <span>03. Styling with CSS3</span>
+                <img src="ikon no 3.png" class="icon-sub">
+            </a>
+            <a href="#js" class="nav-item-materi">
+                <span>04. JavaScript Dasar</span>
+                <img src="ikon no 4.png" class="icon-sub">
+            </a>
+            <a href="#responsive" class="nav-item-materi">
+                <span>05. Responsive Design</span>
+                <img src="ikon no 5.png" class="icon-sub">
+            </a>
+            <a href="#backend" class="nav-item-materi">
+                <span>06. Backend & Database</span>
+                <img src="ikon no 6.png" class="icon-sub">
+            </a>
+        </nav>
+    </div>
+
+    <div class="content-container">
+        
+        <div id="intro" class="materi-card border-lavender">
+             <span class="badge-kategori text-white">Introduction</span>
+             <h2 style="color: var(--lavender);">01. Apa itu Web Development?</h2>
+             <hr style="border-color: rgba(255,255,255,0.1);">
+             <p>Web Development adalah proses membangun dan memelihara situs web. Ini mencakup segala hal mulai dari halaman teks statis sederhana hingga aplikasi web yang kompleks dan jejaring sosial.</p>
+             <p>Secara umum dibagi menjadi tiga bagian utama:</p>
+             <ul>
+                 <li><strong>Frontend:</strong> Apa yang dilihat pengguna (UI/UX).</li>
+                 <li><strong>Backend:</strong> Logika di balik layar dan server.</li>
+                 <li><strong>Database:</strong> Tempat menyimpan data pengguna.</li>
+             </ul>
+           
+             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                 <p class="small opacity-75" style="color: #ffff2c;">Lanjut ke pondasi utama web! ✨</p>
+             </div>
+        </div>
+
+        <div id="html" class="materi-card border-orchid">
+            <span class="badge-kategori text-white">Struktur</span>
+            <h2 style="color: var(--orchid);">02. HTML: Tulang Punggung Web</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <p>HTML (HyperText Markup Language) adalah bahasa standar yang digunakan untuk membuat struktur halaman web. Bayangkan HTML sebagai kerangka manusia.</p>
+            <p>Elemen penting dalam HTML5:</p>
+            <ul>
+                <li><code>&lt;header&gt;</code> & <code>&lt;footer&gt;</code> untuk navigasi dan info bawah.</li>
+                <li><code>&lt;main&gt;</code> untuk konten utama.</li>
+                <li><code>&lt;div&gt;</code> & <code>&lt;section&gt;</code> sebagai pembungkus konten.</li>
+            </ul>
+        
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Struktur sudah siap, mari kita hias! ✨</p>
+            </div>
+        </div>
+
+        <div id="css" class="materi-card border-lilac">
+            <span class="badge-kategori text-white">Design</span>
+            <h2 style="color: var(--lilac);">03. CSS: Mempercantik Tampilan</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <p>CSS (Cascading Style Sheets) digunakan untuk mengatur gaya visual halaman web, seperti warna, tata letak, dan font. Jika HTML adalah kerangka, maka CSS adalah kulit dan pakaiannya.</p>
+            <p>Konsep Utama CSS:</p>
+            <ul>
+                <li><strong>Selectors:</strong> Memilih elemen mana yang akan dihias.</li>
+                <li><strong>Box Model:</strong> Padding, Margin, dan Border.</li>
+                <li><strong>Flexbox & Grid:</strong> Teknik tata letak modern.</li>
+            </ul>
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Waktunya memberikan "otak" pada web kita! ✨</p>
+            </div>
+        </div>
+
+        <div id="js" class="materi-card border-electric">
+            <span class="badge-kategori text-white">Interactivity</span>
+            <h2 style="color: var(--electric);">04. JavaScript: Interaksi Dinamis</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <p>JavaScript adalah bahasa pemrograman yang membuat web menjadi hidup. Dengan JS, kita bisa membuat animasi, memproses formulir, dan mengubah konten secara real-time tanpa reload halaman.</p>
+            <p>Apa yang bisa dilakukan JS?</p>
+            <ul>
+                <li><strong>DOM Manipulation:</strong> Mengubah elemen HTML lewat kode.</li>
+                <li><strong>Event Handling:</strong> Merespon klik atau ketikan pengguna.</li>
+                <li><strong>API Fetch:</strong> Mengambil data dari server lain.</li>
+            </ul>
+
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Web harus bisa dibuka di HP juga, kan? ✨</p>
+            </div>
+        </div>
+
+        <div id="responsive" class="materi-card border-lollipop">
+            <span class="badge-kategori text-white">Layout</span>
+            <h2 style="color: var(--lollipop);">05. Responsive Web Design</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <p>Responsive Design memastikan situs web Anda terlihat bagus di semua perangkat (Desktop, Tablet, dan Smartphone). Kita menggunakan Media Queries untuk menyesuaikan tampilan berdasarkan ukuran layar.</p>
+            <p>Framework Populer:</p>
+            <ul>
+                <li><strong>Bootstrap:</strong> Menggunakan sistem grid 12 kolom.</li>
+                <li><strong>Tailwind CSS:</strong> Menggunakan class utility-first.</li>
+            </ul>
+         
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Terakhir, mari simpan data kita! ✨</p>
+            </div>
+        </div>
+
+        <div id="backend" class="materi-card border-grape">
+            <span class="badge-kategori text-white">Server Side</span>
+            <h2 style="color: var(--grape);">06. Backend & Database</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <p>Backend adalah bagian server yang mengelola logika aplikasi dan berkomunikasi dengan database. Tanpa ini, kita tidak bisa melakukan login atau menyimpan data belanja.</p>
+            <p>Teknologi Populer:</p>
+            <ul>
+                <li><strong>Node.js:</strong> Menjalankan JavaScript di server.</li>
+                <li><strong>PHP:</strong> Bahasa klasik yang masih sangat kuat (Laravel).</li>
+                <li><strong>MySQL/PostgreSQL:</strong> Database untuk menyimpan data relasional.</li>
+            </ul>
+          
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Selamat! Kamu telah menyelesaikan pengantar Web Dev. ✨</p>
+            </div>
+        </div> 
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB NEXT GEN 😎</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">  
+    
+
+
+    <style>
+          body {font-family: 'Poppins', sans-serif;
+              background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+              color: white; min-height: 100vh; margin: 0; overflow-x: hidden;}
+    
+
+        :root {       
+            --secondary-glow: #4361ee;
+            --dark-bg: #070b1a;
+            --card-bg: rgba(13, 27, 42, 0.9);}
+
+
+    
+   
+/* --- SIDEBAR KIRI  FULL + SCROLL--- */
+        .sidebar {
+            background-color: #1b263b; height: 85vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
+            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; overflow-y: auto; overflow-x: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);}
+
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
+
+        .menu-link {
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+            transition: 0.3s; font-size: 0.85rem;}
+
+/* EFEK HOVER NYA */
+        .menu-link:hover, .menu-link.active {background:linear-gradient(90deg,#4cc9f0,#4361ee);
+                      border:none; border-radius:20px; padding:12px;
+                      color:white; font-weight:600; transition:0.3s; 
+                      color: #0d1b2a !important; font-weight: 600;
+                      box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
+
+        .img-menu-icon {width: 22px; margin-right: 12px; transition: 0.3s;}
+        .menu-link.active .img-menu-icon {filter: brightness(0);} 
+        .profile-section {margin-top: auto; background: rgba(255, 255, 255, 0.07);
+                         padding: 15px; border-radius: 20px; display: flex; align-items: center;}
+
+
+
+
+
+        .main-content {margin-left: 300px; padding: 50px 40px; overflow-x: hidden;}
+    
+/* --- SIMBOL i --- */
+        .info-btn {cursor: pointer; background: rgba(76, 201, 240, 0.1); color: #4cc9f0;
+                   border: 1px solid rgba(76, 201, 240, 0.3); width: 26px; height: 26px;
+                    border-radius: 50%; font-weight: bold; transition: 0.3s; font-size: 0.75rem;}
+        .info-btn:hover {background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 7px #4cc9f0;}   
+
+
+
+/* PRIMARY (AKSI UTAMA) */
+         .btn-primary-evo {background: #4cc9f0; color: white;border: none;
+                           border-radius: 50px; padding: 10px 22px; font-weight: 600;
+                          font-size: 0.85rem; transition: 0.25s ease;}
+
+         .btn-primary-evo:hover {box-shadow: 0 0 12px rgba(76,201,240,0.4); transform: translateY(-2px);}
+
+
+
+/* SECONDARY (Ambil Semua, Lihat Soal) */
+        .btn-secondary-evo {background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.15);
+                            color: white;  border-radius: 50px;
+                               padding: 9px 20px;
+                               font-size: 0.8rem;
+                               transition: 0.25s ease;}
+
+         .btn-secondary-evo:hover {background: rgba(255,255,255,0.08);}
+
+
+/* DANGER (Hapus Semua) */
+       .btn-delete {background: rgba(255, 75, 75, 0.1) !important; color: #ff4b4b !important; 
+                   border-radius: 50px; padding: 9px 20px; border: none; transition: 0.3s; font-weight: 600;}
+       .btn-delete:hover {background: #ff4b4b !important; color: white !important;
+                           box-shadow: 0 0 15px rgba(255, 77, 77, 0.4); transform: translateY(-2px)}
+
+
+
+
+/* GHOST (Batal, Kembali) */
+        .btn-ghost-evo {background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); border-radius: 50px;
+                        padding: 9px 20px;  font-size: 0.8rem; transition: 0.25s ease;}
+
+       .btn-ghost-evo:hover {border-color: #4cc9f0;color: #4cc9f0;}
+
+/* --- SCROLLBAR --- */
+        .soal-list-container::-webkit-scrollbar { width: 6px; }
+        .soal-list-container::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, var(--primary-glow), var(--secondary-glow)); 
+            border-radius: 10px; 
+        }
+
+/* --- BUTTONS & EFFECTS --- */
+        .btn-evo {
+            border-radius: 15px;
+            padding: 10px 24px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: none;
+            position: relative;
+            overflow: hidden;}
+        .btn-evo:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 20px rgba(76, 201, 240, 0.4);}
+
+       .btn-glow-blue {background: linear-gradient(45deg, #4cc9f0, #4361ee);
+                      color: white; box-shadow: 0 0 8px rgba(76,201,240,0.3);}
+
+        .btn-glow-blue:hover { box-shadow: 0 0 12px rgba(76,201,240,0.4);}
+        .btn-outline-evo { border: 2px solid var(--primary-glow); color: var(--primary-glow); background: transparent; }
+        .btn-outline-evo:hover { background: var(--primary-glow); color: white; }
+
+/* --- GLASS CARD --- */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            border-radius: 35px;
+            padding: 30px;}
+
+/* --- SELEKSI (Target n) --- */
+        .n-selector input[type="radio"] { display: none; }
+        .n-selector label {
+            width: 50px; height: 50px; line-height: 50px; text-align: center;
+            border: 2px solid rgba(76, 201, 240, 0.1); border-radius: 15px;
+            cursor: pointer; transition: 0.3s; font-weight: bold;}
+        .n-selector input[type="radio"]:checked + label {
+           border-color: var(--primary-glow);
+            box-shadow: 0 0 15px var(--primary-glow); transform: translateY(-1px);}
+
+        /* --- TABEL DITA --- */
+        .custom-table { background: rgba(0,0,0,0.2); border-radius: 20px; overflow: hidden; }
+        .custom-table thead { background: rgba(76, 201, 240, 0.1); }
+        .custom-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .custom-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+        .badge-adaptif {border: 1px solid #4cc9f0; color: #4cc9f0; background: rgba(76, 201, 240, 0.08);
+                       border-radius: 8px; padding: 4px 12px; font-weight: 500;
+                       font-size: 0.75rem;}
+
+        .badge-adaptiff {border: 1px solid #e73912; color: #e73912; background: rgba(76, 201, 240, 0.08);
+                       border-radius: 8px; padding: 4px 12px; font-weight: 500;
+                       font-size: 0.75rem;}
+
+
+
+       .btn-glow {border: 1px solid rgba(76, 201, 240, 0.3); color: #4cc9f0; background: transparent;
+                  border-radius: 12px; padding: 8px 18px; font-size: 0.8rem;}
+
+       .btn-glow:hover {background: rgba(76, 201, 240, 0.1);}
+       .btn-close {filter: brightness(0.8); opacity: 0.7;}
+
+       .btn-close:hover {opacity: 1;transform: scale(1.1);}
+
+
+
+        .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
+        .modal-glass {background: rgba(13, 27, 42, 0.7) !important; backdrop-filter: blur(25px) !important;
+                      border-radius: 40px !important; border: 1px solid rgba(76, 201, 240, 0.3) !important;
+                      color: white !important; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+                      width: 100%;}
+
+
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+<body>
+
+    <div class="sidebar">
+        <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+        <nav>
+            <a href="DashboardDosen.html" class="menu-link">
+                <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
+            </a>
+            <a href="DataMahasiswa.html" class="menu-link">
+                <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
+            </a>
+             <a href="DataNilai.html" class="menu-link">
+                <img src="data nilai.png" class="img-menu-icon"> Data Nilai
+            </a>
+            <a href="DataKelas.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
+            </a>
+             <a href="DataMataKuliah.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
+            </a>
+            <a href="DataTopik.html" class="menu-link">
+                <img src="data topik.png" class="img-menu-icon"> Data Topik
+            </a>
+            <a href="DataSoal.html" class="menu-link">
+                <img src="bank.png" class="img-menu-icon"> Data Soal
+            </a>
+            <a href="DataEvaluasi.html" class="menu-link active">
+                <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
+            </a>
+            <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
+                <img src="log-out.png" class="img-menu-icon"> Keluar
+            </a>
+        </nav>
+
+        <div class="profile-section mt-4">
+            <img src="reading-book.png" class="rounded-circle me-2" width="35">
+            <div class="overflow-hidden">
+                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Atur Soal <span style="color:#4cc9f0">Basis Data</span></h2>
+                <div class="d-flex align-items-center gap-2 mt-2">
+                    <span class="badge-adaptif">Adaptif</span>
+                    <button class="info-btn" data-bs-toggle="modal" data-bs-target="#modalInfo">i</button>
+                </div>
+            </div>
+
+           
+                     
+
+
+
+           <a href="DataEvaluasi.html" style="text-decoration: none;">
+             <button class="btn-primary-evo px-4">Kembali Ke Menu</button>
+           </a>
+        </div>
+
+        <div class="glass-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold opacity-75">Soal Terpilih Untuk Kuis</h5>
+                <div class="d-flex gap-2">
+                    <button class="btn-secondary-evo px-4" data-bs-toggle="modal" data-bs-target="#modalLihatSoal">LIHAT SOAL</button>
+                    <button class="btn-delete" style="border: 2px solid #ff4d4d; color: #ff4d4d;">HAPUS SEMUA</button>
+                </div>
+            </div>
+
+            <div class="soal-list-container pe-2 mb-4" style="max-height: 350px; overflow-y: auto;">
+                <div class="d-flex justify-content-between align-items-center p-3 mb-3" style="background: rgba(255,255,255,0.03); border-radius: 20px; border-left: 5px solid var(--primary-glow);">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="badge-adaptif" style="font-size:0.6rem;">SEDANG</span>
+                        <span class="fw-bold">Apa Fungsi perintah join query sql?</span>
+                    </div>
+                    <i class="bi bi-x-lg text-danger cursor-pointer" style="cursor:pointer"></i>
+                </div>
+                <div class="d-flex justify-content-between align-items-center p-3 mb-3" style="background: rgba(255,255,255,0.03); border-radius: 20px; border-left: 5px solid var(--primary-glow);">
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="badge-adaptiff" style="font-size:0.6rem;">SULIT</span>
+                        <span class="fw-bold">Apa yang dimaksud dengan entity relationship diagram (ERD)?</span>
+                    </div>
+                    <i class="bi bi-x-lg text-danger cursor-pointer" style="cursor:pointer"></i>
+                </div>
+            </div>
+          
+          
+
+            <div class="row g-4 pt-4 border-top border-secondary border-opacity-25 text-center">
+                <div class="col-3"><small class="opacity-50 d-block">TOTAL</small><h3 class="fw-800">2</h3></div>
+                <div class="col-3 text-success"><small class="opacity-50 d-block">MUDAH</small><h3 class="fw-800">0</h3></div>
+                <div class="col-3 text-info"><small class="opacity-50 d-block">SEDANG</small><h3 class="fw-800">1</h3></div>
+                <div class="col-3 text-danger"><small class="opacity-50 d-block">SULIT</small><h3 class="fw-800">1</h3></div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- MODAL LIHAT SOAL -->
+<div class="modal fade" id="modalLihatSoal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content overflow-hidden" style="background: #0a101f; border: 1.5px solid var(--primary-glow); border-radius: 40px;">
+            <div class="modal-body p-0">
+                <div class="row g-0">
+                    <!-- Kiri -->
+                    <div class="col-md-4 p-5" style="background: rgba(76, 201, 240, 0.03);">
+                        <h4 class="fw-800 mb-4">Otomasi <span class="text-info">Soal</span></h4>
+                        
+                        <label class="small fw-bold opacity-50 mb-3 d-block">TARGET JUMLAH (n)</label>
+                        <div class="n-selector d-flex gap-3 mb-5">
+                            <input type="radio" name="target" id="n5" checked><label for="n5">5</label>
+                            <input type="radio" name="target" id="n10"><label for="n10">10</label>
+                            <input type="radio" name="target" id="n15"><label for="n15">15</label>
+                            <input type="radio" name="target" id="n20"><label for="n20">20</label>
+                            <input type="radio" name="target" id="n20"><label for="n20">25</label>
+                        </div>
+
+                        <div class="d-grid gap-3">
+                            <button class="btn-primary-evo py-3">AMBIL OTOMATIS</button>
+                            <button class="btn-secondary-evo py-2">Ambil Semua</button>
+                        </div>
+                    </div>
+
+                    <!-- Kanan -->
+                    <div class="col-md-8 p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-800 m-0">Bank Soal Tersedia</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="custom-table soal-list-container" style="max-height: 380px; overflow-y: auto;">
+                            <table class="table table-dark table-hover m-0">
+                                <thead class="small fw-bold">
+                                    <tr>
+                                        <th class="p-3">AKSI</th>
+                                        <th class="p-3">LEVEL</th>
+                                        <th class="p-3">PERTANYAAN ESSAY</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-3"><button class="btn btn-info btn-sm rounded-3">+</button></td>
+                                        <td class="p-3 text-info fw-bold">SEDANG</td>
+                                        <td class="p-3 opacity-75">Apa fungsi perintah join dalam query sql?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-5 d-flex justify-content-end gap-3">
+                            <button class="btn-ghost-evo px-4" data-bs-dismiss="modal">BATAL</button>
+                            <button class="btn-primary-evo px-5">TERAPKAN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Info (Simbol i) -->
+<div class="modal fade" id="modalInfo" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4" style="background: #0a101f; border-radius: 30px; border: 1px solid var(--primary-glow);">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold" style="color: #4cc9f0;">Logika Evaluasi</h4>
+                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                
+               
+            </div>
+            <div class="modal-body pb-4">
+                <p class="opacity-75 small">Sistem akan secara otomatis membagi soal berdasarkan komposisi <b>n</b> yang dipilih dosen.</p>
+                <div class="p-3 rounded-4" style="background: rgba(255,255,255,0.05);">
+                    <small class="d-block mb-1"><b>• Sedang:</b> n Soal</small>
+                    <small class="d-block"><b>• Mudah & Sulit:</b> n - 2 Soal</small>
+                </div>
+            </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn-primary-evo w-100 py-2 fw-bold justify-content-center" style="border-radius: 15px; background: #4cc9f0; color: #0d1b2a;" data-bs-dismiss="modal">Tutup</button>
+                </div>  
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

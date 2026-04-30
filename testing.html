@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB NEXT GEN 😎</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <style>      
+        body {font-family: 'Poppins', sans-serif; background-color: #f8f9fa; overflow-x: hidden;}
+        html {scroll-behavior: smooth;}
+
+
+/* NAVBAR ATO BAGIAN ATAS */ 
+        .nav-custom {background-color: rgba(13, 27, 42, 0.95); backdrop-filter: blur(10px); 
+                     padding: 15px 0; border-bottom: 1px solid rgba(76, 201, 240, 0.2);}
+
+
+/* BAGIAN TENGAH */
+        .header-utama {position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; color: white;}
+        .gambar-bg {position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;}
+        .overlay-gelap {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 27, 42, 0.7); z-index: -1;}
+        .tombol-biru {background-color: #4cc9f0; color: #0d1b2a; font-weight: bold; border-radius: 50px;
+                      padding: 12px 35px; border: none; transition: 0.3s; text-decoration: none; 
+                      display: inline-block;}
+        .tombol-biru:hover {transform: scale(1.1); box-shadow: 0 0 20px rgba(76, 201, 240, 0.6); color: #0d1b2a;}
+
+
+/* CARD 3. FITUR  */
+        .card-fitur {position: relative; border: none; border-radius: 30px; height: 320px; overflow: hidden;
+                     display: flex; align-items: flex-end; padding: 30px; transition: 0.5s; cursor: pointer;}
+        .card-bg-img {position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+                     transition: 0.6s;}
+        .card-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                      background: linear-gradient(to top, rgba(13, 27, 42, 0.9), rgba(76, 201, 240, 0.2)); z-index: 2;}
+        .card-konten {position: relative; z-index: 3; color: white;}
+        .card-fitur:hover { transform: translateY(-12px); box-shadow: 0 15px 35px rgba(76, 201, 240, 0.3);}
+
+
+
+/* CARD 3. 3 LANGKAH */
+        .step-card {background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255,255,255,0.2); border-radius: 30px;
+                    padding: 40px; transition: 0.3s; height: 100%;}
+        .step-card:hover {background: rgba(255, 255, 255, 0.15); border-color: #4cc9f0;}
+
+
+/* DI BAWAHNYA. KOTAK RESEARCH + DETAIL DALEM */
+        .section-research {background: #ffffff; padding: 100px 0;}
+        .glass-card-research {background: #0d1b2a; border-radius: 40px; padding: 50px; color: white;}
+        .badge-research {background: rgba(76, 201, 240, 0.2);color: #4cc9f0;
+                         padding: 8px 20px; border-radius: 50px; font-size: 0.8rem;
+                         font-weight: 600; display: inline-block; margin-bottom: 15px;}
+
+
+        .text-justify {text-align: justify;}
+        .map-wrapper {border-radius: 25px; overflow: hidden; height: 250px; border: 1px solid #ddd;}
+
+
+
+/* FOOTER FULL */
+        .footer-custom {background-color: #0d1b2a; color: white; padding: 80px 0 30px;}
+        .list-footer {list-style: none; padding: 0;}
+        .list-footer a {color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: 0.3s;}
+        .list-footer a:hover {color: #4cc9f0;}
+
+        
+        .hover-link { transition: 0.3s;}
+        .hover-link:hover { color: #4cc9f0 !important; transform: translateY(-2px);}
+
+
+
+    </style>
+</head>
+
+
+
+
+
+<body> 
+
+<!--MENU JEJER ATAS.-->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3">UPK<span style="color: #4cc9f0;">SAINTEK</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#lokasi">Lokasi</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-info rounded-pill px-4" href="Login.html">Masuk</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!--KONTEN TENGAH.-->
+    <header class="header-utama">
+        <img src="bg-header utama.jpeg" class="gambar-bg">
+        <div class="overlay-gelap"></div>
+        <div class="container text-center" data-aos="fade-up">
+            <h1 class="display-3 fw-bold">Evaluasi <span style="color: #4cc9f0;">Cerdas</span> & Efektif</h1>
+            <p id="deskripsi-hero" class="lead mt-3 mx-auto text-white-50" style="max-width: 700px;">
+                Ruang kolaborasi inovatif mahasiswa & dosen untuk masa depan teknologi yang lebih cerah melalui platform UPKSAINTEK.
+            </p>
+            <div class="mt-4">
+                <a href="Login.html" class="tombol-biru">Mulai Sekarang <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </header>
+
+
+<!--3 CARD FITUR.-->
+    <section class="py-5 mt-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold">Fitur Unggulan Kami</h2>
+                <hr style="width: 80px; height: 4px; background: #4cc9f0; margin: auto; border: none; opacity: 1;">
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-fitur">
+                        <img src="Materi.bg.jpeg" class="card-bg-img"> <div class="card-overlay"></div>
+                        <div class="card-konten">
+                            <h4 class="fw-bold">Smart Evaluation</h4>
+                            <p class="small opacity-75">Sistem evaluasi adaptif yang menyesuaikan kurikulum teknik terkini.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-fitur">
+                        <img src="analisis hasil otomatis.png" class="card-bg-img"> <div class="card-overlay"></div>
+                        <div class="card-konten">
+                            <h4 class="fw-bold">Auto-Analytics</h4>
+                            <p class="small opacity-75">Analisis hasil belajar otomatis untuk memantau perkembangan kompetensi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-fitur">
+                        <img src="mudah digunakan guru dan siswa.png" class="card-bg-img"> <div class="card-overlay"></div>
+                        <div class="card-konten">
+                            <h4 class="fw-bold">User Friendly</h4>
+                            <p class="small opacity-75">Antarmuka yang intuitif dan mudah diakses oleh seluruh civitas akademika.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--3 CARD LANGKAH.-->
+    <section class="py-5" style="position: relative; overflow: hidden; background: #0d1b2a;">
+        <img src="bg-header utama.jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: blur(5px) brightness(0.3);">
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <h2 class="fw-bold mb-5" style="color: #ffff00;">Hanya <span style="color: #4cc9f0;">3 Langkah</span> Untuk Memulai</h2>
+           
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="step-card">
+                        <h1 class="display-4 fw-bold" style="color: #4cc9f0;">01</h1>
+                        <h5 class="fw-bold text-white mt-3">Registrasi Akun</h5>
+                        <p class="small opacity-75" style="color: #ffff00;">Daftar dengan email institusi untuk akses penuh ke dashboard.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="step-card">
+                        <h1 class="display-4 fw-bold" style="color: #fca311;">02</h1>
+                        <h5 class="fw-bold text-white mt-3">Konfigurasi Profil</h5>
+                        <p class="small opacity-75" style="color: #ffff00;">Pilih peran dan kelas untuk mempersonalisasi materi evaluasi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="step-card">
+                        <h1 class="display-4 fw-bold" style="color: #2ecc71;">03</h1>
+                        <h5 class="fw-bold text-white mt-3">Eksplorasi Fitur</h5>
+                        <p class="small opacity-75" style="color: #ffff00;">Mulai akses evaluasi, materi, dan kelola aktivitas belajar harian.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+<!--TENTANG, VISI, MISI, LOKASI.-->   
+    <section id="tentang" class="section-research">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="glass-card-research p-5">
+                        <span class="badge-research">RESEARCH COLLABORATION</span>
+                        <h2 class="fw-bold mb-4">Tentang <span style="color: #4cc9f0;">Kami</span></h2>
+                        <p class="text-justify opacity-75 mb-4">
+                            UPKSAINTEK merupakan kolaborasi strategis antar kampus yang didanai oleh <strong>Hibah Penelitian 2026</strong>. Kami berfokus pada integrasi teknologi untuk meningkatkan standar pendidikan sains dan teknologi.
+                        </p>
+                        <div class="row g-4 mt-2">
+                            <div class="col-6">
+                                <i class="bi bi-bullseye fs-1 text-info"></i>
+                                <h6 class="fw-bold mt-2">Visi</h6>
+                                <p class="small opacity-75">Standarisasi evaluasi digital tingkat nasional.</p>
+                            </div>
+                            <div class="col-6">
+                                <i class="bi bi-rocket-takeoff fs-1 text-info"></i>
+                                <h6 class="fw-bold mt-2">Misi</h6>
+                                <p class="small opacity-75">Digitalisasi kurikulum berbasis gamifikasi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="lokasi" class="col-lg-6" data-aos="fade-left">
+                    <h6 class="fw-bold mb-3">📍 Lokasi Kampus</h6>
+                    <div class="map-wrapper mb-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.2005270658374!2d114.60352687351727!3d-3.300484641142043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4239b22dfce5f%3A0xbac7c1e131e1719d!2sUniversitas%20PGRI%20Kalimantan!5e0!3m2!1sid!2sid!4v1777167023818!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.210949392232!2d114.58263787351721!3d-3.297883941130632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4230963790c57%3A0x902859712cc02755!2sUniversitas%20Lambung%20Mangkurat%20-%20Kampus%20I%20Banjarmasin!5e0!3m2!1sid!2sid!4v1777167121987!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<!--FOOTER ATO BAGIAN BAWAH.-->
+    <footer class="footer-custom" style="background: #0d1b2a; padding: 60px 0 30px; border-top: 1px solid rgba(76, 201, 240, 0.1);">
+  <div class="container">
+    <div class="row g-4 text-center text-md-start">
+        
+        <div class="col-lg-4">
+            <h4 class="fw-bold text-white mb-3">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+            <p class="small text-white-50" style="max-width: 300px; margin: 0 auto 0 0;">
+                Membangun ekosistem evaluasi digital yang cerdas dan inovatif untuk masa depan teknologi Indonesia.
+            </p>
+        </div>
+
+        <div class="col-lg-4 text-center">
+            <h6 class="fw-bold text-white mb-3">Navigasi</h6>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#tentang" class="text-white-50 text-decoration-none small hover-link">Tentang</a>
+                <span class="text-secondary">|</span>
+                <a href="#lokasi" class="text-white-50 text-decoration-none small hover-link">Lokasi</a>
+                <span class="text-secondary">|</span>
+                <a href="#tentang" class="text-white-50 text-decoration-none small hover-link">Visi Misi</a>
+            </div>
+            <div class="mt-3">
+                <a href="https://www.instagram.com/official_upk?igsh=MW5ybXVtdjV2YW4zMw==" class="text-white-50 me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                <a href="https://pmb.upk.ac.id/" class="text-white-50 me-3 fs-5"><i class="bi bi-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-4 text-md-end text-center">
+            <h6 class="fw-bold text-white mb-3">Research Partner</h6>
+            <p class="small text-white-50 mb-0">Hibah Penelitian Diktisaintek 2026</p>
+            <p class="small text-info fw-bold">Collaborative Research Team</p>
+        </div>
+    </div>
+
+    <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <p class="small text-white-50 mb-0">
+                © 2026 <span class="fw-bold text-white">UPKSAINTEK Research Team</span>. All rights reserved. 
+                <br><span style="font-size: 0.7rem; opacity: 0.6;">Didesain dengan ❤️ untuk Inovasi Pendidikan.</span>
+            </p>
+        </div>
+    </div>
+  </div>    
+</footer>
+
+
+
+<!--JS. AKTIFIN ANIMASI.--> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>  
+        AOS.init({ duration: 1200 });
+        window.addEventListener('load', () => {
+            const d = document.getElementById('deskripsi-hero');
+            d.style.opacity = '1';
+            d.style.transform = 'translateY(0)';
+        });
+    </script>
+
+
+</body>
+</html>

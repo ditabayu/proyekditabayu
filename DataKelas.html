@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB NEXT GEN 😎</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+
+
+        body {font-family: 'Poppins', sans-serif;
+              background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+              color: white; min-height: 100vh; margin: 0;}
+
+
+/* --- FULL SIDEBAR KIRI --- */
+        .sidebar {
+            background-color: #1b263b; height: 85vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
+            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; overflow-y: auto; overflow-x: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
+
+        .menu-link {
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+            transition: 0.3s; font-size: 0.85rem;
+        }
+
+         /* EFEK HOVER NYA */
+        .menu-link:hover, .menu-link.active {
+            background:linear-gradient(90deg,#4cc9f0,#4361ee);
+            border:none; border-radius:20px; padding:12px;
+            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
+
+        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
+        .menu-link.active .img-menu-icon { filter: brightness(0); } 
+        .profile-section {
+            margin-top: auto; background: rgba(255, 255, 255, 0.07);
+            padding: 15px; border-radius: 20px; display: flex; align-items: center;}
+
+
+
+     
+/* --- BAGIAN TENGAH --- */
+        .content-area {margin-left: 300px; padding: 50px 40px;}
+
+
+
+/* --- CARD KANAN --- */
+        .class-card-custom {background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
+                            border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08);
+                            transition: 0.3s ease-in-out; overflow: hidden;}
+        .class-card-custom:hover {border-color: #4cc9f0;
+                                  background: rgba(255, 255, 255, 0.05);
+                                  box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(-5px);}
+        .card-header-accent {background: rgba(76, 201, 240, 0.05); padding: 20px 25px;
+                             border-bottom: 1px solid rgba(255, 255, 255, 0.05);}
+        .card-body-modular {padding: 25px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;}
+
+
+
+
+/* --- KOTAK NGAMBANG GABUNG KELAS --- */
+        .token-box {background: rgba(255, 255, 255, 0.05); border-radius: 12px;
+                    padding: 10px 15px; border: 1px solid rgba(255, 255, 255, 0.1);
+                    display: flex; justify-content: space-between; align-items: center;}
+
+        .btn-copy {background: #4cc9f0; color: #0d1b2a; border: none; border-radius: 8px;
+                   font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
+        .btn-copy:hover {transform: scale(1.1); }
+
+
+
+/* --- DROPDOWN BENTUK PIL --- */
+        .dropdown-menu-pill {
+            background: #1b263b; border-radius: 20px; border: 1px solid #4cc9f0; padding: 8px;}
+
+        .dropdown-item-pill {
+            color: white; font-size: 0.8rem; border-radius: 12px; padding: 8px 15px; border: none; background: transparent; width: 100%; text-align: left;}
+
+        .dropdown-item-pill:hover {background: rgba(76, 201, 240, 0.2); color: white;}
+
+
+
+/* --- WARNA TOMBOL DETAIL SAMA PAKET, SALIN --- */
+        .btn-yellow {background: #ffd166; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-blue {background: #4cc9f0; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        
+        .btn-yellow:hover, .btn-blue:hover, .btn-outline-info:hover, .btn-info:hover { 
+                   transform: scale(1.03); 
+                   opacity: 1; 
+                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
+
+
+        .btn-copy {background: linear-gradient(135deg, #4cc9f0, #4361ee);
+                color: #0d1b2a; border: none; border-radius: 8px;
+                font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
+
+        .btn-copy:hover {transform: scale(1.1);box-shadow: 0 0 8px #4cc9f0;}
+
+
+
+/* --- FORMS DAN MODAL--- */
+        .modal-glass {
+                 background: rgba(13, 27, 42, 0.95) !important; backdrop-filter: blur(20px);
+                 border-radius: 35px !important; border: 1px solid rgba(255, 255, 255, 0.1); color: white;}
+        .form-custom { 
+                 background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(6, 6, 6, 0.1); 
+                 border-radius: 15px; color: white; padding: 12px; transition: 0.3s;}
+        .form-custom:focus {border-color: #4cc9f0; outline: none; background: rgba(0, 0, 0, 0.1); color: rgb(255, 255, 255);}
+/* --- ANAK PILIHANNYA --- */      
+        select.form-custom {
+               appearance: none;
+               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+               background-repeat: no-repeat; background-position: right 15px center; padding-right: 40px;
+               border-radius: 50px !important;}
+
+        select.form-custom option {background-color: #1b263b; color: white; padding: 10px;}
+
+
+        .btn-save {background: #4cc9f0; color: #0d1b2a; border-radius: 15px; border: none; 
+                   font-weight: 700; padding: 12px; width: 100%; transition: 0.3s;}
+        .btn-save:hover {transform: scale(1.03); 
+                   opacity: 1; 
+                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
+
+        .btn-danger-custom {background: #ff4b4b; color: #0d1b2a; border-radius: 15px; border: none;
+                            padding: 12px; transition: 0.3s; width: 100%;}
+        .btn-danger-custom:hover {transform: scale(1.03); 
+                   opacity: 1; 
+                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
+
+        .package-item {
+                 background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 15px;
+                 margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.05);
+                 display: flex; justify-content: space-between; align-items: center;}
+
+ /* DETAIL SCROLLBAR */
+         ::-webkit-scrollbar {width: 6px;}
+
+         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+         
+         
+    </style>
+</head>
+
+
+
+
+
+
+<body>
+    
+    <div class="sidebar">
+        <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+        <nav>
+            <a href="DashboardDosen.html" class="menu-link">
+                <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
+            </a>
+            <a href="DataMahasiswa.html" class="menu-link">
+                <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
+            </a>
+             <a href="DataNilai.html" class="menu-link">
+                <img src="data nilai.png" class="img-menu-icon"> Data Nilai
+            </a>
+            <a href="DataKelas.html" class="menu-link active">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
+            </a>
+             <a href="DataMataKuliah.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
+            </a>
+            <a href="DataTopik.html" class="menu-link">
+                <img src="data topik.png" class="img-menu-icon"> Data Topik
+            </a>
+            <a href="DataSoal.html" class="menu-link">
+                <img src="bank.png" class="img-menu-icon"> Data Soal
+            </a>
+            <a href="DataEvaluasi.html" class="menu-link">
+                <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
+            </a>
+            <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
+                <img src="log-out.png" class="img-menu-icon"> Keluar
+            </a>
+        </nav>
+
+        <div class="profile-section mt-4">
+            <img src="reading-book.png" class="rounded-circle me-2" width="35">
+            <div class="overflow-hidden">
+                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+    <div class="content-area">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold m-0">Daftar <span style="color: #4cc9f0;">Kelas Anda</span></h2>
+            <div class="d-flex gap-2">
+                <button class="btn btn-outline-info rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#modalGabung">Gabung Kelas</button>
+                <button class="btn btn-info rounded-pill px-4 fw-bold" data-bs-toggle="modal" data-bs-target="#modalTambah" style="background:#4cc9f0; color:#0d1b2a;">Tambah Kelas</button>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="class-card-custom">
+                    <div class="card-header-accent d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="fw-bold m-0 text-white">01 TI - Pemrograman</h4>
+                            <span class="badge bg-info text-dark mt-2" style="font-size: 0.65rem;">Dosen: Dosen TI</span>
+                            <span class="badge border border-info text-info ms-1" style="font-size: 0.65rem;">Ganjil 2026</span>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-white p-0" data-bs-toggle="dropdown" style="font-size: 1.2rem; text-decoration:none;">⋮</button>
+                            <ul class="dropdown-menu dropdown-menu-pill dropdown-menu-end border-0 shadow">
+                                <li><button class="dropdown-item dropdown-item-pill" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit Kelas</button></li>
+                                <li><button class="dropdown-item dropdown-item-pill text-danger" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus Kelas</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-body-modular">
+                        <div style="border-right: 1px solid rgba(255,255,255,0.05); padding-right: 15px;">
+                            <p class="small opacity-50 mb-2">Token Akses</p>
+                            <div class="token-box mb-3">
+                                <span class="fw-bold text-info" id="tkn1">UA1KSXRH</span>
+                                <button class="btn-copy" onclick="copyToken('UA1KSXRH')">SALIN</button>
+                            </div>
+                            <p class="small opacity-50 mb-1">Mata Kuliah Utama</p>
+                            <p class="small fw-bold">Jaringan Komputer & Basis Data</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center gap-2">
+                            <button class="btn-yellow w-100" data-bs-toggle="modal" data-bs-target="#modalDetail">Lihat Detail</button>
+                            <button class="btn-blue w-100" data-bs-toggle="modal" data-bs-target="#modalKlaim">Klaim Paket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+              <div class="col-md-6">
+                <div class="class-card-custom">
+                    <div class="card-header-accent d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="fw-bold m-0 text-white">01 Ilkom - Web </h4>
+                            <span class="badge bg-info text-dark mt-2" style="font-size: 0.65rem;">Dosen: Dosen Ilkom</span>
+                            <span class="badge border border-info text-info ms-1" style="font-size: 0.65rem;">Ganjil 2026</span>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-white p-0" data-bs-toggle="dropdown" style="font-size: 1.2rem; text-decoration:none;">⋮</button>
+                            <ul class="dropdown-menu dropdown-menu-pill dropdown-menu-end border-0 shadow">
+                                <li><button class="dropdown-item dropdown-item-pill" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit Kelas</button></li>
+                                <li><button class="dropdown-item dropdown-item-pill text-danger" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus Kelas</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-body-modular">
+                        <div style="border-right: 1px solid rgba(255,255,255,0.05); padding-right: 15px;">
+                            <p class="small opacity-50 mb-2">Token Akses</p>
+                            <div class="token-box mb-3">
+                                <span class="fw-bold text-info" id="tkn2">UA1KSXRH</span>
+                                <button class="btn-copy" onclick="copyToken('UA1KSXRH')">SALIN</button>
+                            </div>
+                            <p class="small opacity-50 mb-1">Mata Kuliah Utama</p>
+                            <p class="small fw-bold">Mobile Programming</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center gap-2">
+                            <button class="btn-yellow w-100" data-bs-toggle="modal" data-bs-target="#modalDetail">Lihat Detail</button>
+                            <button class="btn-blue w-100" data-bs-toggle="modal" data-bs-target="#modalKlaim">Klaim Paket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-md-6">
+                <div class="class-card-custom">
+                    <div class="card-header-accent d-flex justify-content-between align-items-center">
+                        <div>
+                            <h4 class="fw-bold m-0 text-white">01 PTI - Statistika Terapan</h4>
+                            <span class="badge bg-info text-dark mt-2" style="font-size: 0.65rem;">Dosen: Dosen PTI</span>
+                            <span class="badge border border-info text-info ms-1" style="font-size: 0.65rem;">Ganjil 2026</span>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-white p-0" data-bs-toggle="dropdown" style="font-size: 1.2rem; text-decoration:none;">⋮</button>
+                            <ul class="dropdown-menu dropdown-menu-pill dropdown-menu-end border-0 shadow">
+                                <li><button class="dropdown-item dropdown-item-pill" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit Kelas</button></li>
+                                <li><button class="dropdown-item dropdown-item-pill text-danger" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus Kelas</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-body-modular">
+                        <div style="border-right: 1px solid rgba(255,255,255,0.05); padding-right: 15px;">
+                            <p class="small opacity-50 mb-2">Token Akses</p>
+                            <div class="token-box mb-3">
+                                <span class="fw-bold text-info" id="tkn3">UA1KSXRH</span>
+                                <button class="btn-copy" onclick="copyToken('UA1KSXRH')">SALIN</button>
+                            </div>
+                            <p class="small opacity-50 mb-1">Mata Kuliah Utama</p>
+                            <p class="small fw-bold">Teori Bahasa & Automata </p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center gap-2">
+                            <button class="btn-yellow w-100" data-bs-toggle="modal" data-bs-target="#modalDetail">Lihat Detail</button>
+                            <button class="btn-blue w-100" data-bs-toggle="modal" data-bs-target="#modalKlaim">Klaim Paket</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalGabung" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold">Gabung Kelas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="small opacity-50 mb-4">Masukkan kode unik untuk masuk ke kelas baru.</p>
+                    <input type="text" class="form-custom w-100 text-center fw-bold"  style="letter-spacing: 5px;">
+                    <button class="btn-blue w-100 mt-4 py-3">Bergabung</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTambah" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold">Buat Kelas Baru</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="small mb-2 opacity-50">Nama Kelas</label>
+                        <input type="text" class="form-custom w-100" placeholder="Contoh: 01 TI - Basis Data">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label class="small mb-2 opacity-50">Jenjang</label>
+                            <select class="form-custom w-100">
+                                <option>SMA / SMK</option>
+                                <option>Universitas</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="small mb-2 opacity-50">Semester</label>
+                            <select class="form-custom w-100">
+                                <option>Ganjil</option>
+                                <option>Genap</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-blue w-100 mt-2 py-3">Buat Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEdit" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold text-info">Pengaturan Kelas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="small mb-2 opacity-50">Nama Kelas</label>
+                        <input type="text" class="form-custom w-100">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label class="small mb-2 opacity-50">Level</label>
+                            <select class="form-custom w-100">
+                                <option>SMA / SMK</option>
+                                <option selected>Universitas</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="small mb-2 opacity-50">Semester</label>
+                            <select class="form-custom w-100">
+                                <option selected>Ganjil</option>
+                                <option>Genap</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="small mb-2 opacity-50">Deskripsi Singkat</label>
+                        <textarea class="form-custom w-100" rows="3">.......</textarea>
+                    </div>
+                    <button class="btn-save">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHapus" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content modal-glass p-3 text-center">
+                <div class="modal-body">
+                    <div class="mb-3" style="font-size: 3rem;">⚠️</div>
+                    <h5 class="fw-bold mb-2">Konfirmasi Hapus</h5>
+                    <p class="small opacity-50 mb-4">Data kelas dan nilai yang sudah dihapus tidak bisa dikembalikan. Yakin?</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn-danger-custom fw-bold" type="button">Ya, Hapus Permanen</button>
+                        <button class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDetail" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold text-info">Insight Kelas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row text-center mb-4">
+                        <div class="col-4">
+                            <h3 class="fw-bold m-0 text-info">6</h3>
+                            <p class="small opacity-50">Siswa</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="fw-bold m-0 text-info">6</h3>
+                            <p class="small opacity-50">Topik</p>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="fw-bold m-0 text-info">12</h3>
+                            <p class="small opacity-50">Kuis</p>
+                        </div>
+                    </div>
+                    <hr class="opacity-10">
+                    <h6 class="fw-bold small mb-3">Mata Kuliah Terkait:</h6>
+                    <ul class="small opacity-75">
+                        <li>Java Dasar</li>
+                        <li>Jaringan Komputer</li>
+                        <li>Basis Data</li>
+                        <li>Pemrograman Web</li>
+                        <li>EST</li>
+                        <li>Basic Science</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalKlaim" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold">Klaim Paket</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="package-item">
+                        <div>
+                            <h6 class="fw-bold m-0">Paket UTS</h6>
+                            <p class="small m-0 opacity-50">10 Soal & Materi</p>
+                        </div>
+                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
+                    </div>
+
+                     <div class="package-item">
+                        <div>
+                            <h6 class="fw-bold m-0">Paket UAS</h6>
+                            <p class="small m-0 opacity-50">20 Soal & Materi</p>
+                        </div>
+                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
+                    </div>
+
+                      <div class="package-item">
+                        <div>
+                            <h6 class="fw-bold m-0">Latihan Pemrograman</h6>
+                            <p class="small m-0 opacity-50">7 Soal & 2 Praktik</p>
+                        </div>
+                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+    <script>
+       function copyToken(txt) {
+    navigator.clipboard.writeText(txt);
+
+    const notif = document.createElement("div");
+    notif.innerText = "Token berhasil disalin";
+    notif.style.position = "fixed";
+    notif.style.bottom = "20px";
+    notif.style.right = "20px";
+    notif.style.background = "#4cc9f0";
+    notif.style.color = "#0d1b2a";
+    notif.style.padding = "10px 20px";
+    notif.style.borderRadius = "15px";
+    notif.style.fontWeight = "600";
+    notif.style.boxShadow = "0 0 10px rgba(76,201,240,0.5)";
+    notif.style.zIndex = "9999";
+
+    document.body.appendChild(notif);
+
+    setTimeout(() => notif.remove(), 2000);
+}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

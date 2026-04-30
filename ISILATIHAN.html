@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Soal - UPKSAINTEK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #091529; 
+            --card-bg: #1b263b; 
+            --accent: #4cc9f0;    
+            --text-gray: #adb5bd;
+            --blue-univ: #0d6efd;
+            --green-badge: #157347;
+            --yellow-btn: #90d605;
+        }
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-body); 
+            color: white; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            background-color: var(--card-bg); 
+            height: 90vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
+            width: 260px; top: 5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column;
+        }
+
+        .menu-link {
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px; transition: 0.3s;
+        }
+
+        .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
+        
+        .menu-link.active { 
+            background-color: var(--accent); 
+            color: #0d1b2a !important; 
+            font-weight: 600; 
+        }
+        
+        .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
+
+        .profile-section {
+            margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; display: flex; align-items: center;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .main-content { margin-left: 310px; padding: 40px; }
+
+        /* PERBAIKAN IKON JUDUL */
+        .title-icon { 
+            width: 32px; 
+            height: auto; 
+            margin-left: 10px; 
+            vertical-align: middle; 
+        }
+
+        /* --- CARD LATIHAN --- */
+        .card-latihan {
+            background: var(--card-bg); border-radius: 25px; padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1); height: 100%;
+            display: flex; flex-direction: column; position: relative;
+        }
+
+        .univ-text { color: var(--blue-univ); font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; display: block; }
+        .judul-latihan { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; min-height: 50px; }
+
+        .badge-soal {
+            background: var(--green-badge); color: white; padding: 6px 14px; border-radius: 8px; 
+            font-size: 0.8rem; font-weight: 600; display: inline-flex; width: fit-content; 
+            align-items: center; gap: 8px; margin-bottom: 25px;
+        }
+
+        .progress-wrapper { margin-bottom: 30px; position: relative; }
+        .progress-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--accent);
+        }
+
+        .progress-outer {
+            background: rgba(0, 0, 0, 0.3); height: 14px; border-radius: 50px;
+            padding: 3px; border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .progress-inner {
+            height: 100%; border-radius: 50px;
+            background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+            box-shadow: 0 0 15px rgba(2, 224, 248, 0.477);
+            position: relative;
+            transition: width 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .btn-mulai {
+            background: var(--yellow-btn); color: #0d141f; border: none;
+            padding: 12px; border-radius: 12px; font-weight: 700; 
+            text-decoration: none; display: block; width: 100%; text-align: center;
+            transition: 0.3s; margin-top: auto;
+        }
+        .btn-mulai:hover { 
+            background: #ffffff; transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(144, 214, 5, 0.3);
+            color: #0d141f;
+        }
+
+        html { zoom: 90%; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
+        <nav>
+            <a href="DASBOARDMAHASISWA.html" class="menu-link">
+                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Dashboard"> Dashboard
+            </a>
+            <a href="ISIPEMBELAJARANMAHASISWA.html" class="menu-link">
+                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Materi"> Materi
+            </a>
+            <a href="ISILATIHAN.html" class="menu-link active">
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Latihan"> Latihan Soal
+            </a>
+            <a href="HALAMANLEADERBOARD.html" class="menu-link">
+                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Leaderboard"> Leaderboard
+            </a>
+            <a href="STATISTIKMAHASISWA.html" class="menu-link">
+                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Statistik"> Statistik
+            </a>
+            <a href="#" class="menu-link text-danger mt-3">
+                <img src="kembali.png" class="img-menu-icon" alt="Keluar"> Keluar
+            </a>    
+        </nav>
+
+        <div class="profile-section">
+            <img src="reading-book.png" class="rounded-circle me-2" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent);">
+            <div style="overflow: hidden;">
+                <p class="small fw-bold mb-0 text-white">mahasiswa</p>
+                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">mahasiswa@upksaintek.com</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main-content">
+        <div class="mb-5">
+            <h2 class="fw-bold">
+                Latihan Soal 
+                <img src="latihan soal mahasiswa.png" class="title-icon" alt="Ikon">
+            </h2>
+            <p class="opacity-75">Selesaikan Misi Belajar Mu Hari Ini!</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">Latihan Java Dasar</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>85%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <a href="HALAMAN1LATIHANSOAL.html" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">Latihan Pemrograman Web</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>40%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">Latihan Jaringan Komputer</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>15%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">Latihan Basic Science</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>0%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">Latihan Basis Data</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>0%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card-latihan">
+                    <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
+                    <h5 class="judul-latihan">English for Science and Tech</h5>
+                    <div class="badge-soal">📋 10 Soal</div>
+                    <div class="progress-wrapper">
+                        <div class="progress-header"><span>Level Progress</span><span>0%</span></div>
+                        <div class="progress-outer">
+                            <div class="progress-inner" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-mulai">KERJAKAN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

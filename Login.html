@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - UPKSAINTEK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+/* BG& DASAR */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 20px;
+        }
+
+        .kotak-login {
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); width: 100%; max-width: 400px;}
+
+/* INPUT CUSTOM - FIKS TEKS TURUN */
+        .input-custom {
+            border-radius: 20px; 
+            padding: 10px 15px; 
+            border: 1px solid #ddd; 
+            height: 50px; 
+            line-height: normal;}
+
+        label.small.fw-bold { margin-bottom: 8px; display: block; color: #333; }
+
+/* TOMBOL + NAVIGASI */
+        .tombol-masuk {
+            background-color: #4cc9f0; color: #0d1b2a; font-weight: bold;
+            width: 100%; padding: 12px; border: none; border-radius: 20px; 
+            transition: 0.3s; margin-top: 10px;}
+        .tombol-masuk:hover { transform: translateY(-4px); box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); }
+
+        
+/* PASSWORD & IKON MATA (EMOJI DULU) */
+        .pass-wrapper { position: relative; }
+        .toggle-password {
+            position: absolute; right: 15px; 
+            top: 25px; /* DISESUAIN DGN TINGGI INPUT 50PX */
+            transform: translateY(-50%);
+            cursor: pointer; z-index: 10; font-size: 1.2rem;}
+
+        .password-hint { font-size: 0.7rem; margin-top: 8px; color: #dc3545; min-height: 1rem; }
+
+/* SELEKSI ROLE */
+        .role-selection { margin: 25px 0; }
+        .role-item input { display: none; }
+        .role-btn {
+            display: inline-block; padding: 8px 25px; border-radius: 20px;
+            background: #f8f9fa; border: 1px solid #ddd;
+            color: #6c757d; cursor: pointer; font-size: 0.85rem; transition: 0.3s;}
+
+        .role-item input:checked + .role-btn {
+            background: rgba(76, 201, 240, 0.2); border-color: #4cc9f0;
+            color: #0d1b2a; font-weight: 600;}
+
+/* PERINGATAN VALIDASI */
+        .input-custom:focus { border-color: #4cc9f0; box-shadow: 0 0 0 0.25rem rgba(76, 201, 240, 0.25); outline: none; }
+        .email-hint { font-size: 0.75rem; color: #dc3545; margin-top: 5px; }
+
+    </style>
+</head>
+
+
+
+
+<body>
+
+    <div class="kotak-login text-center">
+        <h3 class="fw-bold mb-4">UPK<span style="color: #4cc9f0;">SAINTEK</span></h3>
+
+        <form id="loginForm">
+            <div class="text-start mb-3">
+                <label class="small fw-bold">Email</label>
+                <input type="email" class="form-control input-custom" id="emailInput" required>
+                <p id="pesanEmail" class="email-hint" style="display:none;">Format: (nama@mail.com)</p>
+            </div>
+
+            <div class="text-start">
+                <label class="small fw-bold">Password</label>
+                <div class="pass-wrapper">
+                    <input type="password" class="form-control input-custom" id="passInput" oninput="cekKekuatan()">
+                    <span class="toggle-password" onclick="intipPassword()">🙈</span>
+                    
+                    <div style="height: 5px; width: 100%; background: #eee; border-radius: 10px; margin: 8px 0;">
+                        <div id="barKekuatan" style="height: 100%; width: 0%; transition: 0.4s; border-radius: 10px;"></div>
+                    </div>
+                    <p id="pesanPass" class="small px-2" style="font-size: 0.75rem; font-weight: 600; color: #dc3545;">*Minimal 8 karakter & angka.</p>
+                </div>
+            </div>
+
+            <div class="role-selection d-flex justify-content-center gap-3">
+                <label class="role-item">
+                    <input type="radio" name="userRole" id="roleMhs" value="mahasiswa" checked>
+                    <span class="role-btn">Mahasiswa</span>
+                </label>
+                <label class="role-item">
+                    <input type="radio" name="userRole" id="roleDosen" value="dosen">
+                    <span class="role-btn">Dosen</span>
+                </label>
+            </div>
+
+            <button type="button" onclick="masuk()" class="tombol-masuk shadow">Masuk Sekarang</button>
+            <p class="mt-4 small text-center" style="color: #6c757d;"> Belum Punya Akun? 
+                <a href="BuatAkun.html" style="color: #4cc9f0; text-decoration: none; font-weight: 600;">
+                    Daftar di sini
+                </a>
+            </p>
+            <div class="mt-1 pt-1 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <hr>
+            <a href="index.html" class="small text-muted" style="text-decoration: none;"> ← Kembali ke Beranda</a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+<script>
+// CEK KEKUATAN PW
+    function cekKekuatan() {
+        const pass = document.getElementById("passInput").value;
+        const pesan = document.getElementById("pesanPass");
+        const bar = document.getElementById("barKekuatan");
+        
+        const adaAngka = /\d/.test(pass);
+        const adaHuruf = /[a-zA-Z]/.test(pass);
+        const panjangCukup = pass.length >= 8;
+
+        let skor = 0;
+        if (pass.length > 0) skor = 1; 
+        if (panjangCukup) skor = 2; 
+        if (panjangCukup && adaAngka && adaHuruf) skor = 3; 
+
+        if (skor === 0) {
+            bar.style.width = "0%";
+            pesan.innerHTML = "*Minimal 8 karakter, kombinasi huruf & angka.";
+            pesan.style.color = "#dc3545";
+        } else if (skor === 1) {
+            bar.style.width = "30%";
+            bar.style.backgroundColor = "#dc3545";
+            pesan.innerHTML = "Terlalu Lemah";
+            pesan.style.color = "#dc3545";
+        } else if (skor === 2) {
+            bar.style.width = "65%";
+            bar.style.backgroundColor = "#ffc107";
+            pesan.innerHTML = "Lumayan, tambahkan angka/huruf.";
+            pesan.style.color = "#ffc107";
+        } else if (skor === 3) {
+            bar.style.width = "100%";
+            bar.style.backgroundColor = "#28a745";
+            pesan.innerHTML = "✅ Mantap, password kuat";
+            pesan.style.color = "#28a745";
+        }
+    }
+
+// IKON NGINTIP PW
+    function intipPassword() {
+        const passInput = document.getElementById("passInput");
+        const icon = document.querySelector(".toggle-password");
+        if (passInput.type === "password") {
+            passInput.type = "text";
+            icon.innerHTML = "👀";
+        } else {
+            passInput.type = "password";
+            icon.innerHTML = "🙈";
+        }
+    }
+
+// VALIDASI EMAIL
+    const emailInput = document.getElementById("emailInput");
+    const pesanEmail = document.getElementById("pesanEmail");
+    emailInput.addEventListener("input", function() {
+        if (emailInput.value.includes("@") && emailInput.value.includes(".")) {
+            pesanEmail.style.display = "none"; 
+        } else {
+            pesanEmail.style.display = "block"; 
+        }
+    });
+
+// FUNGSI MASUK
+    function masuk() {
+    const isDosen = document.getElementById("roleDosen").checked;
+    const email = document.getElementById("emailInput").value;
+    
+    // AMBIL DATA PRODI + ROLE YG KE SAVE DI MEMO BROWSER 
+    const prodiTerdaftar = localStorage.getItem("userProdi"); // ISI SEMENTARA TI, PTI, ATO ILKOM
+
+    if(!email.includes("@")) {
+        alert("Masukkan email yang valid!");
+        return;
+    }
+
+    if (isDosen) {
+        window.location.href ="DashboardDosen.html";
+        return;
+    }
+      
+    if (prodiTerdaftar === "TI") {
+            window.location.href = "DASBOARDMAHASISWA.html";
+    } else if (prodiTerdaftar === "PTI") {
+            window.location.href = "DASHBOARDMAHASISWAPTI.html";
+    } else if (prodiTerdaftar === "ILKOM") { 
+            window.location.href = "DASHBOARDMAHASISWAILKOM.html";
+    } else {
+        alert("Prodi tidak ditemukan, silakan daftar ulang.");
+    }
+    
+}
+      
+</script>
+
+
+</body>
+</html>

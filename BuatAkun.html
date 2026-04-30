@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - UPKSAINTEK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 20px;
+        }
+
+        .kotak-daftar {
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); width: 100%; max-width: 500px;}
+
+
+/* SELEKSI ROLE ATO PILIHAN */
+        .role-selector {
+            display: flex; background: #f1f3f5; border-radius: 15px;
+            padding: 5px; position: relative; margin-bottom: 25px;}
+        .role-option {
+            flex: 1; text-align: center; padding: 10px; z-index: 2;
+            cursor: pointer; font-size: 0.85rem; font-weight: 600;
+            color: #6c757d; transition: 0.3s;}
+        .role-option.active { color: #0d1b2a; }
+        
+        .slider {
+            position: absolute; height: calc(100% - 10px); width: calc(50% - 5px);
+            background: #4cc9f0; border-radius: 12px; transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1; left: 5px;}
+
+        .input-custom {
+            border-radius: 15px; padding: 10px 15px; border: 1px solid #eee;
+            margin-bottom: 12px; background: #fdfdfd; transition: 0.3s; height: 50px;}
+        
+        .pass-wrapper { position: relative; }
+        .toggle-password { 
+            position: absolute; right: 15px; top: 25px; 
+            transform: translateY(-50%); cursor: pointer; color: #6c757d; z-index: 10; font-size: 1.2rem;
+        }
+
+        .card-container {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 15px;
+            max-height: 160px; overflow-y: auto; padding: 5px;}
+        .prodi-grid { grid-template-columns: repeat(3, 1fr); }
+
+        .card-select {
+            background: #f8f9fa; border: 2px solid #eee; border-radius: 15px;
+            padding: 10px; text-align: center; font-size: 0.75rem; font-weight: 600;
+            cursor: pointer; transition: 0.3s; color: #6c757d;}
+
+        .card-select:hover { transform: translateY(-3px); border-color: #4cc9f0; color: #4cc9f0; }
+        .card-select.selected { background: #4cc9f0; border-color: #4cc9f0; color: #0d1b2a; box-shadow: 0 4px 10px rgba(76, 201, 240, 0.3); }
+
+        .tombol-daftar {
+            background-color: #4cc9f0; color: #0d1b2a; font-weight: bold;
+            width: 100%; padding: 14px; border: none; border-radius: 15px; 
+            transition: 0.3s; margin-top: 10px;}
+
+        .tombol-daftar:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(76, 201, 240, 0.3); }
+
+        #form-tambahan { animation: fadeInUp 0.5s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        
+    </style>
+</head>
+
+
+
+
+
+<body>
+
+    <div class="kotak-daftar">
+        <h3 class="fw-bold text-center mb-1">UPK<span style="color: #4cc9f0;">SAINTEK</span></h3>
+        <p class="text-muted text-center small mb-4">Lengkapi data diri pendaftaran</p>
+
+        <form id="regForm">
+            <div class="role-selector" onmouseleave="resetSlider()">
+                <div class="slider" id="slider"></div>
+                <div class="role-option active" id="opt-mhs" onmouseover="moveSlider(0)" onclick="switchRole(event, 'mahasiswa', 0)">Mahasiswa</div>
+                <div class="role-option" id="opt-dsn" onmouseover="moveSlider(50)" onclick="switchRole('dosen', 50)">Dosen</div>
+            </div>
+
+            <div class="text-start">
+                <label class="small fw-bold px-2">Nama Lengkap</label>
+                <input type="text" class="form-control input-custom">
+
+                <label class="small fw-bold px-2">Email</label>
+                <input type="email" class="form-control input-custom">
+                
+
+                <div id="form-tambahan"></div>
+
+                <label class="small fw-bold px-2">Password</label>
+                <div class="pass-wrapper">
+                    <input type="password" id="passInput" class="form-control input-custom mb-1" oninput="cekKekuatan()" required>
+                    <span class="toggle-password" onclick="intipPassword()">🙈</span>
+                    
+                    <div style="height: 5px; width: 100%; background: #eee; border-radius: 10px; margin: 8px 0;">
+                        <div id="barKekuatan" style="height: 100%; width: 0%; transition: 0.4s; border-radius: 10px;"></div>
+                    </div>
+                    <p id="pesanPass" class="small px-2" style="font-size: 0.75rem; font-weight: 600; color: #dc3545;">*Minimal 8 karakter & angka.</p>
+                </div>
+
+                <label class="small fw-bold px-2 mt-2">Konfirmasi Password</label>
+                <input type="password" id="confirmPass" class="form-control input-custom" oninput="cekKecocokan()" required>
+                <p id="pesanCocok" class="small px-2" style="font-size: 0.7rem;"></p>
+            </div>
+
+            <button type="button" onclick="prosesDaftar()" class="tombol-daftar shadow mt-3">Daftar Sekarang</button>    
+            <p class="mt-4 small text-center" style="color: #6c757d;">
+                Sudah Punya Akun? 
+                <a href="Login.html" style="color: #4cc9f0; text-decoration: none; font-weight: 600; transition: 0.3s;">
+                    Login
+                </a>
+            </p>
+        </form>
+    </div>
+       
+
+
+
+
+    
+
+<script>
+    let currentRole = "mahasiswa";
+    let activePos = 0;
+
+    function moveSlider(pos) {
+        document.getElementById("slider").style.left = pos === 0 ? "5px" : "calc(50% - 0px)";
+    }
+
+    function resetSlider() {
+        moveSlider(activePos);
+    }
+
+    function switchRole(e, role, pos) {
+        currentRole = role;
+        activePos = pos;
+        selectedProdi ="";
+
+        document.querySelectorAll(".role-option").forEach(opt => opt.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+
+        renderTambahan();
+    }
+
+    function renderTambahan() {
+        const container = document.getElementById("form-tambahan");
+        if (currentRole === "mahasiswa") {
+            container.innerHTML = `
+                <label class="small fw-bold px-2">Jenis ID</label>
+                <div class="card-container">
+                    <div class="card-select id-opt" onclick="selectCard(this, 'id-opt')">NIM</div>
+                    <div class="card-select id-opt" onclick="selectCard(this, 'id-opt')">NISN</div>
+                </div>
+
+                <label class="small fw-bold px-2">Nomor ID</label>
+                <input type="text" class="form-control input-custom" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
+                <label class="small fw-bold px-2">Program Studi</label>
+                <div class="card-container prodi-grid">
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">TI</div>
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">PTI</div>
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">ILKOM</div>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <label class="small fw-bold px-2">NIDN / NIP Dosen</label>
+                <input type="text" class="form-control input-custom"  oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                
+                <label class="small fw-bold px-2">Homebase Prodi</label>
+                <div class="card-container prodi-grid">
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">TI</div>
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">PTI</div>
+                    <div class="card-select pr-opt" onclick="selectCard(this, 'pr-opt')">ILKOM</div>
+                </div>
+            `;
+        }
+    }
+
+  
+
+    window.onload = renderTambahan;
+
+    function intipPassword() {
+        const input = document.getElementById("passInput");
+        input.type = input.type === "password" ? "text" : "password";
+        event.target.innerHTML = input.type === "password" ? "🙈" : "👀";
+    }
+
+// BEWARNA PERINGATANNYA
+    function cekKekuatan() {
+        const pass = document.getElementById("passInput").value;
+        const bar = document.getElementById("barKekuatan");
+        const pesan = document.getElementById("pesanPass");
+        
+        let skor = 0;
+        if (pass.length >= 8) skor++;
+        if (/\d/.test(pass)) skor++;
+        if (/[A-Z]/.test(pass)) skor++;
+
+        if (pass === "") {
+            bar.style.width = "0%";
+            pesan.innerHTML = "*Minimal 8 karakter & angka.";
+            pesan.style.color = "#dc3545";
+        } else if (skor === 1 || pass.length < 8) {
+            bar.style.width = "33%";
+            bar.style.backgroundColor = "#dc3545"; // MERAH
+            pesan.innerHTML = "Password Terlalu Lemah.";
+            pesan.style.color = "#dc3545";
+        } else if (skor === 2) {
+            bar.style.width = "66%";
+            bar.style.backgroundColor = "#ffc107"; // KUNING
+            pesan.innerHTML = "Lumayan, tambahkan angka/huruf.";
+            pesan.style.color = "#ffc107";
+        } else if (skor === 3) {
+            bar.style.width = "100%";
+            bar.style.backgroundColor = "#28a745"; // HIJAU
+            pesan.innerHTML = "✅ Mantap, password kuat";
+            pesan.style.color = "#28a745";
+        }
+    }
+
+    function cekKecocokan() {
+        const p = document.getElementById("passInput").value;
+        const c = document.getElementById("confirmPass").value;
+        const txt = document.getElementById("pesanCocok");
+        if(c === "") txt.innerHTML = "";
+        else if(p === c) { txt.innerHTML = "✅ Password Cocok"; txt.style.color = "#28a745"; }
+        else { txt.innerHTML = "❌ Password Belum Sama"; txt.style.color = "#dc3545"; }
+    }
+
+    
+     let selectedProdi = ""; // VARIABEL UTK NANGKAP KLIK DARI CARD PRODI
+
+// FUNGSI BUAT MENANGANI KLIK PADA KARTU NIM/TI/PTI DLL..
+function selectCard(el, className) {
+    document.querySelectorAll('.' + className).forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+
+    if (className === 'pr-opt') {
+        selectedProdi = el.innerText;
+    }
+}
+    
+// SAVE TEKS DARI KARTU YG DIPILIH USER (TI, PTI, ILKOM)
+    if (className === 'pr-opt') {
+        selectedProdi = el.innerText; 
+    }
+
+
+// FUNGSI UTAMA SAAT TOMBOL DAFTAR SEKARANG DI PENCET USER 
+function prosesDaftar() {
+   if (currentRole === "mahasiswa" && selectedProdi === ""){
+    alert("Pilih Program Studi Dulu yaa");
+    return
+   }
+
+// MEMO
+    localStorage.removeItem("UserProdi");
+    localStorage.removeItem("UserRole"); 
+
+// SAVE PILIHAN BARU (currentRole diambil dari fungsi switchRole)
+    localStorage.setItem("userProdi", selectedProdi);
+    localStorage.setItem("userRole", currentRole);
+
+    alert("Pendaftaran Berhasil sebagai " + currentRole + " " + selectedProdi + "!");
+    
+
+
+    
+    window.location.href = "Login.html";
+}
+  
+
+</script>
+
+
+</body>
+</html>

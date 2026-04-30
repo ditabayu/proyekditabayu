@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode Belajar Pro - UPKSAINTEK</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+
+
+    <style>
+        :root {
+            --bg-dark: #0d1b2a;
+            --sidebar-bg: rgba(27, 38, 59, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --red: #D00000;
+            --imperial: #ED2939;
+            --maroon: #800000;
+            --ferrari: #FF2800;
+            --burgundy: #8D021F;
+            --salmon: #FA8072;
+            --cyan: #4cc9f0;
+        }
+
+        body {font-family: 'Poppins', sans-serif; background-color: var(--bg-dark);
+              color: white; margin: 0; scroll-behavior: smooth;}
+
+
+/* BAGIAN HEADER ATO ATAS */
+        .top-nav {position: fixed; top: 0; width: 100%; height: 70px;
+                  background: rgba(13, 27, 42, 0.9); backdrop-filter: blur(10px);
+                  z-index: 1000; display: flex; align-items: center; padding: 0 40px;
+                  border-bottom: 1px solid rgba(255,255,255,0.05);}
+
+
+
+
+/* SIDEBAR KIRI ADA SCROLL NY */
+        .sidebar-learning {width: 280px; max-height: 70vh; background: var(--sidebar-bg);
+                           backdrop-filter: blur(20px); position: fixed;
+                           top: 100px; left: 30px; border-radius: 30px;
+                           padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);
+                           z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                           overflow-y: auto; overflow-x: hidden;}
+
+        .sidebar-learning::-webkit-scrollbar {width: 5px;}
+        .sidebar-learning::-webkit-scrollbar-thumb {background: rgba(76, 201, 240, 0.3);
+                                                    border-radius: 10px;}
+
+        .nav-item-materi {display: flex; align-items: center; justify-content: space-between;
+                          color: #adb5bd; text-decoration: none; padding: 14px 18px;
+                          border-radius: 15px; margin-bottom: 10px; transition: 0.3s;
+                          font-size: 0.85rem;}
+
+        .nav-item-materi:hover, .nav-item-materi.active {background: rgba(76, 201, 240, 0.1);
+                                                        color: var(--cyan);
+                                                        transform: translateX(8px);
+                                                        font-weight: 600;}
+
+        .icon-sub { width: 18px; opacity: 0.6; }
+
+
+
+
+
+/* KOTAK KANAN  */
+        .content-container {
+                           margin-left: 350px; /* JARAK DARI SIDEBAR KIRI */
+                           padding: 100px 50px 100px 20px;}
+
+
+/* BAGIAN KOTAK MATERINYA */
+        .materi-card {background: var(--card-bg); backdrop-filter: blur(10px);
+                      border-radius: 35px; padding: 50px;
+                      margin-bottom: 60px;
+                      border: 1px solid rgba(255, 255, 255, 0.05);
+                      border-left: 6px solid var(--cyan); /* WARNA DEFAULT NY */
+                      text-align: justify;
+                      line-height: 1.8;
+                      box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+
+/* VARIASI WARNA PER BAB, JUDUL MATERI PLUS GAMBAR */
+        .border-red { border-left-color: var(--red);}
+        .border-imperial { border-left-color: var(--imperial);}
+        .border-maroon { border-left-color: var(--maroon);}
+        .border-ferrari { border-left-color: var(--ferrari);}
+        .border-burgundy { border-left-color: var(--burgundy);}
+        .border-salmon { border-left-color: var(--salmon);}
+
+
+        .materi-card h2 {font-weight: 700; margin-bottom: 25px;}
+
+       .img-materi {display: block; margin: 35px auto;
+                    width: 80%; max-height: 350px; object-fit: cover; 
+                    border-radius: 20px; border: 2px solid rgba(192, 145, 145, 0.1);
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+                    transition: 0.4s ease-in-out;}
+                    
+        .img-materi:hover {transform: scale(1.02); border-color: var(--cyan);}
+
+        .badge-kategori {background: rgba(255,255,255,0.1);
+                         padding: 5px 15px; border-radius: 50px;
+                         font-size: 0.7rem; text-transform: uppercase;
+                         letter-spacing: 1px; margin-bottom: 15px;
+                         display: inline-block;}
+    </style>
+</head>
+
+
+
+
+
+
+
+<body>
+
+<!--JUDUL DI HEADER-->
+    <div class="top-nav">
+        <a href="ISIMATERIPTI.html" class="text-decoration-none text-info fw-bold small me-4">← KELUAR MODE BELAJAR</a>
+        <div class="ms-auto d-flex align-items-center">
+            <span class="small text-decoration-none text-info small me-3">English For Sains and Technology: Modul 01-06</span>
+            <img src="EST.png" width="25">
+        </div>
+    </div>
+
+
+<!--SUB BAB NYA  -->    
+    <div class="sidebar-learning">
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Daftar materi</h6>
+            <p class="text-white" style="font-size: 11px;">Klik untuk pindah materi</p>
+        </div>
+        
+        <nav>
+            <a href="#intro" class="nav-item-materi active">
+                <span>01. Pengertian EST</span>
+                <img src="icon no 1.png" class="icon-sub">
+            </a>
+            <a href="#konsep" class="nav-item-materi">
+                <span>02.Kosakata Teknis</span>
+                <img src="ikon no 2.png" class="icon-sub">
+            </a>
+            <a href="#struktur" class="nav-item-materi">
+                <span>03. Membaca Teks Ilmiah</span>
+                <img src="ikon no 3.png" class="icon-sub">
+            </a>
+            <a href="#tampilan" class="nav-item-materi">
+                <span>04. Menulis Teks Ilmiah </span>
+                <img src="ikon no 4.png" class="icon-sub">
+            </a>
+            <a href="#intraktivitas" class="nav-item-materi">
+                <span>05.Grammar dalam Konteks Sains</span>
+                <img src="ikon no 5.png" class="icon-sub">
+            </a>
+            <a href="#responsif" class="nav-item-materi">
+                <span>06. Presentasi Ilmiah</span>
+                <img src="ikon no 6.png" class="icon-sub">
+            </a>
+        </nav>
+    </div>
+
+
+
+<!--PENGERTIAN EST-->  
+    <div class="content-container">
+        
+        <div id="intro" class="materi-card border-red">
+             <span class="badge-kategori text-white">Teori Dasar</span>
+             <h2 style="color: var(--red);">01. apa itu english for science and technology (EST)?</h2>
+             <hr style="border-color: rgba(255,255,255,0.1);">
+
+                <p>English for Science and Technology (EST) adalah penggunaan bahasa Inggris yang difokuskan pada bidang sains dan teknologi. EST digunakan untuk memahami jurnal, buku ilmiah, dan komunikasi profesional di dunia akademik maupun industri.</p>
+                
+                    
+            
+                <img src="EST.jpeg" class="img-materi" alt="Ilustrasi Java">
+                <p class="small text-center"><span style="color: #4cc9f0;">Gambar 1.1 ..</span></p>
+            
+             
+             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>
+
+
+<!--KOSA KATA TEKNIS-->  
+        <div id="konsep" class="materi-card border-imperial">
+            <span class="badge-kategori text-white">Teori Dasar</span>
+            <h2 style="color: var(--imperial);">02. Kosa Kata Teknis (Technical Vocabulary)</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+
+            <p>Kosakata teknis adalah istilah khusus yang digunakan dalam bidang sains dan teknologi.</p>
+            <p>contoh:</p>
+                <p>• Experiment → Percobaan</p>
+                <p>• Data → Data</p>
+                <p>• Analysis → Analisis</p>
+                <p>• System → Sistem</p>
+                
+                <img src="Cabang-Cabang Basic Science.jpeg" class="img-materi" alt="Ilustrasi Java">
+                <p class="small text-center"><span style="color: #4cc9f0;">Gambar 2.1</p>
+            
+                
+
+              <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>
+
+
+<!--MEMBACA TEKS ILMIAH-->  
+        <div id="struktur" class="materi-card border-maroon">
+            <span class="badge-kategori text-white">Fundamental</span>
+            <h2 style="color: var(--maroon);">03.Membaca Teks Ilmiah (Reading Scientific Texts)</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+
+            <p>Kemampuan membaca teks ilmiah membantu memahami informasi dari jurnal atau buku.</p>
+            <p>ciri-ciri teks ilmiah:</p>
+             <p>• Menggunakan bahasa formal</p>
+             <p>• Banyak istilah teknis</p>
+             <p>• Bersifat objektif dan jelas</p>
+             <p>Teknik membaca:</p>
+             <p>- Skimming (membaca cepat)</p>
+             <p>- Scanning (mencari informasi tertentu)</p>
+
+                
+
+            <img src="membaca teks ilmiah.jpeg" class="img-materi" alt="Ilustrasi Java">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 3.1</p>
+            
+            
+
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>
+
+<!--Menulis Teks Ilmiah-->  
+        <div id="tampilan" class="materi-card border-ferrari">
+            <span class="badge-kategori text-white">Konsep</span>
+            <h2 style="color: var(--ferrari);">04. Menulis Teks Ilmiah (Writing Scientific Texts)</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+
+            <p>Menulis dalam EST digunakan untuk membuat laporan, artikel, atau penelitian.</p>
+            <p>Struktur umum:</p>
+                <p>• Introduction (Pendahuluan)</p>
+                <p>• Method (Metode)</p>
+                <p>• Result (Hasil)</p>
+                <p>• Conclusion (Kesimpulan)</p>
+                    
+                
+            <img src="menulis teks ilmiah.jpeg" class="img-materi" alt="Ilustrasi Java">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 4.1</p>
+
+    
+                
+
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>
+
+
+<!--Grammar dalam Konteks Sains-->  
+        <div id="intraktivitas" class="materi-card border-burgundy">
+            <span class="badge-kategori text-white">Praktik</span>
+            <h2 style="color: var(--burgundy);">05.Grammar dalam konteks sains</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+
+            <p>Grammar yang sering digunakan dalam EST biasanya formal dan terstruktur.</p>
+            <p>contoh:</p>
+            <p>• Present tense → untuk fakta umum</p>
+            <p>• Passive voice → untuk fokus pada proses</p>
+
+            <p>Contoh: The experiment was conducted…</p>
+            <p>Grammar membantu membuat tulisan lebih profesional.</p>
+                    
+            
+            
+            <img src="grammar dalam kontes sains.jpeg" class="img-materi" alt="Ilustrasi Java">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 5.1</p>
+
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>
+
+<!--Presentasi Ilmiah (Scientific Presentation)-->  
+        <div id="responsif" class="materi-card border-salmon">
+            <span class="badge-kategori text-white">Praktik</span>
+            <h2 style="color: var(--salmon);">06.Presentasi Ilmiah (Scientific Presentation).</h2>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            
+            <p>Presentasi ilmiah digunakan untuk menyampaikan hasil penelitian atau ide.</p>
+            <p>Hal penting:</p>
+            
+            <p>• Gunakan bahasa yang jelas dan sederhana</p>
+            <p>• Jelaskan data dengan grafik atau gambar</p>
+            <p>• Gunakan istilah yang tepat</p>
+             
+            <p>Contoh pembuka:</p>
+                <p>• Today, I will explain about…</p>
+            
+            <img src="presentasi ilmiah.jpeg" class="img-materi" alt="Ilustrasi Java">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 6.1</p>
+            
+
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            </div>
+        </div>        
+
+
+    </div>
+
+
+
+
+</body>
+</html>
