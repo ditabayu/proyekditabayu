@@ -186,33 +186,47 @@
     });
 
 // FUNGSI MASUK
-    function masuk() {
+   function masuk() {
     const isDosen = document.getElementById("roleDosen").checked;
     const email = document.getElementById("emailInput").value;
-    
-    // AMBIL DATA PRODI + ROLE YG KE SAVE DI MEMO BROWSER 
-    const prodiTerdaftar = localStorage.getItem("userProdi"); // ISI SEMENTARA TI, PTI, ATO ILKOM
+    const password = document.getElementById("passInput").value;
 
-    if(!email.includes("@")) {
+    // akun percobaan dosen
+    if (email === "dosen@test.com" && password === "123") {
+        window.location.href = "DashboardDosen.html";
+        return;
+    }
+
+    // akun percobaan mahasiswa
+    if (email === "mahasiswa@test.com" && password === "123") {
+        window.location.href = "DASBOARDMAHASISWA.html"; 
+        return;
+    }
+
+    // VALIDASI EMAIL
+    if (!email.includes("@")) {
         alert("Masukkan email yang valid!");
         return;
     }
 
+    // kalau dosen biasa
     if (isDosen) {
-        window.location.href ="DashboardDosen.html";
+        window.location.href = "DashboardDosen.html";
         return;
     }
-      
+
+    // ambil prodi dari localStorage
+    const prodiTerdaftar = localStorage.getItem("userProdi");
+
     if (prodiTerdaftar === "TI") {
-            window.location.href = "DASBOARDMAHASISWA.html";
+        window.location.href = "DASBOARDMAHASISWA.html";
     } else if (prodiTerdaftar === "PTI") {
-            window.location.href = "DASHBOARDMAHASISWAPTI.html";
-    } else if (prodiTerdaftar === "ILKOM") { 
-            window.location.href = "DASHBOARDMAHASISWAILKOM.html";
+        window.location.href = "DASHBOARDMAHASISWAPTI.html";
+    } else if (prodiTerdaftar === "ILKOM") {
+        window.location.href = "DASHBOARDMAHASISWAILKOM.html";
     } else {
         alert("Prodi tidak ditemukan, silakan daftar ulang.");
     }
-    
 }
       
 </script>
