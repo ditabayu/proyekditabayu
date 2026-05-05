@@ -55,22 +55,48 @@
         /* MAIN CONTENT */
         .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
 
-        @media (max-width: 992px) {
+        @media (max-width: 768px) {
+       
             .sidebar {
-                left: -300px; 
+                width: 70px; 
+                left: 10px;
+                padding: 20px 5px;
+                align-items: center;
             }
+
+            /* 2. Sembunyikan teks menu & profil di sidebar */
+            .sidebar h4, 
+            .menu-link span, 
+            .profile-section div,
+            .sidebar .menu-link {
+                font-size: 0; 
+                justify-content: center;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                width: 24px;
+                height: 24px;
+            }
+
+         
             .main-content {
-                margin-left: 0; 
+                margin-left: 90px; 
                 padding: 20px;
             }
-           
-            .sidebar.mobile-active {
-                left: 10px;
-                width: 280px;
+
+        
+            .row-cols-md-4 > .col, .col-md-4 {
+                width: 50%; 
             }
-            
+
             .stat-box {
-                height: 150px; 
+                height: 140px;
+                padding: 15px;
+            }
+
+            .card-materi {
+                height: 180px;
             }
         }
 
