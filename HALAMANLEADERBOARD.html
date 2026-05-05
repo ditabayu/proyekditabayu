@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard Premium - UPKSAINTEK</title>
+    <title>Leaderboard TI - UPKSAINTEK</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -14,7 +14,7 @@
             --accent: #4cc9f0;
             --gold: #ffd700;
             --silver: #e0e0e0;
-            --bronze: #794b1d;
+            --bronze: #cd7f32;
         }
 
         body { 
@@ -25,14 +25,14 @@
             overflow-x: hidden;
         }
 
-        /* --- SIDEBAR kiri --- */
-      .sidebar {
+        /* --- SIDEBAR --- */
+        .sidebar {
             background-color: var(--card-bg); 
             height: 90vh; padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; transition:0.3s;
+            display: flex; flex-direction: column; transition: 0.3s;
         }
 
         .menu-link {
@@ -47,76 +47,25 @@
             color: #0d1b2a !important; 
             font-weight: 600; 
         }
-        
-        .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
         .profile-section {
             margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
         }
 
-
-
-
-
-        
-        /* MAIN CONTENT */
+        /* --- MAIN CONTENT --- */
         .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
 
-        @media (max-width: 768px) {
-       
-            .sidebar {
-                width: 70px; 
-                left: 10px;
-                padding: 20px 5px;
-                align-items: center;
-            }
-
-            /* 2. Sembunyikan teks menu & profil di sidebar */
-            .sidebar h4, 
-            .menu-link span, 
-            .profile-section div,
-            .sidebar .menu-link {
-                font-size: 0; 
-                justify-content: center;
-            }
-
-            .img-menu-icon {
-                margin-right: 0;
-                width: 24px;
-                height: 24px;
-            }
-
-         
-            .main-content {
-                margin-left: 90px; 
-                padding: 20px;
-            }
-
-        
-            .row-cols-md-4 > .col, .col-md-4 {
-                width: 50%; 
-            }
-
-            .stat-box {
-                height: 140px;
-                padding: 15px;
-            }
-
-            .card-materi {
-                height: 180px;
-            }
-        }
         .title-icon { width: 35px; height: 35px; margin-left: 8px; vertical-align: middle; filter: drop-shadow(0 0 5px var(--accent)); }
 
-        /* --- PODIUM DENGAN GAMBAR MEDALI --- */
+        /* --- PODIUM --- */
         .podium-container { 
             display: flex; 
             justify-content: center; 
             align-items: flex-end; 
-            gap: 20px; 
-            margin: 60px 0 80px 0; 
-            min-height: 450px; 
+            gap: 15px; 
+            margin: 40px 0 60px 0; 
+            min-height: 400px; 
         }
 
         .podium-item { 
@@ -125,68 +74,58 @@
             align-items: center; 
             text-align: center; 
             flex: 1; 
-            max-width: 200px; 
+            max-width: 180px; 
         }
 
-        /* Styling Gambar Medali */
         .medal-graphic {
-            width: 150px; 
-            height: auto;
+            width: 120px; height: auto;
             margin-bottom: -10px;
             filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
-            z-index: 2;
-            transition: 0.3s ease;
+            z-index: 2; transition: 0.3s;
         }
 
-        .podium-item:nth-child(2) .medal-graphic {
-            width: 210px; /* Emas lebih besar */
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
-        }
+        .podium-item:nth-child(2) .medal-graphic { width: 160px; filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4)); }
 
-        .podium-item:hover .medal-graphic {
-            transform: scale(1.1) translateY(-5px);
-        }
+        .winner-name { font-weight: 700; font-size: 0.9rem; margin-top: 10px; }
+        .winner-xp { font-size: 0.75rem; opacity: 0.7; margin-bottom: 10px; }
 
-        /* Nama & Poin di bawah Medali */
-        .winner-name { font-weight: 700; margin-top: 10px; margin-bottom: 2px; }
-        .winner-xp { font-size: 0.85rem; opacity: 0.7; margin-bottom: 15px; }
-
-        /* Step Podium */
         .podium-step { 
-            width: 100%; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            font-weight: 800; 
-            font-size: 2.5rem; 
-            border-radius: 20px 20px 0 0;
-            position: relative;
+            width: 100%; display: flex; justify-content: center; align-items: center; 
+            font-weight: 800; font-size: 2rem; border-radius: 15px 15px 0 0;
         }
 
-        .step-1 { height: 200px; background: linear-gradient(180deg, #ffd700, #b8860b); color: #f30606; border: 2px solid var(--gold); }
-        .step-2 { height: 150px; background: linear-gradient(180deg, #fffdfd, #757575); color: #f06306; border: 2px solid var(--silver); }
-        .step-3 { height: 120px; background: linear-gradient(180deg, #f9af66, #8b4513); color: #e7f805; border: 2px solid var(--bronze); }
+        .step-1 { height: 180px; background: linear-gradient(180deg, #ffd700, #b8860b); color: #7a5d00; border: 2px solid var(--gold); }
+        .step-2 { height: 140px; background: linear-gradient(180deg, #e0e0e0, #757575); color: #444; border: 2px solid var(--silver); }
+        .step-3 { height: 110px; background: linear-gradient(180deg, #cd7f32, #6b3e11); color: #fff; border: 2px solid var(--bronze); }
 
-        /* --- LIST ROW --- */
+        /* --- LIST RANKING --- */
         .dark-list-container { 
             background: rgba(27, 38, 59, 0.6); 
-            border-radius: 30px; padding: 25px; 
+            border-radius: 30px; padding: 20px; 
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .list-row { 
-            background: rgba(255, 255, 255, 0.03); border-radius: 18px; 
-            padding: 18px 25px; margin-bottom: 12px; 
+            background: rgba(255, 255, 255, 0.03); border-radius: 15px; 
+            padding: 15px 20px; margin-bottom: 10px; 
             display: flex; align-items: center; justify-content: space-between; 
-            transition: 0.3s; border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: 0.3s;
         }
 
         .list-row:hover { background: rgba(76, 201, 240, 0.1); transform: translateX(10px); }
-        .xp-text { font-weight: 700; color: var(--gold); }
-        .rank-num { font-weight: 800; color: var(--accent); width: 35px; }
+        .xp-text { font-weight: 700; color: var(--accent); }
+        .rank-num { font-weight: 800; color: #adb5bd; width: 30px; }
 
-        html { zoom: 90%; }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .sidebar { width: 70px; left: 10px; padding: 20px 5px; align-items: center; }
+            .sidebar h4, .menu-link span, .profile-section div { display: none; }
+            .main-content { margin-left: 90px; padding: 20px; }
+            .medal-graphic { width: 80px; }
+            .podium-item:nth-child(2) .medal-graphic { width: 110px; }
+            .winner-name { font-size: 0.7rem; }
+            .podium-step { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -195,22 +134,22 @@
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link">
-                <img src="dashboard mahasiswa.png" class="img-menu-icon"> Dashboard
+                <img src="dashboard mahasiswa.png" class="img-menu-icon"> <span>Dashboard</span>
             </a>
             <a href="ISIPEMBELAJARANMAHASISWA.html" class="menu-link">
-                <img src="materi mahasiswa.png" class="img-menu-icon"> Materi
+                <img src="materi mahasiswa.png" class="img-menu-icon"> <span>Materi</span>
             </a>
             <a href="ISIMENULATIHANTI.html" class="menu-link">
-                <img src="latihan soal mahasiswa.png" class="img-menu-icon"> Latihan Soal
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon"> <span>Latihan Soal</span>
             </a>
             <a href="HALAMANLEADERBOARD.html" class="menu-link active">
-                <img src="ikon leaderboard.png" class="img-menu-icon"> Leaderboard
+                <img src="ikon leaderboard.png" class="img-menu-icon"> <span>Leaderboard</span>
             </a>
             <a href="STATISTIKMAHASISWA.html" class="menu-link">
-                <img src="statistik mahasiswa.png" class="img-menu-icon"> Statistik
+                <img src="statistik mahasiswa.png" class="img-menu-icon"> <span>Statistik</span>
             </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
-                <img src="kembali.png" class="img-menu-icon"> Keluar
+                <img src="kembali.png" class="img-menu-icon"> <span>Keluar</span>
             </a>    
         </nav>
 
@@ -224,55 +163,68 @@
     </div>
 
     <div class="main-content">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <h2 class="fw-bold">Leaderboard Mahasiswa <img src="ikon leaderboard.png" class="title-icon"></h2>
-            <p class="opacity-75">Top pelajar berdasarkan perolehan XP Semester Ini</p>
+            <p class="opacity-75 small">Top pelajar berdasarkan perolehan XP Semester Ini</p>
         </div>
 
+        <!-- PODIUM AREA -->
         <div class="podium-container">
+            <!-- Peringkat 2 -->
             <div class="podium-item">
-                <img src="medasi perak.png" class="medal-graphic" alt="Silver Medal">
+                <img src="medasi perak.png" class="medal-graphic" alt="Silver">
                 <div class="winner-name">Dita Damayanti</div>
-                <div class="winner-xp">3810 point</div>
+                <div class="winner-xp">3810 XP</div>
                 <div class="podium-step step-2">2</div>
             </div>
 
+            <!-- Peringkat 1 -->
             <div class="podium-item">
-                <img src="medali emas.png" class="medal-graphic" alt="Gold Medal">
-                <div class="winner-name" style="color: var(--gold); font-size: 1.2rem;">WAYAN BAYU</div>
-                <div class="winner-xp">3930 point</div>
+                <img src="medali emas.png" class="medal-graphic" alt="Gold">
+                <div class="winner-name" style="color: var(--gold);">WAYAN BAYU</div>
+                <div class="winner-xp">3930 XP</div>
                 <div class="podium-step step-1">1</div>
             </div>
 
+            <!-- Peringkat 3 -->
             <div class="podium-item">
-                <img src="medali perunggu.png" class="medal-graphic" alt="Bronze Medal">
+                <img src="medali perunggu.png" class="medal-graphic" alt="Bronze">
                 <div class="winner-name">Atika Kusuma</div>
-                <div class="winner-xp">2650 point</div>
+                <div class="winner-xp">2650 XP</div>
                 <div class="podium-step step-3">3</div>
             </div>
         </div>
 
+        <!-- RANKING LIST -->
         <div class="dark-list-container">
-            <div class="list-row">
+            <div class="list-row" style="border-left: 4px solid var(--gold);">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">1.</div>
                     <div class="fw-bold">Wayan Bayu</div>
                 </div>
-                <div class="xp-text">3930 poin</div>
+                <div class="xp-text">3930 XP</div>
             </div>
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">2.</div>
                     <div class="fw-bold">Dita Damayanti</div>
                 </div>
-                <div class="xp-text">3810 poin</div>
+                <div class="xp-text">3810 XP</div>
             </div>
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">3.</div>
                     <div class="fw-bold">Atika Kusuma</div>
                 </div>
-                <div class="xp-text">2650 poin</div>
+                <div class="xp-text">2650 XP</div>
+            </div>
+            <!-- Contoh tambahan peringkat -->
+            <div class="list-row">
+                <div class="d-flex align-items-center">
+                    <div class="rank-num">4.</div>
+                    <div class="fw-bold">Budi Setiawan</div>
+                </div>
+                <div class="xp-text">2100 XP</div>
             </div>
         </div>
     </div>
