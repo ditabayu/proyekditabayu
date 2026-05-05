@@ -24,7 +24,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; transitions: 0.3s;
         }
 
         .menu-link {
@@ -48,7 +48,51 @@
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; }
+        .main-content { margin-left: 310px; padding: 40px;  transitions: 0.3s; }
+        @media (max-width: 768px) {
+            /* 1. Sidebar jadi kecil (hanya ikon) agar hemat tempat */
+            .sidebar {
+                width: 70px; /* Sangat ramping */
+                left: 10px;
+                padding: 20px 5px;
+                align-items: center;
+            }
+
+            /* 2. Sembunyikan teks menu & profil di sidebar */
+            .sidebar h4, 
+            .menu-link span, 
+            .profile-section div,
+            .sidebar .menu-link {
+                font-size: 0; 
+                justify-content: center;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                width: 24px;
+                height: 24px;
+            }
+
+            /* 3. Konten Utama tetap di samping sidebar mini */
+            .main-content {
+                margin-left: 90px; /* Jarak pas setelah sidebar mini */
+                padding: 20px;
+            }
+
+            /* 4. Stat Box & Card Materi jadi 2 kolom (tetap setara, gak cuma 1 kolom) */
+            .row-cols-md-4 > .col, .col-md-4 {
+                width: 50%; /* Membuat tampilan 2 kolom di HP agar tetap cantik */
+            }
+
+            .stat-box {
+                height: 140px;
+                padding: 15px;
+            }
+
+            .card-materi {
+                height: 180px;
+            }
+        }
 
         .category-pill { display: inline-block; padding: 8px 20px; border-radius: 50px;
                         background: rgba(255, 255, 255, 0.05); border: 1px solid #415a77;
