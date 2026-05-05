@@ -42,9 +42,17 @@
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        .profile-section {
-            margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
+         .profile-section {
+            margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
+            overflow: hidden; /* Kunci konten di dalam */
+            width: 100%;
+        }
+
+        .profile-info {
+            overflow: hidden;
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
         }
 
 
