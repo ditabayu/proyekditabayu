@@ -24,7 +24,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; transition:0.3s;
         }
 
         .menu-link {
@@ -53,7 +53,26 @@
 
         
         /* MAIN CONTENT */
-        .main-content { margin-left: 310px; padding: 40px; }
+        .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                left: -300px; 
+            }
+            .main-content {
+                margin-left: 0; 
+                padding: 20px;
+            }
+           
+            .sidebar.mobile-active {
+                left: 10px;
+                width: 280px;
+            }
+            
+            .stat-box {
+                height: 150px; 
+            }
+        }
 
         /* KOTAK DASHBOARD & MATERI  */
         .stat-box { position: relative; border-radius: 24px; padding: 20px; height: 180px; overflow: hidden; color: white; display: flex; flex-direction: column; justify-content: center; }
@@ -67,7 +86,7 @@
         .materi-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13, 27, 42, 0.95), rgba(13, 27, 42, 0.3)); z-index: 2; }
         .materi-text { position: relative; z-index: 3; color: white; }
 
-        html { zoom: 90%; }
+    
     </style>
 </head>
 <body>
@@ -183,7 +202,7 @@
             <div class="col">
                 <a href="MATERIWEBDEVTI.html" class="card-materi">
                     <img src="web dev (2).jpeg" class="materi-bg">
-                    <div class="materi-ovpeerlay"></div>
+                    <div class="materi-overlay"></div>
                     <div class="materi-text">
                         <h6 class="fw-bold mb-1">Web Dev</h6>
                         <p class="small opacity-75 mb-3" style="font-size: 0.75rem;">Responsive Web dengan Bootstrap 5.</p>
