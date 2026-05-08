@@ -249,6 +249,192 @@
   .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
 
 
+        /* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 992px){
+
+    .sidebar{
+        width: 220px;
+        left: 12px;
+        padding: 20px 12px;
+    }
+
+    .content-area{
+        margin-left: 250px;
+        padding: 35px 20px;
+    }
+
+    .table-custom{
+        min-width: 850px;
+    }
+
+    .glass-section{
+        overflow-x: auto;
+    }
+
+    .action-group{
+        gap: 8px;
+        flex-wrap: nowrap;
+    }
+
+    .action-icon{
+        width: 24px;
+        height: 28px;
+    }
+
+    h2{
+        font-size: 1.8rem !important;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+@media (max-width: 768px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+        position: relative;
+        width: calc(100% - 20px);
+        height: auto;
+        top: 10px;
+        left: 10px;
+        border-radius: 25px;
+        margin-bottom: 20px;
+    }
+
+    .content-area{
+        margin-left: 0;
+        padding: 20px 14px 40px;
+    }
+
+    /* HEADER */
+    h2{
+        font-size: 1.5rem !important;
+    }
+
+    /* BUTTON & FILTER */
+    .d-flex.justify-content-between{
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+
+    .d-flex.gap-2{
+        width: 100%;
+    }
+
+    .search-box{
+        width: 100%;
+    }
+
+    /* FORM */
+    .glass-card{
+        padding: 18px;
+    }
+
+    .input-premium,
+    .pill-input{
+        font-size: 0.85rem;
+    }
+
+    /* TABLE */
+    .table-custom{
+        min-width: 780px;
+    }
+
+    .glass-section{
+        overflow-x: auto;
+    }
+
+    .table-custom tbody tr:hover{
+        transform: none;
+    }
+
+    /* AKSI */
+    .action-group{
+        gap: 6px;
+    }
+
+    .action-icon{
+        width: 22px;
+        height: 24px;
+    }
+
+    /* PAGINATION */
+    .pagination-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-link-custom{
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+
+    /* MODAL */
+    .modal-body{
+        padding: 20px !important;
+    }
+
+    .modal-content{
+        border-radius: 25px !important;
+    }
+
+    .modal-header{
+        padding: 20px !important;
+    }
+
+    /* INFO CARD */
+    .profile-section{
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================
+   HP KECIL BANGET
+========================= */
+@media (max-width: 480px){
+
+    h2{
+        font-size: 1.3rem !important;
+    }
+
+    .btn-glow,
+    .btn-tutup{
+        font-size: 0.8rem;
+        padding: 10px 14px;
+    }
+
+    .table-custom thead th,
+    .table-custom tbody td{
+        font-size: 0.75rem;
+    }
+
+    .badge-adaptif,
+    .badge-non{
+        font-size: 0.6rem;
+    }
+
+    .menu-link{
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .img-menu-icon{
+        width: 18px;
+    }
+}
+
+
 
 
 </style>
