@@ -193,6 +193,161 @@
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+
+
+        
+/* RESPONSIVE HP */
+
+@media (max-width: 768px){
+
+```
+body{
+    overflow-x:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:relative;
+    width:92%;
+    height:auto;
+    top:0;
+    left:0;
+    margin:15px auto;
+    border-radius:25px;
+    padding:25px 15px;
+}
+
+/* CONTENT */
+.content-area,
+.main-wrapper{
+    margin-left:0 !important;
+    width:100%;
+    padding:20px 15px 40px;
+}
+
+/* HEADER */
+.content-area .d-flex.justify-content-between{
+    flex-direction:column;
+    align-items:flex-start !important;
+    gap:15px;
+}
+
+.content-area .d-flex.justify-content-between input{
+    width:100% !important;
+}
+
+/* BOX TAMBAH MATKUL */
+.add-matkul-box{
+    padding:20px !important;
+    border-radius:25px !important;
+}
+
+.add-matkul-box .row > div{
+    width:100%;
+}
+
+/* TABLE CONTAINER */
+.table-container-glass{
+    padding:20px;
+    overflow-x:auto;
+    border-radius:25px;
+}
+
+.table-custom{
+    min-width:850px;
+}
+
+/* TABLE */
+.table-custom thead th{
+    font-size:0.8rem;
+    white-space:nowrap;
+}
+
+.table-custom tbody td{
+    font-size:0.85rem;
+    white-space:nowrap;
+}
+
+/* BUTTON */
+.btn-edit,
+.btn-delete{
+    padding:6px 12px;
+    font-size:0.72rem;
+}
+
+/* PAGINATION */
+.pagination-container{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.d-flex.justify-content-between.align-items-center.mt-4{
+    flex-direction:column;
+    gap:15px;
+    align-items:flex-start !important;
+}
+
+/* MODAL */
+.modal-dialog{
+    margin:15px;
+}
+
+.modal-content{
+    border-radius:25px !important;
+}
+
+/* FORM */
+.form-custom,
+.pill-input{
+    font-size:0.9rem;
+}
+
+/* BUTTON TAMBAH */
+.btn-tambah{
+    padding:12px;
+    border-radius:20px;
+}
+```
+
+}
+
+/* EXTRA SMALL PHONE */
+@media (max-width:576px){
+
+```
+.menu-link{
+    font-size:0.85rem;
+    padding:12px 15px;
+}
+
+.img-menu-icon{
+    width:22px;
+}
+
+.content-area h2{
+    font-size:1.5rem;
+    line-height:1.4;
+}
+
+.table-container-glass{
+    padding:15px;
+}
+
+.page-link-custom{
+    width:34px;
+    height:34px;
+    font-size:0.8rem;
+}
+
+.btn-edit,
+.btn-delete{
+    display:block;
+    width:100%;
+    margin-bottom:5px;
+}
+```
+
+}
        
             
     </style>
