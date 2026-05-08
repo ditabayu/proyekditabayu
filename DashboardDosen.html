@@ -122,7 +122,110 @@
          ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
-         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;}       
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;}  
+
+
+        /* =========================
+   RESPONSIVE Mhp
+========================= */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        position: relative;
+        width: 92%;
+        height: auto;
+        left: 0;
+        top: 0;
+        margin: 15px auto;
+        border-radius: 25px;
+        padding: 20px 15px;
+    }
+
+    /* MAIN CONTENT */
+    .main-content,
+    .content-area {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px 15px 40px;
+    }
+
+    /* HEADER ATAS */
+    .main-content .row.mb-4 .col-md-12 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    /* FILTER PRODI */
+    .filter-prodi-box {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .select-kece {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    /* KOTAK DASHBOARD */
+    .stat-box {
+        height: 140px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .stat-content h5 {
+        font-size: 1rem;
+    }
+
+    .stat-content p {
+        font-size: 0.75rem;
+    }
+
+    /* AKSI CEPAT */
+    .card-aksi-cepat {
+        height: auto;
+        min-height: 130px;
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .konten-aksi {
+        align-items: flex-start;
+    }
+
+    .ikon-aksi {
+        width: 38px;
+        height: 38px;
+    }
+
+    .teks-aksi h6 {
+        font-size: 0.9rem;
+    }
+
+    .teks-aksi p {
+        font-size: 0.7rem;
+    }
+
+    /* PROFILE */
+    .profile-section {
+        padding: 12px;
+    }
+
+    /* TITLE */
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+    }
+}
 
     </style>
 </head>
