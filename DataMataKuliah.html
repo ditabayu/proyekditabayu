@@ -50,7 +50,7 @@
 
 
 
-        .content-area, .main-wrapper { margin-left: 300px !important; padding: 50px 40px; }
+        .content-area, .main-wrapper { margin-left: 300px !important; padding: 50px 40px; width: calc(100% - 300px); }
 
 
 /* DESAIN INPUT */
@@ -196,119 +196,184 @@
 
 
         
-/* RESPONSIVE HP */
+/* RESPONSIVE  */
 
 @media (max-width: 768px){
 
-```
 body{
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 /* SIDEBAR */
 .sidebar{
-    position:relative;
-    width:92%;
-    height:auto;
-    top:0;
-    left:0;
-    margin:15px auto;
-    border-radius:25px;
-    padding:25px 15px;
+    position: relative;
+    width: 92%;
+    height: auto;
+    top: 15px;
+    left: 0;
+    margin: auto;
+    border-radius: 25px;
+    padding: 20px 15px;
 }
 
 /* CONTENT */
 .content-area,
 .main-wrapper{
-    margin-left:0 !important;
-    width:100%;
-    padding:20px 15px 40px;
+    margin-left: 0 !important;
+    width: 100%;
+    padding: 25px 15px 40px;
 }
 
 /* HEADER */
 .content-area .d-flex.justify-content-between{
-    flex-direction:column;
-    align-items:flex-start !important;
-    gap:15px;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 18px;
 }
 
 .content-area .d-flex.justify-content-between input{
-    width:100% !important;
+    width: 100% !important;
 }
 
-/* BOX TAMBAH MATKUL */
+/* BOX INPUT */
 .add-matkul-box{
-    padding:20px !important;
-    border-radius:25px !important;
+    padding: 20px !important;
+    border-radius: 25px !important;
 }
 
-.add-matkul-box .row > div{
-    width:100%;
+.add-matkul-box .row{
+    gap: 10px;
 }
 
-/* TABLE CONTAINER */
-.table-container-glass{
-    padding:20px;
-    overflow-x:auto;
-    border-radius:25px;
+.add-matkul-box .col-md-4,
+.add-matkul-box .col-md-3,
+.add-matkul-box .col-md-2{
+    width: 100%;
 }
 
-.table-custom{
-    min-width:850px;
-}
-
-/* TABLE */
-.table-custom thead th{
-    font-size:0.8rem;
-    white-space:nowrap;
-}
-
-.table-custom tbody td{
-    font-size:0.85rem;
-    white-space:nowrap;
-}
-
-/* BUTTON */
-.btn-edit,
-.btn-delete{
-    padding:6px 12px;
-    font-size:0.72rem;
-}
-
-/* PAGINATION */
-.pagination-container{
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.d-flex.justify-content-between.align-items-center.mt-4{
-    flex-direction:column;
-    gap:15px;
-    align-items:flex-start !important;
-}
-
-/* MODAL */
-.modal-dialog{
-    margin:15px;
-}
-
-.modal-content{
-    border-radius:25px !important;
-}
-
-/* FORM */
+/* INPUT */
 .form-custom,
 .pill-input{
-    font-size:0.9rem;
+    width: 100%;
+    font-size: 0.88rem;
+    padding: 12px 18px;
 }
 
 /* BUTTON TAMBAH */
 .btn-tambah{
-    padding:12px;
-    border-radius:20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 18px;
 }
-```
 
+/* TABLE CONTAINER */
+.table-container-glass{
+    padding: 18px;
+    border-radius: 25px;
+    overflow-x: auto;
+}
+
+/* TABLE */
+.table-custom{
+    min-width: 780px;
+}
+
+.table-custom thead th{
+    white-space: nowrap;
+    font-size: 0.78rem;
+}
+
+.table-custom tbody td{
+    white-space: nowrap;
+    font-size: 0.82rem;
+    padding: 15px 12px;
+}
+
+/* BUTTON AKSI */
+.btn-edit,
+.btn-delete{
+    padding: 6px 10px;
+    font-size: 0.72rem;
+}
+
+/* PAGINATION */
+.d-flex.justify-content-between.align-items-center.mt-4{
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 15px;
+}
+
+.pagination-container{
+    flex-wrap: wrap;
+}
+
+/* MODAL */
+.modal-dialog{
+    margin: 15px;
+}
+
+.modal-content{
+    border-radius: 25px !important;
+}
+
+/* PROFILE */
+.profile-section{
+    margin-top: 25px;
+}
+
+/* TITLE */
+.content-area h2{
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+}
+
+
+/* EXTRA SMALL PHONE */
+@media (max-width: 576px){
+
+.menu-link{
+    font-size: 0.82rem;
+    padding: 11px 14px;
+}
+
+.img-menu-icon{
+    width: 20px;
+}
+
+.content-area h2{
+    font-size: 1.4rem;
+}
+
+/* TABLE */
+.table-container-glass{
+    padding: 15px;
+}
+
+/* PAGINATION */
+.page-link-custom{
+    width: 34px;
+    height: 34px;
+    font-size: 0.78rem;
+}
+
+/* BUTTON TABLE */
+.btn-edit,
+.btn-delete{
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* BADGE */
+.sks-badge{
+    font-size: 0.65rem;
+}
+
+/* MODAL */
+.modal-glass{
+    border-radius: 22px !important;
+}
 }
 
 /* EXTRA SMALL PHONE */
