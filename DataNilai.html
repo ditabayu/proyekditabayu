@@ -154,6 +154,127 @@
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
+
+/* RESPONSIVE MOBILE MODE */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+/* SIDEBAR */
+    .sidebar {
+        position: relative;
+        width: 92%;
+        height: auto;
+        left: 0;
+        top: 0;
+        margin: 15px auto;
+        border-radius: 25px;
+        padding: 20px 15px;
+    }
+
+/* CONTENT */
+    .content-area {
+        margin-left: 0;
+        padding: 20px 15px 40px;
+    }
+
+/* HEADER */
+    .content-area > .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    .content-area h2 {
+        font-size: 1.5rem !important;
+    }
+
+/* BUTTON EXPORT */
+    .btn-export-all {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+/* CARD KELAS */
+    .class-row-card {
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .class-row-card > .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+/* PROGRESS */
+    .progress-custom {
+        width: 100%;
+        max-width: 100%;
+    }
+
+/* ACTIVITY STRIP */
+    .activity-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 18px;
+    }
+
+/* BAGIAN ISI ACTIVITY */
+    .activity-strip .d-flex.align-items-center.gap-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        width: 100%;
+    }
+
+/* BUTTON ACTIVITY */
+    .activity-strip .d-flex.align-items-center.gap-3 {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .btn-lihat-custom {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+/* BADGE */
+    .badge {
+        font-size: 0.7rem;
+        white-space: normal;
+    }
+
+/* TEXT */
+    .activity-strip h5 {
+        font-size: 1rem;
+    }
+
+    .activity-strip .small {
+        font-size: 0.72rem !important;
+    }
+
+/* MODAL */
+    .modal-dialog {
+        margin: 15px;
+    }
+
+    .modal-content {
+        border-radius: 25px !important;
+    }
+
+/* INFO BUTTON */
+    .info-trigger {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+}
+
     </style>
 </head>
 
