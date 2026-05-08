@@ -12,7 +12,7 @@
 
         body {font-family: 'Poppins', sans-serif;
               background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-              color: white; min-height: 100vh; margin: 0; overflow-x: hidden;}
+              color: white; min-height: 100vh; margin: 0;}
 
 
 /* --- FULL SIDEBAR KIRI --- */
@@ -37,7 +37,7 @@
         .menu-link:hover, .menu-link.active {
             background:linear-gradient(90deg,#4cc9f0,#4361ee);
             border:none; border-radius:20px; padding:12px;
-            font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
             box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
@@ -57,7 +57,7 @@
 /* --- CARD KANAN --- */
         .class-card-custom {background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
                             border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08);
-                            transition: 0.3s ease-in-out; overflow: hidden; animation: fadeUp 0.6s ease;}
+                            transition: 0.3s ease-in-out; overflow: hidden;}
         .class-card-custom:hover {border-color: #4cc9f0;
                                   background: rgba(255, 255, 255, 0.05);
                                   box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(-5px);}
@@ -77,18 +77,6 @@
                    font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
         .btn-copy:hover {transform: scale(1.1); }
 
-        @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 
 /* --- DROPDOWN BENTUK PIL --- */
@@ -105,10 +93,8 @@
 /* --- WARNA TOMBOL DETAIL SAMA PAKET, SALIN --- */
         .btn-yellow {background: #ffd166; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .btn-blue {background: #4cc9f0; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-
-        .btn-yellow:hover {box-shadow: 0 0 15px rgba(255, 209, 102, 0.5);}
-        .btn-blue:hover {box-shadow: 0 0 15px rgba(76, 201, 240, 0.5);}
-        .btn-outline-info:hover, .btn-info:hover { 
+        
+        .btn-yellow:hover, .btn-blue:hover, .btn-outline-info:hover, .btn-info:hover { 
                    transform: scale(1.03); 
                    opacity: 1; 
                    box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
@@ -163,37 +149,31 @@
          ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
-         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
+        /* ===================================================== */
+/* RESPONSIVE MOBILE & TABLET */
+/* ===================================================== */
 
-       
-/* RESPONSIVE HP */
+@media (max-width: 992px) {
 
-@media (max-width: 768px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
+    /* SIDEBAR */
     .sidebar {
         position: relative;
-        width: 92%;
+        width: calc(100% - 20px);
         height: auto;
-        left: 0;
-        top: 0;
-        margin: 15px auto;
+        top: 10px;
+        left: 10px;
         border-radius: 25px;
+        margin-bottom: 20px;
         padding: 20px 15px;
     }
 
+    /* CONTENT */
     .content-area {
         margin-left: 0;
         padding: 20px 15px 40px;
     }
-
-}
-        
-
 
     /* HEADER */
     .content-area .d-flex.justify-content-between {
@@ -202,49 +182,60 @@
         gap: 15px;
     }
 
-    /* BUTTON HEADER */
-    .content-area .d-flex.gap-2 {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .content-area .d-flex.gap-2 button {
+    .content-area .d-flex.justify-content-between .d-flex {
         width: 100%;
     }
 
-    /* CARD BODY */
+    .content-area .d-flex.justify-content-between .btn {
+        flex: 1;
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    /* CARD */
+    .class-card-custom {
+        border-radius: 25px;
+    }
+
+    .card-header-accent {
+        padding: 18px;
+    }
+
+    .card-header-accent h4 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* BODY CARD */
     .card-body-modular {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
     }
 
-    /* HAPUS BORDER KANAN */
     .card-body-modular > div:first-child {
         border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
         padding-right: 0 !important;
         padding-bottom: 15px;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* BUTTON */
+    .btn-yellow,
+    .btn-blue {
+        padding: 12px;
+        font-size: 0.9rem;
     }
 
     /* TOKEN */
     .token-box {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 10px;
-        align-items: flex-start;
     }
 
-    .btn-copy {
-        width: 100%;
-    }
-
-    /* BUTTON CARD */
-    .btn-yellow,
-    .btn-blue {
-        width: 100%;
-    }
-
-    /* PROFILE */
-    .profile-section {
-        margin-top: 30px;
+    .token-box span {
+        font-size: 0.9rem;
+        word-break: break-word;
     }
 
     /* MODAL */
@@ -267,37 +258,22 @@
         width: 100%;
     }
 
-    /* TEXT */
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
 }
 
 
+/* EXTRA SMALL PHONE */
 @media (max-width: 576px) {
 
-    .content-area {
-        padding: 20px 14px;
+    body {
+        overflow-x: hidden;
     }
 
-    .class-card-custom {
-        border-radius: 22px;
-    }
-
-    .card-header-accent {
-        padding: 18px;
-    }
-
-    .card-body-modular {
-        padding: 18px;
+    .sidebar h4 {
+        font-size: 1.3rem;
     }
 
     .menu-link {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         padding: 10px 12px;
     }
 
@@ -305,19 +281,31 @@
         width: 18px;
     }
 
+    .content-area h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-header-accent {
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+
+    .dropdown {
+        align-self: flex-start;
+    }
+
     .btn-yellow,
-    .btn-blue,
-    .btn-save,
-    .btn-danger-custom {
+    .btn-blue {
         font-size: 0.85rem;
+    }
+
+    .form-custom {
+        font-size: 0.9rem;
+    }
+
+    .token-box {
         padding: 12px;
     }
-
-    .token-box span {
-        font-size: 0.8rem;
-        word-break: break-all;
-    }
-
 }
          
          
@@ -384,8 +372,8 @@
             </div>
         </div>
 
-        <div class="row g-4 align-items-stretch">
-            <div class="col-12 col-md-6">
+        <div class="row g-4">
+            <div class="col-md-6">
                 <div class="class-card-custom">
                     <div class="card-header-accent d-flex justify-content-between align-items-center">
                         <div>
@@ -621,14 +609,14 @@
                     </div>
                     <hr class="opacity-10">
                     <h6 class="fw-bold small mb-3">Mata Kuliah Terkait:</h6>
-                    <div class="d-flex flex-wrap gap-2">
-                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">Java Dasar</span>
-                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Basis Data</span>
-                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">Jaringan Komputer</span>
-                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Pemrograman We</span>
-                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">EST</span>
-                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Basic Science</span>
-                    </div>   
+                    <ul class="small opacity-75">
+                        <li>Java Dasar</li>
+                        <li>Jaringan Komputer</li>
+                        <li>Basis Data</li>
+                        <li>Pemrograman Web</li>
+                        <li>EST</li>
+                        <li>Basic Science</li>
+                    </ul>
                 </div>
             </div>
         </div>
