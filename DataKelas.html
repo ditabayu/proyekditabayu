@@ -155,21 +155,25 @@
 /* RESPONSIVE MOBILE & TABLET */
 /* ===================================================== */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
 
-    /* SIDEBAR */
+    body {
+        overflow-x: hidden;
+    }
+
+/* SIDEBAR */
     .sidebar {
         position: relative;
-        width: calc(100% - 20px);
+        width: 92%;
         height: auto;
-        top: 10px;
-        left: 10px;
+        left: 0;
+        top: 0;
+        margin: 15px auto;
         border-radius: 25px;
-        margin-bottom: 20px;
         padding: 20px 15px;
     }
 
-    /* CONTENT */
+/* CONTENT */
     .content-area {
         margin-left: 0;
         padding: 20px 15px 40px;
