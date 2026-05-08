@@ -298,6 +298,251 @@
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
+        /* =========================================================
+   RESPONSIVE MOBILE & TABLET
+========================================================= */
+
+/* TABLET */
+@media (max-width: 991px) {
+
+    .sidebar{
+        width: 230px;
+        left: 15px;
+        top: 15px;
+        height: calc(100vh - 30px);
+        border-radius: 25px;
+        padding: 20px 12px;
+    }
+
+    .main-wrapper{
+        margin-left: 265px;
+        padding: 30px 20px;
+    }
+
+    .header-box{
+        padding: 25px 20px;
+        border-radius: 22px;
+    }
+
+    .glass-card{
+        padding: 22px;
+        border-radius: 25px;
+    }
+
+    .table-custom{
+        min-width: 700px;
+    }
+
+    .table-custom-wrapper{
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .btn-glow{
+        padding: 10px 18px;
+        font-size: 0.82rem;
+    }
+}
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    body{
+        overflow-x: hidden;
+    }
+
+    /* SIDEBAR */
+    .sidebar{
+        position: relative;
+        width: calc(100% - 20px);
+        height: auto;
+        left: 10px;
+        top: 10px;
+        border-radius: 24px;
+        margin-bottom: 20px;
+        padding: 18px 14px;
+    }
+
+    .menu-link{
+        font-size: 0.82rem;
+        padding: 11px 14px;
+        border-radius: 14px;
+    }
+
+    .img-menu-icon{
+        width: 20px;
+    }
+
+    .profile-section{
+        margin-top: 20px;
+    }
+
+    /* CONTENT */
+    .main-wrapper{
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .glass-card{
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .header-box{
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 18px;
+        padding: 22px 18px;
+        border-radius: 22px;
+    }
+
+    .header-box h2{
+        font-size: 1.4rem;
+        flex-wrap: wrap;
+    }
+
+    .header-box .d-flex.gap-3{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .header-box .btn-glow{
+        width: 100%;
+    }
+
+    /* FILTER */
+    .glass-card > .d-flex:first-child{
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 15px;
+    }
+
+    .glass-card select,
+    .glass-card input{
+        width: 100% !important;
+    }
+
+    /* TABLE */
+    .table-custom{
+        min-width: 720px;
+    }
+
+    .table-custom tbody td{
+        padding: 16px 12px;
+        font-size: 0.8rem;
+    }
+
+    .table-custom thead th{
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+
+    /* WRAPPER TABLE */
+    .table-responsive-custom{
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .table-responsive-custom::-webkit-scrollbar{
+        height: 6px;
+    }
+
+    .table-responsive-custom::-webkit-scrollbar-thumb{
+        background: #4cc9f0;
+        border-radius: 10px;
+    }
+
+    /* PAGINATION */
+    .pagination-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-4{
+        flex-direction: column;
+        gap: 15px;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    /* MODAL */
+    .modal-dialog{
+        margin: 12px;
+    }
+
+    .modal-content{
+        border-radius: 24px;
+    }
+
+    .modal-body{
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+
+    /* INPUT */
+    .pill-input,
+    .json-box,
+    .edit-box,
+    .tambah-box{
+        font-size: 0.82rem;
+    }
+
+    textarea{
+        min-height: 120px;
+    }
+
+    /* BUTTON */
+    .btn-glow,
+    .btn-anak2-glow,
+    .btn-ai-glow,
+    .btn-hapus-glow{
+        font-size: 0.82rem;
+    }
+
+    /* ACTION ICON */
+    .action-icon{
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+
+
+/* HP KECIL */
+@media (max-width: 480px){
+
+    .header-box h2{
+        font-size: 1.2rem;
+    }
+
+    .glass-card{
+        padding: 15px;
+    }
+
+    .header-box{
+        padding: 18px 15px;
+    }
+
+    .menu-link{
+        font-size: 0.78rem;
+    }
+
+    .btn-glow{
+        padding: 10px 15px;
+    }
+
+    .page-link-custom{
+        width: 34px;
+        height: 34px;
+        font-size: 0.8rem;
+    }
+
+}
+
     </style>
 </head>
 
@@ -391,6 +636,8 @@
                 <input type="text" class="form-control pill-input py-1" style="width: 250px;" placeholder="Cari...">
             </div>
 
+
+            <div class="table-responsive-custom">
             <table class="table-custom w-100">
                 <thead>
                     <tr>
@@ -466,6 +713,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
 
           <div class="d-flex justify-content-between align-items-center mt-4">
           <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 soal</p>
