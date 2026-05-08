@@ -163,7 +163,156 @@
          ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
-         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;}
+
+
+       
+/* RESPONSIVE HP */
+
+@media (max-width: 991px) {
+
+    /* SIDEBAR */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        border-radius: 0 0 25px 25px;
+        margin-bottom: 20px;
+        padding: 20px;
+    }
+
+    /* CONTENT */
+    .content-area {
+        margin-left: 0;
+        padding: 25px 18px;
+    }
+
+    /* HEADER */
+    .content-area .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    /* BUTTON HEADER */
+    .content-area .d-flex.gap-2 {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content-area .d-flex.gap-2 button {
+        width: 100%;
+    }
+
+    /* CARD BODY */
+    .card-body-modular {
+        grid-template-columns: 1fr;
+    }
+
+    /* HAPUS BORDER KANAN */
+    .card-body-modular > div:first-child {
+        border-right: none !important;
+        padding-right: 0 !important;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* TOKEN */
+    .token-box {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .btn-copy {
+        width: 100%;
+    }
+
+    /* BUTTON CARD */
+    .btn-yellow,
+    .btn-blue {
+        width: 100%;
+    }
+
+    /* PROFILE */
+    .profile-section {
+        margin-top: 30px;
+    }
+
+    /* MODAL */
+    .modal-dialog {
+        margin: 15px;
+    }
+
+    .modal-content {
+        border-radius: 25px !important;
+    }
+
+    /* PACKAGE */
+    .package-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .package-item button {
+        width: 100%;
+    }
+
+    /* TEXT */
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .content-area {
+        padding: 20px 14px;
+    }
+
+    .class-card-custom {
+        border-radius: 22px;
+    }
+
+    .card-header-accent {
+        padding: 18px;
+    }
+
+    .card-body-modular {
+        padding: 18px;
+    }
+
+    .menu-link {
+        font-size: 0.78rem;
+        padding: 10px 12px;
+    }
+
+    .img-menu-icon {
+        width: 18px;
+    }
+
+    .btn-yellow,
+    .btn-blue,
+    .btn-save,
+    .btn-danger-custom {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    .token-box span {
+        font-size: 0.8rem;
+        word-break: break-all;
+    }
+
+}
          
          
     </style>
@@ -229,8 +378,8 @@
             </div>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-6">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-12 col-md-6">
                 <div class="class-card-custom">
                     <div class="card-header-accent d-flex justify-content-between align-items-center">
                         <div>
