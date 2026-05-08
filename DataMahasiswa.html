@@ -278,6 +278,125 @@ select.form-select {
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
 
+/* RESPONSIVE HP */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+/* SIDEBAR */
+    .sidebar {
+        position: relative;
+        width: 92%;
+        height: auto;
+        left: 0;
+        top: 0;
+        margin: 15px auto;
+        border-radius: 25px;
+        padding: 20px 15px;
+    }
+
+/* MAIN CONTENT */
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px 15px 40px;
+    }
+
+/* HEADER DATA SISWA */
+    .glass-container .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    .glass-container h2 {
+        font-size: 1.4rem;
+    }
+
+ /* BUTTON EXPORT */
+    .btn-export-all {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+/* FILTER */
+    .text-end.align-self-end {
+        text-align: left !important;
+    }
+
+    .text-end.align-self-end input {
+        width: 100% !important;
+        margin-top: 5px;
+    }
+
+/* TABLE RESPONSIVE */
+    .scroll-wrapper {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .table-custom {
+        min-width: 700px;
+    }
+
+/* BIAR TABEL GA MEPET */
+    .table-custom tbody td,
+    .table-custom thead th {
+        padding: 14px 12px;
+        font-size: 0.8rem;
+    }
+
+/* BUTTON DALAM TABEL */
+    .btn-edit,
+    .btn-note {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        margin-bottom: 4px;
+    }
+
+/* PAGINATION */
+    .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start !important;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+/* STAT CARD */
+    .stat-card {
+        padding: 18px;
+    }
+
+    .stat-card h4 {
+        font-size: 1.2rem;
+    }
+
+/* MODAL */
+    .modal-dialog {
+        margin: 15px;
+    }
+
+    .modal-content {
+        border-radius: 25px;
+    }
+
+/* TITLE */
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+}
+
+
 </style>
 </head>
 
