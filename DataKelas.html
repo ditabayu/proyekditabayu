@@ -12,7 +12,7 @@
 
         body {font-family: 'Poppins', sans-serif;
               background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-              color: white; min-height: 100vh; margin: 0;}
+              color: white; min-height: 100vh; margin: 0; overflow-x: hidden;}
 
 
 /* --- FULL SIDEBAR KIRI --- */
@@ -37,7 +37,7 @@
         .menu-link:hover, .menu-link.active {
             background:linear-gradient(90deg,#4cc9f0,#4361ee);
             border:none; border-radius:20px; padding:12px;
-            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
             box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
@@ -57,7 +57,7 @@
 /* --- CARD KANAN --- */
         .class-card-custom {background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
                             border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08);
-                            transition: 0.3s ease-in-out; overflow: hidden;}
+                            transition: 0.3s ease-in-out; overflow: hidden; animation: fadeUp 0.6s ease;}
         .class-card-custom:hover {border-color: #4cc9f0;
                                   background: rgba(255, 255, 255, 0.05);
                                   box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(-5px);}
@@ -77,6 +77,18 @@
                    font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
         .btn-copy:hover {transform: scale(1.1); }
 
+        @keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 /* --- DROPDOWN BENTUK PIL --- */
@@ -93,8 +105,10 @@
 /* --- WARNA TOMBOL DETAIL SAMA PAKET, SALIN --- */
         .btn-yellow {background: #ffd166; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .btn-blue {background: #4cc9f0; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        
-        .btn-yellow:hover, .btn-blue:hover, .btn-outline-info:hover, .btn-info:hover { 
+
+        .btn-yellow:hover {box-shadow: 0 0 15px rgba(255, 209, 102, 0.5);}
+        .btn-blue:hover {box-shadow: 0 0 15px rgba(76, 201, 240, 0.5);}
+        .btn-outline-info:hover, .btn-info:hover { 
                    transform: scale(1.03); 
                    opacity: 1; 
                    box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
@@ -241,6 +255,10 @@
                                 <button class="btn-copy" onclick="copyToken('UA1KSXRH')">SALIN</button>
                             </div>
                             <p class="small opacity-50 mb-1">Mata Kuliah Utama</p>
+                               <div class="d-flex gap-2 mt-2">
+                                 <span class="badge bg-dark border border-info">6 Mahasiswa</span>
+                                 <span class="badge bg-dark border border-warning text-warning">4 Tugas</span>
+                               </div>
                             <p class="small fw-bold">Jaringan Komputer & Basis Data</p>
                         </div>
                         <div class="d-flex flex-column justify-content-center gap-2">
@@ -452,14 +470,14 @@
                     </div>
                     <hr class="opacity-10">
                     <h6 class="fw-bold small mb-3">Mata Kuliah Terkait:</h6>
-                    <ul class="small opacity-75">
-                        <li>Java Dasar</li>
-                        <li>Jaringan Komputer</li>
-                        <li>Basis Data</li>
-                        <li>Pemrograman Web</li>
-                        <li>EST</li>
-                        <li>Basic Science</li>
-                    </ul>
+                    <div class="d-flex flex-wrap gap-2">
+                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">Java Dasar</span>
+                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Basis Data</span>
+                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">Jaringan Komputer</span>
+                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Pemrograman We</span>
+                     <span class="badge rounded-pill bg-info text-dark px-3 py-2">EST</span>
+                     <span class="badge rounded-pill border border-info text-info px-3 py-2">Basic Science</span>
+                    </div>   
                 </div>
             </div>
         </div>
