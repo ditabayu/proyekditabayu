@@ -145,15 +145,41 @@
         textarea::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
         .btn-kirim {
-            background: linear-gradient(135deg, #5ff04c 0%, #4361ee 100%);
-            color: white;
-            border-radius: 18px;
-            padding: 18px 50px;
-            font-weight: 700;
-            border: none;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
+    background: linear-gradient(90deg, #66e84f, #4cc9f0);
+    color: #04111f;
+    border: none;
+    border-radius: 22px;
+    padding: 18px 55px;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    box-shadow:
+        0 10px 25px rgba(76, 201, 240, 0.25),
+        0 0 15px rgba(95, 240, 76, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+.btn-kirim:hover {
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 14px 30px rgba(76, 201, 240, 0.35),
+        0 0 25px rgba(95, 240, 76, 0.25);
+
+    color: #04111f;
+}
+
+.btn-kirim:active {
+    transform: scale(0.98);
+}
 
         #finishOverlay {
             position: fixed;
@@ -235,9 +261,10 @@
             <div id="soalContainer"></div>
 
             <div class="text-center mt-5 mb-5">
-                <button class="btn-kirim" onclick="kirimJawaban()">
-                    <i class="fa-solid fa-cloud-arrow-up me-2"></i> Kumpulkan Jawaban
-                </button>
+               <button class="btn-kirim" onclick="kirimJawaban()">
+    <i class="fa-solid fa-paper-plane"></i>
+    KUMPULKAN SEKARANG
+</button>
             </div>
         </div>
     </div>
