@@ -11,14 +11,13 @@
 
     <style>
         :root {
+            /* --- PERUBAHAN TEMA WARNA UNGU --- */
             --bg-body: #180721; 
             --sidebar-bg: #280f3c;
             --card-bg: #29183d;
-            --accent: #a648ed; /* Warna Biru Terang untuk Aksen */
-            
-            /* UBAH WARNA KOTAK SOAL DI SINI */
-            --glass: rgba(30, 13, 45, 0.85); /* Warna dasar kotak (Gelap) */
-            --glass-hover: rgba(76, 201, 240, 0.15); /* Warna saat kotak disentuh */
+            --accent: #a648ed; 
+            --glass: rgba(30, 13, 45, 0.85); 
+            --glass-hover: rgba(166, 72, 237, 0.1);
         }
 
         body {
@@ -69,7 +68,7 @@
         .header-soal {
             position: sticky;
             top: 20px;
-            background: rgba(15, 4, 21, 0.95);
+            background: rgba(24, 7, 33, 0.95);
             backdrop-filter: blur(20px);
             padding: 25px 30px;
             border-radius: 25px;
@@ -92,6 +91,7 @@
 
         .custom-progress-bar {
             height: 100%;
+            /* Gradient ungu ke hijau sesuai foto kedua */
             background: linear-gradient(90deg, var(--accent), #34c504);
             width: 0%;
             transition: 0.6s ease;
@@ -153,16 +153,22 @@
             outline: none;
             border-color: var(--accent);
             background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+            box-shadow: 0 0 15px rgba(166, 72, 237, 0.2);
         }
 
+        /* --- CUSTOM SCROLLBAR TEXTAREA --- */
+        textarea::-webkit-scrollbar { width: 6px; }
+        textarea::-webkit-scrollbar-track { background: transparent; margin: 10px; }
+        textarea::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
         .btn-kirim {
+            /* Warna tombol sesuai foto kedua */
             background: linear-gradient(135deg, #5ff04c 0%, var(--accent) 100%);
             color: #0f0415;
+            border: none;
             border-radius: 18px;
             padding: 18px 50px;
             font-weight: 700;
-            border: none;
             transition: 0.3s;
             text-transform: uppercase;
         }
@@ -210,11 +216,11 @@
             <div class="finish-icon"><i class="fa-solid fa-circle-check"></i></div>
             <div class="finish-text">BERHASIL!</div>
             <p class="mt-3 opacity-75"> Oke, Jawabanmu telah tersimpan.</p>
-            <a href="ISILATIHANSOALILKOM.html" class="btn btn-outline-info rounded-pill px-4 mt-3">Kembali ke Dashboard</a>
+            <a href="ISIMENULATIHANTI.html" class="btn btn-outline-info rounded-pill px-4 mt-3">Kembali ke Dashboard</a>
         </div>
     </div>
 
-    <a href="ISILATIHANSOALILKOM.html" class="btn-back-corner">
+    <a href="ISIMENULATIHANTI.html" class="btn-back-corner">
         <i class="fa-solid fa-chevron-left"></i> Kembali ke Menu
     </a>
 
@@ -223,7 +229,7 @@
             <div class="header-soal">
                 <div>
                     <h3 class="fw-bold mb-1"><i class="fa-brands fa-java me-2" style="color: var(--accent);"></i>Latihan Java Dasar</h3>
-                    <p class="text-white-50 mb-0">Selesaikan semua soal untuk update statistik belajarmu.</p>
+                    <p class="text-white-50 mb-0">Kerjakan soal dengan teliti. Selamat berjuang!</p>
                 </div>
                 <div class="text-end">
                     <span id="progressText" class="fw-bold" style="color: var(--accent); font-size: 1.4rem;">0%</span>
@@ -264,7 +270,7 @@
                 <div class="question-text">
                     <span class="nomor">${i+1}</span> ${soal}
                 </div>
-                <textarea id="jawaban_${i}" placeholder="Ketik jawabanmu secara detail di sini..."></textarea>
+                <textarea id="jawaban_${i}" placeholder="Tulis jawabanmu di sini..."></textarea>
             </div>
             `;
         });
@@ -289,8 +295,7 @@
 
         updateProgress();
 
-         // Fungsi Tombol Kirim
-         function kirimJawaban(){
+        function kirimJawaban(){
             let terisi = 0;
             textareas.forEach(t => { if (t.value.trim() !== "") terisi++; });
             
@@ -301,12 +306,9 @@
             const overlay = document.getElementById('finishOverlay');
             overlay.style.display = 'flex';
             
-            // Simpan skor sederhana ke localStorage
             let skor = Math.round((terisi / textareas.length) * 100);
-            localStorage.setItem("last_score_web", skor);
+            localStorage.setItem("last_score_science", skor);
         }
-
-    
     </script>
 </body>
 </html>
