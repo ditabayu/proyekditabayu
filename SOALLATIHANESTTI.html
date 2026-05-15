@@ -91,7 +91,7 @@
 
         .custom-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent), #34c504);
+            background: linear-gradient(90deg, #1e07ee, #d900ff);
             width: 0%;
             transition: 0.6s ease;
         }
@@ -136,24 +136,29 @@
 
         /* --- TEXTAREA --- */
         textarea {
-            width: 100%;
-            min-height: 120px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
-            padding: 20px;
-            color: white;
-            resize: none;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
+    width: 100%;
+    min-height: 120px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 20px;
+    color: white;
+    resize: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
 
-        textarea:focus {
+/* --- CUSTOM SCROLLBAR TEXTAREA --- */
+textarea:focus {
             outline: none;
             border-color: var(--accent);
-            background: rgba(0, 0, 0, 0.5);
-            box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+            background: rgba(0, 0, 0, 0.4);
         }
+
+        textarea::-webkit-scrollbar { width: 6px; }
+        textarea::-webkit-scrollbar-track { background: transparent; margin: 10px; }
+        textarea::-webkit-scrollbar-thumb { background: rgba(169, 76, 240, 0.732); border-radius: 10px; }
+        textarea::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
        .btn-kirim {
     background: linear-gradient(90deg, #66e84f, #4cc9f0);
@@ -242,7 +247,7 @@
             <div class="header-soal">
                 <div>
                     <h3 class="fw-bold mb-1"><i class="fa-solid fa-language me-2" style="color: var(--accent);"></i>English for Science and Technology</h3>
-                    <p class="text-white-50 mb-0">Enhance your professional English skills in technical and scientific contexts.</p>
+                    <p class="text-white-50 mb-0">Tingkatkan kemampuan bahasa inggris profesional anda dalam konteks teknis dan ilmiah.</p>
                 </div>
                 <div class="text-end">
                     <span id="progressText" class="fw-bold" style="color: var(--accent); font-size: 1.4rem;">0%</span>
