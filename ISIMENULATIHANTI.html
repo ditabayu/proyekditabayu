@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latihan Soal - UPKSAINTEK</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons untuk Tombol Menu di HP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -26,6 +29,21 @@
             overflow-x: hidden; 
         }
 
+        /* --- TOGGLE BUTTON UNTUK HP --- */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
         /* --- SIDEBAR --- */
         .sidebar {
             background-color: var(--card-bg); 
@@ -33,7 +51,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; transition: 0.3s;
+            display: flex; flex-direction: column; transition: all 0.3s ease;
         }
 
         .menu-link {
@@ -51,7 +69,7 @@
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        /* FIX PROFILE SECTION: Supaya rapi dan tidak keluar */
+        /* FIX PROFILE SECTION */
         .profile-section {
             margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
@@ -65,21 +83,17 @@
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
+        .main-content { margin-left: 310px; padding: 40px; transition: all 0.3s ease; }
 
-       .title-icon { 
-    width: 32px; 
-    height: auto; 
-    margin-left: 10px; 
-    vertical-align: middle;
-
-    /* Efek glow */
-    filter: drop-shadow(0 0 6px rgba(76, 201, 240, 0.8))
-            drop-shadow(0 0 12px rgba(76, 201, 240, 0.6));
-    
-    transition: 0.3s ease;
-}
-
+        .title-icon { 
+            width: 32px; 
+            height: auto; 
+            margin-left: 10px; 
+            vertical-align: middle;
+            filter: drop-shadow(0 0 6px rgba(76, 201, 240, 0.8))
+                    drop-shadow(0 0 12px rgba(76, 201, 240, 0.6));
+            transition: 0.3s ease;
+        }
 
         /* --- CARD LATIHAN --- */
         .card-latihan {
@@ -103,7 +117,7 @@
             background: var(--yellow-btn); color: #0d141f; border: none;
             padding: 12px; border-radius: 12px; font-weight: 700; 
             text-decoration: none; display: block; width: 100%; text-align: center;
-            transition: 0.3s; margin-top: auto; /* Memastikan tombol selalu di bawah */
+            transition: 0.3s; margin-top: auto; 
         }
         .btn-mulai:hover { 
             background: #ffffff; transform: translateY(-3px);
@@ -111,29 +125,55 @@
             color: #0d141f;
         }
 
-        /* --- RESPONSIVE MODE (HP) --- */
-        @media (max-width: 768px) {
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* 1. Layar Medium & Tablet (max-width: 992px) */
+        @media (max-width: 992px) {
             .sidebar {
-                width: 70px; left: 10px; padding: 20px 5px; align-items: center;
+                width: 80px;
+                left: 10px;
+                padding: 25px 5px;
+                align-items: center;
             }
-
-            .sidebar h4, .menu-link span, .profile-info {
-                display: none; /* Sembunyikan teks di HP */
-            }
-
+            .sidebar h4, .menu-link span, .profile-info { display: none; }
             .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
+            .main-content { margin-left: 110px; padding: 30px 20px; }
+            .profile-section { justify-content: center; padding: 8px; }
+        }
 
-            .main-content { margin-left: 90px; padding: 20px; }
-
-            .col-md-4 { width: 100%; } /* Kartu jadi lebar penuh di HP */
+        /* 2. Layar HP / Mobile (max-width: 768px) */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; } 
             
-            .profile-section { justify-content: center; }
+            .sidebar {
+                width: 260px;
+                left: -280px; 
+                top: 0;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .sidebar h4, .menu-link span, .profile-info { display: block; }
+            .sidebar h4 { margin-top: 40px; }
+            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
+            .profile-section { justify-content: flex-start; padding: 12px; }
+
+            .sidebar.active { left: 0px; } 
+
+            .main-content {
+                margin-left: 0;
+                padding: 80px 20px 20px 20px; 
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Tombol Menu khusus untuk tampilan HP -->
+    <button class="menu-toggle" id="toggleBtn">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link">
@@ -153,7 +193,7 @@
             </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
                 <img src="kembali.png" class="img-menu-icon" alt="Keluar"> <span>Keluar</span>
-            </a>    
+            </a>     
         </nav>
 
         <div class="profile-section">
@@ -165,7 +205,6 @@
         </div>
     </div>
 
-
     <div class="main-content">
         <div class="mb-5">
             <h2 class="fw-bold">
@@ -175,9 +214,10 @@
             <p class="opacity-75">Selesaikan Misi Belajar Mu Hari Ini!</p>
         </div>
 
+        <!-- GRID RESPONSIF: Mengubah col-md-4 lama menjadi kombinasi col-12, col-md-6, dan col-lg-4 -->
         <div class="row g-4">
             <!-- Java Dasar -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">Latihan Java Dasar</h5>
@@ -187,7 +227,7 @@
             </div>
 
             <!-- Web Dev -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">Latihan Web Development</h5>
@@ -197,7 +237,7 @@
             </div>
 
             <!-- Jaringan -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">Latihan Jaringan Komputer</h5>
@@ -207,7 +247,7 @@
             </div>
 
             <!-- Basic Science -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">Latihan Basic Science</h5>
@@ -217,7 +257,7 @@
             </div>
 
             <!-- Basis Data -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">Latihan Basis Data</h5>
@@ -227,7 +267,7 @@
             </div>
 
             <!-- English (EST) -->
-            <div class="col-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card-latihan">
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">English for Science and Tech</h5>
@@ -237,5 +277,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Script Pembuka/Penutup Sidebar Mobile -->
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+
+        toggleBtn.addEventListener('click', (e) => {
+            sidebarMenu.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
