@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        :root {
+         :root {
             --bg-dark: #0d1b2a;
             --sidebar-bg: rgba(27, 38, 59, 0.8);
             --card-bg: rgba(255, 255, 255, 0.04);
-            --accent: #5a4cf0; /* Warna Biru Terang untuk Aksen */
+            --accent: #5a4cf0;
             
             /* UBAH WARNA KOTAK SOAL DI SINI */
-            --glass: rgba(13, 16, 45, 0.85); /* Warna dasar kotak (Gelap) */
-            --glass-hover: rgba(76, 84, 240, 0.15); /* Warna saat kotak disentuh */
+            --glass: rgba(13, 16, 45, 0.85); 
+            --glass-hover: rgba(76, 84, 240, 0.15); 
         }
 
         body {
@@ -156,6 +156,30 @@
             box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
         }
 
+
+
+        /* --- CUSTOM SCROLLBAR TEXTAREA --- */
+        textarea::-webkit-scrollbar {
+            width: 6px; 
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background: transparent; /* Track transparan */
+            margin: 8px; /* Memberi jarak agar batang tidak mentok */
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background: var(--accent); /* Warna ungu sesuai tema kamu */
+            border-radius: 10px;
+        }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #4a3fd1; /* Warna sedikit lebih gelap saat hover */
+        }
+
+      
+    
+
         .btn-kirim {
             background: linear-gradient(135deg, #5ff04c 0%, var(--accent) 100%);
             color: #0f0415;
@@ -208,14 +232,14 @@
     <div id="finishOverlay">
         <div class="finish-content text-center">
             <div class="finish-icon"><i class="fa-solid fa-circle-check"></i></div>
-            <div class="finish-text">SUCCESS!</div>
-            <p class="mt-3 opacity-75"> Your answers have been successfully saved.</p>
+            <div class="finish-text">BERHASIL!</div>
+            <p class="mt-3 opacity-75"> Oke, jawabanmu telah tersimpan.</p>
             <a href="ISILATIHANSOALPTI.html" class="btn btn-outline-info rounded-pill px-4 mt-3">Back to Dashboard</a>
         </div>
     </div>
 
     <a href="ISILATIHANSOALPTI.html" class="btn-back-corner">
-        <i class="fa-solid fa-chevron-left"></i> Back to Menu
+        <i class="fa-solid fa-chevron-left"></i> Kembali Ke Menu
     </a>
 
     <div class="main-content">
@@ -223,7 +247,7 @@
             <div class="header-soal">
                 <div>
                     <h3 class="fw-bold mb-1"><i class="fa-solid fa-language me-2" style="color: var(--accent);"></i>English for Science and Technology</h3>
-                    <p class="text-white-50 mb-0">Enhance your professional English skills in technical and scientific contexts.</p>
+                    <p class="text-white-50 mb-0">Tingkatkan kemampuan bahasa inggris profesional anda dalam konteks teknis dan ilmiah..</p>
                 </div>
                 <div class="text-end">
                     <span id="progressText" class="fw-bold" style="color: var(--accent); font-size: 1.4rem;">0%</span>
@@ -237,7 +261,7 @@
 
             <div class="text-center mt-5 mb-5">
                 <button class="btn-kirim" onclick="kirimJawaban()">
-                    <i class="fa-solid fa-paper-plane me-2"></i> Submit Now
+                    <i class="fa-solid fa-paper-plane me-2"></i> KUMPULKAN SEKARANG
                 </button>
             </div>
         </div>
