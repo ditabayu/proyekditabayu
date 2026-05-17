@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard TI - UPKSAINTEK</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons untuk Tombol Menu di HP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -25,6 +28,21 @@
             overflow-x: hidden;
         }
 
+        /* --- TOGGLE BUTTON UNTUK HP --- */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
         /* --- SIDEBAR --- */
         .sidebar {
             background-color: var(--card-bg); 
@@ -32,7 +50,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; transition: 0.3s;
+            display: flex; flex-direction: column; transition: all 0.3s ease;
         }
 
         .menu-link {
@@ -47,14 +65,24 @@
             color: #0d1b2a !important; 
             font-weight: 600; 
         }
+        
+        .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
+        /* FIX PROFILE SECTION */
         .profile-section {
-            margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
+            margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
+            overflow: hidden; width: 100%;
+        }
+
+        .profile-info {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
+        .main-content { margin-left: 310px; padding: 40px; transition: all 0.3s ease; }
 
         .title-icon { width: 35px; height: 35px; margin-left: 8px; vertical-align: middle; filter: drop-shadow(0 0 5px var(--accent)); }
 
@@ -116,21 +144,78 @@
         .xp-text { font-weight: 700; color: var(--accent); }
         .rank-num { font-weight: 800; color: #adb5bd; width: 30px; }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* 1. Layar Medium & Tablet (max-width: 992px) */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                left: 10px;
+                padding: 25px 5px;
+                align-items: center;
+            }
+            .sidebar h4, .menu-link span, .profile-info { display: none; }
+            .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
+            .main-content { margin-left: 110px; padding: 30px 20px; }
+            .profile-section { justify-content: center; padding: 8px; }
+        }
+
+        /* 2. Layar HP / Mobile (max-width: 768px) */
         @media (max-width: 768px) {
-            .sidebar { width: 70px; left: 10px; padding: 20px 5px; align-items: center; }
-            .sidebar h4, .menu-link span, .profile-section div { display: none; }
-            .main-content { margin-left: 90px; padding: 20px; }
-            .medal-graphic { width: 80px; }
-            .podium-item:nth-child(2) .medal-graphic { width: 110px; }
-            .winner-name { font-size: 0.7rem; }
-            .podium-step { font-size: 1.5rem; }
+            .menu-toggle { display: block; } 
+            
+            .sidebar {
+                width: 260px;
+                left: -280px; 
+                top: 0;
+                height: 100vh;
+                border-radius: 0;
+            }
+            .sidebar h4, .menu-link span, .profile-info { display: block; }
+            .sidebar h4 { margin-top: 40px; }
+            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
+            .profile-section { justify-content: flex-start; padding: 12px; }
+
+            .sidebar.active { left: 0px; } 
+
+            .main-content {
+                margin-left: 0;
+                padding: 80px 20px 20px 20px; 
+            }
+
+            /* OPTIMASI KUSUS PODIUM DI HP: Mengubah baris podium jadi susunan list vertikal agar teks tidak nabrak */
+            .podium-container {
+                flex-direction: column;
+                align-items: center;
+                min-height: auto;
+                gap: 25px;
+            }
+            .podium-item {
+                width: 100%;
+                max-width: 280px;
+                background: rgba(255, 255, 255, 0.02);
+                padding: 15px;
+                border-radius: 20px;
+                border: 1px solid rgba(255,255,255,0.05);
+            }
+            .podium-step {
+                border-radius: 10px;
+                height: 45px !important;
+                font-size: 1.2rem;
+            }
+            .medal-graphic { width: 70px !important; }
+            .winner-name { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Tombol Menu khusus untuk tampilan HP -->
+    <button class="menu-toggle" id="toggleBtn">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link">
@@ -150,12 +235,12 @@
             </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
                 <img src="kembali.png" class="img-menu-icon"> <span>Keluar</span>
-            </a>    
+            </a>     
         </nav>
 
         <div class="profile-section">
             <img src="reading-book.png" class="rounded-circle me-2" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent);">
-            <div>
+            <div class="profile-info">
                 <p class="small fw-bold mb-0 text-white">Wayan Bayu</p>
                 <p class="mb-0 text-white opacity-75" style="font-size: 10px;">wayan@upksaintek.com</p>
             </div>
@@ -218,7 +303,6 @@
                 </div>
                 <div class="xp-text">2650 XP</div>
             </div>
-            <!-- Contoh tambahan peringkat -->
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">4.</div>
@@ -228,5 +312,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Script Pembuka/Penutup Sidebar Mobile -->
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+
+        toggleBtn.addEventListener('click', (e) => {
+            sidebarMenu.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
