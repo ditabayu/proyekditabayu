@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard TI - UPKSAINTEK</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons untuk Tombol Menu di HP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght={300;400;600;700}&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -23,19 +26,48 @@
             overflow-x: hidden; 
         }
 
+        /* --- TOGGLE BUTTON UNTUK HP --- */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
         /* --- SIDEBAR --- */
         .sidebar {
             background-color: var(--card-bg); 
-            height: 90vh; padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
-            width: 260px; top: 5vh; left: 20px; border-radius: 30px;
-            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; transition: 0.3s;
+            height: 90vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            position: fixed; 
+            width: 260px; 
+            top: 5vh; 
+            left: 20px; 
+            border-radius: 30px;
+            z-index: 1000; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex; 
+            flex-direction: column; 
+            transition: all 0.3s ease;
         }
 
         .menu-link {
-            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
-            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px; transition: 0.3s;
+            display: flex; 
+            align-items: center; 
+            color: #adb5bd; 
+            text-decoration: none;
+            padding: 12px 15px; 
+            border-radius: 15px; 
+            margin-bottom: 8px; 
+            transition: 0.3s;
         }
 
         .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
@@ -49,54 +81,119 @@
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
         .profile-section {
-            margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px; display: flex; align-items: center;
-            overflow: hidden; width: 100%;
+            margin-top: auto; 
+            padding: 12px; 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center;
+            overflow: hidden; 
+            width: 100%;
         }
 
         .profile-info {
-            overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+            overflow: hidden; 
+            white-space: nowrap; 
+            text-overflow: ellipsis;
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; transition: 0.3s; }
+        .main-content { 
+            margin-left: 310px; 
+            padding: 40px 40px 40px 20px; 
+            transition: all 0.3s ease; 
+        }
 
         /* --- STAT BOXES --- */
         .stat-box { 
-            position: relative; border-radius: 24px; padding: 20px; height: 180px; 
-            overflow: hidden; color: white; display: flex; flex-direction: column; 
-            justify-content: center; border: 1px solid rgba(255,255,255,0.1);
+            position: relative; 
+            border-radius: 24px; 
+            padding: 20px; 
+            height: 160px; 
+            overflow: hidden; 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .stat-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.4; }
-        .stat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(13, 27, 42, 0.9) 0%, rgba(13, 27, 42, 0.6) 100%); z-index: 2; }
+        .stat-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.2; }
+        .stat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(13, 27, 42, 0.95) 0%, rgba(13, 27, 42, 0.7) 100%); z-index: 2; }
         .stat-content { position: relative; z-index: 3; }
 
         /* --- CARD MATERI --- */
         .card-materi { 
-            position: relative; height: 220px; border-radius: 20px; overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-end; 
-            padding: 25px; transition: 0.4s; text-decoration: none; 
+            position: relative; 
+            height: 200px; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 1px solid rgba(255,255,255,0.1); 
+            display: flex; 
+            align-items: flex-end; 
+            padding: 20px; 
+            transition: 0.4s; 
+            text-decoration: none; 
         }
-        .card-materi:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 40px rgba(76, 201, 240, 0.15); }
+        .card-materi:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 40px rgba(76, 201, 240, 0.15); }
         .materi-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
         .materi-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(13, 27, 42, 0.95), rgba(13, 27, 42, 0.3)); z-index: 2; }
         .materi-text { position: relative; z-index: 3; color: white; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .sidebar { width: 70px; left: 10px; padding: 20px 5px; align-items: center; }
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* 1. Tablet & Layar Sedang (max-width: 992px) */
+        @media (max-width: 992px) {
+            .sidebar { 
+                width: 80px; 
+                left: 10px; 
+                padding: 25px 5px; 
+                align-items: center; 
+            }
             .sidebar h4, .menu-link span, .profile-info { display: none; }
             .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
-            .main-content { margin-left: 90px; padding: 20px; }
-            .profile-section { justify-content: center; }
-            .stat-box { height: 140px; }
-            .col-6 { width: 50%; } /* Untuk grid materi di HP */
+            .main-content { margin-left: 110px; padding: 30px 20px; }
+            .profile-section { justify-content: center; padding: 8px; }
+        }
+
+        /* 2. HP / Layar Kecil (max-width: 768px) */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; } /* Munculkan tombol menu */
+            
+            /* Sidebar disembunyikan ke kiri luar layar secara default di HP */
+            .sidebar { 
+                width: 260px; 
+                left: -280px; 
+                top: 0; 
+                height: 100vh; 
+                border-radius: 0;
+            }
+            /* Menampilkan tulisan menu kembali saat sidebar dibuka di HP */
+            .sidebar h4, .menu-link span, .profile-info { display: block; }
+            .sidebar h4 { margin-top: 40px; } /* Biar ga mentok tombol */
+            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
+            .profile-section { justify-content: flex-start; padding: 12px; }
+
+            /* Class pemicu saat tombol menu di-klik via Javascript */
+            .sidebar.active { left: 0px; }
+
+            /* Konten utama penuh dari kiri ke kanan */
+            .main-content { 
+                margin-left: 0; 
+                padding: 80px 20px 40px 20px; /* Jarak atas ditambah agar tidak tertutup tombol menu */
+            }
+            
+            .stat-box { height: 130px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
+    <!-- Tombol Menu khusus saat dibuka di HP -->
+    <button class="menu-toggle" id="toggleBtn">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link active">
@@ -116,7 +213,7 @@
             </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
                 <img src="kembali.png" class="img-menu-icon" alt="Keluar"> <span>Keluar</span>
-            </a>    
+            </a>     
         </nav>
 
         <div class="profile-section">
@@ -130,15 +227,15 @@
 
     <div class="main-content"> 
         <div class="row mb-4 align-items-center">
-            <div class="col-md-8">
+            <div class="col-12">
                 <h2 class="fw-bold">Welcome Mahasiswa TI 👋</h2>
                 <p class="text-muted"><span style="color: var(--accent);">Siap Belajar Teknologi Informasi Hari Ini?</span></p>
             </div>
         </div>
 
-        <!-- STATISTIK UTAMA -->
+        <!-- STATISTIK UTAMA (Menggunakan breakpoints Bootstrap g-3 col-12 col-md-4 agar rapi di semua device) -->
         <div class="row g-3 mb-5">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="stat-box">
                     <img src="materi selesai.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content">
@@ -151,7 +248,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="stat-box">
                     <img src="poin mahasiswa.png" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content">
@@ -162,7 +259,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="stat-box">
                     <img src="target harian.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content">
@@ -175,12 +272,12 @@
 
         <div class="mt-5 mb-4"> 
             <h5 class="fw-bold mb-1">Modul Pembelajaran</h5>
-             <p class="text-muted small"><span style="color: var(--accent);">>Lanjutkan progress belajar dari modul terakhir</span></p> 
+            <p class="text-muted small"><span style="color: var(--accent);">> Lanjutkan progress belajar dari modul terakhir</span></p> 
         </div>
 
-        <!-- GRID MODUL -->
-        <div class="row g-4">
-            <div class="col-6 col-md-3">
+        <!-- GRID MODUL (col-6 di HP jadi 2 baris x 2 kolom, col-lg-3 di laptop jadi 4 kolom berjajar) -->
+        <div class="row g-3 g-md-4">
+            <div class="col-6 col-lg-3">
                 <a href="MATERIJAVADASARTI.html" class="card-materi">
                     <img src="java dasar.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -191,7 +288,7 @@
                 </a>
             </div>
 
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-lg-3">
                 <a href="MATERIWEBDEVTI.html" class="card-materi">
                     <img src="web dev (2).jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -202,28 +299,46 @@
                 </a>
             </div>
 
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-lg-3">
                 <a href="MATERIJARINGANKOMPUTERTI.html" class="card-materi">
                     <img src="jaringan komputer bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
                     <div class="materi-text">
                         <h6 class="fw-bold mb-1">Jaringan</h6>
-                        <p class="small opacity-75" style="font-size: 0.7rem;">7 Materi</p>
+                        <p class="small opacity-75 d-none d-md-block" style="font-size: 0.7rem;">7 Materi</p>
                     </div>
                 </a>
             </div>
 
-            <div class="col-6 col-md-3">
+            <div class="col-6 col-lg-3">
                 <a href="MATERIBASICSCIENCETI.html" class="card-materi">
                     <img src="basic science (2).jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
                     <div class="materi-text">
                         <h6 class="fw-bold mb-1">Science</h6>
-                        <p class="small opacity-75" style="font-size: 0.7rem;">5 Materi</p>
+                        <p class="small opacity-75 d-none d-md-block" style="font-size: 0.7rem;">5 Materi</p>
                     </div>
                 </a>
             </div>
         </div>
     </div> 
+
+    <!-- Script Sederhana untuk Buka/Tutup Sidebar di HP -->
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+
+        toggleBtn.addEventListener('click', (e) => {
+            sidebarMenu.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        // Menutup sidebar jika pengguna menyentuh area di luar sidebar (khusus HP)
+        document.addEventListener('click', (e) => {
+            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
