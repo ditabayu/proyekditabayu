@@ -156,6 +156,30 @@
             box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
         }
 
+
+
+        /* --- CUSTOM SCROLLBAR TEXTAREA --- */
+        textarea::-webkit-scrollbar {
+            width: 6px; 
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background: transparent; /* Track transparan */
+            margin: 8px; /* Memberi jarak agar batang tidak mentok */
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background: var(--accent); /* Warna ungu sesuai tema kamu */
+            border-radius: 10px;
+        }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #4a3fd1; /* Warna sedikit lebih gelap saat hover */
+        }
+
+      
+    
+
         .btn-kirim {
             background: linear-gradient(135deg, #5ff04c 0%, var(--accent) 100%);
             color: #0f0415;
