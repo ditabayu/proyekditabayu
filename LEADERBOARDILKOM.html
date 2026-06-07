@@ -59,7 +59,7 @@
         }
         .title-icon { width: 35px; height: 35px; margin-left: 8px; vertical-align: middle; filter: drop-shadow(0 0 5px var(--accent)); }
 
-        /* --- PODIUM DENGAN GAMBAR MEDALI --- */
+        /* --- PODIUM BERURUTAN (1, 2, 3) --- */
         .podium-container { 
             display: flex; 
             justify-content: center; 
@@ -88,8 +88,9 @@
             transition: 0.3s ease;
         }
 
-        .podium-item:nth-child(2) .medal-graphic {
-            width: 210px; /* Emas lebih besar */
+        /* Peringkat 1 Emas Diatur Lebih Besar Secara Proporsional */
+        .podium-item.rank-first .medal-graphic {
+            width: 210px; 
             filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
         }
 
@@ -140,10 +141,9 @@
         html { zoom: 90%; }
 
         /* ==========================================================================
-           MEDIA QUERIES RESPONSIVE (LEADERBOARD)
+           MEDIA QUERIES RESPONSIVE (LEADERBOARD BERURUTAN)
            ========================================================================== */
 
-        /* 1. Pengaturan Perangkat Tablet / Medium Screen (max-width: 992px) */
         @media (max-width: 992px) {
             .sidebar {
                 width: 230px;
@@ -156,12 +156,10 @@
             }
             .podium-container { min-height: auto; gap: 10px; }
             .medal-graphic { width: 120px; }
-            .podium-item:nth-child(2) .medal-graphic { width: 160px; }
+            .podium-item.rank-first .medal-graphic { width: 160px; }
         }
 
-        /* 2. Pengaturan Perangkat Handphone / Mobile Screen (max-width: 768px) */
         @media (max-width: 768px) {
-            /* Transformasi sidebar vertikal ke bottom navigation bar */
             .sidebar {
                 position: fixed;
                 top: auto;
@@ -184,7 +182,7 @@
             }
 
             .sidebar h4, .sidebar .profile-section {
-                display: none !important; /* Menyembunyikan komponen logo & profil di mobile */
+                display: none !important;
             }
 
             .sidebar nav {
@@ -226,16 +224,14 @@
                 margin-top: 0 !important;
             }
 
-            /* Restrukturisasi layout area utama */
             .main-content {
                 margin-left: 0;
-                padding: 25px 15px 100px 15px; /* Jarak bawah aman dari bottom bar */
+                padding: 25px 15px 100px 15px;
             }
 
             .main-content h2 { font-size: 1.5rem; }
             .title-icon { width: 28px; height: 28px; }
 
-            /* Mengubah baris susunan podium horizontal menjadi struktur vertikal (list) agar tidak bertumpuk */
             .podium-container {
                 flex-direction: column;
                 align-items: center;
@@ -253,7 +249,7 @@
                 border: 1px solid rgba(255, 255, 255, 0.05);
             }
 
-            .medal-graphic, .podium-item:nth-child(2) .medal-graphic {
+            .medal-graphic, .podium-item.rank-first .medal-graphic {
                 width: 100px !important;
                 margin-bottom: 5px;
             }
@@ -281,6 +277,7 @@
 </head>
 <body>
 
+    <!-- SIDEBAR LEFT / BOTTOM NAV ON MOBILE -->
     <div class="sidebar">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
@@ -313,13 +310,24 @@
         </div>
     </div>
 
+    <!-- MAIN CONTENT AREA -->
     <div class="main-content">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Leaderboard Mahasiswa <img src="ikon leaderboard.png" class="title-icon"></h2>
             <p class="opacity-75">Top pelajar berdasarkan perolehan XP Semester Ini</p>
         </div>
 
+        <!-- PODIUM RESPONSIVE CONTAINER (BERURUTAN: 1, 2, 3) -->
         <div class="podium-container">
+            <!-- Peringkat 1 -->
+            <div class="podium-item rank-first">
+                <img src="medali emas.png" class="medal-graphic" alt="Gold Medal">
+                <div class="winner-name" style="color: var(--gold); font-size: 1.2rem;">Adrian Maulana</div>
+                <div class="winner-xp">3930 point</div>
+                <div class="podium-step step-1">1</div>
+            </div>
+
+            <!-- Peringkat 2 -->
             <div class="podium-item">
                 <img src="medasi perak.png" class="medal-graphic" alt="Silver Medal">
                 <div class="winner-name">Niluh</div>
@@ -327,13 +335,7 @@
                 <div class="podium-step step-2">2</div>
             </div>
 
-            <div class="podium-item">
-                <img src="medali emas.png" class="medal-graphic" alt="Gold Medal">
-                <div class="winner-name" style="color: var(--gold); font-size: 1.2rem;">Adrian Maulana</div>
-                <div class="winner-xp">3930 point</div>
-                <div class="podium-step step-1">1</div>
-            </div>
-
+            <!-- Peringkat 3 -->
             <div class="podium-item">
                 <img src="medali perunggu.png" class="medal-graphic" alt="Bronze Medal">
                 <div class="winner-name">Riswar</div>
@@ -342,6 +344,7 @@
             </div>
         </div>
 
+        <!-- LIST RANKING BOTTOM -->
         <div class="dark-list-container">
             <div class="list-row">
                 <div class="d-flex align-items-center">
