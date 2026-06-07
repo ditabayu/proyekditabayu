@@ -6,8 +6,6 @@
     <title>Mode Belajar Pro - UPKSAINTEK</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-
 
     <style>
         :root {
@@ -23,64 +21,100 @@
             --cyan: #4cc9f0;
         }
 
-        body {font-family: 'Poppins', sans-serif; background-color: var(--bg-dark);
-              color: white; margin: 0; scroll-behavior: smooth;}
+        body {
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-dark);
+            color: white; 
+            margin: 0; 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
+        /* --- BAGIAN HEADER / TOP NAV --- */
+        .top-nav {
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            height: 70px;
+            background: rgba(13, 27, 42, 0.95); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1050; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-/* BAGIAN HEADER ATO ATAS */
-        .top-nav {position: fixed; top: 0; width: 100%; height: 70px;
-                  background: rgba(13, 27, 42, 0.9); backdrop-filter: blur(10px);
-                  z-index: 1000; display: flex; align-items: center; padding: 0 40px;
-                  border-bottom: 1px solid rgba(255,255,255,0.05);}
+        /* --- SIDEBAR KIRI (DESKTOP) --- */
+        .sidebar-learning {
+            width: 280px; 
+            max-height: calc(100vh - 140px); 
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 100px; 
+            left: 30px; 
+            border-radius: 30px;
+            padding: 30px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow-y: auto; 
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
 
+        .sidebar-learning::-webkit-scrollbar { width: 5px; }
+        .sidebar-learning::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
+        .nav-item-materi {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+            color: #adb5bd; 
+            text-decoration: none; 
+            padding: 14px 18px;
+            border-radius: 15px; 
+            margin-bottom: 10px; 
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
 
+        .nav-item-materi:hover, .nav-item-materi.active {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--cyan);
+            transform: translateX(8px);
+            font-weight: 600;
+        }
 
-/* SIDEBAR KIRI ADA SCROLL NY */
-        .sidebar-learning {width: 280px; max-height: 70vh; background: var(--sidebar-bg);
-                           backdrop-filter: blur(20px); position: fixed;
-                           top: 100px; left: 30px; border-radius: 30px;
-                           padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);
-                           z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-                           overflow-y: auto; overflow-x: hidden;}
+        .icon-sub { width: 18px; opacity: 0.6; flex-shrink: 0; margin-left: 10px; }
 
-        .sidebar-learning::-webkit-scrollbar {width: 5px;}
-        .sidebar-learning::-webkit-scrollbar-thumb {background: rgba(76, 201, 240, 0.3);
-                                                    border-radius: 10px;}
-
-        .nav-item-materi {display: flex; align-items: center; justify-content: space-between;
-                          color: #adb5bd; text-decoration: none; padding: 14px 18px;
-                          border-radius: 15px; margin-bottom: 10px; transition: 0.3s;
-                          font-size: 0.85rem;}
-
-        .nav-item-materi:hover, .nav-item-materi.active {background: rgba(76, 201, 240, 0.1);
-                                                        color: var(--cyan);
-                                                        transform: translateX(8px);
-                                                        font-weight: 600;}
-
-        .icon-sub { width: 18px; opacity: 0.6; }
-
-
-
-
-
-/* KOTAK KANAN  */
+        /* --- MAIN CONTAINER KANAN --- */
         .content-container {
-                           margin-left: 350px; /* JARAK DARI SIDEBAR KIRI */
-                           padding: 100px 50px 100px 20px;}
+            margin-left: 350px; 
+            padding: 100px 50px 100px 20px;
+            max-width: 1200px;
+            transition: all 0.3s ease;
+        }
 
+        /* --- BAGIAN KOTAK MATERINYA --- */
+        .materi-card {
+            background: var(--card-bg); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 35px; 
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 6px solid var(--cyan); 
+            text-align: justify;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            scroll-margin-top: 100px; /* Mencegah judul tertutup navbar saat klik navigasi */
+        }
 
-/* BAGIAN KOTAK MATERINYA */
-        .materi-card {background: var(--card-bg); backdrop-filter: blur(10px);
-                      border-radius: 35px; padding: 50px;
-                      margin-bottom: 60px;
-                      border: 1px solid rgba(255, 255, 255, 0.05);
-                      border-left: 6px solid var(--cyan); /* WARNA DEFAULT NY */
-                      text-align: justify;
-                      line-height: 1.8;
-                      box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
-
-/* VARIASI WARNA PER BAB, JUDUL MATERI PLUS GAMBAR */
         .border-safflowerorange { border-left-color: var(--safflowerorange);}
         .border-pepperorange { border-left-color: var(--pepperorange);}
         .border-burntorange { border-left-color: var(--burntorange);}
@@ -88,34 +122,129 @@
         .border-neonorange { border-left-color: var(--neonorange);}
         .border-ginger { border-left-color: var(--ginger);}
 
+        .materi-card h2 { font-weight: 700; margin-bottom: 25px; font-size: 1.75rem; }
 
-        .materi-card h2 {font-weight: 700; margin-bottom: 25px;}
-
-       .img-materi {display: block; margin: 35px auto;
-                    width: 80%; max-height: 350px; object-fit: cover; 
-                    border-radius: 20px; border: 2px solid rgba(192, 145, 145, 0.1);
-                    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-                    transition: 0.4s ease-in-out;}
+        .img-materi {
+            display: block; 
+            margin: 35px auto;
+            width: 80%; 
+            max-height: 350px; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            border: 2px solid rgba(192, 145, 145, 0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: 0.4s ease-in-out;
+        }
                     
-        .img-materi:hover {transform: scale(1.02); border-color: var(--cyan);}
+        .img-materi:hover { transform: scale(1.02); border-color: var(--cyan); }
 
-        .badge-kategori {background: rgba(255,255,255,0.1);
-                         padding: 5px 15px; border-radius: 50px;
-                         font-size: 0.7rem; text-transform: uppercase;
-                         letter-spacing: 1px; margin-bottom: 15px;
-                         display: inline-block;}
+        .badge-kategori {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px; 
+            border-radius: 50px;
+            font-size: 0.7rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px; 
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* ==========================================================================
+           MEDIA QUERIES RESPONSIVE (DIPERBAIKI AGAR OTOMATIS MENYESUAIKAN GADGET)
+           ========================================================================== */
+
+        /* 1. Tampilan Layar Sedang / Tablet (max-width: 992px) */
+        @media (max-width: 992px) {
+            .sidebar-learning {
+                width: 240px;
+                left: 15px;
+                padding: 20px;
+            }
+            .content-container {
+                margin-left: 280px;
+                padding-right: 25px;
+            }
+            .materi-card { padding: 35px; }
+            .img-materi { width: 95%; }
+        }
+
+        /* 2. Tampilan HP / Mobile Phone (max-width: 768px) */
+        @media (max-width: 768px) {
+            .top-nav {
+                padding: 0 20px;
+                height: 60px;
+            }
+            .top-nav a { font-size: 11px !important; margin-right: 10px !important; }
+            .top-nav span { display: none; } /* Sembunyikan sub-judul modul di HP agar space luas */
+
+            /* Mengubah Sidebar Kiri Menjadi Navigasi Atas yang Bisa Digeser Samping */
+            .sidebar-learning {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                max-height: auto;
+                height: 60px;
+                border-radius: 0;
+                padding: 0 15px;
+                background: rgba(27, 38, 59, 0.95);
+                border: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                display: flex;
+                align-items: center;
+                overflow-x: auto;
+                overflow-y: hidden;
+                z-index: 1040;
+            }
+
+            .sidebar-learning::-webkit-scrollbar { display: none; } /* Hilangkan scrollbar bawaan browser */
+            .sidebar-learning .mb-4 { display: none; } /* Sembunyikan info judul daftar materi */
+
+            .sidebar-learning nav {
+                display: flex;
+                flex-direction: row !important; /* Susun menyamping */
+                gap: 8px;
+                width: max-content;
+                align-items: center;
+                height: 100%;
+            }
+
+            .nav-item-materi {
+                margin-bottom: 0;
+                white-space: nowrap; /* Mencegah teks bab melompat turun kebawah */
+                padding: 8px 14px;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-item-materi:hover, .nav-item-materi.active {
+                transform: translateY(0); /* Matikan efek geser kanan desktop agar pas di jempol */
+            }
+
+            .icon-sub { display: none; } /* Sembunyikan ikon nomer kecil di HP */
+
+            /* Penyesuaian Ruang Utama Kotak Materi */
+            .content-container {
+                margin-left: 0;
+                padding: 140px 15px 50px 15px; /* Beri jarak aman dari top nav ganda */
+            }
+
+            .materi-card {
+                padding: 25px 20px;
+                border-radius: 22px;
+                margin-bottom: 40px;
+                scroll-margin-top: 140px; /* Jarak lompatan ketika klik daftar menu atas */
+            }
+
+            .materi-card h2 { font-size: 1.35rem; margin-bottom: 15px; }
+            .img-materi { width: 100%; margin: 20px auto; max-height: 260px; }
+        }
     </style>
 </head>
 
-
-
-
-
-
-
 <body>
 
-<!--JUDUL DI HEADER-->
     <div class="top-nav">
         <a href="ISIPEMBELAJARANMAHASISWA.html" class="text-decoration-none text-info fw-bold small me-4">← KELUAR MODE BELAJAR</a>
         <div class="ms-auto d-flex align-items-center">
@@ -125,15 +254,14 @@
     </div>
 
 
-<!--SUB BAB NYA  -->    
     <div class="sidebar-learning">
         <div class="mb-4">
             <h6 class="fw-bold mb-1">Daftar materi</h6>
             <p class="text-white" style="font-size: 11px;">Klik untuk pindah materi</p>
         </div>
         
-        <nav>
-            <a href="#intro" class="nav-item-materi">
+        <nav class="d-flex flex-column">
+            <a href="#intro" class="nav-item-materi active">
                 <span>01. Pengertian Jaringan komputer</span>
                 <img src="icon no 1.png" class="icon-sub">
             </a>
@@ -161,8 +289,6 @@
     </div>
 
 
-
-<!--MATERI DI KANAN. TENTANG PENGENALAn jaringan-->  
     <div class="content-container">
         
         <div id="intro" class="materi-card border-safflowerorange">
@@ -170,21 +296,17 @@
              <h2 style="color: var(--safflowerorange);">01. Kenalan Yuk Sama Jaringan Komputer</h2>
              <hr style="border-color: rgba(255,255,255,0.1);">
 
-                <p>Jaringan komputer adalah sekumpulan komputer yang saling terhubung untuk berbagi data, informasi, dan sumber daya seperti printer atau koneksi internet.</p>
-                
-                    
-            
-                <img src="jaringan komputer.png" class="img-materi" alt="Ilustrasi Java">
-                <p class="small text-center"><span style="color: #4cc9f0;">Gambar 1.1 ..</span></p>
-            
+             <p>Jaringan komputer adalah sekumpulan komputer yang saling terhubung untuk berbagi data, informasi, dan sumber daya seperti printer atau koneksi internet.</p>
+             
+             <img src="jaringan komputer.png" class="img-materi" alt="Ilustrasi Java">
+             <p class="small text-center"><span style="color: #4cc9f0;">Gambar 1.1 ..</span></p>
              
              <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
-            </div>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+             </div>
         </div>
 
 
-<!--jenis jenis jaringan-->  
         <div id="konsep" class="materi-card border-pepperorange">
             <span class="badge-kategori text-white">Teori Dasar</span>
             <h2 style="color: var(--pepperorange);">02. Jenis-jenis Jaringan</h2>
@@ -193,21 +315,16 @@
             <p>LAN (Local Area Network) → Jaringan dalam area kecil (sekolah, rumah)</p> 
             <p>MAN (Metropolitan Area Network) → Jaringan dalam satu kota</p> 
             <p>WAN (Wide Area Network) → Jaringan luas antar negara (contoh: internet)</p> 
-                
             
-
             <img src="jenis jenis jaringan.png" class="img-materi" alt="Ilustrasi Java">
-                <p class="small text-center"><span style="color: #4cc9f0;">Gambar 2.1</p>
-            
-                
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 2.1</span></p>
 
-              <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
 
-<!--Topologi-->  
         <div id="struktur" class="materi-card border-burntorange">
             <span class="badge-kategori text-white">Fundamental</span>
             <h2 style="color: var(--burntorange);">03.Topologi</h2>
@@ -218,85 +335,91 @@
             <p>- Mesh → Semua perangkat saling terhubung</p> 
 
             <img src="Topologi.png" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 3.1</p>
-            
-            
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 3.1</span></p>
 
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-<!--IP Address-->  
+
         <div id="tampilan" class="materi-card border-carrot">
             <span class="badge-kategori text-white">Konsep</span>
             <h2 style="color: var(--carrot);">04. IP Address</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
             <p>IP Address adalah alamat unik yang digunakan untuk mengidentifikasi perangkat dalam jaringan.</p>
-                <p>Contoh:</p>
-                
-            
+            <p>Contoh:</p>
             
             <img src="ID Address.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 4.1</p>
-
-    
-                
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 4.1</span></p>
 
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
 
-<!--PERANGKAT JARINGAN-->  
         <div id="intraktivitas" class="materi-card border-neonorange">
             <span class="badge-kategori text-white">Praktik</span>
             <h2 style="color: var(--neonorange);">05. Perangkat Jaringan</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-            <p>
-                <p>- Router</p> 
-                <p>- Switch</p> 
-                <p>- Modem</p> 
-                <p>- Access Point</p> 
-                
+            
+            <p>- Router</p> 
+            <p>- Switch</p> 
+            <p>- Modem</p> 
+            <p>- Access Point</p> 
             
             <p>Contoh:</p>
             <img src="perangkat jaringan.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 5.1</p>
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 5.1</span></p>
 
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-<!--PROTOKOL JARINGAN-->  
+
         <div id="responsif" class="materi-card border-ginger">
             <span class="badge-kategori text-white">Praktik</span>
             <h2 style="color: var(--ginger);">06. Protokol Jaringan</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-            <p>
-                Protokol jaringan adalah aturan atau standar yang digunakan agar perangkat dalam jaringan bisa saling berkomunikasi dengan benar.
-            </p>
+            <p>Protokol jaringan adalah aturan atau standar yang digunakan agar perangkat dalam jaringan bisa saling berkomunikasi dengan benar.</p>
             <p>Contoh:</p>
-           <p>- HTTP (HyperText Transfer Protocol) → Digunakan untuk mengakses website</p>
-           <p>- HTTPS → Versi aman dari HTTP</p>
-           <p>- FTP (File Transfer Protocol) → Untuk transfer file</p>
-           <p>- TCP/IP (Transmission Control Protocol/Internet Protocol) → Dasar komunikasi di internet</p>
-            <img src="protokol jaringan.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 6.1</p>
+            <p>- HTTP (HyperText Transfer Protocol) → Digunakan untuk mengakses website</p>
+            <p>- HTTPS → Versi aman dari HTTP</p>
+            <p>- FTP (File Transfer Protocol) → Untuk transfer file</p>
+            <p>- TCP/IP (Transmission Control Protocol/Internet Protocol) → Dasar komunikasi di internet</p>
             
+            <img src="protokol jaringan.jpeg" class="img-materi" alt="Ilustrasi Java">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 6.1</span></p>
 
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>        
 
-
     </div>
 
+    <script>
+        const sections = document.querySelectorAll('.materi-card');
+        const navItems = document.querySelectorAll('.nav-item-materi');
 
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 160)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
