@@ -8,29 +8,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-
-            :root {
+        :root {
             --bg-body: #180721; 
             --sidebar-bg: #280f3c;
             --card-bg: #29183d;
             --accent: #a648ed;
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-body); color: white; margin: 0; overflow-x: hidden; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-body); 
+            color: white; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
 
         /* --- SIDEBAR KONSISTEN (Sama dengan Leaderboard & Statistik) --- */
         .sidebar {
             background-color: var(--card-bg); 
-            height: 90vh; padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
-            width: 260px; top: 5vh; left: 20px; border-radius: 30px;
-            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column;
+            height: 90vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            position: fixed; 
+            width: 260px; 
+            top: 5vh; 
+            left: 20px; 
+            border-radius: 30px;
+            z-index: 1000; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex; 
+            flex-direction: column;
+            transition: all 0.3s ease;
         }
 
         .menu-link {
-            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
-            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px; transition: 0.3s;
+            display: flex; 
+            align-items: center; 
+            color: #adb5bd; 
+            text-decoration: none;
+            padding: 12px 15px; 
+            border-radius: 15px; 
+            margin-bottom: 8px; 
+            transition: 0.3s;
         }
 
         .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
@@ -44,40 +63,197 @@
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
         .profile-section {
-            margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px; display: flex; align-items: center;
+            margin-top: auto; 
+            padding: 15px; 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center;
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; }
+        .main-content { 
+            margin-left: 310px; 
+            padding: 40px; 
+            transition: all 0.3s ease;
+        }
 
-        .category-pill { display: inline-block; padding: 8px 20px; border-radius: 50px;
-                        background: rgba(255, 255, 255, 0.05); border: 1px solid #415a77;
-                        color: #adb5bd; text-decoration: none; margin-right: 10px; transition: 0.3s; font-size: 0.85rem; }
+        /* Container Pembungkus Kategori agar bisa di-scroll pada perangkat mobile */
+        .category-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            scrollbar-width: none; /* Hilangkan scrollbar di Firefox */
+        }
+        .category-container::-webkit-scrollbar {
+            display: none; /* Hilangkan scrollbar di Chrome/Safari */
+        }
 
-        .category-pill:hover, .category-pill.active { background: var(--accent); color: #0d1b2a; border-color: var(--accent); font-weight: 600; }
+        .category-pill { 
+            display: inline-block; 
+            padding: 8px 20px; 
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid #415a77;
+            color: #adb5bd; 
+            text-decoration: none; 
+            transition: 0.3s; 
+            font-size: 0.85rem; 
+            flex-shrink: 0;
+        }
+
+        .category-pill:hover, .category-pill.active { 
+            background: var(--accent); 
+            color: #0d1b2a; 
+            border-color: var(--accent); 
+            font-weight: 600; 
+        }
 
         /* --- MATERI CARDS (Dipertahankan) --- */
-        .card-materi-tiga { position: relative; width: 100%; height: 380px; border-radius: 25px;
-                           overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);
-                           display: flex; flex-direction: column; justify-content: flex-end;
-                           padding: 25px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                           margin-bottom: 20px; }
+        .card-materi-tiga { 
+            position: relative; 
+            width: 100%; 
+            height: 380px; 
+            border-radius: 25px;
+            overflow: hidden; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end;
+            padding: 25px; 
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 20px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
 
         .materi-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: 0.6s; }
-        .card-materi-tiga:hover .materi-bg { transform: scale(1.1); }
+        .card-materi-tiga:hover .materi-bg { transform: scale(1.08); }
         .materi-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-                         background: linear-gradient(to top, rgba(13, 27, 42, 1) 20%, rgba(13, 27, 42, 0) 100%); z-index: 2; }
-        .materi-content { position: relative; z-index: 3; }
+                         background: linear-gradient(to top, rgba(24, 7, 33, 1) 25%, rgba(24, 7, 33, 0.2) 100%); z-index: 2; }
+        .materi-content { position: relative; z-index: 3; width: 100%; }
 
-        .tombol-mulai-sm { display: inline-block; margin-top: 15px; padding: 10px; background: rgba(255, 255, 255, 0.1);
-                          backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);
-                          color: white; text-decoration: none; border-radius: 15px; font-size: 0.85rem;
-                          font-weight: 600; transition: 0.4s; width: 100%; text-align: center; }
+        .tombol-mulai-sm { 
+            display: inline-block; 
+            margin-top: 15px; 
+            padding: 12px; 
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white; 
+            text-decoration: none; 
+            border-radius: 15px; 
+            font-size: 0.85rem;
+            font-weight: 600; 
+            transition: 0.4s; 
+            width: 100%; 
+            text-align: center; 
+        }
 
-        .tombol-mulai-sm:hover { background: var(--accent); color: #0d1b2a; box-shadow: 0 8px 15px rgba(76, 201, 240, 0.3); }
+        .tombol-mulai-sm:hover { background: var(--accent); color: #0d1b2a; box-shadow: 0 8px 20px rgba(166, 72, 237, 0.4); }
 
         html { zoom: 90%; }
+
+        /* ==========================================================================
+           MEDIA QUERIES RESPONSIVE (MATERI DASHBOARD)
+           ========================================================================== */
+
+        /* 1. Pengaturan Screen Medium / Tablet (max-width: 992px) */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 230px;
+                left: 10px;
+                padding: 20px 10px;
+            }
+            .main-content {
+                margin-left: 260px;
+                padding: 30px 20px;
+            }
+            .card-materi-tiga { height: 350px; padding: 20px; }
+        }
+
+        /* 2. Pengaturan Screen Handphone (max-width: 768px) */
+        @media (max-width: 768px) {
+            /* Transformasi sidebar vertikal menjadi bottom navigation bar */
+            .sidebar {
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 70px;
+                border-radius: 20px 20px 0 0;
+                padding: 5px 10px;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0 -8px 30px rgba(0,0,0,0.6);
+                background-color: rgba(40, 15, 60, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: none;
+                border-top: 1px solid rgba(255,255,255,0.08);
+                z-index: 2000;
+            }
+
+            .sidebar h4, .sidebar .profile-section {
+                display: none !important; /* Sembunyikan identitas teks atas & profil di mobile */
+            }
+
+            .sidebar nav {
+                display: flex;
+                flex-direction: row !important;
+                justify-content: space-between;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+            }
+
+            .menu-link {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0;
+                padding: 5px;
+                font-size: 9px;
+                color: #a5a6a7;
+                flex: 1;
+                text-align: center;
+                border-radius: 10px;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                margin-bottom: 4px;
+                width: 18px;
+                height: 18px;
+            }
+
+            .menu-link.active {
+                background-color: transparent;
+                color: var(--accent) !important;
+                font-weight: 700;
+            }
+
+            .menu-link.text-danger {
+                margin-top: 0 !important;
+            }
+
+            /* Penyesuaian layout konten utama */
+            .main-content {
+                margin-left: 0;
+                padding: 25px 15px 100px 15px; /* Ditambah padding bawah 100px supaya aman dari tumpukan bottom bar */
+            }
+
+            .main-content h2 { font-size: 1.6rem; }
+            
+            .card-materi-tiga { 
+                height: 320px; 
+                padding: 20px; 
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -85,21 +261,21 @@
     <div class="sidebar">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
- <a href="DASHBOARDMAHASISWAILKOM.html" class="menu-link">
+            <a href="DASHBOARDMAHASISWAILKOM.html" class="menu-link">
                 <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> Dashboard
             </a>
             <a href="ISIMATERIMAHASISWAILKOM.html" class="menu-link active">
                 <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> Materi
-     </a>
+            </a>
             <a href="ISILATIHANSOALILKOM.html" class="menu-link">
                 <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> Latihan Soal
-     </a>
-     <a href="LEADERBOARDILKOM.html" class="menu-link">
+            </a>
+            <a href="LEADERBOARDILKOM.html" class="menu-link">
                 <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> Leaderboard
             </a>
             <a href="STATISTIKAMAHASISWAILKOM.html" class="menu-link">
                 <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> Statistik
-     </a>
+            </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
                 <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> Keluar
             </a>    
@@ -118,15 +294,15 @@
         <h2 class="fw-bold">Sudah Siap Belajar?</h2>
         <p><span style="color: var(--accent);">Semangat!</span> Pilih modul materi Ilkom kamu hari ini.</p>
 
-        <div class="my-4">
+        <div class="my-4 category-container">
             <a href="#" class="category-pill active">Semua</a>
             <a href="#" class="category-pill">Pemrograman</a>
             <a href="#" class="category-pill">Basis Data</a>
             <a href="#" class="category-pill">Web Dev</a>
         </div>
 
-        <div class="row g-4 mt-2">
-            <div class="col-md-4">
+        <div class="row col-12 row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mx-auto mt-1 px-0">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="java dasar bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -139,7 +315,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="mobile programing (2).jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -152,7 +328,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="teori bahasa dan automata.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -165,7 +341,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="jaringan komputer bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -178,7 +354,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="basic science.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -191,7 +367,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col px-2">
                 <div class="card-materi-tiga">
                     <img src="EST bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
