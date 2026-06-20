@@ -13,18 +13,34 @@
             --sidebar-bg: #100f3c;
             --card-bg: #181a3d;
             --accent: #4853ed;
+            --gold: #ffd700;
+            --premium-gradient: linear-gradient(90deg, #4853ed, #b5179e);
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-body); color: rgb(255, 255, 255); margin: 0; overflow-x: hidden; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-body); 
+            color: rgb(255, 255, 255); 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
 
-         /* --- SIDEBAR KONSISTEN (Sama dengan Statistik) --- */
+         /* --- SIDEBAR DESKTOP KONSISTEN --- */
          .sidebar {
             background-color: var(--card-bg); 
             height: 90vh; padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; transition: all 0.3s ease;
+        }
+
+        .sidebar h4 { display: block; }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
         .menu-link {
@@ -36,24 +52,27 @@
         
         .menu-link.active { 
             background-color: var(--accent); 
-            color: #0d1b2a !important; 
+            color: white !important; 
             font-weight: 600; 
         }
+        
+        .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
         .profile-section {
             margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
+            overflow: hidden; width: 100%;
         }
 
-        /* MAIN CONTENT */
-        .main-content { margin-left: 310px; padding: 40px; }
+        /* --- MAIN CONTENT --- */
+        .main-content { margin-left: 310px; padding: 40px; transition: all 0.3s ease; }
 
         .title-icon {
             width: 40px; height: 40px; margin-left: 10px; vertical-align: middle;
             filter: drop-shadow(0 0 10px var(--accent)); object-fit: contain;
         }
 
-        /* BENTO CARDS */
+        /* --- BENTO CARDS --- */
         .bento-card {
             background: rgba(27, 38, 59, 0.6);
             border-radius: 24px; padding: 25px;
@@ -64,7 +83,7 @@
         .val-large { font-size: 2.5rem; font-weight: 800; color: var(--gold); margin: 0; }
         .val-label { color: #adb5bd; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* MULTICOLOR BAR CHART */
+        /* --- MULTICOLOR BAR CHART --- */
         .chart-placeholder {
             width: 100%; height: 200px;
             background: linear-gradient(rgba(255, 255, 255, 0.02), transparent);
@@ -74,7 +93,7 @@
         }
 
         .bar { 
-            width: 35px; 
+            width: 8%; 
             border-radius: 8px 8px 0 0; 
             transition: 0.5s; 
         }
@@ -88,52 +107,129 @@
         .bar-6 { background: linear-gradient(to top, #9d4edd, #5a189a); box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3); }
         .bar-7 { background: linear-gradient(to top, #4cc9f0, #4895ef); box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3); }
 
-        /* PROGRESS BAR TETAP PREMIUM */
+        /* --- PROGRESS BAR PREMIUM --- */
         .progress-wrapper { margin-bottom: 25px; }
         .skill-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .skill-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; }
         .skill-percent { 
-            background: rgba(236, 51, 38, 0.1); 
-            color: var(--accent); 
+            background: rgba(72, 83, 237, 0.1); 
+            color: #4cc9f0; 
             padding: 2px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;
-            border: 1px solid rgb(178, 106, 228);
+            border: 1px solid rgba(72, 83, 237, 0.3);
         }
 
-        .progress { height: 12px; background: rgba(236, 10, 10, 0.034); border-radius: 20px; overflow: visible; border: 1px solid rgba(227, 10, 220, 0.851); }
-        .progress-bar { background: var(--premium-gradient); border-radius: 20px; position: relative; box-shadow: 0 0 15px rgba(240, 76, 218, 0.5); }
+        .progress { height: 12px; background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: visible; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .progress-bar { background: var(--premium-gradient); border-radius: 20px; position: relative; box-shadow: 0 0 15px rgba(72, 83, 237, 0.4); }
         .progress-bar::after { content: ''; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; background: white; border-radius: 50%; box-shadow: 0 0 10px white; }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* 1. Layar Tablet (max-width: 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                left: 10px;
+                padding: 25px 5px;
+                align-items: center;
+            }
+            .sidebar h4, .menu-link span, .profile-section { display: none !important; }
+            .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
+            .main-content { margin-left: 110px; padding: 30px 20px; }
+        }
+
+        /* 2. Layar HP / Mobile (max-width: 768px) -> BERUBAH MENJADI BOTTOM NAV BAR */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                width: 100%;
+                height: auto;
+                padding: 10px 15px;
+                background-color: rgba(24, 26, 61, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 25px 25px 0 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+                flex-direction: row;
+                justify-content: space-around;
+                z-index: 1050;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+            }
+
+            .sidebar h4, .profile-section { display: none !important; }
+
+            .sidebar nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0;
+            }
+
+            .menu-link {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 4px;
+                margin-bottom: 0;
+                border-radius: 12px;
+                flex: 1;
+                font-size: 10px;
+                text-align: center;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                margin-bottom: 4px;
+                width: 22px;
+                height: 22px;
+            }
+
+            .menu-link.active {
+                background-color: transparent;
+                color: var(--accent) !important;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px 15px 100px 15px; /* Spasi bawah agar bento card terbawah tidak tertutup nav bar mobile */
+            }
+
+            .val-large { font-size: 2rem; }
+            .chart-placeholder { height: 160px; }
+            .bar { width: 10%; }
+            .skill-name { font-size: 0.85rem; }
+        }
 
         html { zoom: 90%; }
     </style>
 </head>
 
-
-
 <body>
 
-    <div class="sidebar">
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
- <a href="DASHBOARDMAHASISWAPTI.html" class="menu-link">
-                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> Dashboard
+            <a href="DASHBOARDMAHASISWAPTI.html" class="menu-link">
+                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> <span>Dashboard</span>
             </a>
             <a href="ISIMATERIPTI.html" class="menu-link">
-                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> Materi
-     </a>
+                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> <span>Materi</span>
+            </a>
             <a href="ISILATIHANSOALPTI.html" class="menu-link">
-                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> Latihan Soal
-     </a>
-     <a href="LEADERBOARDPTI.html" class="menu-link">
-                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> Leaderboard
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> <span>Latihan</span>
+            </a>
+            <a href="LEADERBOARDPTI.html" class="menu-link">
+                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> <span>Leaderboard</span>
             </a>
             <a href="STATISTIKPTI.html" class="menu-link active">
-                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> Statistik
-     </a>
-            <a href="Login.html" class="menu-link text-danger mt-3">
-                <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> Keluar
-            </a>    
+                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> <span>Statistik</span>
+            </a>
+            <a href="Login.html" class="menu-link text-danger">
+                <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> <span>Keluar</span>
+            </a>     
         </nav>
-
 
         <div class="profile-section">
             <img src="reading-book.png" class="rounded-circle me-2" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent);">
@@ -148,21 +244,21 @@
         <div class="mb-5">
             <h2 class="fw-bold">
                 Statistik Belajar 
-                <img src="c:\Users\Lenovo\Downloads\statistik mahasiswa.png" class="title-icon" alt="Ikon Statistik">
+                <img src="statistik mahasiswa.png" class="title-icon" alt="Ikon Statistik">
             </h2>
             <p class="opacity-75">Progres belajar kamu selama ini, tetap semangat terus ya anak muda!!</p>
         </div>
 
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="bento-card text-center d-flex flex-column justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="bento-card text-center d-flex flex-column justify-content-center py-4">
                     <p class="val-label">Total XP</p>
                     <p class="val-large">45,200</p>
                     <small class="text-success" style="font-weight: 600;">↑ 12% Minggu Ini</small>
                 </div>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <div class="bento-card">
                     <h6 class="fw-bold mb-4" style="font-size: 0.9rem; opacity: 0.8;">AKTIVITAS BELAJAR (7 HARI TERAKHIR)</h6>
                     <div class="chart-placeholder">
@@ -180,9 +276,9 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-12">
                 <div class="bento-card">
-                    <h6 class="fw-bold mb-4" style="font-size: 0.9rem; opacity: 0.8;">PENGUASAAN SKIL PENDIDIKAN TEKNOLOGI INFORMASI</h6>
+                    <h6 class="fw-bold mb-4" style="font-size: 0.9rem; opacity: 0.8;">PENGUASAAN SKILL PENDIDIKAN TEKNOLOGI INFORMASI</h6>
                     
                     <div class="progress-wrapper">
                         <div class="skill-info">
