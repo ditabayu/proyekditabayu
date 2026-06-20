@@ -6,8 +6,6 @@
     <title>Mode Belajar Pro - UPKSAINTEK</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-
 
     <style>
         :root {
@@ -23,64 +21,75 @@
             --cyan: #4cc9f0;
         }
 
-        body {font-family: 'Poppins', sans-serif; background-color: var(--bg-dark);
-              color: white; margin: 0; scroll-behavior: smooth;}
+        body {
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-dark);
+            color: white; 
+            margin: 0; 
+            scroll-behavior: smooth;
+        }
 
+        /* --- BAGIAN HEADER / TOP NAV --- */
+        .top-nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: rgba(13, 27, 42, 0.9); backdrop-filter: blur(10px);
+            z-index: 1000; display: flex; align-items: center; padding: 0 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-/* BAGIAN HEADER ATO ATAS */
-        .top-nav {position: fixed; top: 0; width: 100%; height: 70px;
-                  background: rgba(13, 27, 42, 0.9); backdrop-filter: blur(10px);
-                  z-index: 1000; display: flex; align-items: center; padding: 0 40px;
-                  border-bottom: 1px solid rgba(255,255,255,0.05);}
+        /* --- SIDEBAR KIRI (DESKTOP DEFAULT) --- */
+        .sidebar-learning {
+            width: 280px; max-height: 70vh; background: var(--sidebar-bg);
+            backdrop-filter: blur(20px); position: fixed;
+            top: 100px; left: 30px; border-radius: 30px;
+            padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow-y: auto; overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
 
+        .sidebar-learning::-webkit-scrollbar { width: 5px; }
+        .sidebar-learning::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
+        .sidebar-learning h6, .sidebar-learning p { display: block; }
+        .sidebar-learning nav { display: flex; flex-direction: column; }
 
+        .nav-item-materi {
+            display: flex; align-items: center; justify-content: space-between;
+            color: #adb5bd; text-decoration: none; padding: 14px 18px;
+            border-radius: 15px; margin-bottom: 10px; transition: 0.3s;
+            font-size: 0.85rem;
+        }
 
-/* SIDEBAR KIRI ADA SCROLL NY */
-        .sidebar-learning {width: 280px; max-height: 70vh; background: var(--sidebar-bg);
-                           backdrop-filter: blur(20px); position: fixed;
-                           top: 100px; left: 30px; border-radius: 30px;
-                           padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);
-                           z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-                           overflow-y: auto; overflow-x: hidden;}
-
-        .sidebar-learning::-webkit-scrollbar {width: 5px;}
-        .sidebar-learning::-webkit-scrollbar-thumb {background: rgba(76, 201, 240, 0.3);
-                                                    border-radius: 10px;}
-
-        .nav-item-materi {display: flex; align-items: center; justify-content: space-between;
-                          color: #adb5bd; text-decoration: none; padding: 14px 18px;
-                          border-radius: 15px; margin-bottom: 10px; transition: 0.3s;
-                          font-size: 0.85rem;}
-
-        .nav-item-materi:hover, .nav-item-materi.active {background: rgba(76, 201, 240, 0.1);
-                                                        color: var(--cyan);
-                                                        transform: translateX(8px);
-                                                        font-weight: 600;}
+        .nav-item-materi:hover, .nav-item-materi.active {
+            background: rgba(76, 201, 240, 0.1);
+            color: var(--cyan);
+            transform: translateX(8px);
+            font-weight: 600;
+        }
 
         .icon-sub { width: 18px; opacity: 0.6; }
 
-
-
-
-
-/* KOTAK KANAN  */
+        /* --- KOTAK KANAN CONTAINER --- */
         .content-container {
-                           margin-left: 350px; /* JARAK DARI SIDEBAR KIRI */
-                           padding: 100px 50px 100px 20px;}
+            margin-left: 350px; 
+            padding: 110px 50px 100px 20px;
+            transition: all 0.3s ease;
+        }
 
+        /* --- KARTU MATERI --- */
+        .materi-card {
+            background: var(--card-bg); backdrop-filter: blur(10px);
+            border-radius: 35px; padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 6px solid var(--cyan); 
+            text-align: justify;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-/* BAGIAN KOTAK MATERINYA */
-        .materi-card {background: var(--card-bg); backdrop-filter: blur(10px);
-                      border-radius: 35px; padding: 50px;
-                      margin-bottom: 60px;
-                      border: 1px solid rgba(255, 255, 255, 0.05);
-                      border-left: 6px solid var(--cyan); /* WARNA DEFAULT NY */
-                      text-align: justify;
-                      line-height: 1.8;
-                      box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
-
-/* VARIASI WARNA PER BAB, JUDUL MATERI PLUS GAMBAR */
+        /* VARIASI WARNA PER BAB */
         .border-lavender { border-left-color: var(--lavender);}
         .border-orchid { border-left-color: var(--orchid);}
         .border-lilac { border-left-color: var(--lilac);}
@@ -88,233 +97,219 @@
         .border-lollipop { border-left-color: var(--lollipop);}
         .border-grape { border-left-color: var(--grape);}
 
+        .materi-card h2 { font-weight: 700; margin-bottom: 25px; }
 
-        .materi-card h2 {font-weight: 700; margin-bottom: 25px;}
-
-       .img-materi {display: block; margin: 35px auto;
-                    width: 80%; max-height: 350px; object-fit: cover; 
-                    border-radius: 20px; border: 2px solid rgba(192, 145, 145, 0.1);
-                    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-                    transition: 0.4s ease-in-out;}
+        .img-materi {
+            display: block; margin: 35px auto;
+            width: 80%; max-height: 350px; object-fit: cover; 
+            border-radius: 20px; border: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: 0.4s ease-in-out;
+        }
                     
-        .img-materi:hover {transform: scale(1.02); border-color: var(--cyan);}
+        .img-materi:hover { transform: scale(1.02); border-color: var(--cyan); }
 
-        .badge-kategori {background: rgba(255,255,255,0.1);
-                         padding: 5px 15px; border-radius: 50px;
-                         font-size: 0.7rem; text-transform: uppercase;
-                         letter-spacing: 1px; margin-bottom: 15px;
-                         display: inline-block;}
+        .badge-kategori {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px; border-radius: 50px;
+            font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* --- BREAKPOINT RESPONSIVE (TABLET & HP) --- */
+
+        /* Mode Tablet (max-width: 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .sidebar-learning { width: 80px; left: 15px; padding: 20px 5px; }
+            .sidebar-learning h6, .sidebar-learning p, .nav-item-materi span { display: none !important; }
+            .nav-item-materi { justify-content: center; padding: 15px 0; }
+            .icon-sub { width: 22px; opacity: 0.9; }
+            .content-container { margin-left: 120px; padding-right: 20px; }
+        }
+
+        /* Mode HP / Mobile (max-width: 768px) -> BOTTOM NAVIGATION BAR */
+        @media (max-width: 768px) {
+            .top-nav { padding: 0 20px; height: 60px; }
+            .top-nav span { font-size: 11px !important; }
+
+            .sidebar-learning {
+                position: fixed;
+                bottom: 0; top: auto; left: 0;
+                width: 100%; max-height: auto; height: 75px;
+                padding: 10px;
+                background-color: rgba(13, 27, 42, 0.95);
+                backdrop-filter: blur(15px);
+                border-radius: 25px 25px 0 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+                z-index: 1050;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+                overflow: hidden;
+            }
+
+            .sidebar-learning h6, .sidebar-learning p { display: none !important; }
+            .sidebar-learning nav { flex-direction: row; justify-content: space-around; align-items: center; height: 100%; }
+
+            .nav-item-materi {
+                flex-direction: column; justify-content: center; align-items: center;
+                padding: 6px 2px; margin-bottom: 0; border-radius: 12px; flex: 1;
+            }
+
+            .nav-item-materi:hover, .nav-item-materi.active { transform: none; background: transparent; color: var(--cyan); }
+            .nav-item-materi span { display: block; font-size: 9px; font-weight: 500; margin-top: 4px; text-align: center; }
+            .icon-sub { width: 16px; opacity: 0.8; }
+
+            .content-container {
+                margin-left: 0;
+                padding: 90px 15px 120px 15px; /* Kompensasi ruang bottom nav */
+            }
+
+            .materi-card { padding: 35px 20px; border-radius: 25px; }
+            .materi-card h2 { font-size: 1.4rem; }
+            .img-materi { width: 100%; }
+        }
+
+        html { zoom: 90%; }
     </style>
 </head>
 
-
-
-
-
-
-
 <body>
 
-<!--JUDUL DI HEADER-->
     <div class="top-nav">
         <a href="KelasTI.MenuMateri.html" class="text-decoration-none text-info fw-bold small me-4">← KELUAR MODE BELAJAR</a>
         <div class="ms-auto d-flex align-items-center">
-            <span class="small text-decoration-none text-info small me-3">Statistika Terapan: Modul 01-06</span>
-            <img src="statistika terapan.png" width="25">
+            <span class="small text-white-50 me-3">Statistika Terapan: Modul 01-06</span>
+            <img src="statistika terapan.png" width="25" alt="Logo">
         </div>
     </div>
 
-
-<!--SUB BAB NYA  -->    
     <div class="sidebar-learning">
         <div class="mb-4">
             <h6 class="fw-bold mb-1">Daftar materi</h6>
-            <p class="text-white" style="font-size: 11px;">Klik untuk pindah materi</p>
+            <p class="text-white-50" style="font-size: 11px;">Klik untuk pindah materi</p>
         </div>
         
         <nav>
             <a href="#intro" class="nav-item-materi active">
-                <span>01. Pengertian Statistika Terapan</span>
                 <img src="icon no 1.png" class="icon-sub">
+                <span>01. Pengertian</span>
             </a>
             <a href="#konsep" class="nav-item-materi">
-                <span>02. Jenis Data</span>
                 <img src="ikon no 2.png" class="icon-sub">
+                <span>02. Jenis Data</span>
             </a>
             <a href="#struktur" class="nav-item-materi">
-                <span>03. Penyajian Data</span>
                 <img src="ikon no 3.png" class="icon-sub">
+                <span>03. Penyajian</span>
             </a>
             <a href="#tampilan" class="nav-item-materi">
-                <span>04. Ukuran Pemusatan Data</span>
                 <img src="ikon no 4.png" class="icon-sub">
+                <span>04. Pemusatan</span>
             </a>
             <a href="#intraktivitas" class="nav-item-materi">
-                <span>05. Ukuran Penyebaran Data</span>
                 <img src="ikon no 5.png" class="icon-sub">
+                <span>05. Penyebaran</span>
             </a>
             <a href="#responsif" class="nav-item-materi">
-                <span>06. Analisis dan Interpretasi Data</span>
                 <img src="ikon no 6.png" class="icon-sub">
+                <span>06. Analisis</span>
             </a>
         </nav>
     </div>
 
-
-
-<!--Pengertian Statistika Terapan-->  
     <div class="content-container">
         
         <div id="intro" class="materi-card border-lavender">
              <span class="badge-kategori text-white">Teori Dasar</span>
              <h2 style="color: var(--lavender);">01. Pengertian Statistika Terapan</h2>
              <hr style="border-color: rgba(255,255,255,0.1);">
-
-                <p>Profesi pendidikan adalah pekerjaan yang berkaitan dengan proses mendidik, mengajar, dan membimbing peserta didik. Profesi ini menuntut keahlian khusus, tanggung jawab, serta komitmen untuk meningkatkan kualitas pendidikan.</p>
-                
-                    
-            
-                <img src="Pengertian Statistika Terapan.jpeg" class="img-materi" alt="Ilustrasi Java">
-                <p class="small text-center"><span style="color: #4cc9f0;">Gambar 1.1 ..</span></p>
-            
-             
+             <p>Statistika terapan adalah cabang ilmu statistika yang berfokus pada aplikasi pemecahan masalah konkret, pengambilan keputusan, dan analisis data di berbagai bidang seperti teknologi, sosial, ekonomi, hingga sains. Berbeda dengan statistika teoritis, fokus utamanya adalah bagaimana data dapat digunakan untuk menghasilkan wawasan yang bermanfaat.</p>
+             <img src="Pengertian Statistika Terapan.jpeg" class="img-materi" alt="Ilustrasi Statistika Terapan">
+             <p class="small text-center"><span style="color: #4cc9f0;">Gambar 1.1 Ruang Lingkup Implementasi Statistika</span></p>
              <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
-            </div>
+                 <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+             </div>
         </div>
 
-
-<!--Jenis Data-->  
         <div id="konsep" class="materi-card border-orchid">
             <span class="badge-kategori text-white">Teori Dasar</span>
             <h2 style="color: var(--orchid);">02. Jenis Data</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-
-            <p>Data adalah kumpulan fakta atau informasi yang akan dianalisis.</p>
-
-                <p>Jenis data:</p>
-                <p>• Data kualitatif → berbentuk kategori (contoh: jenis kelamin, warna)</p>
-                <p>• Data kuantitatif → berbentuk angka (contoh: umur, nilai)</p>
-
-                <p>Pemahaman jenis data penting untuk menentukan metode analisis yang tepat.</p>
-            
-
-            <img src="jenis data.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 2.1</p>
-            
-                
-
-              <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+            <p>Data adalah kumpulan fakta, angka, atau informasi mentah yang dikumpulkan untuk dianalisis secara objektif.</p>
+            <p class="mb-2">Secara garis besar, data dibagi menjadi:</p>
+            <p class="mb-1"><strong>• Data Kualitatif</strong> → Berbentuk kategori atau deskriptif bukan angka (contoh: jenis kelamin, merek perangkat, tingkat kepuasan).</p>
+            <p class="mb-3"><strong>• Data Kuantitatif</strong> → Berbentuk angka numerik yang bisa dihitung (contoh: umur, nilai ujian, jumlah memori penyimpanan).</p>
+            <p>Pemahaman klasifikasi jenis data ini sangat penting untuk menentukan rumus dan metode pengujian statistika yang tepat ke depannya.</p>
+            <img src="jenis data.jpeg" class="img-materi" alt="Ilustrasi Jenis Data">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 2.1 Struktur Pembagian Jenis Data</span></p>
+            <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-
-<!--Penyajian Data-->  
         <div id="struktur" class="materi-card border-lilac">
             <span class="badge-kategori text-white">Fundamental</span>
             <h2 style="color: var(--lilac);">03. Penyajian Data</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-
-            <p>Penyajian data bertujuan agar data mudah dipahami.</p>
-
-            <p>Bentuk penyajian:</p>
-
-            <p>• Tabel</p>
-                <p>• Diagram batang</p>
-                <p>• Diagram lingkaran</p>
-                <p>• Grafik</p>
-
-            <img src="penyajian data.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 3.1</p>
-            <p>Grammar membantu mendefinisikan struktur bahasa secara jelas.</p>
-            
-
+            <p>Penyajian data bertujuan untuk menyederhanakan data mentah yang rumit agar menjadi informasi visual yang informatif, menarik, dan mudah dipahami oleh pembaca secara instan.</p>
+            <p class="mb-2">Bentuk umum penyajian data:</p>
+            <p class="mb-1">• Tabel Distribusi Frekuensi</p>
+            <p class="mb-1">• Diagram Batang (Bar Chart) & Grafik Garis (Line Chart)</p>
+            <p class="mb-3">• Diagram Lingkaran (Pie Chart) & Histogram</p>
+            <img src="penyajian data.jpeg" class="img-materi" alt="Ilustrasi Penyajian Data">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 3.1 Contoh Visualisasi Data Statistik</span></p>
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-<!--Ukuran Pemusatan Data-->  
         <div id="tampilan" class="materi-card border-electric">
             <span class="badge-kategori text-white">Konsep</span>
             <h2 style="color: var(--electric);">04. Ukuran Pemusatan Data</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-
-            <p>Ukuran pemusatan digunakan untuk mengetahui nilai tengah dari data.</p>
-                <p>jenis:</p>
-                    <p>• Mean (rata-rata)</p>
-                    <p>• Median (nilai tengah)</p>
-                    <p>• Modus (nilai yang paling sering muncul)</p>
-                    <p>Ukuran ini membantu memahami kecenderungan data</p>
-                
-                
-
-            <img src="ukuran pemusatan data.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 4.1</p>
-
-                
-
+            <p>Ukuran pemusatan data digunakan sebagai representasi nilai tunggal yang menunjukkan pusat atau kecenderungan letak gugus data.</p>
+            <p class="mb-2">Tiga komponen utamanya adalah:</p>
+            <p class="mb-1"><strong>• Mean</strong> → Rata-rata hitung yang diperoleh dari jumlah seluruh nilai data dibagi banyaknya data.</p>
+            <p class="mb-1"><strong>• Median</strong> → Nilai tengah dari kumpulan data yang telah diurutkan dari yang terkecil hingga terbesar.</p>
+            <p class="mb-3"><strong>• Modus</strong> → Nilai atau variabel data yang paling sering muncul (memiliki frekuensi tertinggi).</p>
+            <img src="ukuran pemusatan data.jpeg" class="img-materi" alt="Ilustrasi Ukuran Pemusatan Data">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 4.1 Posisi Nilai Mean, Median, dan Modus</span></p>
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-
-<!--Ukuran Penyebaran Data-->  
         <div id="intraktivitas" class="materi-card border-lollipop">
             <span class="badge-kategori text-white">Praktik</span>
             <h2 style="color: var(--lollipop);">05. Ukuran Penyebaran Data</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-
-            <p>Ukuran penyebaran menunjukkan seberapa jauh data tersebar</p>
-
-                <p>Contoh:</p>
-                   <p>• Range (jangkauan)</p>
-                    <p>• Varians</p>
-                    <p>• Standar deviasi</p>
-                    
-                    <p>Semakin besar penyebaran, semakin beragam data tersebut</p>
-            
-               <img src="Ukuran Penyebaran Data.jpeg" class="img-materi" alt="Ilustrasi Java">
-               <p class="small text-center"><span style="color: #4cc9f0;">Gambar 5.1</p>
-
-               
-
+            <p>Ukuran penyebaran mengukur seberapa jauh nilai-nilai data menyimpang atau tersebar dari nilai pusatnya. Parameter ini mendeteksi homogenitas atau heterogenitas sebuah populasi data.</p>
+            <p class="mb-2">Beberapa indikator utamanya:</p>
+            <p class="mb-1"><strong>• Range (Jangkauan)</strong> → Selisih selisih antara nilai tertinggi dengan nilai terendah.</p>
+            <p class="mb-1"><strong>• Varians (Ragam)</strong> → Rata-rata dari kuadrat selisih setiap data terhadap rata-rata hitungnya.</p>
+            <p class="mb-3"><strong>• Standar Deviasi (Simpangan Baku)</strong> → Akar kuadrat dari varians yang menjadi ukuran standar dispersi data.</p>
+            <img src="Ukuran Penyebaran Data.jpeg" class="img-materi" alt="Ilustrasi Ukuran Penyebaran Data">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 5.1 Grafik Dispersi Kerapatan Data</span></p>
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>
 
-<!--Analisis dan Interpretasi Data-->  
         <div id="responsif" class="materi-card border-grape">
             <span class="badge-kategori text-white">Praktik</span>
-            <h2 style="color: var(--grape);">06.Analisis dan Interpretasi Data</h2>
+            <h2 style="color: var(--grape);">06. Analisis dan Interpretasi Data</h2>
             <hr style="border-color: rgba(255,255,255,0.1);">
-            
-            <p>Analisis data adalah proses mengolah data untuk mendapatkan informasi, sedangkan interpretasi adalah proses memahami hasil analisis.</p>
-            
-            
-            <p>Contoh:</p>
-                <p>• Menarik kesimpulan dari data</p>
-                <p>• Membuat keputusan berdasarkan hasil analisis</p>
-                
-                <p>Tahap ini penting agar data dapat memberikan manfaat nyata.</p>
-            
-           <img src="Analisis dan Interpretasi Data.jpeg" class="img-materi" alt="Ilustrasi Java">
-            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 6.1</p>
-            
-
+            <p>Ini adalah muara dari pengolahan statistika terapan. **Analisis data** adalah proses penataan dan perhitungan data untuk mereduksi informasi menjadi bentuk ringkas, sedangkan **Interpretasi** adalah seni menerjemahkan angka-angka hasil analisis tersebut menjadi narasi kesimpulan fungsional.</p>
+            <p>Melalui proses penarikan kesimpulan ilmiah ini, instansi maupun peneliti dapat mengambil keputusan strategis (Decision Making) yang valid berdasarkan bukti data di lapangan (*Data-Driven*).</p>
+            <img src="Analisis dan Interpretasi Data.jpeg" class="img-materi" alt="Ilustrasi Analisis Data">
+            <p class="small text-center"><span style="color: #4cc9f0;">Gambar 6.1 Alur Logika Konklusi Hasil Riset</span></p>
             <div class="mt-5 pt-4 text-center" style="border-top: 1px solid rgba(255,255,255,0.1);">
-             <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
+                <p class="small opacity-75" style="color: #ffff2c;">Kamu telah mencapai akhir modul ini. Semangat Terus Belajarnya yaa✨</p>
             </div>
         </div>        
 
-
     </div>
-
-
-
 
 </body>
 </html>
