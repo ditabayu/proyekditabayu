@@ -157,12 +157,15 @@
             }
 
             .nav-item-materi:hover, .nav-item-materi.active { transform: none; background: transparent; color: var(--cyan); }
-            .nav-item-materi span { display: block; font-size: 9px; font-weight: 500; margin-top: 4px; text-align: center; }
+            
+            /* Sederhanakan teks panjang di mobile agar tidak berantakan */
+            .nav-item-materi span { display: block; font-size: 9px; font-weight: 500; margin-top: 4px; text-align: center; white-space: nowrap; }
+            
             .icon-sub { width: 16px; opacity: 0.8; }
 
             .content-container {
                 margin-left: 0;
-                padding: 90px 15px 120px 15px; /* Ruang untuk bottom nav */
+                padding: 90px 15px 120px 15px; /* Ruang aman di atas bottom nav */
             }
 
             .materi-card { padding: 35px 20px; border-radius: 25px; }
