@@ -8,24 +8,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-
-            :root {
-                --bg-body: #080721; 
+        :root {
+            --bg-body: #080721; 
             --sidebar-bg: #100f3c;
             --card-bg: #181a3d;
             --accent: #4853ed;
         }
 
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-body); color: white; margin: 0; overflow-x: hidden; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-body); 
+            color: white; 
+            margin: 0; 
+            overflow-x: hidden; 
+        }
 
-        /* --- SIDEBAR KONSISTEN (Sama dengan Leaderboard & Statistik) --- */
+        /* --- SIDEBAR DESKTOP KONSISTEN --- */
         .sidebar {
             background-color: var(--card-bg); 
             height: 90vh; padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; transition: all 0.3s ease;
+        }
+
+        .sidebar h4 { display: block; }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
         .menu-link {
@@ -37,7 +50,7 @@
         
         .menu-link.active { 
             background-color: var(--accent); 
-            color: #0d1b2a !important; 
+            color: white !important; 
             font-weight: 600; 
         }
         
@@ -46,18 +59,31 @@
         .profile-section {
             margin-top: auto; padding: 15px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
+            overflow: hidden; width: 100%;
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; }
+        .main-content { margin-left: 310px; padding: 40px; transition: all 0.3s ease; }
 
-        .category-pill { display: inline-block; padding: 8px 20px; border-radius: 50px;
-                        background: rgba(255, 255, 255, 0.05); border: 1px solid #415a77;
-                        color: #adb5bd; text-decoration: none; margin-right: 10px; transition: 0.3s; font-size: 0.85rem; }
+        /* Container Pembungkus Pil Kategori */
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
 
-        .category-pill:hover, .category-pill.active { background: var(--accent); color: #0d1b2a; border-color: var(--accent); font-weight: 600; }
+        .category-pill { 
+            display: inline-block; padding: 8px 20px; border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid #415a77;
+            color: #adb5bd; text-decoration: none; transition: 0.3s; font-size: 0.85rem; 
+            white-space: nowrap;
+        }
 
-        /* --- MATERI CARDS (Dipertahankan) --- */
+        .category-pill:hover, .category-pill.active { background: var(--accent); color: white !important; border-color: var(--accent); font-weight: 600; }
+
+        /* --- MATERI CARDS --- */
         .card-materi-tiga { position: relative; width: 100%; height: 380px; border-radius: 25px;
                            overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);
                            display: flex; flex-direction: column; justify-content: flex-end;
@@ -75,34 +101,120 @@
                           color: white; text-decoration: none; border-radius: 15px; font-size: 0.85rem;
                           font-weight: 600; transition: 0.4s; width: 100%; text-align: center; }
 
-        .tombol-mulai-sm:hover { background: var(--accent); color: #0d1b2a; box-shadow: 0 8px 15px rgba(76, 201, 240, 0.3); }
+        .tombol-mulai-sm:hover { background: var(--accent); color: white; box-shadow: 0 8px 15px rgba(76, 201, 240, 0.3); }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* 1. Layar Tablet (max-width: 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                left: 10px;
+                padding: 25px 5px;
+                align-items: center;
+            }
+            .sidebar h4, .menu-link span, .profile-section { display: none !important; }
+            .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
+            .main-content { margin-left: 110px; padding: 30px 20px; }
+        }
+
+        /* 2. Layar HP / Mobile (max-width: 768px) -> BERUBAH MENJADI BOTTOM NAV BAR */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                width: 100%;
+                height: auto;
+                padding: 10px 15px;
+                background-color: rgba(24, 26, 61, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 25px 25px 0 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+                flex-direction: row;
+                justify-content: space-around;
+                z-index: 1050;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
+            }
+
+            .sidebar h4, .profile-section { display: none !important; }
+
+            .sidebar nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0;
+            }
+
+            .menu-link {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 4px;
+                margin-bottom: 0;
+                border-radius: 12px;
+                flex: 1;
+                font-size: 10px;
+                text-align: center;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                margin-bottom: 4px;
+                width: 22px;
+                height: 22px;
+            }
+
+            .menu-link.active {
+                background-color: transparent;
+                color: var(--accent) !important;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 30px 15px 100px 15px; 
+            }
+
+            /* Modifikasi khusus Pil Kategori di HP agar bisa digeser horizontal */
+            .category-container {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .category-container::-webkit-scrollbar {
+                display: none; /* Sembunyikan scrollbar agar bersih */
+            }
+        }
 
         html { zoom: 90%; }
     </style>
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
- <a href="DASHBOARDMAHASISWAPTI.html" class="menu-link">
-                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> Dashboard
+            <a href="DASHBOARDMAHASISWAPTI.html" class="menu-link">
+                <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Ikon Dashboard"> <span>Dashboard</span>
             </a>
             <a href="ISIMATERIPTI.html" class="menu-link active">
-                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> Materi
-     </a>
+                <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> <span>Materi</span>
+            </a>
             <a href="ISILATIHANSOALPTI.html" class="menu-link">
-                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> Latihan Soal
-     </a>
-     <a href="LEADERBOARDPTI.html" class="menu-link">
-                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> Leaderboard
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> <span>Latihan</span>
+            </a>
+            <a href="LEADERBOARDPTI.html" class="menu-link">
+                <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> <span>Leaderboard</span>
             </a>
             <a href="STATISTIKPTI.html" class="menu-link">
-                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> Statistik
-     </a>
-     <a href="Login.html" class="menu-link text-danger mt-3">
-        <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> Keluar
-            </a>    
+                <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> <span>Statistik</span>
+            </a>
+            <a href="Login.html" class="menu-link text-danger">
+                <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> <span>Keluar</span>
+            </a>     
         </nav>
 
         <div class="profile-section">
@@ -118,7 +230,7 @@
         <h2 class="fw-bold">Sudah Siap Belajar?</h2>
         <p><span style="color: var(--accent);">Semangat!</span> Pilih modul materi Pendidikan Teknologi Informasi kamu hari ini.</p>
 
-        <div class="my-4">
+        <div class="category-container">
             <a href="#" class="category-pill active">Semua</a>
             <a href="#" class="category-pill">Pemrograman</a>
             <a href="#" class="category-pill">Basis Data</a>
@@ -126,7 +238,7 @@
         </div>
 
         <div class="row g-4 mt-2">
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="java dasar bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -139,7 +251,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="profesi pendidikan bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -152,7 +264,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="statistik terapan.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -165,7 +277,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="jaringan komputer bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -178,7 +290,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="basic science.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
@@ -191,7 +303,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="card-materi-tiga">
                     <img src="EST bg.jpeg" class="materi-bg">
                     <div class="materi-overlay"></div>
