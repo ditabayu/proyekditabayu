@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard TI - UPKSAINTEK</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons untuk Tombol Menu di HP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -26,22 +24,7 @@
             overflow-x: hidden; 
         }
 
-        /* --- TOGGLE BUTTON UNTUK HP --- */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 20px;
-        }
-
-        /* --- SIDEBAR KONSISTEN --- */
+        /* --- SIDEBAR DESKTOP KONSISTEN --- */
         .sidebar {
             background-color: var(--card-bg); 
             height: 90vh; padding: 25px 15px;
@@ -49,6 +32,14 @@
             width: 260px; top: 5vh; left: 20px; border-radius: 30px;
             z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             display: flex; flex-direction: column; transition: all 0.3s ease;
+        }
+
+        .sidebar h4 { display: block; }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
 
         .menu-link {
@@ -66,7 +57,6 @@
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        /* PROFILE SECTION FIX */
         .profile-section {
             margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
             border-radius: 20px; display: flex; align-items: center;
@@ -96,8 +86,8 @@
 
         /* --- RESPONSIVE BREAKPOINTS --- */
         
-        /* 1. Layar Medium & Tablet (max-width: 992px) */
-        @media (max-width: 992px) {
+        /* 1. Layar Tablet (max-width: 992px) */
+        @media (min-width: 769px) and (max-width: 992px) {
             .sidebar {
                 width: 80px;
                 left: 10px;
@@ -110,27 +100,65 @@
             .profile-section { justify-content: center; padding: 8px; }
         }
 
-        /* 2. Layar HP / Mobile (max-width: 768px) */
+        /* 2. Layar HP / Mobile (max-width: 768px) -> BERUBAH MENJADI BOTTOM NAV BAR */
         @media (max-width: 768px) {
-            .menu-toggle { display: block; } 
-            
             .sidebar {
-                width: 260px;
-                left: -280px; 
-                top: 0;
-                height: 100vh;
-                border-radius: 0;
+                position: fixed;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                width: 100%;
+                height: auto;
+                padding: 10px 15px;
+                background-color: rgba(24, 26, 61, 0.95); /* Efek blur transparan */
+                backdrop-filter: blur(10px);
+                border-radius: 25px 25px 0 0; /* Melengkung di atas saja */
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: none;
+                flex-direction: row;
+                justify-content: space-around;
+                z-index: 1050;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.6);
             }
-            .sidebar h4, .menu-link span, .profile-info { display: block; }
-            .sidebar h4 { margin-top: 40px; }
-            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
-            .profile-section { justify-content: flex-start; padding: 12px; }
 
-            .sidebar.active { left: 0px; } 
+            /* Sembunyikan Header dan Profil di Bottom Bar */
+            .sidebar h4, .profile-section { display: none !important; }
 
+            .sidebar nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0;
+            }
+
+            .menu-link {
+                flex-direction: column; /* Ikon di atas, teks di bawah */
+                justify-content: center;
+                align-items: center;
+                padding: 6px 4px;
+                margin-bottom: 0;
+                border-radius: 12px;
+                flex: 1;
+                font-size: 10px; /* Ukuran teks menu bawah */
+                text-align: center;
+            }
+
+            .img-menu-icon {
+                margin-right: 0;
+                margin-bottom: 4px;
+                width: 22px;
+                height: 22px;
+            }
+
+            .menu-link.active {
+                background-color: transparent; /* Hilangkan background blok penuh */
+                color: var(--accent) !important; /* Warna teks aktif berubah sesuai warna aksen */
+            }
+
+            /* Atur margin konten utama agar tidak tertutup bottom bar */
             .main-content {
                 margin-left: 0;
-                padding: 80px 20px 20px 20px; 
+                padding: 30px 15px 100px 15px; 
             }
         }
 
@@ -138,11 +166,6 @@
     </style>
 </head>
 <body>
-
-    <!-- Tombol Menu khusus untuk tampilan HP -->
-    <button class="menu-toggle" id="toggleBtn">
-        <i class="bi bi-list"></i>
-    </button>
 
     <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
@@ -154,7 +177,7 @@
                 <img src="materi mahasiswa.png" class="img-menu-icon" alt="Ikon Materi"> <span>Materi</span>
             </a>
             <a href="ISILATIHANSOALPTI.html" class="menu-link">
-                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> <span>Latihan Soal</span>
+                <img src="latihan soal mahasiswa.png" class="img-menu-icon" alt="Ikon Latihan"> <span>Latihan</span>
             </a>
             <a href="LEADERBOARDPTI.html" class="menu-link">
                 <img src="ikon leaderboard.png" class="img-menu-icon" alt="Ikon Leaderboard"> <span>Leaderboard</span>
@@ -162,7 +185,7 @@
             <a href="STATISTIKPTI.html" class="menu-link">
                 <img src="statistik mahasiswa.png" class="img-menu-icon" alt="Ikon Statistik"> <span>Statistik</span>
             </a>
-            <a href="Login.html" class="menu-link text-danger mt-3">
+            <a href="Login.html" class="menu-link text-danger">
                 <img src="kembali.png" class="img-menu-icon" alt="Ikon Keluar"> <span>Keluar</span>
             </a>     
         </nav>
@@ -271,22 +294,5 @@
             </div>
         </div>
     </div> 
-
-    <!-- Script Pembuka/Penutup Sidebar Mobile -->
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-
-        toggleBtn.addEventListener('click', (e) => {
-            sidebarMenu.classList.toggle('active');
-            e.stopPropagation();
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
-                sidebarMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
