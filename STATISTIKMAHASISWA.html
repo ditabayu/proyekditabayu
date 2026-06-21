@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistik TI - UPKSAINTEK</title>
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons untuk Tombol Menu di HP -->
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -17,6 +18,7 @@
             --accent: #4cc9f0;
             --gold: #ffd700;
             --premium-gradient: linear-gradient(90deg, #4cc9f0 0%, #4361ee 100%);
+            --nav-mobile-bg: rgba(27, 38, 59, 0.95);
         }
 
         body { 
@@ -27,63 +29,122 @@
             overflow-x: hidden;
         }
 
-        /* --- TOGGLE BUTTON UNTUK HP --- */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 20px;
-        }
-
-        /* --- SIDEBAR KONSISTEN --- */
+        /* --- SIDEBAR DESKTOP --- */
         .sidebar {
             background-color: var(--card-bg); 
-            height: 90vh; padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05); position: fixed; 
-            width: 260px; top: 5vh; left: 20px; border-radius: 30px;
-            z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            display: flex; flex-direction: column; transition: all 0.3s ease;
+            height: 90vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            position: fixed; 
+            width: 260px; 
+            top: 5vh; 
+            left: 20px; 
+            border-radius: 30px;
+            z-index: 1000; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex; 
+            flex-direction: column; 
         }
 
         .menu-link {
-            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
-            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px; transition: 0.3s;
+            display: flex; 
+            align-items: center; 
+            color: #adb5bd; 
+            text-decoration: none;
+            padding: 12px 15px; 
+            border-radius: 15px; 
+            margin-bottom: 8px; 
+            transition: 0.3s;
         }
 
         .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
-        .menu-link.active { background-color: var(--accent); color: #0d1b2a !important; font-weight: 600; }
+        
+        .menu-link.active { 
+            background-color: var(--accent); 
+            color: #0d1b2a !important; 
+            font-weight: 600; 
+        }
+        
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        /* PROFILE SECTION FIX */
         .profile-section {
-            margin-top: auto; padding: 12px; background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px; display: flex; align-items: center;
-            overflow: hidden; width: 100%;
+            margin-top: auto; 
+            padding: 12px; 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center;
+            gap: 10px;
         }
 
-        .profile-info {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        /* --- BOTTOM NAVIGATION BAR (HP) --- */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            background: var(--nav-mobile-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            z-index: 1050;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 5px;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #717d96;
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 500;
+            flex: 1;
+            height: 100%;
+        }
+
+        .mobile-nav-link img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            margin-bottom: 5px;
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+
+        .mobile-nav-link.active {
+            color: var(--accent); 
+        }
+
+        .mobile-nav-link.active img {
+            opacity: 1;
+            filter: drop-shadow(0px 0px 8px rgba(76, 201, 240, 0.8));
         }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: 310px; padding: 40px; transition: all 0.3s ease; }
+        .main-content { 
+            margin-left: 300px; 
+            padding: 40px 20px; 
+            max-width: 1200px;
+        }
+        
         .title-icon { width: 40px; height: 40px; margin-left: 10px; vertical-align: middle; filter: drop-shadow(0 0 10px var(--accent)); }
 
         /* --- BENTO CARDS --- */
         .bento-card {
             background: rgba(27, 38, 59, 0.6);
-            border-radius: 24px; padding: 25px;
+            border-radius: 24px; 
+            padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            height: 100%; transition: 0.3s;
+            height: 100%; 
+            transition: 0.3s;
         }
 
         .val-large { font-size: 2.5rem; font-weight: 800; color: var(--gold); margin: 0; }
@@ -121,46 +182,25 @@
         .progress-bar { background: var(--premium-gradient); border-radius: 20px; position: relative; box-shadow: 0 0 15px rgba(76, 201, 240, 0.4); }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
-        
-        /* 1. Layar Medium & Tablet (max-width: 992px) */
-        @media (max-width: 992px) {
-            .sidebar {
-                width: 80px;
-                left: 10px;
-                padding: 25px 5px;
-                align-items: center;
-            }
+        @media (max-width: 992px) and (min-width: 769px) {
+            .sidebar { width: 80px; left: 10px; padding: 25px 5px; align-items: center; }
             .sidebar h4, .menu-link span, .profile-info { display: none; }
             .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
-            .main-content { margin-left: 110px; padding: 30px 20px; }
+            .main-content { margin-left: 100px; }
             .profile-section { justify-content: center; padding: 8px; }
         }
 
-        /* 2. Layar HP / Mobile (max-width: 768px) */
         @media (max-width: 768px) {
-            .menu-toggle { display: block; } 
-            
-            .sidebar {
-                width: 260px;
-                left: -280px; 
-                top: 0;
-                height: 100vh;
-                border-radius: 0;
-            }
-            .sidebar h4, .menu-link span, .profile-info { display: block; }
-            .sidebar h4 { margin-top: 40px; }
-            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
-            .profile-section { justify-content: flex-start; padding: 12px; }
-
-            .sidebar.active { left: 0px; } 
+            .sidebar { display: none !important; }
+            .bottom-nav { display: flex; }
 
             .main-content {
                 margin-left: 0;
-                padding: 80px 20px 20px 20px; 
+                padding: 25px 12px 95px 12px; 
             }
             
             .val-large { font-size: 1.8rem; }
-            .bar { width: 15px; } /* Bar lebih proporsional di HP */
+            .bar { width: 15px; } 
             .skill-name { font-size: 0.85rem; }
         }
 
@@ -170,11 +210,7 @@
 
 <body>
 
-    <!-- Tombol Menu khusus untuk tampilan HP -->
-    <button class="menu-toggle" id="toggleBtn">
-        <i class="bi bi-list"></i>
-    </button>
-
+    <!-- SIDEBAR UTAMA (DESKTOP) -->
     <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
@@ -195,22 +231,23 @@
             </a>
             <a href="Login.html" class="menu-link text-danger mt-3">
                 <img src="kembali.png" class="img-menu-icon"> <span>Keluar</span>
-            </a>     
+            </a>      
         </nav>
 
         <div class="profile-section">
-            <img src="reading-book.png" class="rounded-circle me-2" width="38" height="38" style="border: 2px solid var(--accent); object-fit: cover;">
+            <img src="reading-book.png" class="rounded-circle" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
             <div class="profile-info">
-                <p class="small fw-bold mb-0 text-white">Dita Damayanti</p>
-                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">dita@upksaintek.com</p>
+                <p class="small fw-bold mb-0 text-white">Wayan Bayu</p>
+                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">wayan@upksaintek.com</p>
             </div>
         </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="mb-4">
             <h2 class="fw-bold">Statistik Belajar <img src="statistik mahasiswa.png" class="title-icon"></h2>
-            <p class="opacity-75 small">Semester 4 - Progres Akademik Kamu</p>
+            <p class="opacity-75 small">Semester 4 - Progres Academic Kamu</p>
         </div>
 
         <div class="row g-3">
@@ -280,21 +317,33 @@
         </div>
     </div>
 
-    <!-- Script Pembuka/Penutup Sidebar Mobile -->
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
+    <!-- NAVIGATION BAR BAWAH TEMA BIRU (HP) -->
+    <div class="bottom-nav">
+        <a href="DASBOARDMAHASISWA.html" class="mobile-nav-link">
+            <img src="dashboard mahasiswa.png" alt="Dashboard">
+            <span>Dashboard</span>
+        </a>
+        <a href="ISIPEMBELAJARANMAHASISWA.html" class="mobile-nav-link">
+            <img src="materi mahasiswa.png" alt="Materi">
+            <span>Materi</span>
+        </a>
+        <a href="ISIMENULATIHANTI.html" class="mobile-nav-link">
+            <img src="latihan soal mahasiswa.png" alt="Latihan">
+            <span>Latihan</span>
+        </a>
+        <a href="HALAMANLEADERBOARD.html" class="mobile-nav-link">
+            <img src="ikon leaderboard.png" alt="Leaderboard">
+            <span>Leaderboard</span>
+        </a>
+        <a href="STATISTIKMAHASISWA.html" class="mobile-nav-link active">
+            <img src="statistik mahasiswa.png" alt="Statistik">
+            <span>Statistik</span>
+        </a>
+        <a href="Login.html" class="mobile-nav-link text-danger">
+            <img src="kembali.png" alt="Keluar">
+            <span>Keluar</span>
+        </a>
+    </div>
 
-        toggleBtn.addEventListener('click', (e) => {
-            sidebarMenu.classList.toggle('active');
-            e.stopPropagation();
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
-                sidebarMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
