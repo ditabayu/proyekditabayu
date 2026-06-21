@@ -9,33 +9,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
+      <style>
         :root {
-            --bg: #091529;
+            --bg-body: #091529; 
             --sidebar-bg: #1b263b;
             --card-bg: #1b263b;
             --accent: #4cc9f0;
             --gold: #ffd700;
-            --premium-gradient: linear-gradient(90deg, #4cc9f0 0%, #4361ee 100%);
-            --nav-mobile-bg: rgba(27, 38, 59, 0.95);
+            --nav-mobile-bg: rgba(27, 38, 59, 0.95); /* Menyelaraskan dengan background nav yang lain */
         }
 
         body { 
             font-family: 'Poppins', sans-serif; 
-            background-color: var(--bg); 
+            background-color: var(--bg-body); 
             color: white; 
-            margin: 0;
-            overflow-x: hidden;
+            margin: 0; 
+            overflow-x: hidden; 
         }
 
-        /* --- SIDEBAR DESKTOP (DISESUAIKAN AGAR SAMA) --- */
+        /* --- WRAPPER UTAMA DASHBOARD --- */
+        .dashboard-wrapper {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        /* --- SIDEBAR KIRI (DESKTOP) --- */
         .sidebar {
             background-color: var(--sidebar-bg); 
             height: 90vh; 
             padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); 
             position: fixed; 
-            width: 260px; /* Dikembalikan ke ukuran standar halaman lain */
+            width: 260px; 
             top: 5vh; 
             left: 20px; 
             border-radius: 30px;
@@ -43,12 +51,10 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             display: flex; 
             flex-direction: column; 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .sidebar h4 { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.5px; }
         .sidebar nav { display: flex; flex-direction: column; }
-
         .menu-link {
             display: flex; 
             align-items: center; 
