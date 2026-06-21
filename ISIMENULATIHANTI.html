@@ -7,18 +7,19 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.2" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.2" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap?v=1.2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-body: #091529; 
+            --sidebar-bg: #1b263b;
             --card-bg: #1b263b; 
             --accent: #4cc9f0;    
             --text-gray: #adb5bd;
             --blue-univ: #0d6efd;
             --green-badge: #3bdedec2;
             --yellow-btn: #1dd605;
-            --nav-mobile-bg: rgba(19, 15, 38, 0.85); /* Sesuai tone gelap keunguan screenshot dashboard */
+            --nav-mobile-bg: rgba(27, 38, 59, 0.95); /* Diselaraskan dengan tema halaman lainnya */
         }
 
         body { 
@@ -31,7 +32,7 @@
 
         /* --- SIDEBAR DESKTOP --- */
         .sidebar {
-            background-color: var(--card-bg); 
+            background-color: var(--sidebar-bg); 
             height: 90vh; 
             padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -47,6 +48,9 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .sidebar h4 { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.5px; }
+        .sidebar nav { display: flex; flex-direction: column; }
+
         .menu-link {
             display: flex; 
             align-items: center; 
@@ -56,14 +60,16 @@
             border-radius: 15px; 
             margin-bottom: 8px; 
             transition: 0.3s;
+            font-size: 0.9rem;
         }
 
-        .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
+        .img-menu-icon { width: 18px; height: 18px; margin-right: 14px; object-fit: contain; }
         
         .menu-link.active { 
             background-color: var(--accent); 
-            color: #0d1b2a !important; 
+            color: #091529 !important; 
             font-weight: 600; 
+            box-shadow: 0 8px 20px rgba(76, 201, 240, 0.25);
         }
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
@@ -89,22 +95,22 @@
 
         /* --- BOTTOM NAVIGATION BAR KHUSUS HP --- */
         .bottom-nav {
-            display: none; /* Sembunyi di desktop */
+            display: none; 
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 70px;
+            height: 75px;
             background: var(--nav-mobile-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
             z-index: 1050;
             justify-content: space-around;
             align-items: center;
-            padding: 0 10px;
+            padding: 0 5px;
             box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
         }
 
@@ -113,36 +119,35 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #8e8a9f;
+            color: #717d96;
             text-decoration: none;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 500;
-            transition: all 0.2s ease;
             flex: 1;
             height: 100%;
         }
 
         .mobile-nav-link img {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
-            margin-bottom: 4px;
-            opacity: 0.6;
-            transition: all 0.2s ease;
+            margin-bottom: 5px;
+            opacity: 0.5;
+            transition: 0.2s;
         }
 
-        /* Navigasi Aktif di HP (Menu Latihan) */
+        /* FIX: Mengubah efek aktif di HP dari warna ungu menjadi biru neon */
         .mobile-nav-link.active {
-            color: #cc55ff; 
+            color: var(--accent); 
         }
         .mobile-nav-link.active img {
             opacity: 1;
-            filter: drop-shadow(0px 0px 5px #cc55ff);
+            filter: drop-shadow(0px 0px 8px rgba(76, 201, 240, 0.8));
         }
 
         /* --- MAIN CONTENT --- */
         .main-content { 
-            margin-left: 300px; 
+            margin-left: 280px; 
             padding: 40px 20px; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             max-width: 1300px;
@@ -220,8 +225,6 @@
         }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
-        
-        /* 1. Mode Tablet (Layar Medium) */
         @media (max-width: 992px) and (min-width: 769px) {
             .sidebar {
                 width: 80px;
@@ -229,24 +232,19 @@
                 padding: 25px 5px;
                 align-items: center;
             }
-            .sidebar h4, .menu-link span, .profile-info { display: none; }
+            .sidebar h4, .menu-link span, .profile-info { display: none !important; }
             .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
             .main-content { margin-left: 100px; padding: 30px 20px; }
             .profile-section { justify-content: center; padding: 8px; }
         }
 
-        /* 2. Mode HP / Mobile (Sejajar dengan screenshot) */
         @media (max-width: 768px) {
-            /* Sembunyikan laci sidebar desktop */
             .sidebar { display: none !important; }
-
-            /* Aktifkan Bottom Navbar */
             .bottom-nav { display: flex; }
 
-            /* Atur ulang posisi konten utama agar tidak terpotong */
             .main-content {
                 margin-left: 0;
-                padding: 30px 15px 95px 15px; /* Spasi bawah ditambahkan agar tombol modul terakhir tidak tertutup */
+                padding: 30px 15px 95px 15px; 
             }
             
             .judul-latihan { min-height: auto; margin-bottom: 10px; }
@@ -282,8 +280,8 @@
         <div class="profile-section">
             <img src="reading-book.png" class="rounded-circle" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
             <div class="profile-info">
-                <p class="small fw-bold mb-0 text-white">mahasiswa</p>
-                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">mahasiswa@upksaintek.com</p>
+                <p class="small fw-bold mb-0 text-white">Wayan Bayu</p>
+                <p class="mb-0 text-white opacity-75" style="font-size: 10px;">wayan@upksaintek.com</p>
             </div>
         </div>
     </div>
@@ -348,7 +346,7 @@
                     <span class="univ-text">🎓 Universitas PGRI Kalimantan</span>
                     <h5 class="judul-latihan">English for Science and Tech</h5>
                     <div class="badge-soal">📋 10 Soal</div>
-                    <a href="SOALLATIHANESTTI.html" class="btn-mulai">KERJAKAN</a>
+                    <a href="SOLLATIHANESTTI.html" class="btn-mulai">KERJAKAN</a>
                 </div>
             </div>
         </div>
