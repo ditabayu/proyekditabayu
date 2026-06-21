@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard Premium - UPKSAINTEK</title>
     
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -30,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* --- SIDEBAR DESKTOP (Sama Persis dengan TI) --- */
+        /* --- SIDEBAR DESKTOP --- */
         .sidebar {
             background-color: var(--sidebar-bg); 
             height: 90vh; 
@@ -74,7 +76,6 @@
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        /* PROFILE SECTION */
         .profile-section {
             margin-top: auto; 
             padding: 12px; 
@@ -136,16 +137,13 @@
             transition: 0.2s;
         }
 
-        .mobile-nav-link.active {
-            color: var(--accent); 
-        }
-
+        .mobile-nav-link.active { color: var(--accent); }
         .mobile-nav-link.active img {
             opacity: 1;
             filter: drop-shadow(0px 0px 8px rgba(166, 72, 237, 0.8));
         }
 
-        /* --- MAIN CONTENT (Sejajar Dengan Halaman Lain) --- */
+        /* --- MAIN CONTENT AREA --- */
         .main-content { 
             margin-left: 300px; 
             padding: 40px 20px; 
@@ -155,24 +153,23 @@
         
         .title-icon { width: 32px; height: auto; margin-left: 10px; vertical-align: middle; filter: drop-shadow(0 0 10px var(--accent)); }
 
-        /* --- BENTO CARDS --- */
         .bento-card {
             background: rgba(41, 24, 61, 0.6);
             border-radius: 24px; 
             padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             height: 100%; 
-            transition: 0.3s;
         }
 
-        /* --- PODIUM STYLING --- */
+        /* --- STYLING PODIUM SESUAI RUJUKAN GAMBAR (2 - 1 - 3) --- */
         .podium-container { 
             display: flex; 
             justify-content: center; 
             align-items: flex-end; 
-            gap: 20px; 
-            margin: 20px 0 30px 0; 
-            min-height: 400px; 
+            gap: 15px; 
+            margin: 20px auto; 
+            min-height: 380px;
+            max-width: 600px;
         }
 
         .podium-item { 
@@ -180,48 +177,42 @@
             flex-direction: column; 
             align-items: center; 
             text-align: center; 
-            flex: 1; 
-            max-width: 200px; 
+            flex: 1;
         }
 
         .medal-graphic {
-            width: 140px; 
+            width: 75px; 
             height: auto;
-            margin-bottom: -10px;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
-            z-index: 2;
-            transition: 0.3s ease;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
         }
 
+        /* Peringkat 1 Lebih Besar Sebagaimana Gambar */
         .podium-item.rank-first .medal-graphic {
-            width: 190px; 
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.4));
+            width: 105px;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.3));
         }
 
-        .podium-item:hover .medal-graphic {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        .winner-name { font-weight: 700; margin-top: 10px; margin-bottom: 2px; }
-        .winner-xp { font-size: 0.85rem; opacity: 0.7; margin-bottom: 15px; }
+        .winner-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
+        .winner-xp { font-size: 0.8rem; opacity: 0.7; margin-bottom: 10px; white-space: nowrap; }
 
         .podium-step { 
             width: 100%; 
             display: flex; 
-            flex-direction: column; 
             justify-content: center; 
             align-items: center; 
-            font-weight: 800; 
-            font-size: 2.2rem; 
-            border-radius: 20px 20px 0 0;
-            position: relative;
+            font-weight: 700; 
+            font-size: 2rem; 
+            border-radius: 18px 18px 12px 12px;
+            box-shadow: inset 0 4px 10px rgba(255,255,255,0.1);
         }
 
-        .step-1 { height: 180px; background: linear-gradient(180deg, #ffd700, #b8860b); color: #180721; border: 2px solid var(--gold); }
-        .step-2 { height: 140px; background: linear-gradient(180deg, #ffffff, #757575); color: #180721; border: 2px solid var(--silver); }
-        .step-3 { height: 110px; background: linear-gradient(180deg, #f9af66, #8b4513); color: #180721; border: 2px solid var(--bronze); }
+        /* Warna Balok Sesuai Gambar Rujukan */
+        .step-1 { height: 160px; background: linear-gradient(180deg, #e6b800, #997a00); color: #d62828; border: 1px solid #ffd700; }
+        .step-2 { height: 120px; background: linear-gradient(180deg, #e0e0e0, #888888); color: #f77f00; border: 1px solid #ffffff; }
+        .step-3 { height: 95px; background: linear-gradient(180deg, #dd9f66, #8a5229); color: #fcbf49; border: 1px solid #f9af66; }
 
-        /* --- LIST ROW STYLING --- */
+        /* --- STYLING LIST BARIS KESELURUHAN --- */
         .list-row { 
             background: rgba(255, 255, 255, 0.03); 
             border-radius: 18px; 
@@ -230,13 +221,11 @@
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
-            transition: 0.3s; 
             border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        .list-row:hover { background: rgba(166, 72, 237, 0.15); transform: translateX(10px); }
-        .xp-text { font-weight: 700; color: var(--gold); white-space: nowrap; }
-        .rank-num { font-weight: 800; color: var(--accent); width: 35px; }
+        .xp-text { font-weight: 700; color: var(--gold); }
+        .rank-num { font-weight: 700; color: #4361ee; width: 35px; }
 
         /* --- RESPONSIVE BREAKPOINTS --- */
         @media (max-width: 992px) and (min-width: 769px) {
@@ -245,47 +234,18 @@
             .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
             .main-content { margin-left: 100px; }
             .profile-section { justify-content: center; padding: 8px; }
-            .medal-graphic { width: 110px; }
-            .podium-item.rank-first .medal-graphic { width: 150px; }
         }
 
         @media (max-width: 768px) {
             .sidebar { display: none !important; }
             .bottom-nav { display: flex; }
-
             .main-content {
                 margin-left: 0;
                 padding: 30px 15px 95px 15px; 
             }
-            
             .podium-container {
-                flex-direction: column;
-                align-items: center;
                 min-height: auto;
-                gap: 25px;
-                margin: 20px 0;
-            }
-
-            .podium-item {
-                width: 100%;
-                max-width: 280px;
-                background: rgba(255, 255, 255, 0.02);
-                padding: 20px;
-                border-radius: 20px;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            .medal-graphic, .podium-item.rank-first .medal-graphic {
-                width: 100px !important;
-                margin-bottom: 5px;
-            }
-
-            .podium-step {
-                width: 50px;
-                height: 50px !important;
-                font-size: 1.5rem;
-                border-radius: 50%;
-                margin-top: 5px;
+                padding: 10px 0;
             }
         }
 
@@ -295,6 +255,7 @@
 
 <body>
 
+    <!-- SIDEBAR UTAMA (DESKTOP) -->
     <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
@@ -327,44 +288,50 @@
         </div>
     </div>
 
+    <!-- MAIN CONTENT AREA -->
     <div class="main-content">
-        <div class="mb-4">
+        <div class="text-center mb-4">
             <h2 class="fw-bold">Leaderboard Mahasiswa <img src="ikon leaderboard.png" class="title-icon"></h2>
             <p class="opacity-75 small">Top pelajar berdasarkan perolehan XP Semester Ini</p>
         </div>
 
-        <div class="row g-3">
-            <div class="col-12">
+        <div class="row g-3 justify-content-center">
+            <!-- Bento Box Atas: Susunan Juara Sesuai Gambar (2 - 1 - 3) -->
+            <div class="col-12 col-xl-10">
                 <div class="bento-card">
                     <div class="podium-container">
+                        
+                        <!-- Peringkat 2 (Niluh) - Sisi Kiri -->
                         <div class="podium-item">
                             <img src="medasi perak.png" class="medal-graphic" alt="Silver Medal">
-                            <div class="winner-name">Niluh</div>
+                            <div class="winner-name text-white">Niluh</div>
                             <div class="winner-xp">3810 point</div>
                             <div class="podium-step step-2">2</div>
                         </div>
 
+                        <!-- Peringkat 1 (Adrian Maulana) - Di Tengah & Lebih Tinggi -->
                         <div class="podium-item rank-first">
                             <img src="medali emas.png" class="medal-graphic" alt="Gold Medal">
-                            <div class="winner-name" style="color: var(--gold); font-size: 1.2rem;">Adrian Maulana</div>
+                            <div class="winner-name" style="color: var(--gold);">Adrian</div>
                             <div class="winner-xp">3930 point</div>
                             <div class="podium-step step-1">1</div>
                         </div>
 
+                        <!-- Peringkat 3 (Riswar) - Sisi Kanan -->
                         <div class="podium-item">
                             <img src="medali perunggu.png" class="medal-graphic" alt="Bronze Medal">
-                            <div class="winner-name">Riswar</div>
+                            <div class="winner-name text-white">Riswar</div>
                             <div class="winner-xp">2650 point</div>
                             <div class="podium-step step-3">3</div>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <div class="col-12">
+            <!-- Bento Box Bawah: List Tabel Ranking -->
+            <div class="col-12 col-xl-10">
                 <div class="bento-card">
-                    <h6 class="fw-bold mb-4" style="font-size: 0.75rem; opacity: 0.7;">PERINGKAT KESELURUHAN</h6>
-                    
                     <div class="list-row">
                         <div class="d-flex align-items-center">
                             <div class="rank-num">1.</div>
@@ -393,6 +360,7 @@
         </div>
     </div>
 
+    <!-- NAVIGATION BAR BAWAH TEMA UNGU (HP) -->
     <div class="bottom-nav">
         <a href="DASHBOARDMAHASISWAILKOM.html" class="mobile-nav-link">
             <img src="dashboard mahasiswa.png" alt="Dashboard">
