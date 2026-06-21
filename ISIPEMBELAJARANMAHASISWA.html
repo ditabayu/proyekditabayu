@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Materi TI - UPKSAINTEK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.2" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap?v=1.2" rel="stylesheet">
     
     <style>
         :root {
@@ -14,6 +15,7 @@
             --card-bg: #1b263b;
             --accent: #4cc9f0;    
             --text-gray: #adb5bd;
+            --nav-mobile-bg: rgba(19, 15, 38, 0.85); /* Sesuai tone gelap keunguan screenshot dashboard */
         }
 
         body { 
@@ -24,23 +26,7 @@
             overflow-x: hidden; 
         }
 
-        /* --- TOGGLE BUTTON UNTUK HP --- */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR DESKTOP --- */
         .sidebar {
             background-color: var(--card-bg); 
             height: 90vh; 
@@ -79,7 +65,7 @@
         
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
-        /* FIX PROFILE SECTION */
+        /* PROFILE SECTION */
         .profile-section {
             margin-top: auto; 
             padding: 12px; 
@@ -98,6 +84,59 @@
             flex: 1;
         }
 
+        /* --- BOTTOM NAVIGATION BAR KHUSUS HP --- */
+        .bottom-nav {
+            display: none; /* Sembunyi di desktop */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: var(--nav-mobile-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            z-index: 1050;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8e8a9f;
+            text-decoration: none;
+            font-size: 0.68rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            flex: 1;
+            height: 100%;
+        }
+
+        .mobile-nav-link img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            margin-bottom: 4px;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        /* Navigasi Aktif di HP (Menu Materi) */
+        .mobile-nav-link.active {
+            color: #cc55ff; 
+        }
+        .mobile-nav-link.active img {
+            opacity: 1;
+            filter: drop-shadow(0px 0px 5px #cc55ff);
+        }
+
         /* --- MAIN CONTENT --- */
         .main-content { 
             margin-left: 300px; 
@@ -106,18 +145,18 @@
             max-width: 1300px;
         }
 
-        /* --- KARTU MATERI --- */
+        /* --- KARTU MATERI & PILLS --- */
         .category-container {
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            scrollbar-width: none; /* Menyembunyikan scrollbar di Firefox */
+            scrollbar-width: none; 
             padding-bottom: 5px;
             margin-bottom: 25px;
         }
         
         .category-container::-webkit-scrollbar {
-            display: none; /* Menyembunyikan scrollbar di Chrome/Safari */
+            display: none; 
         }
 
         .category-pill { 
@@ -130,7 +169,7 @@
             text-decoration: none; 
             transition: 0.3s; 
             font-size: 0.85rem; 
-            white-space: nowrap; /* Menjaga text pill tidak patah ke bawah */
+            white-space: nowrap; 
         }
 
         .category-pill:hover, .category-pill.active { background: var(--accent); color: #0d1b2a; border-color: var(--accent); font-weight: 600; }
@@ -177,8 +216,8 @@
 
         /* --- RESPONSIVE BREAKPOINTS --- */
         
-        /* 1. Layar Medium & Tablet (max-width: 992px) */
-        @media (max-width: 992px) {
+        /* 1. Mode Tablet (Layar Medium) */
+        @media (max-width: 992px) and (min-width: 769px) {
             .sidebar {
                 width: 80px;
                 left: 10px;
@@ -191,27 +230,18 @@
             .profile-section { justify-content: center; padding: 8px; }
         }
 
-        /* 2. Layar HP / Mobile (max-width: 768px) */
+        /* 2. Mode HP / Mobile (Sejajar dengan screenshot) */
         @media (max-width: 768px) {
-            .menu-toggle { display: block; } 
-            
-            .sidebar {
-                width: 260px;
-                left: -280px; 
-                top: 0;
-                height: 100vh;
-                border-radius: 0;
-            }
-            .sidebar h4, .menu-link span, .profile-info { display: block; }
-            .sidebar h4 { margin-top: 40px; }
-            .img-menu-icon { margin-right: 12px; width: 20px; height: 20px; }
-            .profile-section { justify-content: flex-start; padding: 12px; }
+            /* Sembunyikan sidebar utama di HP */
+            .sidebar { display: none !important; }
 
-            .sidebar.active { left: 0px; } 
+            /* Aktifkan Bottom Nav */
+            .bottom-nav { display: flex; }
 
+            /* Atur ulang posisi konten utama agar tidak bertabrakan */
             .main-content {
                 margin-left: 0;
-                padding: 80px 15px 20px 15px; 
+                padding: 25px 15px 95px 15px; /* Ditambah padding bawah biar materi paling bawah tidak tertutup nav */
             }
 
             .card-materi-tiga { height: 320px; padding: 20px; } 
@@ -228,11 +258,7 @@
 
 <body>
 
-    <button class="menu-toggle" id="toggleBtn">
-        <i class="bi bi-list"></i>
-    </button>
-
-   <div class="sidebar" id="sidebarMenu">
+    <div class="sidebar" id="sidebarMenu">
         <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link">
@@ -356,21 +382,32 @@
         </div>
     </div>
 
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
+    <div class="bottom-nav">
+        <a href="DASBOARDMAHASISWA.html" class="mobile-nav-link">
+            <img src="dashboard mahasiswa.png" alt="Dashboard">
+            <span>Dashboard</span>
+        </a>
+        <a href="ISIPEMBELAJARANMAHASISWA.html" class="mobile-nav-link active">
+            <img src="materi mahasiswa.png" alt="Materi">
+            <span>Materi</span>
+        </a>
+        <a href="ISIMENULATIHANTI.html" class="mobile-nav-link">
+            <img src="latihan soal mahasiswa.png" alt="Latihan">
+            <span>Latihan</span>
+        </a>
+        <a href="HALAMANLEADERBOARD.html" class="mobile-nav-link">
+            <img src="ikon leaderboard.png" alt="Leaderboard">
+            <span>Leaderboard</span>
+        </a>
+        <a href="STATISTIKMAHASISWA.html" class="mobile-nav-link">
+            <img src="statistik mahasiswa.png" alt="Statistik">
+            <span>Statistik</span>
+        </a>
+        <a href="Login.html" class="mobile-nav-link text-danger">
+            <img src="kembali.png" alt="Keluar">
+            <span>Keluar</span>
+        </a>
+    </div>
 
-        toggleBtn.addEventListener('click', (e) => {
-            sidebarMenu.classList.toggle('active');
-            e.stopPropagation();
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
-                sidebarMenu.classList.remove('remove');
-                sidebarMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
