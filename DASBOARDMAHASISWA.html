@@ -7,15 +7,16 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.2" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.2" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap?v=1.2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-body: #091529; 
-            --sidebar-bg: rgba(19, 37, 63, 0.7);
+            --sidebar-bg: #1b263b;
             --card-bg: #1b263b;
             --accent: #4cc9f0;
-            --nav-mobile-bg: rgba(19, 15, 38, 0.85); /* Warna gelap keunguan sesuai screenshot */
+            --gold: #ffd700;
+            --nav-mobile-bg: rgba(27, 38, 59, 0.95); /* Menyelaraskan dengan background nav yang lain */
         }
 
         body { 
@@ -38,39 +39,36 @@
         /* --- SIDEBAR KIRI (DESKTOP) --- */
         .sidebar {
             background-color: var(--sidebar-bg); 
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            height: calc(100vh - 60px); 
-            padding: 30px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            position: sticky; 
-            width: 280px; 
-            top: 30px; 
-            left: 0; 
-            border-radius: 28px;
+            height: 90vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            position: fixed; 
+            width: 260px; 
+            top: 5vh; 
+            left: 20px; 
+            border-radius: 30px;
             z-index: 1000; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             display: flex; 
             flex-direction: column; 
-            flex-shrink: 0;
-            transition: all 0.3s ease;
         }
 
         .sidebar h4 { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.5px; }
-        .sidebar nav { display: flex; flex-direction: column; gap: 6px; }
+        .sidebar nav { display: flex; flex-direction: column; }
 
         .menu-link {
             display: flex; 
             align-items: center; 
             color: #adb5bd; 
             text-decoration: none;
-            padding: 12px 18px; 
+            padding: 12px 15px; 
             border-radius: 15px; 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            margin-bottom: 8px; 
+            transition: 0.3s;
             font-size: 0.9rem;
         }
 
-        .img-menu-icon { width: 18px; height: 18px; margin-right: 14px; object-fit: contain; transition: transform 0.3s; }
+        .img-menu-icon { width: 18px; height: 18px; margin-right: 14px; object-fit: contain; }
         
         .menu-link.active { 
             background-color: var(--accent); 
@@ -82,35 +80,32 @@
 
         .profile-section {
             margin-top: auto; 
-            padding: 14px; 
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 18px; 
+            padding: 12px; 
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px; 
             display: flex; 
             align-items: center;
-            overflow: hidden; 
-            width: 100%;
+            gap: 10px;
         }
 
-        /* --- BOTTOM NAVIGATION BAR (SEALIR DI HP) --- */
+        /* --- BOTTOM NAVIGATION BAR (HP) --- */
         .bottom-nav {
-            display: none; /* Sembunyi di desktop */
+            display: none; 
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            height: 70px;
+            height: 75px;
             background: var(--nav-mobile-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
             z-index: 1050;
-            display: none;
             justify-content: space-around;
             align-items: center;
-            padding: 0 10px;
+            padding: 0 5px;
             box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
         }
 
@@ -119,38 +114,35 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #8e8a9f;
+            color: #717d96;
             text-decoration: none;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 500;
-            transition: all 0.2s ease;
             flex: 1;
             height: 100%;
         }
 
         .mobile-nav-link img {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             object-fit: contain;
-            margin-bottom: 4px;
-            opacity: 0.6;
-            transition: all 0.2s ease;
+            margin-bottom: 5px;
+            opacity: 0.5;
+            transition: 0.2s;
         }
 
-        /* Styling menu aktif di HP sesuai warna ungu/pink menyala di foto */
+        /* FIX: Mengubah warna efek aktif dari ungu menjadi BIRU NEON TI */
         .mobile-nav-link.active {
-            color: #cc55ff; 
+            color: var(--accent); 
         }
         .mobile-nav-link.active img {
             opacity: 1;
-            filter: drop-shadow(0px 0px 5px #cc55ff);
-        }
-        .mobile-nav-link.text-danger img {
-            opacity: 0.8;
+            filter: drop-shadow(0px 0px 8px rgba(76, 201, 240, 0.8));
         }
 
         /* --- PANEL KONTEN UTAMA --- */
         .main-content { 
+            margin-left: 280px; 
             flex-grow: 1;
             padding: 10px 0;
         }
@@ -172,29 +164,22 @@
         .materi-text { position: relative; z-index: 3; color: white; }
 
         /* --- MEDIA QUERIES --- */
-        
-        /* 1. Mode Tablet */
         @media (max-width: 992px) and (min-width: 769px) {
-            .sidebar { width: 85px; padding: 25px 8px; align-items: center; }
+            .sidebar { width: 80px; left: 10px; padding: 25px 5px; align-items: center; }
             .sidebar h4, .menu-link span, .profile-section { display: none !important; }
-            .img-menu-icon { margin-right: 0; width: 22px; height: 22px; }
+            .img-menu-icon { margin-right: 0; width: 24px; height: 24px; }
             .menu-link { justify-content: center; padding: 14px 0; }
-            .bottom-nav { display: none !important; }
+            .main-content { margin-left: 90px; }
         }
 
-        /* 2. Mode HP (max-width: 768px) - SEPERTI SCREENSHOT */
         @media (max-width: 768px) {
             .dashboard-wrapper { padding: 15px; }
-            
-            /* Sembunyikan sidebar desktop */
             .sidebar { display: none !important; }
-            
-            /* Tampilkan Bottom Navbar */
             .bottom-nav { display: flex; }
-
-            /* Beri ruang padding bawah pada konten utama agar tidak tertutup bottom nav */
+            
             .main-content { 
-                padding-bottom: 90px; 
+                margin-left: 0;
+                padding-bottom: 95px; 
             }
             
             .stat-box { height: 130px; padding: 18px; }
@@ -207,7 +192,7 @@
     <div class="dashboard-wrapper">
 
         <div class="sidebar" id="sidebarMenu">
-            <h4 class="fw-bold mb-4 text-center text-md-start px-2">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
+            <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
             <nav>
                 <a href="DASBOARDMAHASISWA.html" class="menu-link active">
                     <img src="dashboard mahasiswa.png" class="img-menu-icon" alt="Dashboard"> <span>Dashboard</span>
@@ -230,10 +215,10 @@
             </nav>
 
             <div class="profile-section">
-                <img src="reading-book.png" class="rounded-circle me-2" width="36" height="36" style="object-fit: cover; border: 2px solid var(--accent);">
+                <img src="reading-book.png" class="rounded-circle" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
                 <div class="profile-info">
-                    <p class="small fw-bold mb-0 text-white">mahasiswa</p>
-                    <p class="mb-0 text-white opacity-60" style="font-size: 10px;">mahasiswa@upksaintek.com</p>
+                    <p class="small fw-bold mb-0 text-white">Wayan Bayu</p>
+                    <p class="mb-0 text-white opacity-75" style="font-size: 10px;">wayan@upksaintek.com</p>
                 </div>
             </div>
         </div>
@@ -241,7 +226,7 @@
         <div class="main-content"> 
             <div class="row mb-4">
                 <div class="col-12">
-                    <h2 class="fw-bold mb-1">Welcome Mahasiswa TI 👋</h2>
+                    <h2 class="fw-bold mb-1">Welcome Wayan Bayu 👋</h2>
                     <p class="m-0" style="color: var(--accent); font-size: 0.95rem; font-weight: 500;">Siap Belajar Teknologi Informasi Hari Ini?</p>
                 </div>
             </div>
@@ -265,7 +250,7 @@
                         <img src="poin mahasiswa.png" class="stat-bg"> <div class="stat-overlay"></div>
                         <div class="stat-content">
                             <p class="small opacity-75 mb-1" style="font-size: 0.8rem;">Poin XP</p>
-                            <h2 class="fw-bold text-warning mb-1" style="font-size: 1.7rem;">850 XP</h2>
+                            <h2 class="fw-bold text-warning mb-1" style="font-size: 1.7rem;">3930 XP</h2>
                             <p class="small mb-0 opacity-50" style="font-size: 0.75rem;">Ayo Naikkan Level!</p>
                         </div>
                     </div>
