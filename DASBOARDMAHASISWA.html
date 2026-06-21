@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard TI - UPKSAINTEK</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.1" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.1" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap?v=1.1" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.2" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap?v=1.2" rel="stylesheet">
     
     <style>
         :root {
@@ -15,6 +15,7 @@
             --sidebar-bg: rgba(19, 37, 63, 0.7);
             --card-bg: #1b263b;
             --accent: #4cc9f0;
+            --nav-mobile-bg: rgba(19, 15, 38, 0.85); /* Warna gelap keunguan sesuai screenshot */
         }
 
         body { 
@@ -25,25 +26,6 @@
             overflow-x: hidden; 
         }
 
-        /* --- TOGGLE BUTTON MENU UNTUK HP --- */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 1100;
-            background: rgba(27, 38, 59, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 12px;
-            font-size: 20px;
-            transition: all 0.2s;
-        }
-        .menu-toggle:active { transform: scale(0.95); }
-
         /* --- WRAPPER UTAMA DASHBOARD --- */
         .dashboard-wrapper {
             display: flex;
@@ -53,7 +35,7 @@
             gap: 30px;
         }
 
-        /* --- SIDEBAR KIRI (DESKTOP STICKY) --- */
+        /* --- SIDEBAR KIRI (DESKTOP) --- */
         .sidebar {
             background-color: var(--sidebar-bg); 
             backdrop-filter: blur(25px);
@@ -75,7 +57,6 @@
         }
 
         .sidebar h4 { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.5px; }
-
         .sidebar nav { display: flex; flex-direction: column; gap: 6px; }
 
         .menu-link {
@@ -90,7 +71,6 @@
         }
 
         .img-menu-icon { width: 18px; height: 18px; margin-right: 14px; object-fit: contain; transition: transform 0.3s; }
-        .menu-link:hover .img-menu-icon { transform: scale(1.1); }
         
         .menu-link.active { 
             background-color: var(--accent); 
@@ -98,7 +78,6 @@
             font-weight: 600; 
             box-shadow: 0 8px 20px rgba(76, 201, 240, 0.25);
         }
-        
         .menu-link:hover:not(.active) { background: rgba(255,255,255,0.06); color: white; }
 
         .profile-section {
@@ -113,115 +92,117 @@
             width: 100%;
         }
 
-        .profile-info {
-            overflow: hidden; 
-            white-space: nowrap; 
-            text-overflow: ellipsis;
+        /* --- BOTTOM NAVIGATION BAR (SEALIR DI HP) --- */
+        .bottom-nav {
+            display: none; /* Sembunyi di desktop */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: var(--nav-mobile-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            z-index: 1050;
+            display: none;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8e8a9f;
+            text-decoration: none;
+            font-size: 0.68rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            flex: 1;
+            height: 100%;
+        }
+
+        .mobile-nav-link img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            margin-bottom: 4px;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        /* Styling menu aktif di HP sesuai warna ungu/pink menyala di foto */
+        .mobile-nav-link.active {
+            color: #cc55ff; 
+        }
+        .mobile-nav-link.active img {
+            opacity: 1;
+            filter: drop-shadow(0px 0px 5px #cc55ff);
+        }
+        .mobile-nav-link.text-danger img {
+            opacity: 0.8;
         }
 
         /* --- PANEL KONTEN UTAMA --- */
         .main-content { 
             flex-grow: 1;
             padding: 10px 0;
-            transition: all 0.3s ease; 
         }
 
-        /* --- STATUS BOXES (3 KOTAK ATAS) --- */
+        /* --- STATUS BOXES & CARDS --- */
         .stat-box { 
-            position: relative; 
-            border-radius: 24px; 
-            padding: 24px; 
-            height: 150px; 
-            overflow: hidden; 
-            color: white; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            position: relative; border-radius: 24px; padding: 24px; height: 150px; overflow: hidden; color: white; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(255,255,255,0.08);
         }
         .stat-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.15; }
         .stat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(9, 21, 41, 0.98) 0%, rgba(9, 21, 41, 0.75) 100%); z-index: 2; }
         .stat-content { position: relative; z-index: 3; }
 
-        /* --- KARTU MODUL GRID --- */
         .card-materi { 
-            position: relative; 
-            height: 190px; 
-            border-radius: 22px; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.06); 
-            display: flex; 
-            align-items: flex-end; 
-            padding: 20px; 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-            text-decoration: none; 
+            position: relative; height: 190px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: flex-end; padding: 20px; text-decoration: none; transition: 0.3s;
         }
-        .card-materi:hover { 
-            transform: translateY(-6px); 
-            border-color: var(--accent); 
-            box-shadow: 0 12px 30px rgba(76, 201, 240, 0.18); 
-        }
-        .materi-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.5s; }
-        .card-materi:hover .materi-bg { transform: scale(1.04); }
+        .card-materi:hover { transform: translateY(-6px); border-color: var(--accent); }
+        .materi-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
         .materi-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(9, 21, 41, 0.96) 15%, rgba(9, 21, 41, 0.2) 100%); z-index: 2; }
         .materi-text { position: relative; z-index: 3; color: white; }
 
-        /* --- MEDIA QUERIES (OPTIMASI DI PERANGKAT LAIN) --- */
+        /* --- MEDIA QUERIES --- */
         
-        /* 1. Mode Tablet (max-width: 992px) */
+        /* 1. Mode Tablet */
         @media (max-width: 992px) and (min-width: 769px) {
-            .dashboard-wrapper { padding: 20px; gap: 20px; }
-            .sidebar { 
-                width: 85px; 
-                padding: 25px 8px; 
-                align-items: center; 
-            }
-            .sidebar h4, .menu-link span, .profile-info { display: none !important; }
+            .sidebar { width: 85px; padding: 25px 8px; align-items: center; }
+            .sidebar h4, .menu-link span, .profile-section { display: none !important; }
             .img-menu-icon { margin-right: 0; width: 22px; height: 22px; }
-            .menu-link { justify-content: center; padding: 14px 0; border-radius: 14px; }
-            .profile-section { justify-content: center; padding: 10px 0; }
+            .menu-link { justify-content: center; padding: 14px 0; }
+            .bottom-nav { display: none !important; }
         }
 
-        /* 2. Mode Mobile / HP (max-width: 768px) */
+        /* 2. Mode HP (max-width: 768px) - SEPERTI SCREENSHOT */
         @media (max-width: 768px) {
-            .menu-toggle { display: block; } 
-            
             .dashboard-wrapper { padding: 15px; }
+            
+            /* Sembunyikan sidebar desktop */
+            .sidebar { display: none !important; }
+            
+            /* Tampilkan Bottom Navbar */
+            .bottom-nav { display: flex; }
 
-            /* Sidebar ditarik keluar layar kekiri */
-            .sidebar { 
-                position: fixed;
-                width: 270px; 
-                left: -290px; 
-                top: 0; 
-                height: 100vh; 
-                border-radius: 0;
-                background-color: rgba(13, 25, 47, 0.98);
-                z-index: 1200;
-            }
-            .sidebar.active { left: 0px; }
-
-            .sidebar h4 { margin-top: 50px; text-align: left; padding-left: 15px; } 
-            .menu-link span, .profile-info { display: block !important; }
-            .img-menu-icon { margin-right: 14px; width: 18px; height: 18px; }
-            .profile-section { justify-content: flex-start; padding: 12px; }
-
-            /* Konten utama melebar penuh */
+            /* Beri ruang padding bawah pada konten utama agar tidak tertutup bottom nav */
             .main-content { 
-                padding-top: 65px; 
+                padding-bottom: 90px; 
             }
             
             .stat-box { height: 130px; padding: 18px; }
-            .card-materi { height: 160px; padding: 15px; }
+            .card-materi { height: 150px; padding: 15px; }
         }
     </style>
 </head>
 <body>
-
-    <button class="menu-toggle" id="toggleBtn">
-        <i class="bi bi-list"></i>
-    </button>
 
     <div class="dashboard-wrapper">
 
@@ -249,7 +230,7 @@
             </nav>
 
             <div class="profile-section">
-                <img src="reading-book.png" class="rounded-circle me-2" width="36" height="36" style="object-fit: cover; border: 2px solid var(--accent);" alt="Avatar">
+                <img src="reading-book.png" class="rounded-circle me-2" width="36" height="36" style="object-fit: cover; border: 2px solid var(--accent);">
                 <div class="profile-info">
                     <p class="small fw-bold mb-0 text-white">mahasiswa</p>
                     <p class="mb-0 text-white opacity-60" style="font-size: 10px;">mahasiswa@upksaintek.com</p>
@@ -268,7 +249,7 @@
             <div class="row g-3 mb-5">
                 <div class="col-12 col-md-4">
                     <div class="stat-box">
-                        <img src="materi selesai.jpeg" class="stat-bg" alt="bg"> <div class="stat-overlay"></div>
+                        <img src="materi selesai.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                         <div class="stat-content">
                             <p class="small opacity-75 mb-1" style="font-size: 0.8rem;">Materi Selesai</p>
                             <h3 class="fw-bold mb-2" style="font-size: 1.6rem;">12 / 40</h3>
@@ -281,7 +262,7 @@
 
                 <div class="col-12 col-md-4">
                     <div class="stat-box">
-                        <img src="poin mahasiswa.png" class="stat-bg" alt="bg"> <div class="stat-overlay"></div>
+                        <img src="poin mahasiswa.png" class="stat-bg"> <div class="stat-overlay"></div>
                         <div class="stat-content">
                             <p class="small opacity-75 mb-1" style="font-size: 0.8rem;">Poin XP</p>
                             <h2 class="fw-bold text-warning mb-1" style="font-size: 1.7rem;">850 XP</h2>
@@ -292,7 +273,7 @@
 
                 <div class="col-12 col-md-4">
                     <div class="stat-box">
-                        <img src="target harian.jpeg" class="stat-bg" alt="bg"> <div class="stat-overlay"></div>
+                        <img src="target harian.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                         <div class="stat-content">
                             <p class="small opacity-75 mb-1" style="font-size: 0.8rem;">Target Hari Ini</p>
                             <h6 class="fw-bold mb-0" style="font-size: 0.9rem; line-height: 1.4; color: #ffeb3b;">Selesaikan Modul 2 Java OOP</h6>
@@ -309,7 +290,7 @@
             <div class="row g-3 g-md-4">
                 <div class="col-6 col-lg-3">
                     <a href="MATERIJAVADASARTI.html" class="card-materi">
-                        <img src="java dasar.jpeg" class="materi-bg" alt="Materi">
+                        <img src="java dasar.jpeg" class="materi-bg">
                         <div class="materi-overlay"></div>
                         <div class="materi-text">
                             <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Java Dasar</h6>
@@ -320,7 +301,7 @@
 
                 <div class="col-6 col-lg-3">
                     <a href="MATERIWEBDEVTI.html" class="card-materi">
-                        <img src="web dev (2).jpeg" class="materi-bg" alt="Materi">
+                        <img src="web dev (2).jpeg" class="materi-bg">
                         <div class="materi-overlay"></div>
                         <div class="materi-text">
                             <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Web Dev</h6>
@@ -331,7 +312,7 @@
 
                 <div class="col-6 col-lg-3">
                     <a href="MATERIJARINGANKOMPUTERTI.html" class="card-materi">
-                        <img src="jaringan komputer bg.jpeg" class="materi-bg" alt="Materi">
+                        <img src="jaringan komputer bg.jpeg" class="materi-bg">
                         <div class="materi-overlay"></div>
                         <div class="materi-text">
                             <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Jaringan</h6>
@@ -342,7 +323,7 @@
 
                 <div class="col-6 col-lg-3">
                     <a href="MATERIBASICSCIENCETI.html" class="card-materi">
-                        <img src="basic science (2).jpeg" class="materi-bg" alt="Materi">
+                        <img src="basic science (2).jpeg" class="materi-bg">
                         <div class="materi-overlay"></div>
                         <div class="materi-text">
                             <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Science</h6>
@@ -354,20 +335,32 @@
         </div> 
     </div> 
 
-    <script>
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
+    <div class="bottom-nav">
+        <a href="DASBOARDMAHASISWA.html" class="mobile-nav-link active">
+            <img src="dashboard mahasiswa.png" alt="Dashboard">
+            <span>Dashboard</span>
+        </a>
+        <a href="ISIPEMBELAJARANMAHASISWA.html" class="mobile-nav-link">
+            <img src="materi mahasiswa.png" alt="Materi">
+            <span>Materi</span>
+        </a>
+        <a href="ISIMENULATIHANTI.html" class="mobile-nav-link">
+            <img src="latihan soal mahasiswa.png" alt="Latihan">
+            <span>Latihan</span>
+        </a>
+        <a href="HALAMANLEADERBOARD.html" class="mobile-nav-link">
+            <img src="ikon leaderboard.png" alt="Leaderboard">
+            <span>Leaderboard</span>
+        </a>
+        <a href="STATISTIKMAHASISWA.html" class="mobile-nav-link">
+            <img src="statistik mahasiswa.png" alt="Statistik">
+            <span>Statistik</span>
+        </a>
+        <a href="Login.html" class="mobile-nav-link text-danger">
+            <img src="kembali.png" alt="Keluar">
+            <span>Keluar</span>
+        </a>
+    </div>
 
-        toggleBtn.addEventListener('click', (e) => {
-            sidebarMenu.classList.toggle('active');
-            e.stopPropagation();
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sidebarMenu.contains(e.target) && e.target !== toggleBtn) {
-                sidebarMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
