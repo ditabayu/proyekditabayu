@@ -28,14 +28,14 @@
             overflow-x: hidden;
         }
 
-        /* --- SIDEBAR DESKTOP --- */
+        /* --- SIDEBAR DESKTOP (DISESUAIKAN AGAR SAMA) --- */
         .sidebar {
             background-color: var(--sidebar-bg); 
             height: 90vh; 
             padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.05); 
             position: fixed; 
-            width: 260px; 
+            width: 260px; /* Dikembalikan ke ukuran standar halaman lain */
             top: 5vh; 
             left: 20px; 
             border-radius: 30px;
@@ -143,12 +143,12 @@
             filter: drop-shadow(0px 0px 8px rgba(76, 201, 240, 0.8));
         }
 
-        /* --- MAIN CONTENT --- */
+        /* --- MAIN CONTENT (DISESUAIKAN MARGINNYA) --- */
         .main-content { 
-            margin-left: 280px; 
+            margin-left: 300px; /* Disamakan dengan halaman latihan soal agar sejajar */
             padding: 40px 20px; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 1200px;
+            max-width: 1300px;
         }
         
         .title-icon { width: 32px; height: auto; margin-left: 10px; vertical-align: middle; filter: drop-shadow(0 0 10px var(--accent)); }
