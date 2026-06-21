@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard TI - UPKSAINTEK</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.3" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.3" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css?v=1.4" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css?v=1.4" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Mengembalikan warna asli tema TI (Ungu Gelap / Glassmorphism) */
-            --bg-gradient: linear-gradient(135deg, #0f0c1b 0%, #15102a 100%);
-            --card-bg: rgba(30, 25, 54, 0.65);
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --text-purple: #cc55ff;
-            --accent-blue: #3b82f6;
-            --gold: #f1c40f;
+            /* KEMBALI KE WARNA BIRU ASLI KELAS TI */
+            --bg: #091529;
+            --card-bg: #1b263b;
+            --accent: #4cc9f0;
+            --gold: #ffd700;
+            --silver: #e0e0e0;
+            --bronze: #cd7f32;
+            --nav-mobile-bg: rgba(27, 38, 59, 0.95);
         }
 
         body { 
             font-family: 'Poppins', sans-serif; 
-            background: var(--bg-gradient);
-            background-attachment: fixed;
+            background-color: var(--bg); 
             color: white; 
             margin: 0;
             overflow-x: hidden;
@@ -31,19 +31,17 @@
 
         /* --- SIDEBAR DESKTOP --- */
         .sidebar {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background-color: var(--card-bg); 
             height: 90vh; 
             padding: 25px 15px;
-            border: 1px solid var(--border-glass); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
             position: fixed; 
             width: 260px; 
             top: 5vh; 
             left: 20px; 
             border-radius: 30px;
             z-index: 1000; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             display: flex; 
             flex-direction: column; 
         }
@@ -62,11 +60,12 @@
         .img-menu-icon { width: 20px; height: 20px; margin-right: 12px; object-fit: contain; }
         
         .menu-link.active { 
-            background-color: var(--text-purple); 
-            color: white !important; 
+            background-color: var(--accent); 
+            color: #0d1b2a !important; 
             font-weight: 600; 
-            box-shadow: 0 0 15px rgba(204, 85, 255, 0.4);
         }
+        
+        .menu-link:hover:not(.active) { background: rgba(255,255,255,0.05); color: white; }
 
         .profile-section {
             margin-top: auto; 
@@ -76,7 +75,6 @@
             display: flex; 
             align-items: center;
             gap: 10px;
-            border: 1px solid var(--border-glass);
         }
 
         /* --- BOTTOM NAVIGATION BAR (HP) --- */
@@ -87,9 +85,10 @@
             left: 0;
             right: 0;
             height: 75px;
-            background: rgba(21, 16, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border-glass);
+            background: var(--nav-mobile-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             z-index: 1050;
@@ -120,13 +119,14 @@
             transition: 0.2s;
         }
 
+        /* Navigasi Aktif Biru sesuai tema awal */
         .mobile-nav-link.active {
-            color: var(--text-purple); 
+            color: var(--accent); 
         }
 
         .mobile-nav-link.active img {
             opacity: 1;
-            filter: drop-shadow(0px 0px 8px rgba(204, 85, 255, 0.8));
+            filter: drop-shadow(0px 0px 8px rgba(76, 201, 240, 0.8));
         }
 
         /* --- MAIN CONTENT --- */
@@ -136,7 +136,9 @@
             max-width: 1200px;
         }
 
-        /* --- PODIUM STYLING (KONSEP SCREENSHOT BARU) --- */
+        .title-icon { width: 35px; height: 35px; margin-left: 8px; vertical-align: middle; filter: drop-shadow(0 0 5px var(--accent)); }
+
+        /* --- PODIUM HORIZONTAL (MENIRU STRUKTUR WHATSAPP IMAGE) --- */
         .podium-container { 
             display: flex; 
             justify-content: center; 
@@ -168,10 +170,15 @@
             font-size: 0.95rem; 
             color: #ffffff;
             margin-bottom: 2px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         
+        /* Highlight nama Juara 1 dengan warna kuning emas di atas blok podium */
         .podium-item:nth-child(2) .winner-name {
-            color: var(--gold); /* Highlight nama Juara 1 dengan warna kuning emas */
+            color: var(--gold); 
         }
 
         .winner-xp { 
@@ -187,48 +194,42 @@
             align-items: center; 
             font-weight: 800; 
             font-size: 1.8rem; 
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
         }
 
-        /* Blok warna padat podium sesuai gambar contoh */
+        /* Warna Blok Padat dan Angka Oranye/Merah Persis Screenshot */
         .step-1 { height: 160px; background-color: #dfb300; color: #d63031; }
         .step-2 { height: 120px; background-color: #cbd5e1; color: #e17055; }
         .step-3 { height: 95px; background-color: #ca8a04; color: #d63031; }
 
         /* --- LIST RANKING BAWAH --- */
         .dark-list-container { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border-glass);
-            backdrop-filter: blur(10px);
-            border-radius: 24px; 
-            padding: 16px; 
+            background: rgba(27, 38, 59, 0.6); 
+            border-radius: 20px; 
+            padding: 12px; 
             max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .list-row { 
-            background: rgba(255, 255, 255, 0.04); 
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 16px; 
+            background: rgba(255, 255, 255, 0.03); 
+            border-radius: 15px; 
             padding: 16px 20px; 
             margin-bottom: 12px; 
             display: flex; 
             align-items: center; 
             justify-content: space-between; 
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
-        .list-row:hover {
-            background: rgba(255, 255, 255, 0.08);
-        }
-
+        .list-row:hover { background: rgba(76, 201, 240, 0.1); }
         .list-row:last-child { margin-bottom: 0; }
 
         .rank-num { 
             font-weight: 800; 
-            color: var(--accent-blue); /* Urutan angka warna biru cerah */
+            color: var(--accent); /* Angka urutan warna biru cerah */
             width: 35px; 
             font-size: 1.05rem;
         }
@@ -241,7 +242,7 @@
 
         .xp-text { 
             font-weight: 700; 
-            color: var(--gold); /* Poin warna kuning emas */
+            color: var(--gold); /* Poin teks warna kuning emas */
             font-size: 1.05rem;
         }
 
@@ -276,8 +277,9 @@
 </head>
 <body>
 
+    <!-- SIDEBAR UTAMA (DESKTOP) -->
     <div class="sidebar" id="sidebarMenu">
-        <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--text-purple);">SAINTEK</span></h4>
+        <h4 class="fw-bold mb-4 text-center">UPK<span style="color: var(--accent);">SAINTEK</span></h4>
         <nav>
             <a href="DASBOARDMAHASISWA.html" class="menu-link">
                 <img src="dashboard mahasiswa.png" class="img-menu-icon"> <span>Dashboard</span>
@@ -300,7 +302,7 @@
         </nav>
 
         <div class="profile-section">
-            <img src="reading-book.png" class="rounded-circle" width="38" height="38" style="object-fit: cover; border: 2px solid var(--text-purple); flex-shrink: 0;">
+            <img src="reading-book.png" class="rounded-circle" width="38" height="38" style="object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
             <div class="profile-info">
                 <p class="small fw-bold mb-0 text-white">Wayan Bayu</p>
                 <p class="mb-0 text-white opacity-75" style="font-size: 10px;">wayan@upksaintek.com</p>
@@ -308,40 +310,46 @@
         </div>
     </div>
 
+    <!-- MAIN KONTEN -->
     <div class="main-content">
         <div class="text-center mb-4">
-            <h2 class="fw-bold mb-1">Leaderboard Mahasiswa 🏆</h2>
+            <h2 class="fw-bold mb-1">Leaderboard Mahasiswa <img src="ikon leaderboard.png" class="title-icon"></h2>
             <p class="text-muted small">Top pelajar berdasarkan perolehan XP Semester Ini</p>
         </div>
 
+        <!-- Susunan Sejajar Kiri-Kanan Mengikuti Template Screenshot: Juara 2 -> 1 -> 3 -->
         <div class="podium-container">
+            <!-- JUARA 2: Dita Damayanti -->
             <div class="podium-item">
                 <img src="medasi perak.png" class="medal-graphic" alt="Silver">
-                <div class="winner-name">Hadid</div>
-                <div class="winner-xp">3810 point</div>
+                <div class="winner-name">Dita Damayanti</div>
+                <div class="winner-xp">3810 poin</div>
                 <div class="podium-step step-2">2</div>
             </div>
 
+            <!-- JUARA 1: Wayan Bayu -->
             <div class="podium-item">
                 <img src="medali emas.png" class="medal-graphic" alt="Gold">
-                <div class="winner-name">Reza</div>
-                <div class="winner-xp">3930 point</div>
+                <div class="winner-name">Wayan Bayu</div>
+                <div class="winner-xp">3930 poin</div>
                 <div class="podium-step step-1">1</div>
             </div>
 
+            <!-- JUARA 3: Atika Kusuma -->
             <div class="podium-item">
                 <img src="medali perunggu.png" class="medal-graphic" alt="Bronze">
-                <div class="winner-name">Irgi</div>
-                <div class="winner-xp">2650 point</div>
+                <div class="winner-name">Atika Kusuma</div>
+                <div class="winner-xp">2650 poin</div>
                 <div class="podium-step step-3">3</div>
             </div>
         </div>
 
+        <!-- LIST RANKING DATA ASLI KELAS TI -->
         <div class="dark-list-container">
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">1.</div>
-                    <div class="student-name">Reza</div>
+                    <div class="student-name">Wayan Bayu</div>
                 </div>
                 <div class="xp-text">3930 poin</div>
             </div>
@@ -349,7 +357,7 @@
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">2.</div>
-                    <div class="student-name">Hadid</div>
+                    <div class="student-name">Dita Damayanti</div>
                 </div>
                 <div class="xp-text">3810 poin</div>
             </div>
@@ -357,13 +365,22 @@
             <div class="list-row">
                 <div class="d-flex align-items-center">
                     <div class="rank-num">3.</div>
-                    <div class="student-name">Irgi</div>
+                    <div class="student-name">Atika Kusuma</div>
                 </div>
                 <div class="xp-text">2650 poin</div>
+            </div>
+
+            <div class="list-row">
+                <div class="d-flex align-items-center">
+                    <div class="rank-num">4.</div>
+                    <div class="student-name">Budi Setiawan</div>
+                </div>
+                <div class="xp-text">2100 poin</div>
             </div>
         </div>
     </div>
 
+    <!-- NAVIGATION BAR BAWAH TEMA BIRU (HP) -->
     <div class="bottom-nav">
         <a href="DASBOARDMAHASISWA.html" class="mobile-nav-link">
             <img src="dashboard mahasiswa.png" alt="Dashboard">
