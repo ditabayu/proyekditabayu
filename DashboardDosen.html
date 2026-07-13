@@ -244,13 +244,15 @@
             }
 
             .menu-link:hover, .menu-link.active {
-                background: transparent;
-                color: #4cc9f0 !important;
-                box-shadow: none;
-                transform: none;
-            }
-            .menu-link.active .img-menu-icon { filter: none; }
+            background: linear-gradient(90deg, #4cc9f0, #4361ee);
+            color: #0d1b2a !important; 
+            font-weight: 600;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+        }
 
+        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
+        .menu-link.active .img-menu-icon { filter: brightness(0); } 
             /* MAIN CONTENT */
             .main-content {
                 margin-left: 0;
