@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB NEXT GEN 😎</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)" rel="stylesheet">
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap)" rel="stylesheet">
     
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: white; 
+            min-height: 100vh; 
+            margin: 0;
+        }
 
-
-        body {font-family: 'Poppins', sans-serif;
-              background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-              color: white; min-height: 100vh; margin: 0;}
-
-
-/* --- FULL SIDEBAR KIRI --- */
+        /* --- FULL SIDEBAR KIRI --- */
         .sidebar {
-            background-color: #1b263b; height: 85vh; padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
-            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
-            z-index: 1000; overflow-y: auto; overflow-x: hidden;
+            background-color: #1b263b; 
+            height: 85vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            display: flex; 
+            flex-direction: column;
+            position: fixed; 
+            width: 260px; 
+            top: 7.5vh; 
+            left: 20px; 
+            border-radius: 30px;
+            z-index: 1000; 
+            overflow-y: auto; 
+            overflow-x: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
@@ -28,322 +39,389 @@
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
         .menu-link {
-            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
-            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
-            transition: 0.3s; font-size: 0.85rem;
+            display: flex; 
+            align-items: center; 
+            color: #adb5bd; 
+            text-decoration: none;
+            padding: 12px 15px; 
+            border-radius: 15px; 
+            margin-bottom: 8px;
+            transition: 0.3s; 
+            font-size: 0.85rem;
         }
 
-         /* EFEK HOVER NYA */
+        /* EFEK HOVER NYA */
         .menu-link:hover, .menu-link.active {
-            background:linear-gradient(90deg,#4cc9f0,#4361ee);
-            border:none; border-radius:20px; padding:12px;
-            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
+            background: linear-gradient(90deg, #4cc9f0, #4361ee);
+            border: none; 
+            border-radius: 20px; 
+            padding: 12px;
+            color: #0d1b2a !important; 
+            font-weight: 600; 
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+        }
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
         .menu-link.active .img-menu-icon { filter: brightness(0); } 
+        
         .profile-section {
-            margin-top: auto; background: rgba(255, 255, 255, 0.07);
-            padding: 15px; border-radius: 20px; display: flex; align-items: center;}
-
-
-
+            margin-top: auto; 
+            background: rgba(255, 255, 255, 0.07);
+            padding: 15px; 
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center;
+        }
      
-/* --- BAGIAN TENGAH --- */
-        .content-area {margin-left: 300px; padding: 50px 40px;}
+        /* --- BAGIAN TENGAH --- */
+        .content-area { margin-left: 300px; padding: 50px 40px; }
 
+        /* --- CARD KANAN --- */
+        .class-card-custom {
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(25px);
+            border-radius: 30px; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.3s ease-in-out; 
+            overflow: hidden;
+        }
+        
+        .class-card-custom:hover {
+            border-color: #4cc9f0;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            transform: translateY(-5px);
+        }
+        
+        .card-header-accent {
+            background: rgba(76, 201, 240, 0.05); 
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .card-body-modular { padding: 25px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
 
+        /* --- KOTAK NGAMBANG GABUNG KELAS --- */
+        .token-box {
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 12px;
+            padding: 10px 15px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
 
-/* --- CARD KANAN --- */
-        .class-card-custom {background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
-                            border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08);
-                            transition: 0.3s ease-in-out; overflow: hidden;}
-        .class-card-custom:hover {border-color: #4cc9f0;
-                                  background: rgba(255, 255, 255, 0.05);
-                                  box-shadow: 0 10px 30px rgba(0,0,0,0.3); transform: translateY(-5px);}
-        .card-header-accent {background: rgba(76, 201, 240, 0.05); padding: 20px 25px;
-                             border-bottom: 1px solid rgba(255, 255, 255, 0.05);}
-        .card-body-modular {padding: 25px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;}
-
-
-
-
-/* --- KOTAK NGAMBANG GABUNG KELAS --- */
-        .token-box {background: rgba(255, 255, 255, 0.05); border-radius: 12px;
-                    padding: 10px 15px; border: 1px solid rgba(255, 255, 255, 0.1);
-                    display: flex; justify-content: space-between; align-items: center;}
-
-        .btn-copy {background: #4cc9f0; color: #0d1b2a; border: none; border-radius: 8px;
-                   font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
-        .btn-copy:hover {transform: scale(1.1); }
-
-
-
-/* --- DROPDOWN BENTUK PIL --- */
+        /* --- DROPDOWN BENTUK PIL --- */
         .dropdown-menu-pill {
-            background: #1b263b; border-radius: 20px; border: 1px solid #4cc9f0; padding: 8px;}
+            background: #1b263b; 
+            border-radius: 20px; 
+            border: 1px solid #4cc9f0; 
+            padding: 8px;
+        }
 
         .dropdown-item-pill {
-            color: white; font-size: 0.8rem; border-radius: 12px; padding: 8px 15px; border: none; background: transparent; width: 100%; text-align: left;}
+            color: white; 
+            font-size: 0.8rem; 
+            border-radius: 12px; 
+            padding: 8px 15px; 
+            border: none; 
+            background: transparent; 
+            width: 100%; 
+            text-align: left;
+        }
 
-        .dropdown-item-pill:hover {background: rgba(76, 201, 240, 0.2); color: white;}
+        .dropdown-item-pill:hover { background: rgba(76, 201, 240, 0.2); color: white; }
 
-
-
-/* --- WARNA TOMBOL DETAIL SAMA PAKET, SALIN --- */
-        .btn-yellow {background: #ffd166; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .btn-blue {background: #4cc9f0; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        /* --- WARNA TOMBOL DETAIL SAMA PAKET, SALIN --- */
+        .btn-yellow { background: #ffd166; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-blue { background: #4cc9f0; color: #0d1b2a; border-radius: 20px; border:none; font-weight: 600; padding: 10px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         
         .btn-yellow:hover, .btn-blue:hover, .btn-outline-info:hover, .btn-info:hover { 
-                   transform: scale(1.03); 
-                   opacity: 1; 
-                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
+            transform: scale(1.03); 
+            opacity: 1; 
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);
+        }
 
+        .btn-copy {
+            background: linear-gradient(135deg, #4cc9f0, #4361ee);
+            color: #0d1b2a; 
+            border: none; 
+            border-radius: 8px;
+            font-size: 0.65rem; 
+            padding: 3px 10px; 
+            font-weight: bold; 
+            transition: 0.3s;
+        }
 
-        .btn-copy {background: linear-gradient(135deg, #4cc9f0, #4361ee);
-                color: #0d1b2a; border: none; border-radius: 8px;
-                font-size: 0.65rem; padding: 3px 10px; font-weight: bold; transition: 0.3s;}
+        .btn-copy:hover { transform: scale(1.1); box-shadow: 0 0 8px #4cc9f0; }
 
-        .btn-copy:hover {transform: scale(1.1);box-shadow: 0 0 8px #4cc9f0;}
-
-
-
-/* --- FORMS DAN MODAL--- */
+        /* --- FORMS DAN MODAL --- */
         .modal-glass {
-                 background: rgba(13, 27, 42, 0.95) !important; backdrop-filter: blur(20px);
-                 border-radius: 35px !important; border: 1px solid rgba(255, 255, 255, 0.1); color: white;}
+            background: rgba(13, 27, 42, 0.95) !important; 
+            backdrop-filter: blur(20px);
+            border-radius: 35px !important; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            color: white;
+        }
+        
         .form-custom { 
-                 background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(6, 6, 6, 0.1); 
-                 border-radius: 15px; color: white; padding: 12px; transition: 0.3s;}
-        .form-custom:focus {border-color: #4cc9f0; outline: none; background: rgba(0, 0, 0, 0.1); color: rgb(255, 255, 255);}
-/* --- ANAK PILIHANNYA --- */      
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 15px; 
+            color: white; 
+            padding: 12px; 
+            transition: 0.3s;
+        }
+        
+        .form-custom:focus { border-color: #4cc9f0; outline: none; background: rgba(0, 0, 0, 0.1); color: rgb(255, 255, 255); }
+
+        /* --- ANAK PILIHANNYA --- */      
         select.form-custom {
-               appearance: none;
-               background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-               background-repeat: no-repeat; background-position: right 15px center; padding-right: 40px;
-               border-radius: 50px !important;}
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; 
+            background-position: right 15px center; 
+            padding-right: 40px;
+            border-radius: 50px !important;
+        }
 
-        select.form-custom option {background-color: #1b263b; color: white; padding: 10px;}
+        select.form-custom option { background-color: #1b263b; color: white; padding: 10px; }
 
+        .btn-save {
+            background: #4cc9f0; 
+            color: #0d1b2a; 
+            border-radius: 15px; 
+            border: none; 
+            font-weight: 700; 
+            padding: 12px; 
+            width: 100%; 
+            transition: 0.3s;
+        }
+        
+        .btn-save:hover {
+            transform: scale(1.03); 
+            opacity: 1; 
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);
+        }
 
-        .btn-save {background: #4cc9f0; color: #0d1b2a; border-radius: 15px; border: none; 
-                   font-weight: 700; padding: 12px; width: 100%; transition: 0.3s;}
-        .btn-save:hover {transform: scale(1.03); 
-                   opacity: 1; 
-                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
-
-        .btn-danger-custom {background: #ff4b4b; color: #0d1b2a; border-radius: 15px; border: none;
-                            padding: 12px; transition: 0.3s; width: 100%;}
-        .btn-danger-custom:hover {transform: scale(1.03); 
-                   opacity: 1; 
-                   box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);}
+        .btn-danger-custom {
+            background: #ff4b4b; 
+            color: #0d1b2a; 
+            border-radius: 15px; 
+            border: none;
+            padding: 12px; 
+            transition: 0.3s; 
+            width: 100%;
+        }
+        
+        .btn-danger-custom:hover {
+            transform: scale(1.03); 
+            opacity: 1; 
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.1);
+        }
 
         .package-item {
-                 background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 15px;
-                 margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.05);
-                 display: flex; justify-content: space-between; align-items: center;}
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 20px; 
+            padding: 15px;
+            margin-bottom: 12px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
 
- /* DETAIL SCROLLBAR */
-         ::-webkit-scrollbar {width: 6px;}
+        /* DETAIL SCROLLBAR */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(13, 27, 42, 0.98); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(76, 201, 240, 0.5); 
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #4cc9f0; } 
 
-         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
-         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
-                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
-         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+        /* ===================================================== */
+        /* RESPONSIVE MOBILE FIX */
+        /* ===================================================== */
 
-     /* ===================================================== */
-/* RESPONSIVE MOBILE FIX */
-/* ===================================================== */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
 
-@media (max-width: 768px) {
+            /* SIDEBAR */
+            .sidebar {
+                position: relative;
+                width: 92%;
+                height: auto;
+                top: 0;
+                left: 0;
+                margin: 15px auto;
+                border-radius: 25px;
+                padding: 20px 15px;
+            }
 
-```
-body{
-    overflow-x:hidden;
-}
+            /* CONTENT */
+            .content-area {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px 15px 40px;
+            }
 
-/* SIDEBAR */
-.sidebar{
-    position:relative;
-    width:92%;
-    height:auto;
-    top:0;
-    left:0;
-    margin:15px auto;
-    border-radius:25px;
-    padding:20px 15px;
-}
+            /* HEADER */
+            .content-area .d-flex.justify-content-between {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 15px;
+            }
 
-/* CONTENT */
-.content-area{
-    margin-left:0;
-    width:100%;
-    padding:20px 15px 40px;
-}
+            .content-area .d-flex.justify-content-between .d-flex {
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+            }
 
-/* HEADER */
-.content-area .d-flex.justify-content-between{
-    flex-direction:column;
-    align-items:flex-start !important;
-    gap:15px;
-}
+            .content-area .d-flex.justify-content-between .btn {
+                width: 100%;
+                border-radius: 18px !important;
+                padding: 12px;
+                font-size: 0.85rem;
+            }
 
-.content-area .d-flex.justify-content-between .d-flex{
-    width:100%;
-    flex-direction:column;
-    gap:10px;
-}
+            /* CARD */
+            .class-card-custom {
+                border-radius: 25px;
+                overflow: hidden;
+            }
 
-.content-area .d-flex.justify-content-between .btn{
-    width:100%;
-    border-radius:18px !important;
-    padding:12px;
-    font-size:0.85rem;
-}
+            .card-header-accent {
+                padding: 18px;
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 15px;
+            }
 
-/* CARD */
-.class-card-custom{
-    border-radius:25px;
-    overflow:hidden;
-}
+            .card-header-accent h4 {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
 
-.card-header-accent{
-    padding:18px;
-    flex-direction:column;
-    align-items:flex-start !important;
-    gap:15px;
-}
+            /* DROPDOWN TITIK 3 */
+            .dropdown {
+                align-self: flex-end;
+            }
 
-.card-header-accent h4{
-    font-size:1rem;
-    line-height:1.5;
-}
+            /* BODY CARD */
+            .card-body-modular {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
+            }
 
-/* DROPDOWN TITIK 3 */
-.dropdown{
-    align-self:flex-end;
-}
+            .card-body-modular > div:first-child {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                padding-right: 0 !important;
+                padding-bottom: 15px;
+            }
 
-/* BODY CARD */
-.card-body-modular{
-    grid-template-columns:1fr;
-    padding:20px;
-    gap:20px;
-}
+            /* TOKEN */
+            .token-box {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 12px;
+            }
 
-.card-body-modular > div:first-child{
-    border-right:none !important;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    padding-right:0 !important;
-    padding-bottom:15px;
-}
+            .token-box span {
+                font-size: 0.85rem;
+                word-break: break-word;
+            }
 
-/* TOKEN */
-.token-box{
-    flex-wrap:wrap;
-    gap:10px;
-    padding:12px;
-}
+            .btn-copy {
+                width: 100%;
+                padding: 10px;
+                border-radius: 12px;
+            }
 
-.token-box span{
-    font-size:0.85rem;
-    word-break:break-word;
-}
+            /* BUTTON DETAIL */
+            .btn-yellow,
+            .btn-blue {
+                width: 100%;
+                padding: 12px;
+                font-size: 0.9rem;
+                border-radius: 18px;
+            }
 
-.btn-copy{
-    width:100%;
-    padding:10px;
-    border-radius:12px;
-}
+            /* MODAL */
+            .modal-dialog {
+                margin: 15px;
+            }
 
-/* BUTTON DETAIL */
-.btn-yellow,
-.btn-blue{
-    width:100%;
-    padding:12px;
-    font-size:0.9rem;
-    border-radius:18px;
-}
+            .modal-content {
+                border-radius: 25px !important;
+            }
 
-/* MODAL */
-.modal-dialog{
-    margin:15px;
-}
+            /* FORM */
+            .form-custom {
+                font-size: 0.9rem;
+            }
 
-.modal-content{
-    border-radius:25px !important;
-}
+            /* PACKAGE */
+            .package-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
 
-/* FORM */
-.form-custom{
-    font-size:0.9rem;
-}
+            .package-item button {
+                width: 100%;
+            }
 
-/* PACKAGE */
-.package-item{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-}
+            /* BUTTON MODAL */
+            .btn-save,
+            .btn-danger-custom {
+                border-radius: 18px;
+            }
+        }
 
-.package-item button{
-    width:100%;
-}
+        /* EXTRA SMALL PHONE */
+        @media (max-width: 576px) {
+            .sidebar h4 {
+                font-size: 1.3rem;
+            }
 
-/* BUTTON MODAL */
-.btn-save,
-.btn-danger-custom{
-    border-radius:18px;
-}
-```
+            .menu-link {
+                font-size: 0.85rem;
+                padding: 12px 15px;
+            }
 
-}
+            .img-menu-icon {
+                width: 22px;
+            }
 
-/* EXTRA SMALL PHONE */
-@media (max-width:576px){
+            .content-area h2 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+            }
 
-```
-.sidebar h4{
-    font-size:1.3rem;
-}
+            .card-header-accent h4 {
+                font-size: 0.95rem;
+            }
 
-.menu-link{
-    font-size:0.85rem;
-    padding:12px 15px;
-}
+            .badge {
+                font-size: 0.6rem !important;
+            }
 
-.img-menu-icon{
-    width:22px;
-}
-
-.content-area h2{
-    font-size:1.5rem;
-    line-height:1.4;
-}
-
-.card-header-accent h4{
-    font-size:0.95rem;
-}
-
-.badge{
-    font-size:0.6rem !important;
-}
-
-.btn-yellow,
-.btn-blue{
-    font-size:0.85rem;
-}
-```
-
-}
-         
+            .btn-yellow,
+            .btn-blue {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
-
-
-
-
-
 
 <body>
     
@@ -387,10 +465,7 @@ body{
             </div>
         </div>
     </div>
-   
-
-
-
+    
     <div class="content-area">
         <div class="d-flex justify-content-between align-items-center mb-5">
             <h2 class="fw-bold m-0">Daftar <span style="color: #4cc9f0;">Kelas Anda</span></h2>
@@ -436,8 +511,7 @@ body{
                 </div>
             </div>
 
-
-              <div class="col-md-6">
+            <div class="col-md-6">
                 <div class="class-card-custom">
                     <div class="card-header-accent d-flex justify-content-between align-items-center">
                         <div>
@@ -472,7 +546,7 @@ body{
                 </div>
             </div>
 
-              <div class="col-md-6">
+            <div class="col-md-6">
                 <div class="class-card-custom">
                     <div class="card-header-accent d-flex justify-content-between align-items-center">
                         <div>
@@ -518,7 +592,7 @@ body{
                 </div>
                 <div class="modal-body text-center">
                     <p class="small opacity-50 mb-4">Masukkan kode unik untuk masuk ke kelas baru.</p>
-                    <input type="text" class="form-custom w-100 text-center fw-bold"  style="letter-spacing: 5px;">
+                    <input type="text" class="form-custom w-100 text-center fw-bold" style="letter-spacing: 5px;">
                     <button class="btn-blue w-100 mt-4 py-3">Bergabung</button>
                 </div>
             </div>
@@ -589,7 +663,7 @@ body{
                     </div>
                     <div class="mb-4">
                         <label class="small mb-2 opacity-50">Deskripsi Singkat</label>
-                        <textarea class="form-custom w-100" rows="3">.......</textarea>
+                        <textarea class="form-custom w-100" rows="3"></textarea>
                     </div>
                     <button class="btn-save">Simpan Perubahan</button>
                 </div>
@@ -613,105 +687,4 @@ body{
         </div>
     </div>
 
-    <div class="modal fade" id="modalDetail" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-glass p-3">
-                <div class="modal-header border-0">
-                    <h5 class="fw-bold text-info">Insight Kelas</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row text-center mb-4">
-                        <div class="col-4">
-                            <h3 class="fw-bold m-0 text-info">6</h3>
-                            <p class="small opacity-50">Siswa</p>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="fw-bold m-0 text-info">6</h3>
-                            <p class="small opacity-50">Topik</p>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="fw-bold m-0 text-info">12</h3>
-                            <p class="small opacity-50">Kuis</p>
-                        </div>
-                    </div>
-                    <hr class="opacity-10">
-                    <h6 class="fw-bold small mb-3">Mata Kuliah Terkait:</h6>
-                    <ul class="small opacity-75">
-                        <li>Java Dasar</li>
-                        <li>Jaringan Komputer</li>
-                        <li>Basis Data</li>
-                        <li>Pemrograman Web</li>
-                        <li>EST</li>
-                        <li>Basic Science</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalKlaim" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-glass p-3">
-                <div class="modal-header border-0">
-                    <h5 class="fw-bold">Klaim Paket</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="package-item">
-                        <div>
-                            <h6 class="fw-bold m-0">Paket UTS</h6>
-                            <p class="small m-0 opacity-50">10 Soal & Materi</p>
-                        </div>
-                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
-                    </div>
-
-                     <div class="package-item">
-                        <div>
-                            <h6 class="fw-bold m-0">Paket UAS</h6>
-                            <p class="small m-0 opacity-50">20 Soal & Materi</p>
-                        </div>
-                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
-                    </div>
-
-                      <div class="package-item">
-                        <div>
-                            <h6 class="fw-bold m-0">Latihan Pemrograman</h6>
-                            <p class="small m-0 opacity-50">7 Soal & 2 Praktik</p>
-                        </div>
-                        <button class="btn btn-info btn-sm rounded-pill px-3" style="color:#0d1b2a; font-weight:bold;">Klaim</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    
-
-    <script>
-       function copyToken(txt) {
-    navigator.clipboard.writeText(txt);
-
-    const notif = document.createElement("div");
-    notif.innerText = "Token berhasil disalin";
-    notif.style.position = "fixed";
-    notif.style.bottom = "20px";
-    notif.style.right = "20px";
-    notif.style.background = "#4cc9f0";
-    notif.style.color = "#0d1b2a";
-    notif.style.padding = "10px 20px";
-    notif.style.borderRadius = "15px";
-    notif.style.fontWeight = "600";
-    notif.style.boxShadow = "0 0 10px rgba(76,201,240,0.5)";
-    notif.style.zIndex = "9999";
-
-    document.body.appendChild(notif);
-
-    setTimeout(() => notif.remove(), 2000);
-}
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <div class="modal fade" id="modalDetail"
