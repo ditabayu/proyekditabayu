@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB NEXT GEN - Data Kelas 😎</title>
+    <!-- Bootstrap 5 & Google Fonts asli milikmu -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- SEMUA KONSEPNYA WARNA & STYLE ASLI KAMU TETAP DI SINI --- */
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
@@ -173,14 +173,14 @@
         }
         .page-link-custom.active { background: #4cc9f0; color: #0d1b2a; }
 
-        /* --- MENU BAWAH / BOTTOM NAV (KHUSUS TAMPILAN HP) --- */
+        /* --- MENU BAWAH / BOTTOM NAV (8 MENU LENGKAP) --- */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             height: 70px;
-            background: rgba(27, 38, 59, 0.95); /* Menggunakan warna dasar sidebar kamu */
+            background: rgba(27, 38, 59, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -190,7 +190,7 @@
             z-index: 2000;
             padding-bottom: env(safe-area-inset-bottom);
             box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
-            display: none; /* Default sembunyi di Desktop */
+            display: none; /* Sembunyi di Desktop */
         }
 
         .bottom-nav-link {
@@ -200,17 +200,26 @@
             justify-content: center;
             color: #adb5bd;
             text-decoration: none;
-            font-size: 0.65rem;
-            width: 14%;
+            font-size: 0.62rem; /* Sedikit dikecilkan agar teks menu tidak tabrakan di HP */
+            width: 12.5%; /* Membagi rata untuk 8 item menu */
             height: 100%;
             transition: 0.2s;
+            text-align: center;
         }
 
         .bottom-nav-link img {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             margin-bottom: 4px;
             opacity: 0.6;
+        }
+
+        .bottom-nav-link span {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
         }
 
         .bottom-nav-link.active {
@@ -224,20 +233,19 @@
         }
 
         /* ==========================================================================
-           ANTI-BERANTAK RESPONSIVE ENGINE (HANYA MENGATUR STRUKTUR HP/TABLET)
+           ANTI-BERANTAK RESPONSIVE ENGINE
            ========================================================================== */
-        
         @media (max-width: 991.98px) {
             .sidebar {
-                display: none !important; /* Sembunyikan sidebar tegak di HP/Tablet */
+                display: none !important;
             }
             .bottom-nav {
-                display: flex; /* Aktifkan menu bawah ala aplikasi dashboard */
+                display: flex; /* Muncul di HP & Tablet */
             }
             .content-area {
                 margin-left: 0 !important;
                 width: 100% !important;
-                padding: 20px 15px 90px 15px !important; /* Spacing ekstra bawah biar tidak tertutup menu */
+                padding: 20px 15px 95px 15px !important; /* Jarak bawah ditambah aman dari menu */
             }
         }
 
@@ -253,7 +261,7 @@
             .table-container-glass {
                 padding: 15px;
                 border-radius: 20px;
-                overflow-x: auto; /* Tabel bisa di-swipe kanan-kiri dengan aman */
+                overflow-x: auto;
             }
             .table-custom {
                 min-width: 600px;
@@ -268,6 +276,7 @@
 <body>
 
     <div class="wrapper">
+        <!-- SIDEBAR (Desktop Only) -->
         <div class="sidebar">
             <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
             <nav>
@@ -306,6 +315,7 @@
             </div>
         </div>
 
+        <!-- MAIN CONTENT AREA -->
         <div class="content-area">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
@@ -315,6 +325,7 @@
                 <input type="text" class="form-custom" placeholder="Cari kelas..." style="width: 280px; font-size: 0.85rem;">
             </div>
 
+            <!-- Box Input Form -->
             <div style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
                 <div class="row g-3 align-items-end">
                     <div class="col-lg-5 col-md-6">
@@ -336,6 +347,7 @@
                 </div>
             </div>
 
+            <!-- Tabel Data Kelas -->
             <div class="table-container-glass">
                 <table class="table-custom">
                     <thead>
@@ -371,6 +383,7 @@
         </div>
     </div>
 
+    <!-- MENU BAWAH / BOTTOM NAV (8 MENU LENGKAP TERMASUK EVALUASI) -->
     <div class="bottom-nav">
         <a href="DashboardDosen.html" class="bottom-nav-link">
             <img src="dashboard (1).png" alt="icon">
@@ -399,6 +412,10 @@
         <a href="DataSoal.html" class="bottom-nav-link">
             <img src="bank.png" alt="icon">
             <span>Soal</span>
+        </a>
+        <a href="DataEvaluasi.html" class="bottom-nav-link">
+            <img src="evaluation.png" alt="icon">
+            <span>Evaluasi</span>
         </a>
     </div>
 
