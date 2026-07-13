@@ -327,33 +327,33 @@
                 <input type="text" class="form-custom" placeholder="Cari mahasiswa atau NIM..." style="width: 280px; font-size: 0.85rem;">
             </div>
 
-            <div style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
+            <form style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
                 <div class="row g-3 align-items-end">
                     <div class="col-lg-3 col-md-6">
                         <label class="small mb-2 opacity-50 ps-3">Pilih Kelas</label>
-                        <select class="form-custom w-100">
-                            <option selected disabled>Semua Kelas</option>
+                        <select class="form-custom w-100" required>
+                            <option selected disabled value="">Semua Kelas</option>
                             <option>01 ILKOM</option>
                             <option>01 TI</option>
                         </select>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <label class="small mb-2 opacity-50 ps-3">Mata Kuliah</label>
-                        <select class="form-custom w-100">
-                            <option selected disabled>Pilih Mata Kuliah</option>
+                        <select class="form-custom w-100" required>
+                            <option selected disabled value="">Pilih Mata Kuliah</option>
                             <option>Pemrograman Web</option>
                             <option>Pemrograman Berorientasi Objek</option>
                         </select>
                     </div>
                     <div class="col-lg-2 col-md-6">
                         <label class="small mb-2 opacity-50 ps-3">Nilai Angka</label>
-                        <input type="number" class="form-custom w-100" placeholder="0-100">
+                        <input type="number" class="form-custom w-100" placeholder="0-100" required min="0" max="100">
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <button class="btn btn-info w-100 fw-bold py-2 btn-tambah">+ INPUT NILAI</button>
+                        <button type="submit" class="btn btn-info w-100 fw-bold py-2 btn-tambah">+ INPUT NILAI</button>
                     </div>
                 </div>
-            </div>
+            </form>
 
             <div class="table-container-glass">
                 <table class="table-custom">
@@ -377,8 +377,8 @@
                             <td class="text-center">85</td>
                             <td class="text-center">90</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
-                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
+                                <button type="button" class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
+                                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -389,8 +389,8 @@
                             <td class="text-center">78</td>
                             <td class="text-center">82</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
-                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
+                                <button type="button" class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
+                                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
                             </td>
                         </tr>
                     </tbody>
@@ -407,15 +407,17 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body px-4 pb-4">
-                    <div class="mb-3">
-                        <label class="small mb-2 opacity-50 ps-3">Nilai Tugas</label>
-                        <input type="number" class="form-custom w-100" value="85">
-                    </div>
-                    <div class="mb-4">
-                        <label class="small mb-2 opacity-50 ps-3">Nilai Ujian</label>
-                        <input type="number" class="form-custom w-100" value="90">
-                    </div>
-                    <button class="btn btn-pill w-100 py-3 fw-bold text-center">Simpan Perubahan</button>
+                    <form>
+                        <div class="mb-3">
+                            <label class="small mb-2 opacity-50 ps-3">Nilai Tugas</label>
+                            <input type="number" class="form-custom w-100" value="85" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="small mb-2 opacity-50 ps-3">Nilai Ujian</label>
+                            <input type="number" class="form-custom w-100" value="90" required>
+                        </div>
+                        <button type="submit" class="btn btn-pill w-100 py-3 fw-bold text-center">Simpan Perubahan</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -428,8 +430,8 @@
                     <h5 class="fw-bold text-danger">Hapus Nilai?</h5>
                     <p class="small opacity-50 mb-4">Tindakan ini akan menghapus permanen rekapan nilai mahasiswa ini.</p>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-warning-custom py-2 fw-bold">Ya, Hapus</button>
-                        <button class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
+                        <button type="button" class="btn btn-warning-custom py-2 fw-bold">Ya, Hapus</button>
+                        <button type="button" class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
                     </div>
                 </div>
             </div>
