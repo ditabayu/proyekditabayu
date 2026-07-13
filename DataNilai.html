@@ -165,14 +165,19 @@
         }
         .btn-delete:hover { background: #ff4b4b !important; color: white !important; }
 
-        .page-link-custom {
-            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; color: white; background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; transition: 0.3s; font-weight: 600;
-        }
-        .page-link-custom.active { background: #4cc9f0; color: #0d1b2a; }
+        .btn-pill { background: #ffd700; border-radius: 45px; padding: 10px 20px; border: none; font-weight: 700; font-size: 0.85rem; color: #0d1b2a; }
+        .btn-warning-custom { background: #ff4b4b; border-radius: 45px; padding: 10px 20px; border: none; font-weight: 700; font-size: 0.85rem; color: white; }
 
-        /* --- MENU BAWAH / BOTTOM NAV (8 MENU LENGKAP) --- */
+        .modal-glass {
+            background: rgba(13, 27, 42, 0.95) !important; 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 35px !important; 
+            border: 1px solid rgba(76, 201, 240, 0.3); 
+            color: white;
+        }
+
+        /* --- MENU BAWAH / BOTTOM NAV --- */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -232,7 +237,7 @@
         }
 
         /* ==========================================================================
-           ANTI-BERANTAK RESPONSIVE ENGINE
+           RESPONSIVE ENGINE
            ========================================================================== */
         @media (max-width: 991.98px) {
             .sidebar {
@@ -263,7 +268,7 @@
                 overflow-x: auto;
             }
             .table-custom {
-                min-width: 750px; /* Lebar minimum ditambah sedikit karena kolom nilai lebih banyak */
+                min-width: 750px;
             }
             .btn-tambah {
                 width: 100%;
@@ -372,8 +377,8 @@
                             <td class="text-center">85</td>
                             <td class="text-center">90</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1">Edit</button>
-                                <button class="btn-delete">Hapus</button>
+                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
+                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
                             </td>
                         </tr>
                         <tr>
@@ -384,12 +389,49 @@
                             <td class="text-center">78</td>
                             <td class="text-center">82</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1">Edit</button>
-                                <button class="btn-delete">Hapus</button>
+                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
+                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEditNilai" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-glass">
+                <div class="modal-header border-0 px-4 pt-4">
+                    <h5 class="fw-bold text-warning m-0">Edit Data Nilai</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body px-4 pb-4">
+                    <div class="mb-3">
+                        <label class="small mb-2 opacity-50 ps-3">Nilai Tugas</label>
+                        <input type="number" class="form-custom w-100" value="85">
+                    </div>
+                    <div class="mb-4">
+                        <label class="small mb-2 opacity-50 ps-3">Nilai Ujian</label>
+                        <input type="number" class="form-custom w-100" value="90">
+                    </div>
+                    <button class="btn btn-pill w-100 py-3 fw-bold text-center">Simpan Perubahan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalHapusNilai" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content modal-glass p-4 text-center">
+                <div class="modal-body p-0">
+                    <h5 class="fw-bold text-danger">Hapus Nilai?</h5>
+                    <p class="small opacity-50 mb-4">Tindakan ini akan menghapus permanen rekapan nilai mahasiswa ini.</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-warning-custom py-2 fw-bold">Ya, Hapus</button>
+                        <button class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
