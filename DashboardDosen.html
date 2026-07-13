@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif; 
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            background: radial-gradient(circle at top right, #1b263b 0%, #0d1b2a 100%);
             color: white; 
             min-height: 100vh; 
             margin: 0; 
@@ -19,30 +19,29 @@
             flex-direction: column;
         }
 
-        /* SUSUNAN LAYAR BESAR (PC / LAPTOP) */
         @media (min-width: 992px) {
-            body {
-                flex-direction: row;
-            }
+            body { flex-direction: row; }
         }
 
-        /* SIDEBAR FULL */
+        /* ====================================
+           SIDEBAR STYLE (DEKTOP)
+        ======================================= */
         .sidebar {
-            background-color: #1b263b; 
-            height: 85vh; 
-            padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
+            background: rgba(27, 38, 59, 0.7); 
+            backdrop-filter: blur(15px);
+            height: 90vh; 
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08); 
             display: flex; 
             flex-direction: column;
             position: fixed; 
-            width: 260px; 
-            top: 7.5vh; 
-            left: 20px; 
-            border-radius: 30px;
+            width: 280px; 
+            top: 5vh; 
+            left: 25px; 
+            border-radius: 24px;
             z-index: 1000; 
             overflow-y: auto; 
-            overflow-x: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
         .sidebar::-webkit-scrollbar { width: 4px; }
@@ -51,54 +50,68 @@
         .menu-link {
             display: flex; 
             align-items: center; 
-            color: #adb5bd; 
+            color: #a3b18a; 
+            color: #adb5bd;
             text-decoration: none;
-            padding: 12px 15px; 
-            border-radius: 15px; 
-            margin-bottom: 8px;
-            transition: 0.3s; 
-            font-size: 0.85rem;
+            padding: 14px 18px; 
+            border-radius: 16px; 
+            margin-bottom: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
         }
 
-        /* EFEK HOVER NYA */
         .menu-link:hover, .menu-link.active {
-            background: linear-gradient(90deg,#4cc9f0,#4361ee);
-            border: none; 
-            border-radius: 20px; 
-            padding: 12px;
+            background: linear-gradient(90deg, #4cc9f0, #4361ee);
             color: #0d1b2a !important; 
             font-weight: 600; 
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+            box-shadow: 0 8px 20px rgba(76, 201, 240, 0.3);
+            transform: translateX(4px);
         }
 
-        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
+        .img-menu-icon { width: 22px; margin-right: 14px; transition: 0.3s; }
         .menu-link.active .img-menu-icon { filter: brightness(0); } 
         
         .profile-section {
             margin-top: auto; 
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.05);
             padding: 15px; 
-            border-radius: 20px; 
+            border-radius: 16px; 
             display: flex; 
             align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* DROPDOWN PRODI */
-        .filter-prodi-box {
-            background: rgba(255, 255, 255, 0.05);
+        /* ====================================
+           MAIN CONTENT STYLE
+        ======================================= */
+        .main-content {
+            margin-left: 330px; 
+            padding: 50px 50px 50px 20px; 
+            width: calc(100% - 330px); 
+            flex-grow: 1;
+        }
+
+        /* TOP HEADER & FILTER */
+        .top-header-wrapper {
+            background: rgba(13, 27, 42, 0.4);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(76, 201, 240, 0.3);
-            padding: 8px 15px; 
-            border-radius: 20px; 
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .filter-prodi-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            padding: 10px 20px; 
+            border-radius: 14px; 
             display: flex;
             align-items: center; 
             transition: 0.3s;
         }
+        .filter-prodi-box:hover { border-color: #4cc9f0; box-shadow: 0 0 15px rgba(76, 201, 240, 0.15); }
 
-        .filter-prodi-box:hover { border-color: #4cc9f0; box-shadow: 0 0 15px rgba(76, 201, 240, 0.1); }
-
-        /* ANAKANNYA*/
         .select-kece {
             background: transparent; 
             color: #4cc9f0; 
@@ -107,155 +120,165 @@
             font-size: 0.85rem; 
             cursor: pointer; 
             outline: none;
-            padding-right: 5px;
         }
-
         .select-kece option { background: #1b263b; color: white; }
 
-        /* BAGIAN TENGAH ATO MAIN */
-        .main-content, .content-area {
-            margin-left: 300px; 
-            padding: 50px 40px; 
-            width: calc(100% - 300px); 
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
-
-        /* 6 KOTAK */
+        /* CARDS / BOX STYLE */
         .stat-box {
             position: relative; 
-            border-radius: 25px; 
+            border-radius: 20px; 
             overflow: hidden;
             cursor: pointer; 
             border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.07); 
+            background: rgba(255, 255, 255, 0.04); 
             text-decoration: none; 
             display: flex; 
             flex-direction: column; 
-            justify-content: center; 
+            justify-content: flex-end; 
             padding: 25px; 
-            height: 160px; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 180px; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .stat-box:hover {
             transform: translateY(-8px);
-            box-shadow: 0 6px 15px rgba(76, 201, 240, 0.15);
-            border-color: rgba(76, 201, 240, 0.3);
+            box-shadow: 0 15px 35px rgba(76, 201, 240, 0.2);
+            border-color: rgba(76, 201, 240, 0.4);
         }
 
-        .stat-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.6; }
-        .stat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(13, 27, 42, 0.7) 0%, rgba(13, 27, 42, 0.15) 100%); z-index: 2; }
+        .stat-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.4; transition: transform 0.6s; }
+        .stat-box:hover .stat-bg { transform: scale(1.08); }
+        .stat-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(13, 27, 42, 0.2) 0%, rgba(13, 27, 42, 0.85) 100%); z-index: 2; }
         .stat-content { position: relative; z-index: 3; color: white; }
 
-        /* KARTU BAWAH. AKSI CEPAT */
+        /* AKSI CEPAT CARDS */
         .card-aksi-cepat {
             position: relative; 
-            border-radius: 25px; 
-            height: 150px; 
+            border-radius: 20px; 
+            height: 130px; 
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            background: #1b263b; 
+            border: 1px solid rgba(255, 255, 255, 0.06); 
+            background: rgba(27, 38, 59, 0.6); 
             transition: all 0.3s ease;
             cursor: pointer; 
             display: flex; 
             align-items: center; 
-            padding: 20px; 
+            padding: 25px; 
             text-decoration: none;
         }
 
-        .bg-blur-aksi { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.25; filter: blur(1px); transition: 0.5s; }
-        .overlay-aksi { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, #0d1b2a 50%, transparent); z-index: 2; }
+        .bg-blur-aksi { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; opacity: 0.15; filter: blur(2px); transition: 0.5s; }
+        .overlay-aksi { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, #0d1b2a 40%, transparent); z-index: 2; }
         .konten-aksi { position: relative; z-index: 3; display: flex; align-items: center; width: 100%; }
-        .ikon-aksi { width: 45px; height: 45px; margin-right: 15px; filter: drop-shadow(0 0 4px rgba(76, 201, 240, 0.3)); }
-        .teks-aksi h6 { margin-bottom: 2px; font-weight: 700; color: #fff; }
-        .teks-aksi p { font-size: 0.75rem; color: #adb5bd; margin: 0; }
+        .ikon-aksi { width: 40px; height: 40px; margin-right: 18px; }
+        .teks-aksi h6 { margin-bottom: 4px; font-weight: 700; color: #fff; font-size: 1rem; }
+        .teks-aksi p { font-size: 0.8rem; color: #adb5bd; margin: 0; }
 
-        .card-aksi-cepat:hover { transform: translateY(-3px); border-color: rgba(76, 201, 240, 0.4); box-shadow: 0 6px 15px rgba(76, 201, 240, 0.15); }
-        .card-aksi-cepat:hover .bg-blur-aksi { opacity: 0.4; transform: scale(1.1); }
+        .card-aksi-cepat:hover { transform: translateY(-4px); border-color: rgba(76, 201, 240, 0.4); box-shadow: 0 12px 25px rgba(76, 201, 240, 0.15); }
 
-        /* DETAIL SCROLLBAR */
+        /* SCROLLBAR GANTENG */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(13, 27, 42, 0.98); }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(180deg, #4cc9f0, #4361ee); 
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(76, 201, 240, 0.5); 
-        }
-        ::-webkit-scrollbar-thumb:hover { background: #4cc9f0; }   
+        ::-webkit-scrollbar-track { background: #0d1b2a; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4cc9f0, #4361ee); border-radius: 10px; }
 
-        /* ====================================
-           RESPONSIVE REVISI (HP & TABLET)
-        ======================================= */
+        /* ==================================================================
+           Premium Mobile Optimize Transformation (DI HP JADI MIRIP APPS)
+        ==================================================================== */
         @media (max-width: 991.98px) {
-            /* LAYOUT BERUBAH JADI MENURUN */
-            body {
-                flex-direction: column;
-                overflow-x: hidden;
-            }
+            body { padding-bottom: 90px; } /* Jaga ruang biar konten ga ketutup bottom nav */
 
-            /* SIDEBAR DI HP / TABLET JADI DI ATAS */
+            /* SIDEBAR BERUBAH TOTAL JADI APP BOTTOM BAR YANG LUAR BIASA RAPI */
             .sidebar {
-                position: relative;
-                width: 90%;
-                height: auto;
+                position: fixed;
+                bottom: 0;
+                top: auto;
                 left: 0;
-                top: 0;
-                margin: 20px auto;
-                border-radius: 25px;
-                padding: 20px 15px;
+                width: 100%;
+                height: 70px;
+                padding: 0 10px;
+                border-radius: 0;
+                border: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(13, 27, 42, 0.9);
+                backdrop-filter: blur(20px);
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+                z-index: 9999;
+                overflow: hidden;
             }
 
-            /* MAIN CONTENT MENGISI LAYAR */
-            .main-content, .content-area {
+            /* Hilangkan judul dan profil di layout mobile bar agar bersih */
+            .sidebar h4, .sidebar .profile-section, .sidebar .menu-link[style*="color: rgb(255, 77, 77)"], .sidebar .menu-link:has(img[src="log-out.png"]) {
+                display: none !important;
+            }
+
+            .sidebar nav {
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+                align-items: center;
+                height: 100%;
+            }
+
+            .menu-link {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 6px 0;
+                margin: 0;
+                font-size: 0.65rem; /* Ukuran micro teks nav di HP */
+                color: #8a99ad;
+                border-radius: 0;
+                width: 50px;
+                text-align: center;
+            }
+
+            .img-menu-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 0;
+                margin-bottom: 4px;
+            }
+
+            .menu-link:hover, .menu-link.active {
+                background: transparent;
+                color: #4cc9f0 !important;
+                box-shadow: none;
+                transform: none;
+            }
+            .menu-link.active .img-menu-icon { filter: none; }
+
+            /* MAIN CONTENT */
+            .main-content {
                 margin-left: 0;
                 width: 100%;
-                padding: 20px 20px 40px;
+                padding: 20px 16px 40px;
             }
 
-            /* HEADER */
-            .main-content .row.mb-4 .col-md-12 {
-                flex-direction: column;
-                align-items: flex-start !important;
-                gap: 15px;
+            .top-header-wrapper {
+                padding: 15px;
             }
 
             .filter-prodi-box {
+                margin-top: 15px;
                 width: 100%;
                 justify-content: space-between;
             }
 
-            .select-kece {
-                width: 100%;
-                font-size: 0.8rem;
-            }
-
-            /* UKURAN TEKS */
-            h2 { font-size: 1.4rem; }
-            h5 { font-size: 1rem; }
-        }
-
-        @media (max-width: 768px) {
             .stat-box {
-                height: 140px;
-                padding: 20px;
-                border-radius: 20px;
+                height: 135px;
+                padding: 18px;
             }
-
             .stat-content h5 { font-size: 1rem; }
-            .stat-content p { font-size: 0.75rem; }
 
             .card-aksi-cepat {
                 height: auto;
-                min-height: 120px;
-                padding: 18px;
-                border-radius: 20px;
+                min-height: 90px;
+                padding: 16px;
             }
-
-            .konten-aksi { align-items: flex-start; }
-            .ikon-aksi { width: 38px; height: 38px; }
-            .teks-aksi h6 { font-size: 0.9rem; }
-            .teks-aksi p { font-size: 0.7rem; }
         }
     </style>
 </head>
@@ -269,25 +292,25 @@
                 <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
             </a>
             <a href="DataMahasiswa.html" class="menu-link">
-                <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
+                <img src="data mahasiswa.png" class="img-menu-icon"> Mahasiswa
             </a>
             <a href="DataNilai.html" class="menu-link">
-                <img src="data nilai.png" class="img-menu-icon"> Data Nilai
+                <img src="data nilai.png" class="img-menu-icon"> Nilai
             </a>
             <a href="DataKelas.html" class="menu-link">
-                <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
+                <img src="data kelas (2).png" class="img-menu-icon"> Kelas
             </a>
             <a href="DataMataKuliah.html" class="menu-link">
-                <img src="mata kuliah (2).png" class="img-menu-icon"> Data Mata Kuliah
+                <img src="mata kuliah (2).png" class="img-menu-icon"> Matkul
             </a>
             <a href="DataTopik.html" class="menu-link">
-                <img src="data topik.png" class="img-menu-icon"> Data Topik
+                <img src="data topik.png" class="img-menu-icon"> Topik
             </a>
             <a href="DataSoal.html" class="menu-link">
-                <img src="bank.png" class="img-menu-icon"> Data Soal
+                <img src="bank.png" class="img-menu-icon"> Soal
             </a>
             <a href="DataEvaluasi.html" class="menu-link">
-                <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
+                <img src="evaluation.png" class="img-menu-icon"> Evaluasi
             </a>
             <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
                 <img src="log-out.png" class="img-menu-icon"> Keluar
@@ -304,57 +327,59 @@
     </div>
 
     <div class="main-content"> 
-        <div class="row mb-4">
-            <div class="col-md-12 d-flex justify-content-between align-items-end">
-                <div>
+        <div class="top-header-wrapper mb-4">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-7">
                     <h2 class="fw-bold mb-1">Welcome, <span id="namaDosen" style="color: #4cc9f0;">Dosen</span> 👋</h2>
-                    <p class="small opacity-75 m-0 text-primary">Dashboard Academic Terintegrasi</p>
+                    <p class="small opacity-75 m-0 text-primary">Dashboard Akademik Terintegrasi</p>
                 </div>
                 
-                <div class="filter-prodi-box">
-                    <img src="program study.png" width="15" class="me-2" style="filter: invert(1); opacity: 0.7;">
-                    <span class="small opacity-50 me-2" style="font-size: 0.7rem;">PRODI:</span>
-                    <select class="select-kece" id="pilihProdi" onchange="gantiProdi(this.value)">
-                        <option value="TI">Teknologi Informasi</option>
-                        <option value="PTI">Pendidikan Teknologi Informasi</option>
-                        <option value="ILKOM">Ilmu Komputer</option>
-                    </select>
+                <div class="col-12 col-md-5 d-flex justify-content-md-end">
+                    <div class="filter-prodi-box">
+                        <img src="program study.png" width="15" class="me-2" style="filter: invert(1); opacity: 0.7;">
+                        <span class="small opacity-50 me-2" style="font-size: 0.7rem;">PRODI:</span>
+                        <select class="select-kece" id="pilihProdi" onchange="gantiProdi(this.value)">
+                            <option value="TI">Teknologi Informasi</option>
+                            <option value="PTI">Pendidikan Teknologi Informasi</option>
+                            <option value="ILKOM">Ilmu Komputer</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row g-4 mb-5 mt-4">
-            <div class="col-12 col-sm-6 col-lg-4">
+        <div class="row g-3 g-md-4 mb-5">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataMahasiswa.html" class="stat-box">
                     <img src="data mahasiswa (2).jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Data Mahasiswa</b></h5><p class="small opacity-75 mb-0">Total: 120 Siswa</p></div>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataNilai.html" class="stat-box">
                     <img src="data nilai.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Data Nilai</b></h5><p class="small opacity-75 mb-0">Rekap Nilai</p></div>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataKelas.html" class="stat-box">
                     <img src="data kelas (2).jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Data Kelas</b></h5><p class="small opacity-75 mb-0">6 Kelas Aktif</p></div>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataMataKuliah.html" class="stat-box">
                     <img src="data mata kuliah.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Data Mata Kuliah</b></h5><p class="small opacity-75 mb-0">Silabus & Modul</p></div>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataSoal.html" class="stat-box">
                     <img src="bank data.jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Bank Soal</b></h5><p class="small opacity-75 mb-0">250 Soal Aktif</p></div>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataEvaluasi.html" class="stat-box">
                     <img src="data evaluasi (2).jpeg" class="stat-bg"> <div class="stat-overlay"></div>
                     <div class="stat-content"><h5><b>Aktivitas</b></h5><p class="small opacity-75 mb-0">Ujian & Tugas</p></div>
@@ -363,8 +388,8 @@
         </div>
 
         <h5 class="fw-bold mb-4">Aksi Cepat</h5>
-        <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-4">
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
                 <div class="card-aksi-cepat" onclick="goToSoal('manual')">
                     <img src="tambah soal manual.jpeg" class="bg-blur-aksi">
                     <div class="overlay-aksi"></div>
@@ -374,7 +399,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-12 col-md-4">
                 <div class="card-aksi-cepat" onclick="goToSoal('otomatis')">
                     <img src="soal otomatis.jpeg" class="bg-blur-aksi">
                     <div class="overlay-aksi"></div>
@@ -384,7 +409,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-4">
+            <div class="col-12 col-md-4">
                 <div class="card-aksi-cepat" onclick="window.location.href='DataEvaluasi.html'">
                     <img src="buat aktivitas.jpeg" class="bg-blur-aksi">
                     <div class="overlay-aksi"></div>
