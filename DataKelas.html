@@ -3,263 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Kelas - Dashboard Akademik</title>
+    <title>WEB NEXT GEN - Data Kelas 😎</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --bg-dark: #0b1528; /* Warna background utama dashboard kamu */
-            --card-glass: rgba(19, 34, 56, 0.6); /* Transparansi card */
-            --border-glass: rgba(255, 255, 255, 0.08);
-            --accent-blue: #3ba2ff; /* Warna biru text/highlight */
-            --accent-cyan: #4cc9f0;
-        }
-
+        /* --- SEMUA KONSEPNYA WARNA & STYLE ASLI KAMU TETAP DI SINI --- */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            min-height: 100vh;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: white; 
+            min-height: 100vh; 
             margin: 0;
             overflow-x: hidden;
         }
 
         .wrapper {
+            display: flex;
             width: 100%;
             min-height: 100vh;
-            padding: 30px 20px;
         }
 
-        /* --- CONTAINER UTAMA (GLASSMORPHISM MATCHING) --- */
-        .glass-panel {
-            background: var(--card-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            margin-bottom: 25px;
+        /* --- SIDEBAR UTAMA (DESKTOP) --- */
+        .sidebar {
+            background-color: #1b263b; 
+            height: 85vh; 
+            padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            display: flex; 
+            flex-direction: column;
+            position: fixed; 
+            width: 260px; 
+            top: 7.5vh; 
+            left: 20px; 
+            border-radius: 30px;
+            z-index: 1000; 
+            overflow-y: auto; 
+            overflow-x: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
-        /* --- HEADER STYLING --- */
-        .page-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-        }
-        .page-title span {
-            color: var(--accent-blue);
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
+
+        .menu-link {
+            display: flex; 
+            align-items: center; 
+            color: #adb5bd; 
+            text-decoration: none;
+            padding: 12px 15px; 
+            border-radius: 15px; 
+            margin-bottom: 8px;
+            transition: 0.3s; 
+            font-size: 0.85rem;
         }
 
-        /* --- FORM & INPUT STYLING --- */
+        .menu-link:hover, .menu-link.active {
+            background: linear-gradient(90deg, #4cc9f0, #4361ee);
+            color: #0d1b2a !important; 
+            font-weight: 600;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+        }
+
+        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
+        .menu-link.active .img-menu-icon { filter: brightness(0); } 
+        
+        .profile-section {
+            margin-top: auto; 
+            background: rgba(255, 255, 255, 0.07);
+            padding: 15px; 
+            border-radius: 20px; 
+            display: flex; 
+            align-items: center;
+        }
+
+        /* --- CONTENT AREA (DESKTOP) --- */
+        .content-area { 
+            margin-left: 300px; 
+            padding: 50px 40px; 
+            width: calc(100% - 300px);
+        }
+
+        /* --- FORM STYLING ASLI --- */
         .form-custom {
-            background: rgba(11, 21, 40, 0.6) !important;
-            border: 1px solid var(--border-glass) !important;
-            border-radius: 14px !important;
-            color: #ffffff !important;
-            padding: 12px 16px;
-            transition: all 0.3s ease;
+            border-radius: 50px !important; 
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: white !important; 
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            outline: none;
+            transition: 0.3s;
         }
 
         .form-custom:focus {
-            border-color: var(--accent-blue) !important;
-            box-shadow: 0 0 10px rgba(59, 162, 255, 0.2) !important;
+            border-color: #4cc9f0 !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.3) !important;
+            color: white !important;
         }
 
-        .form-custom::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
+        .form-custom option { background: #1b263b; color: white; }
+        .form-custom::placeholder { color: rgba(255, 255, 255, 0.5) !important; font-size: 0.85rem; }
+        
         select.form-custom {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%233ba2ff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
-            background-repeat: no-repeat !important;
-            background-position: right 15px center !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; 
+            background-position: right 20px center; 
         }
 
-        select.form-custom option {
-            background-color: #132238;
-            color: white;
+        /* --- GLASS CONTAINER & TABLES ASLI --- */    
+        .table-container-glass {
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px; 
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid rgba(76, 201, 240, 0.2);
         }
 
-        /* --- BUTTONS --- */
+        .table-custom { width: 100%; border-collapse: separate; border-spacing: 0 15px; }
+        .table-custom thead th { color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem; }
+        .table-custom tbody tr { background: rgba(255, 255, 255, 0.02); transition: 0.4s ease; }
+        .table-custom tbody td { padding: 18px 15px; border: none; vertical-align: middle; font-weight: 500; }
+        .table-custom tbody tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
+        .table-custom tbody tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
+  
+        .table-custom tbody tr:hover {
+            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
+            transform: translateX(8px);
+        }
+
+        /* --- TOMBOL-TOMBOL ASLI --- */
         .btn-tambah {
-            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
-            color: white;
+            background: #4cc9f0; 
+            color: #0d1b2a; 
+            border-radius: 50px; 
             border: none;
-            border-radius: 14px;
-            padding: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
         }
-
         .btn-tambah:hover {
-            transform: translateY(-2px);
-            color: white;
-            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.5);
+            color: #0d1b2a;
         }
 
-        .btn-action-edit {
-            background: rgba(255, 193, 7, 0.1);
-            color: #ffc107;
-            border: 1px solid rgba(255, 193, 7, 0.2);
-            border-radius: 10px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .btn-edit { 
+            background: rgba(255, 215, 0, 0.1) !important; 
+            color: #ffd700 !important; 
+            border: 1px solid rgba(255, 215, 0, 0.3) !important;
+            border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; font-weight: 600; transition: 0.3s;
         }
-        
-        .btn-action-edit:hover {
-            background: #ffc107;
-            color: #0b1528;
-        }
+        .btn-edit:hover { background: #ffd700 !important; color: #0d1b2a !important; }
 
-        .btn-action-delete {
-            background: rgba(220, 53, 69, 0.1);
-            color: #dc3545;
-            border: 1px solid rgba(220, 53, 69, 0.2);
-            border-radius: 10px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .btn-delete { 
+            background: rgba(255, 75, 75, 0.1) !important; 
+            color: #ff4b4b !important; 
+            border: 1px solid rgba(255, 75, 75, 0.3) !important;
+            border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; font-weight: 600; transition: 0.3s;
         }
+        .btn-delete:hover { background: #ff4b4b !important; color: white !important; }
 
-        .btn-action-delete:hover {
-            background: #dc3545;
-            color: white;
-        }
-
-        /* --- TABEL BERGAYA DASHBOARD --- */
-        .table-responsive-custom {
-            overflow-x: auto;
-            border-radius: 16px;
-        }
-
-        .table-dashboard {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 10px;
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .table-dashboard th {
-            color: rgba(255, 255, 255, 0.5);
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            padding: 12px 16px;
-            border: none;
-        }
-
-        .table-dashboard tbody tr {
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.2s ease;
-        }
-
-        .table-dashboard tbody tr:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: scale(1.005);
-        }
-
-        .table-dashboard tbody td {
-            padding: 16px;
-            border-top: 1px solid var(--border-glass);
-            border-bottom: 1px solid var(--border-glass);
-            vertical-align: middle;
-        }
-
-        .table-dashboard tbody tr td:first-child {
-            border-left: 1px solid var(--border-glass);
-            border-top-left-radius: 14px;
-            border-bottom-left-radius: 14px;
-        }
-
-        .table-dashboard tbody tr td:last-child {
-            border-right: 1px solid var(--border-glass);
-            border-top-right-radius: 14px;
-            border-bottom-right-radius: 14px;
-        }
-
-        /* --- PAGINATION --- */
         .page-link-custom {
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-glass);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 0.9rem;
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; color: white; background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; transition: 0.3s; font-weight: 600;
         }
-        .page-link-custom.active {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
-        }
+        .page-link-custom.active { background: #4cc9f0; color: #0d1b2a; }
 
-        /* --- NAVBAR BAWAH UNTUK HP (PERSIS SEPERTI SCREENSHOT) --- */
+        /* --- MENU BAWAH / BOTTOM NAV (KHUSUS TAMPILAN HP) --- */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             height: 70px;
-            background: rgba(11, 21, 40, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border-glass);
+            background: rgba(27, 38, 59, 0.95); /* Menggunakan warna dasar sidebar kamu */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             justify-content: space-around;
             align-items: center;
-            z-index: 9999;
+            z-index: 2000;
             padding-bottom: env(safe-area-inset-bottom);
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
+            display: none; /* Default sembunyi di Desktop */
         }
 
-        .nav-item-mobile {
+        .bottom-nav-link {
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: rgba(255, 255, 255, 0.4);
+            justify-content: center;
+            color: #adb5bd;
             text-decoration: none;
             font-size: 0.65rem;
+            width: 14%;
+            height: 100%;
+            transition: 0.2s;
         }
 
-        .nav-item-mobile.active {
-            color: var(--accent-blue);
-        }
-
-        .nav-item-mobile i, .nav-item-mobile img {
+        .bottom-nav-link img {
             width: 20px;
             height: 20px;
             margin-bottom: 4px;
+            opacity: 0.6;
         }
 
-        /* Spacing tambahan di bawah agar konten tidak tertutup navbar HP */
-        .content-container {
-            padding-bottom: 80px;
+        .bottom-nav-link.active {
+            color: #4cc9f0;
+            font-weight: 600;
         }
 
-        /* --- RESPONSIVE LAYOUT --- */
-        @media (max-width: 767.98px) {
-            .wrapper {
-                padding: 15px 10px;
+        .bottom-nav-link.active img {
+            opacity: 1;
+            filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.6));
+        }
+
+        /* ==========================================================================
+           ANTI-BERANTAK RESPONSIVE ENGINE (HANYA MENGATUR STRUKTUR HP/TABLET)
+           ========================================================================== */
+        
+        @media (max-width: 991.98px) {
+            .sidebar {
+                display: none !important; /* Sembunyikan sidebar tegak di HP/Tablet */
             }
-            .glass-panel {
+            .bottom-nav {
+                display: flex; /* Aktifkan menu bawah ala aplikasi dashboard */
+            }
+            .content-area {
+                margin-left: 0 !important;
+                width: 100% !important;
+                padding: 20px 15px 90px 15px !important; /* Spacing ekstra bawah biar tidak tertutup menu */
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .content-area .d-flex.justify-content-between {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 15px;
+            }
+            .content-area .d-flex.justify-content-between .form-custom {
+                width: 100% !important;
+            }
+            .table-container-glass {
                 padding: 15px;
                 border-radius: 20px;
+                overflow-x: auto; /* Tabel bisa di-swipe kanan-kiri dengan aman */
             }
-            .page-title {
-                font-size: 1.4rem;
+            .table-custom {
+                min-width: 600px;
             }
-            .table-dashboard {
-                min-width: 550px; /* Supaya tabel bisa di-swipe rapi di HP */
-            }
-            .header-section {
-                flex-direction: column;
-                gap: 12px;
-                align-items: stretch !important;
-            }
-            .search-box {
-                width: 100% !important;
+            .btn-tambah {
+                width: 100%;
             }
         }
     </style>
@@ -267,96 +267,138 @@
 
 <body>
 
-    <div class="wrapper content-container">
-        
-        <div class="glass-panel header-section d-flex justify-content-between align-items-center">
-            <div>
-                <h2 class="page-title m-0">Welcome, <span>Dosen 👋</span></h2>
-                <p class="small text-white-50 m-0 mt-1">Manajemen Data Kelas Terintegrasi</p>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+            <nav>
+                <a href="DashboardDosen.html" class="menu-link">
+                    <img src="dashboard (1).png" class="img-menu-icon" alt="icon"> Dashboard
+                </a>
+                <a href="DataMahasiswa.html" class="menu-link">
+                    <img src="data mahasiswa.png" class="img-menu-icon" alt="icon"> Data Mahasiswa
+                </a>
+                <a href="DataNilai.html" class="menu-link">
+                    <img src="data nilai.png" class="img-menu-icon" alt="icon"> Data Nilai
+                </a>
+                <a href="DataKelas.html" class="menu-link active">
+                    <img src="data kelas (2).png" class="img-menu-icon" alt="icon"> Data Kelas
+                </a>
+                <a href="DataMataKuliah.html" class="menu-link">
+                    <img src="mata kuliah (2).png" class="img-menu-icon" alt="icon"> Data Mata Kuliah
+                </a>
+                <a href="DataTopik.html" class="menu-link">
+                    <img src="data topik.png" class="img-menu-icon" alt="icon"> Data Topik
+                </a>
+                <a href="DataSoal.html" class="menu-link">
+                    <img src="bank.png" class="img-menu-icon" alt="icon"> Data Soal
+                </a>
+                <a href="DataEvaluasi.html" class="menu-link">
+                    <img src="evaluation.png" class="img-menu-icon" alt="icon"> Data Evaluasi
+                </a>
+            </nav>
+
+            <div class="profile-section mt-4">
+                <img src="reading-book.png" class="rounded-circle me-2" width="35" alt="profile">
+                <div class="overflow-hidden">
+                    <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                    <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
+                </div>
             </div>
-            <input type="text" class="form-custom search-box" placeholder="Cari nama kelas..." style="width: 260px;">
         </div>
 
-        <div class="glass-panel">
-            <h5 class="fw-bold mb-3" style="font-size: 1rem; color: var(--accent-blue);">+ Tambah Kelas Baru</h5>
-            <div class="row g-3">
-                <div class="col-md-5">
-                    <input type="text" class="form-custom w-100" placeholder="Nama Kelas (Contoh: 01 ILKOM)">
+        <div class="content-area">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold m-0">Data<span style="color: #4cc9f0;"> Kelas </span></h2>
+                    <p class="small opacity-75 m-0 text-primary">Manajemen pembagian kelas program studi.</p>
                 </div>
-                <div class="col-md-4">
-                    <select class="form-custom w-100">
-                        <option selected disabled>Pilih Program Studi</option>
-                        <option>Teknologi Informasi</option>
-                        <option>Informatika</option>
-                        <option>Sistem Informasi</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <button class="btn-tambah w-100">Simpan Kelas</button>
+                <input type="text" class="form-custom" placeholder="Cari kelas..." style="width: 280px; font-size: 0.85rem;">
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg-5 col-md-6">
+                        <label class="small mb-2 opacity-50 ps-3">Nama Kelas</label>
+                        <input type="text" class="form-custom w-100" placeholder="Contoh: 01 ILKOM, 02 TI...">
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <label class="small mb-2 opacity-50 ps-3">Program Studi</label>
+                        <select class="form-custom w-100">
+                            <option selected disabled>Pilih Prodi</option>
+                            <option>Informatika (ILKOM)</option>
+                            <option>Teknik Informatika (TI)</option>
+                            <option>Pendidikan Teknologi Informasi (PTI)</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-12">
+                        <button class="btn btn-info w-100 fw-bold py-2 btn-tambah">+ TAMBAH KELAS</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="glass-panel">
-            <div class="table-responsive-custom">
-                <table class="table-dashboard">
+            <div class="table-container-glass">
+                <table class="table-custom">
                     <thead>
                         <tr>
-                            <th style="width: 60px;" class="text-center">No</th>
+                            <th class="text-center" style="width: 70px;">No</th>
                             <th>Nama Kelas</th>
                             <th>Program Studi</th>
-                            <th style="width: 180px;" class="text-center">Aksi</th>
+                            <th class="text-center" style="width: 200px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center text-white-50">1</td>
-                            <td class="fw-semibold text-white">01 TI - Pagi</td>
-                            <td><span class="badge" style="background: rgba(59, 162, 255, 0.15); color: var(--accent-blue);">Teknologi Informasi</span></td>
+                            <td class="text-center">01</td>
+                            <td class="fw-bold text-info">01 ILKOM</td>
+                            <td>Ilmu Komputer / Informatika</td>
                             <td class="text-center">
-                                <button class="btn-action-edit me-1">Edit</button>
-                                <button class="btn-action-delete">Hapus</button>
+                                <button class="btn-edit me-1">Edit</button>
+                                <button class="btn-delete">Hapus</button>
                             </td>
                         </tr>
                         <tr>
-                            <td class="text-center text-white-50">2</td>
-                            <td class="fw-semibold text-white">02 TI - Malam</td>
-                            <td><span class="badge" style="background: rgba(59, 162, 255, 0.15); color: var(--accent-blue);">Teknologi Informasi</span></td>
+                            <td class="text-center">02</td>
+                            <td class="fw-bold text-info">01 TI</td>
+                            <td>Teknik Informatika</td>
                             <td class="text-center">
-                                <button class="btn-action-edit me-1">Edit</button>
-                                <button class="btn-action-delete">Hapus</button>
+                                <button class="btn-edit me-1">Edit</button>
+                                <button class="btn-delete">Hapus</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-            <div class="d-flex justify-content-between align-items-center mt-4 flex-wrap gap-3">
-                <p class="small text-white-50 m-0">Menampilkan 2 kelas aktif</p>
-                <div class="d-flex gap-2">
-                    <a href="#" class="page-link-custom active">1</a>
-                    <a href="#" class="page-link-custom">2</a>
-                </div>
-            </div>
         </div>
-
     </div>
 
-    <div class="bottom-nav d-md-none">
-        <a href="DashboardDosen.html" class="nav-item-mobile">
-            <span class="small">Dashboard</span>
+    <div class="bottom-nav">
+        <a href="DashboardDosen.html" class="bottom-nav-link">
+            <img src="dashboard (1).png" alt="icon">
+            <span>Dashboard</span>
         </a>
-        <a href="DataMahasiswa.html" class="nav-item-mobile">
-            <span class="small">Mahasiswa</span>
+        <a href="DataMahasiswa.html" class="bottom-nav-link">
+            <img src="data mahasiswa.png" alt="icon">
+            <span>Mahasiswa</span>
         </a>
-        <a href="DataNilai.html" class="nav-item-mobile">
-            <span class="small">Nilai</span>
+        <a href="DataNilai.html" class="bottom-nav-link">
+            <img src="data nilai.png" alt="icon">
+            <span>Nilai</span>
         </a>
-        <a href="DataKelas.html" class="nav-item-mobile active">
-            <span class="small">Kelas</span>
+        <a href="DataKelas.html" class="bottom-nav-link active">
+            <img src="data kelas (2).png" alt="icon">
+            <span>Kelas</span>
         </a>
-        <a href="DataMatkul.html" class="nav-item-mobile">
-            <span class="small">Matkul</span>
+        <a href="DataMataKuliah.html" class="bottom-nav-link">
+            <img src="mata kuliah (2).png" alt="icon">
+            <span>Matkul</span>
+        </a>
+        <a href="DataTopik.html" class="bottom-nav-link">
+            <img src="data topik.png" alt="icon">
+            <span>Topik</span>
+        </a>
+        <a href="DataSoal.html" class="bottom-nav-link">
+            <img src="bank.png" alt="icon">
+            <span>Soal</span>
         </a>
     </div>
 
