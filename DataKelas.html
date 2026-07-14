@@ -153,15 +153,20 @@
 
 
 
-        @media screen and (max-width: 768px) {
-    /* container utama biar penuh */
+
+
+
+        
+
+@media screen and (max-width: 768px) {
+    /* Container Utama Melebar Penuh */
     .main-content, .content-area {
         margin-left: 0 !important;
         padding: 15px 12px !important; 
         width: 100% !important;
     }
 
-    /* sidebar jadi baris geser horizontal */
+    /* Menu Geser Horizontal  */
     .sidebar {
         position: relative;
         width: 100%;
@@ -174,12 +179,10 @@
         box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     }
 
-    /* Sembunyikan judul UPKSAINTEK  */
-    .sidebar h4 {
+    .sidebar h4, .sidebar .profile-section {
         display: none !important;
     }
 
-    /* Paksa navigasi sejajar ke kanan & aktifkan scroll */
     .sidebar nav {
         display: flex;
         overflow-x: auto;
@@ -188,7 +191,6 @@
         padding-bottom: 5px;
     }
 
-    /* Hilangkan scrollbar bawaan  */
     .sidebar nav::-webkit-scrollbar {
         display: none;
     }
@@ -200,10 +202,49 @@
         padding: 8px 14px;
     }
 
-    /* Sembunyikan bagian profil bawah di sidebar */
-    .sidebar .profile-section {
-        display: none !important;
+    /* Header Judul & Tombol  Vertikal */
+    .content-area > .d-flex.justify-content-between {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px;
+        margin-bottom: 30px !important;
     }
+
+    /* Tombol Gabung & Tambah */
+    .content-area > .d-flex.justify-content-between .d-flex {
+        width: 100% !important;
+        justify-content: space-between;
+    }
+
+    .content-area > .d-flex.justify-content-between button {
+        flex: 1;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    /*  Rekayasa Body Card Modular */
+    .card-body-modular {
+        grid-template-columns: 1fr !important; /* jadi 1 kolom ke bawah */
+        gap: 20px;
+    }
+
+    /* Border kanan Hilang  */
+    .card-body-modular > div:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05); /* Pindah ke border bawah */
+        padding-right: 0 !important;
+        padding-bottom: 15px;
+    }
+
+    /* Animasi & Efek Tombol */
+    .btn-yellow, .btn-blue, .btn-save, .btn-danger-custom {
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    .btn-yellow:active, .btn-blue:active, .btn-save:active, .btn-danger-custom:active, .btn-copy:active {
+        transform: scale(0.95) !important;
+    }
+}
          
     </style>
 </head>
@@ -556,7 +597,16 @@
 
 
 
-    
+    <script>
+        window.onload = function() {
+            // Ambil data nama dari localStorage browser
+            const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
+            const sidebarNama = document.getElementById("sidebarNama");
+            if (sidebarNama) {
+                sidebarNama.innerText = namaDosen;
+            }
+        }
+    </script>
 
     <script>
        function copyToken(txt) {
