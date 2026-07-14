@@ -287,213 +287,171 @@
 
 
 
-        <div class="content-area">                     
-                 <div class="d-flex align-items-center gap-3 mb-3">
-                        <hr style="border-color: rgba(255,255,255,0.08); margin-bottom:25px;">
-                        <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Data <span style="color:#4cc9f0">Evaluasi</span></h2>
-                        <button class="info-btn" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
+       <div class="content-area">                     
+    <hr style="border-color: rgba(255,255,255,0.08); margin-bottom:25px;">
+    <div class="d-flex align-items-center gap-3 mb-3">
+        <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Data <span style="color:#4cc9f0">Evaluasi</span></h2>
+        <button class="info-btn" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
+    </div>
+
+    <div class="glass-section mb-4">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h6 class="fw-bold m-0" style="color: #57cc99;">Manajemen Evaluasi</h6>
+            <button class="btn-glow btn-animate" onclick="toggleForm()">+ Tambah Aktivitas</button>
         </div>
 
-           <div class="glass-section mb-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-              <h6 class="fw-bold mb-4" style="color: #57cc99;">Manajemen Evaluasi</h5>
-             <button class="btn-glow btn-animate mb-3" onclick="toggleForm()">+ Tambah Aktivitas</button>
-           </div>
+        <div id="formBox" class="form-hidden">
+            <div class="glass-card mb-0">
+                <div class="row g-3">
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control input-premium" placeholder="Judul Aktivitas">
+                    </div>
 
+                    <div class="col-12 col-md-4">
+                        <select class="form-select pill-input w-100">
+                            <option selected disabled>Pilih Topik</option>
+                            <option>Basis Data</option>
+                            <option>Algoritma</option>
+                        </select>
+                    </div>
 
+                    <div class="col-12 col-md-4">
+                        <div class="calendar-wrapper">
+                            <input type="datetime-local" class="form-control input-premium calendar-input">
+                        </div>
+                    </div>
 
-<!-- FORM -->
-     <div id="formBox" class="form-hidden">
-        <div class="glass-card">
-        <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <input type="number" class="form-control input-premium" placeholder="Durasi (menit)">
+                    </div>
 
-        <div class="col-md-4">
-        <input type="text" class="form-control input-premium" placeholder="Judul Aktivitas">
+                    <div class="col-6 col-md-3">
+                        <input type="number" class="form-control input-premium" placeholder="KKM">
+                    </div>
+
+                    <div class="col-12 col-md-3 d-flex align-items-center py-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="modeAdaptif" checked>
+                            <label class="form-check-label ms-2" for="modeAdaptif">Mode Adaptif</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-3">
+                        <button class="btn-glow w-100">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-4">
-     <select class="form-select pill-input">
-        <option selected disabled>Pilih Topik</option>
-        <option>Basis Data</option>
-    <option>Algoritma</option>
-    </select>
-    </div>
+    <div class="glass-section">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+            <div style="font-size:0.9rem; font-weight: 600;">
+                Menampilkan data evaluasi
+            </div>
 
-          <div class="col-md-4">
-            <div class="calendar-wrapper">
-            <input type="datetime-local" class="form-control input-premium calendar-input">
-           </div>
-          </div>
+            <div class="d-flex gap-2 w-100 w-md-auto">
+                <select class="pill-input" style="min-width: 70px;">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                </select>
+                <input class="search-box flex-grow-1" placeholder=" Cari aktivitas..." style="padding-left: 15px;">
+            </div>
+        </div>
 
-<div class="col-md-3">
-<input type="number" class="form-control input-premium" placeholder="Durasi (menit)">
-</div>
-
-<div class="col-md-3">
-<input type="number" class="form-control input-premium" placeholder="KKM">
-</div>
-
-<div class="col-md-3 d-flex align-items-center">
-<div class="form-check form-switch">
-<input class="form-check-input" type="checkbox" checked>
-<label class="ms-2">Mode Adaptif</label>
-</div>
-</div>
-
-<div class="col-md-3">
-<button class="btn-glow w-100">Simpan</button>
-</div>
-
-
-
-
-</div>
-</div>
-</div>
-
-
-
-
-
-
-<!-- FILTER -->
- <div style="height: 30px;"></div>
- <div class="glass-section">
-<div class="d-flex justify-content-between align-items-center mb-3">
-
-    <div style="font-size:0.9rem; font-weight: 600;">
-        Menampilkan data evaluasi
-    </div>
-
-    <div class="d-flex gap-2">
-        <select class="pill-input">
-            <option>10</option>
-            <option>25</option>
-            <option>50</option>
-        </select>
-
-        <input class="search-box" placeholder=" Cari aktivitas...">
-    </div>
-
-</div>
-
-<!-- TABLE -->
-
-    <table class="table-custom">
-          <thead class="table-header">
-                <tr>
-                     <th class="text-center" width="60">No</th>
+        <div class="table-custom">
+            <table class="w-100" style="border-collapse: separate; border-spacing: 0 15px;">
+                <thead class="table-header">
+                    <tr>
+                        <th class="text-center" width="60">No</th>
                         <th width="200">Detail</th>
                         <th>Waktu</th>
                         <th>Status</th>
                         <th class="text-center" width="160">Aksi</th>
-                        </tr>
-         </thead>
-               <tbody>
-                 <tr>
-                  <td>
-                   <b>1</b><br>
-                  </td>
-                   <td>
-                    <b>Kuis Basis Data</b><br>
-                    <div style="font-size:0.8rem; opacity:0.7;">
-                    Topik: <span style="color:#4cc9f0; font-weight:500;">Basis Data</span>
-                    </div>
-                   </td>
-                      <td>
-                  <div style="font-weight:600;">18 Des 2025</div>
-                <div style="font-size:0.75rem; opacity:0.6;">
-                Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
-                  </div>
-                  </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center"><b>1</b></td>
+                        <td>
+                            <b>Kuis Basis Data</b>
+                            <div style="font-size:0.8rem; opacity:0.7; mt-1">
+                                Topik: <span style="color:#4cc9f0; font-weight:500;">Basis Data</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fw-bold">18 Des 2025</div>
+                            <div style="font-size:0.75rem; opacity:0.6; mt-1">
+                                Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
+                            </div>
+                        </td>
+                        <td><span class="badge-adaptif">Adaptif</span></td>
+                        <td>
+                            <div class="action-group justify-content-center">
+                                <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
+                                <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
+                                <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>  
+                                <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
+                                <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center"><b>2</b></td>
+                        <td>
+                            <b>Kuis Statistika Terapan</b>
+                            <div style="font-size:0.8rem; opacity:0.7; mt-1">
+                                Topik: <span style="color:#4cc9f0; font-weight:500;">Statistika</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="fw-bold">18 Des 2025</div>
+                            <div style="font-size:0.75rem; opacity:0.6; mt-1">
+                                Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
+                            </div>
+                        </td>
+                        <td><span class="badge-adaptif">Adaptif</span></td>
+                        <td>
+                            <div class="action-group justify-content-center">
+                                <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
+                                <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
+                                <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>
+                                <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
+                                <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                     <td>
-                    <span class="badge-adaptif">Adaptif</span>
-                      </td>
-                      <td>
-                      <div class="action-group">
-                        <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
-                        <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
-                        <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>  
-                        <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
-                        <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
-                        
-                       </div>
-                     </td>
-                  </tr>
-                   <tr>
-                  <td>
-                   <b>2</b><br>
-                  </td>
-                   <td>
-                    <b>Kuis Statistika Terapan</b><br>
-                    <div style="font-size:0.8rem; opacity:0.7;">
-                    Topik: <span style="color:#4cc9f0; font-weight:500;">Statistika</span>
-                    </div>
-                   </td>
-                      <td>
-                  <div style="font-weight:600;">18 Des 2025</div>
-                <div style="font-size:0.75rem; opacity:0.6;">
-                     Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
-                  </div>
-                  </td>
-
-                     <td>
-                    <span class="badge-adaptif">Adaptif</span>
-                      </td>
-                      <td>
-                      <div class="action-group">
-                        <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
-                        <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
-                        <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>
-                        <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
-                        <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
-                       </div>
-                     </td>
-                  </tr>
-              </tbody>
-       </table>
-
-
-
-
- <div class="d-flex justify-content-between align-items-center mt-4">
-          <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 Evaluasi</p>
-          <div class="pagination-container d-flex gap-2">
-              <a href="#" class="page-link-custom">«</a> 
-              <a href="#" class="page-link-custom active">1</a>
-              <a href="#" class="page-link-custom">2</a>
-              <a href="#" class="page-link-custom">3</a>
-              <a href="#" class="page-link-custom">»</a>
-           </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mt-4">
+            <p class="text-small m-0" style="color: #4cc9f0; font-size: 0.85rem;">Menampilkan 1 - 10 dari 55 Evaluasi</p>
+            <div class="pagination-container d-flex gap-2">
+                <a href="#" class="page-link-custom">«</a> 
+                <a href="#" class="page-link-custom active">1</a>
+                <a href="#" class="page-link-custom">2</a>
+                <a href="#" class="page-link-custom">3</a>
+                <a href="#" class="page-link-custom">»</a>
+            </div>
         </div>
     </div>
 </div>
-</div>
 
-</div>
-
-
-
-
-
-
-
-<!-- ISI MODAL i NGAMBANG -->
-    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background: rgba(27, 38, 59, 0.95); backdrop-filter: blur(15px); color: white; border-radius: 25px; border: 1px solid #4cc9f0; box-shadow: 0 0 9px rgba(76, 201, 240, 0.1);">
-            <div class="modal-header">
-                <h5 class="fw-bold" style="color: #4cc9f0;">Panduan Evaluasi Topik</h5>
+<div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered px-3">
+        <div class="modal-content" style="background: rgba(27, 38, 59, 0.95); backdrop-filter: blur(15px); color: white; border-radius: 25px; border: 1px solid #4cc9f0; box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="fw-bold m-0" style="color: #4cc9f0;">Panduan Evaluasi Topik</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-              
             </div>
-            <div class="modal-body p-5">
+            <div class="modal-body p-4 p-md-5">
                 <div class="mb-4">
-                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px;">Mekanisme Adaptif (Essay)</h6>
-                    <p class="small mb-2">Sistem otomatis menyesuaikan kesulitan soal berdasarkan pola jawaban mahasiswa:</p>
+                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px; font-size: 0.75rem;">Mekanisme Adaptif (Essay)</h6>
+                    <p class="small mb-2 opacity-75">Sistem otomatis menyesuaikan kesulitan soal berdasarkan pola jawaban mahasiswa:</p>
                     <div class="p-3 rounded-4" style="background: rgba(255,255,255,0.05); border-left: 3px solid #4cc9f0;">
-                        <ul class="list-unstyled small mb-0">
+                        <ul class="list-unstyled small mb-0" style="line-height: 1.6;">
                             <li>● <b>Start:</b> 2 Soal Tingkat Sedang.</li>
                             <li>● <b>Naik:</b> 2 Benar beruntun ➔ Soal Sulit.</li>
                             <li>● <b>Turun:</b> 2 Salah beruntun ➔ Soal Mudah.</li>
@@ -502,30 +460,30 @@
                 </div>
 
                 <div class="mb-4">
-                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px;">Komposisi Bank Soal (Rumus n)</h6>
-                    <p class="small mb-1">Jika target <b>n</b> soal, sistem wajib menyediakan:</p>
+                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px; font-size: 0.75rem;">Komposisi Bank Soal (Rumus n)</h6>
+                    <p class="small mb-2 opacity-75">Jika target <b>n</b> soal, sistem wajib menyediakan:</p>
                     <div class="d-flex justify-content-between text-center gap-2">
                         <div class="flex-fill p-2 rounded-3" style="background: rgba(76, 201, 240, 0.1); border: 1px solid rgba(76, 201, 240, 0.3);">
-                            <div style="font-size: 0.65rem;">SEDANG</div>
+                            <div style="font-size: 0.65rem; opacity: 0.8;">SEDANG</div>
                             <div class="fw-bold text-info">n</div>
                         </div>
                         <div class="flex-fill p-2 rounded-3" style="background: rgba(87, 204, 153, 0.1); border: 1px solid rgba(87, 204, 153, 0.3);">
-                            <div style="font-size: 0.65rem;">MUDAH</div>
+                            <div style="font-size: 0.65rem; opacity: 0.8;">MUDAH</div>
                             <div class="fw-bold" style="color: #57cc99;">n - 2</div>
                         </div>
                         <div class="flex-fill p-2 rounded-3" style="background: rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.3);">
-                            <div style="font-size: 0.65rem;">SULIT</div>
+                            <div style="font-size: 0.65rem; opacity: 0.8;">SULIT</div>
                             <div class="fw-bold" style="color: #ff4d4d;">n - 2</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-0">
-                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px;">Penilaian Poin</h6>
-                    <div class="small d-flex justify-content-around mt-2">
-                        <span>Mudah: <b class="text-white">10</b></span>
-                        <span>Sedang: <b class="text-white">20</b></span>
-                        <span>Sulit: <b class="text-white">30</b></span>
+                    <h6 class="small fw-bold text-uppercase opacity-50" style="letter-spacing: 1px; font-size: 0.75rem;">Penilaian Poin</h6>
+                    <div class="small d-flex justify-content-around mt-2 p-2 rounded-3" style="background: rgba(255,255,255,0.02);">
+                        <span>Mudah: <b style="color: #57cc99;">10</b></span>
+                        <span>Sedang: <b style="color: #4cc9f0;">20</b></span>
+                        <span>Sulit: <b style="color: #ff4d4d;">30</b></span>
                     </div>
                 </div>
             </div>
@@ -739,27 +697,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
