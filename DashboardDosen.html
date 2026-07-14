@@ -23,7 +23,9 @@
             body { flex-direction: row; }
         }
 
-     
+        /* ==================================================================
+           SIDEBAR STYLE (DESKTOP) - DENGAN FIX POSITION PROFILE SECTION
+           ================================================================== */
         .sidebar {
             background-color: #1b263b; 
             height: 85vh; 
@@ -32,10 +34,10 @@
             display: flex; 
             flex-direction: column;
             position: fixed; 
-            width: 260px; /* Ukuran sidebar disamakan */
+            width: 260px; 
             top: 7.5vh; 
             left: 20px; 
-            border-radius: 30px; /* Lengkungan sudut presisi */
+            border-radius: 30px; 
             z-index: 1000; 
             overflow-y: auto; 
             overflow-x: hidden;
@@ -44,6 +46,11 @@
 
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
+
+        /* Pembungkus menu navigasi agar menjorok ke atas dan menyisakan ruang untuk profil */
+        .sidebar nav {
+            flex-grow: 1;
+        }
 
         .menu-link {
             display: flex; 
@@ -58,37 +65,43 @@
             white-space: nowrap;
         }
 
-        /* Efek Gradasi Biru  */
         .menu-link:hover, .menu-link.active {
             background: linear-gradient(90deg, #4cc9f0, #4361ee) !important;
             color: #0d1b2a !important; 
             font-weight: 600;
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(76, 201, 240, 0.6), 0 5px 15px rgba(67, 97, 238, 0.4); /* Efek glow biru kuat */
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.6), 0 5px 15px rgba(67, 97, 238, 0.4);
         }
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
         .menu-link.active .img-menu-icon, .menu-link:hover .img-menu-icon { filter: brightness(0); } 
         
+        /* Modifikasi section profile agar presisi di bawah sidebar desktop */
         .profile-section {
-            margin-top: auto; 
+            margin-top: 20px; 
             background: rgba(255, 255, 255, 0.05);
-            padding: 15px; 
+            padding: 12px 15px; 
             border-radius: 16px; 
             display: flex; 
             align-items: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-       
+        /* Profile header mobile (Default hidden di desktop) */
+        .profile-mobile-header {
+            display: none;
+        }
+
+        /* ====================================
+           MAIN CONTENT STYLE
+           ======================================= */
         .main-content {
-            margin-left: 300px; /* Jarak disesuaikan dengan sidebar lebar 260px + gap penempatan */
+            margin-left: 300px; 
             padding: 50px 50px 50px 20px; 
             width: calc(100% - 300px); 
             flex-grow: 1;
         }
 
-        /* TOP HEADER & FILTER */
         .top-header-wrapper {
             background: rgba(13, 27, 42, 0.4);
             backdrop-filter: blur(10px);
@@ -174,13 +187,13 @@
 
         .card-aksi-cepat:hover { transform: translateY(-4px); border-color: rgba(76, 201, 240, 0.4); box-shadow: 0 12px 25px rgba(76, 201, 240, 0.15); }
 
-        /* SCROLLBAR GANTENG */
+        /* SCROLLBAR */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0d1b2a; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4cc9f0, #4361ee); border-radius: 10px; }
 
         /* ==================================================================
-           Premium Mobile Optimize Transformation - PENYELARASAN LAYOUT HP
+           Premium Mobile Optimize Transformation
            ==================================================================== */
         @media (max-width: 991.98px) {
             body { padding-bottom: 90px; }
@@ -203,16 +216,26 @@
                 align-items: center;
                 box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
                 z-index: 9999;
-                overflow-x: auto; /* Memungkinkan geser menu jika kepanjangan */
+                overflow-x: auto; 
                 overflow-y: hidden;
                 -webkit-overflow-scrolling: touch;
             }
 
-            /* Hilangkan scrollbar bawaan di HP agar minimalis */
             .sidebar::-webkit-scrollbar { display: none; }
 
+            /* Sembunyikan profil bawaan sidebar di Mobile */
             .sidebar h4, .sidebar .profile-section, .sidebar .menu-link[style*="color: rgb(255, 77, 77)"], .sidebar .menu-link:has(img[src="log-out.png"]) {
                 display: none !important;
+            }
+
+            /* Aktifkan profil di Header atas pada tampilan Mobile */
+            .profile-mobile-header {
+                display: flex !important;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 8px 12px;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .sidebar nav {
@@ -221,7 +244,7 @@
                 align-items: center;
                 height: 100%;
                 padding: 0 15px;
-                gap: 10px; /* Jarak aman antar ikon agar tidak dempet */
+                gap: 10px; 
             }
 
             .menu-link {
@@ -247,7 +270,6 @@
                 transition: 0.3s;
             }
 
-            /* Mengembalikan efek bersinar glow biru saat aktif di HP */
             .menu-link:hover, .menu-link.active {
                 background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(67, 97, 238, 0.2)) !important;
                 color: #4cc9f0 !important;
@@ -257,7 +279,6 @@
                 font-weight: 600;
             }
 
-            /* Tetap jaga warna ikon agar menyala saat aktif */
             .menu-link.active .img-menu-icon, .menu-link:hover .img-menu-icon { 
                 filter: drop-shadow(0px 0px 5px rgba(76, 201, 240, 0.8)); 
             }
@@ -269,7 +290,7 @@
             }
 
             .top-header-wrapper { padding: 15px; }
-            .filter-prodi-box { margin-top: 15px; width: 100%; justify-content: space-between; }
+            .filter-prodi-box { margin-top: 10px; width: auto; justify-content: space-between; }
             .stat-box { height: 135px; padding: 18px; }
             .stat-content h5 { font-size: 1rem; }
             .card-aksi-cepat { height: auto; min-height: 90px; padding: 16px; }
@@ -279,6 +300,7 @@
 
 <body>
 
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
         <nav>
@@ -311,24 +333,38 @@
             </a>
         </nav>
 
-        <div class="profile-section mt-4">
+        <!-- Profil Dosen (Hanya muncul di Desktop Sidebar) -->
+        <div class="profile-section">
             <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
-                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
-                <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
+                <p class="small fw-bold mb-0 text-white namaDosenText">Dosen ABC</p>
+                <p class="mb-0 text-white opacity-50 idDosenText" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content"> 
         <div class="top-header-wrapper mb-4">
             <div class="row align-items-center">
-                <div class="col-12 col-md-7">
-                    <h2 class="fw-bold mb-1">Welcome, <span id="namaDosen" style="color: #4cc9f0;">Dosen</span> 👋</h2>
+                <!-- Sisi Kiri Header (Welcome Text) -->
+                <div class="col-8 col-md-7">
+                    <h2 class="fw-bold mb-1" style="font-size: calc(1.2rem + 0.6vw);">Welcome, <span id="namaDosen" style="color: #4cc9f0;">Dosen</span> 👋</h2>
                     <p class="small opacity-75 m-0 text-primary">Dashboard Akademik Terintegrasi</p>
                 </div>
                 
-                <div class="col-12 col-md-5 d-flex justify-content-md-end">
+                <!-- Sisi Kanan Header (Profil Kecil Khusus Mobile) -->
+                <div class="col-4 d-flex d-md-none justify-content-end">
+                    <div class="profile-mobile-header">
+                        <img src="reading-book.png" class="rounded-circle" width="30" height="30">
+                        <div class="ms-2 d-none d-sm-block text-start">
+                            <p class="small fw-bold mb-0 text-white namaDosenText" style="font-size: 0.75rem;">Dosen ABC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Prodi (Desktop Sejajar Kanan, HP Turun ke Bawah tapi Rapih) -->
+                <div class="col-12 col-md-5 d-flex justify-content-md-end mt-3 mt-md-0">
                     <div class="filter-prodi-box">
                         <img src="program study.png" width="15" class="me-2" style="filter: invert(1); opacity: 0.7;">
                         <span class="small opacity-50 me-2" style="font-size: 0.7rem;">PRODI:</span>
@@ -342,6 +378,7 @@
             </div>
         </div>
 
+        <!-- STATS BOXES -->
         <div class="row g-3 g-md-4 mb-5">
             <div class="col-6 col-md-6 col-lg-4">
                 <a href="DataMahasiswa.html" class="stat-box">
@@ -381,6 +418,7 @@
             </div>
         </div>
 
+        <!-- QUICK ACTIONS -->
         <h5 class="fw-bold mb-4">Aksi Cepat</h5>
         <div class="row g-3">
             <div class="col-12 col-md-4">
@@ -421,9 +459,14 @@
         const nama = localStorage.getItem("userName");
         const prodiAwal = localStorage.getItem("userProdi");
 
+        // Set nama dosen ke semua tempat (Header Welcome, Sidebar Profile, & Mobile Header Profile)
         if(nama) {
             document.getElementById("namaDosen").innerText = nama;
-            document.querySelector(".profile-section p.fw-bold").innerText = nama;
+            
+            // Query select semua class namaDosenText agar ter-update sekaligus
+            document.querySelectorAll(".namaDosenText").forEach(el => {
+                el.innerText = nama;
+            });
         }
 
         if(prodiAwal) {
