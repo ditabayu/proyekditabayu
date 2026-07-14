@@ -131,51 +131,69 @@
 
 
 
-        /* =======================================================
-   KODE KHUSUS HP (Hanya aktif di layar di bawah 768px)
+/* =======================================================
+   OPSI A: MENU GRID RINGKAS (KHUSUS HP < 768px)
    ======================================================= */
 @media screen and (max-width: 768px) {
-    /* 1. Sembunyikan sidebar default di HP biar gak numpuk */
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: 0;
-        margin-bottom: 20px;
-        border-radius: 20px;
-    }
-
-    /* Hilangkan profile section di dalam sidebar khusus HP biar ringkas */
-    .sidebar .profile-section {
-        display: none;
-    }
-
-    /* 2. Normalkan margin main content agar penuh di layar HP */
+    /* Atur ulang container utama */
     .main-content, .content-area {
         margin-left: 0 !important;
         padding: 20px 15px !important;
         width: 100% !important;
     }
 
-    /* 3. Atur header (Nama Dosen & Dropdown Prodi) agar turun ke bawah (vertikal) */
+    /* Ubah sidebar jadi bar menu horizontal di atas */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+
+    /* Susun link menu jadi grid 4 kolom */
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    /* Sederhanakan tombol menu: hanya ikon di tengah */
+    .menu-link {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 5px;
+        font-size: 0; /* Sembunyikan teks biar gak menonjol/sumpek */
+        margin-bottom: 0;
+        border-radius: 12px;
+    }
+
+    /* Besarkan sedikit ikon menu di HP agar mudah ditekan */
+    .img-menu-icon {
+        width: 24px;
+        margin-right: 0;
+    }
+
+    /* Sembunyikan profile section & tombol keluar bawaan agar tidak merusak layout grid */
+    .sidebar .profile-section, .menu-link[href="Login.html"] {
+        display: none;
+    }
+
+    /* Header text & Prodi filter otomatis vertikal */
     .main-content .row.mb-4 > div {
         flex-direction: column !important;
         align-items: flex-start !important;
     }
-
     .filter-prodi-box {
-        margin-top: 15px;
+        margin-top: 12px;
         width: 100%;
         justify-content: center;
     }
-
-    /* 4. Sesuaikan tinggi kotak menu biar pas di tangan */
-    .stat-box, .card-aksi-cepat {
-        height: 130px;
-    }
 }
-
     </style>
 </head>
 
