@@ -406,7 +406,10 @@
         ::-webkit-scrollbar-thumb:hover { background: #4cc9f0; } 
 
 
-@media screen and (max-width: 768px) {
+
+
+        @media screen and (max-width: 768px) {
+    /* Sidebar Hori */
     .sidebar {
         position: relative !important;
         width: 100% !important;
@@ -420,7 +423,7 @@
     }
 
     .sidebar h4 {
-        display: none !important; /* Sembunyikan tulisan UPKSAINTEK di HP */
+        display: none !important;
     }
 
     .sidebar nav {
@@ -432,7 +435,7 @@
     }
 
     .sidebar nav::-webkit-scrollbar {
-        display: none !important; /* Biar menu HP bersih tanpa scrollbar jelek */
+        display: none !important;
     }
 
     .menu-link {
@@ -443,33 +446,76 @@
     }
 
     .sidebar .profile-section {
-        display: none !important; /* Sembunyikan profil bawah hanya di HP */
+        display: none !important;
     }
 
-    /* 2. Mengatasi Konten Utama (main-wrapper) Biar Gak Camuh & Geser */
+    /* Konten Utama (main-wrapper)  */
     .main-wrapper {
-        margin-left: 0 !important;      /* Di HP gak perlu geser kanan 300px */
-        padding: 15px 12px !important;  /* Jaraknya disempitkan biar pas di layar HP */
+        margin-left: 0 !important;
+        padding: 10px 5px !important;
         width: 100% !important;
     }
 
-    /* 3. Header Box (Judul & Tombol Manual/Otomatis) Otomatis Nyusun Kebawah */
+    /* Header Judul & Tombol Atas */
     .header-box {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 15px !important;
+        padding: 20px !important;
     }
 
-    /* Kelompok tombol di dalam header-box */
     .header-box .d-flex.gap-3 {
-        flex-direction: column !important; /* Tombol otomatis bertumpuk atas-bawah */
+        flex-direction: column !important;
         width: 100% !important;
         gap: 10px !important;
     }
 
-    /* Tombolnya sendiri-sendiri melebar penuh di HP biar gampang diklik jari */
     .header-box .btn-glow {
         width: 100% !important;
+        text-align: center !important;
+    }
+
+    /*  Kartu Glass */
+    .glass-card {
+        padding: 15px !important;
+        border-radius: 20px !important;
+    }
+
+    /* Filter & Cari  */
+    .glass-card .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    .glass-card .d-flex.align-items-center.gap-2 {
+        width: 100% !important;
+    }
+
+    /* Dropdown Filter & Kolom Cari Melebar  */
+    .glass-card select.pill-input,
+    .glass-card input.pill-input {
+        width: 100% !important;
+    }
+
+    /* Tabel Pembungkus Scroll Otomatis */
+    .table-custom {
+        display: block !important;
+        width: 100% !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Jarak biar scroll ga mepet */
+    .table-custom th, .table-custom td {
+        padding: 12px 10px !important;
+    }
+
+    /* Pagination */
+    .glass-card .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column !important;
+        gap: 15px !important;
         text-align: center !important;
     }
 }
