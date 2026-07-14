@@ -23,9 +23,7 @@
             body { flex-direction: row; }
         }
 
-        /* ==================================================================
-           SIDEBAR STYLE (DESKTOP) - UKURAN BARU & EFEK BIRU BERSINAR KETIKA DIPENCET
-           ================================================================== */
+     
         .sidebar {
             background-color: #1b263b; 
             height: 85vh; 
@@ -57,9 +55,10 @@
             margin-bottom: 8px;
             transition: 0.3s; 
             font-size: 0.85rem;
+            white-space: nowrap;
         }
 
-        /* Efek Gradasi Biru Bersinar saat Di-hover & ketika menu Aktif/Dipencet */
+        /* Efek Gradasi Biru  */
         .menu-link:hover, .menu-link.active {
             background: linear-gradient(90deg, #4cc9f0, #4361ee) !important;
             color: #0d1b2a !important; 
@@ -81,9 +80,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* ====================================
-           MAIN CONTENT STYLE (DISESUAIKAN JARAKNYA DENGAN LEBAR SIDEBAR BARU)
-           ======================================= */
+       
         .main-content {
             margin-left: 300px; /* Jarak disesuaikan dengan sidebar lebar 260px + gap penempatan */
             padding: 50px 50px 50px 20px; 
@@ -178,12 +175,12 @@
         .card-aksi-cepat:hover { transform: translateY(-4px); border-color: rgba(76, 201, 240, 0.4); box-shadow: 0 12px 25px rgba(76, 201, 240, 0.15); }
 
         /* SCROLLBAR GANTENG */
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0d1b2a; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #4cc9f0, #4361ee); border-radius: 10px; }
 
         /* ==================================================================
-           Premium Mobile Optimize Transformation (DI HP JADI MIRIP APPS)
+           Premium Mobile Optimize Transformation - PENYELARASAN LAYOUT HP
            ==================================================================== */
         @media (max-width: 991.98px) {
             body { padding-bottom: 90px; }
@@ -194,20 +191,25 @@
                 top: auto;
                 left: 0;
                 width: 100%;
-                height: 70px;
-                padding: 0 10px;
+                height: 75px;
+                padding: 0;
                 border-radius: 0;
                 border: none;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
-                background: rgba(13, 27, 42, 0.9);
+                background: rgba(13, 27, 42, 0.95);
                 backdrop-filter: blur(20px);
                 flex-direction: row;
-                justify-content: space-around;
+                justify-content: flex-start;
                 align-items: center;
                 box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
                 z-index: 9999;
-                overflow: hidden;
+                overflow-x: auto; /* Memungkinkan geser menu jika kepanjangan */
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
             }
+
+            /* Hilangkan scrollbar bawaan di HP agar minimalis */
+            .sidebar::-webkit-scrollbar { display: none; }
 
             .sidebar h4, .sidebar .profile-section, .sidebar .menu-link[style*="color: rgb(255, 77, 77)"], .sidebar .menu-link:has(img[src="log-out.png"]) {
                 display: none !important;
@@ -215,39 +217,50 @@
 
             .sidebar nav {
                 display: flex;
-                width: 100%;
-                justify-content: space-around;
+                flex-direction: row;
                 align-items: center;
                 height: 100%;
+                padding: 0 15px;
+                gap: 10px; /* Jarak aman antar ikon agar tidak dempet */
             }
 
             .menu-link {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 6px 0;
+                padding: 8px 16px;
                 margin: 0;
-                font-size: 0.65rem; 
+                font-size: 0.7rem; 
                 color: #8a99ad;
-                border-radius: 0;
-                width: 50px;
+                border-radius: 15px;
+                min-width: 70px;
                 text-align: center;
+                background: transparent;
+                transition: all 0.3s ease;
             }
 
             .img-menu-icon {
                 width: 20px;
                 height: 20px;
                 margin-right: 0;
-                margin-bottom: 4px;
+                margin-bottom: 5px;
+                transition: 0.3s;
             }
 
+            /* Mengembalikan efek bersinar glow biru saat aktif di HP */
             .menu-link:hover, .menu-link.active {
-                background: transparent !important;
+                background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(67, 97, 238, 0.2)) !important;
                 color: #4cc9f0 !important;
-                box-shadow: none !important;
-                transform: none;
+                box-shadow: 0 0 15px rgba(76, 201, 240, 0.4) !important;
+                border: 1px solid rgba(76, 201, 240, 0.3);
+                border-radius: 15px;
+                font-weight: 600;
             }
-            .menu-link.active .img-menu-icon { filter: none; }
+
+            /* Tetap jaga warna ikon agar menyala saat aktif */
+            .menu-link.active .img-menu-icon, .menu-link:hover .img-menu-icon { 
+                filter: drop-shadow(0px 0px 5px rgba(76, 201, 240, 0.8)); 
+            }
 
             .main-content {
                 margin-left: 0;
