@@ -405,58 +405,74 @@
         }
         ::-webkit-scrollbar-thumb:hover { background: #4cc9f0; } 
 
-     
-        @media screen and (max-width: 768px) {
-            .main-wrapper {
-                margin-left: 0 !important;
-                padding: 15px 12px !important; 
-                width: 100% !important;
-            }
 
-            /* sidebar hori */
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                left: 0;
-                top: 0;
-                padding: 12px;
-                margin-bottom: 20px;
-                border-radius: 20px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            }
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        padding: 12px !important;
+        margin-bottom: 20px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3) !important;
+    }
 
-            /* Sembunyikan judul UPKSAINTEK  */
-            .sidebar h4 {
-                display: none !important;
-            }
+    .sidebar h4 {
+        display: none !important; /* Sembunyikan tulisan UPKSAINTEK di HP */
+    }
 
-            /* Navigasi horizontal rapi */
-            .sidebar nav {
-                display: flex;
-                overflow-x: auto;
-                white-space: nowrap;
-                gap: 8px;
-                padding-bottom: 5px;
-            }
+    .sidebar nav {
+        display: flex !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 8px !important;
+        padding-bottom: 5px !important;
+    }
 
-            /* Hilangkan scrollbar bawaan navigasi */
-            .sidebar nav::-webkit-scrollbar {
-                display: none;
-            }
+    .sidebar nav::-webkit-scrollbar {
+        display: none !important; /* Biar menu HP bersih tanpa scrollbar jelek */
+    }
 
-            .menu-link {
-                display: inline-flex;
-                margin-bottom: 0;
-                flex-shrink: 0;
-                padding: 8px 14px;
-            }
+    .menu-link {
+        display: inline-flex !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0 !important;
+        padding: 8px 14px !important;
+    }
 
-            /* Sembunyikan profile-section bawah di HP */
-            .sidebar .profile-section {
-                display: none !important;
-            }
-        }
+    .sidebar .profile-section {
+        display: none !important; /* Sembunyikan profil bawah hanya di HP */
+    }
+
+    /* 2. Mengatasi Konten Utama (main-wrapper) Biar Gak Camuh & Geser */
+    .main-wrapper {
+        margin-left: 0 !important;      /* Di HP gak perlu geser kanan 300px */
+        padding: 15px 12px !important;  /* Jaraknya disempitkan biar pas di layar HP */
+        width: 100% !important;
+    }
+
+    /* 3. Header Box (Judul & Tombol Manual/Otomatis) Otomatis Nyusun Kebawah */
+    .header-box {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px !important;
+    }
+
+    /* Kelompok tombol di dalam header-box */
+    .header-box .d-flex.gap-3 {
+        flex-direction: column !important; /* Tombol otomatis bertumpuk atas-bawah */
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    /* Tombolnya sendiri-sendiri melebar penuh di HP biar gampang diklik jari */
+    .header-box .btn-glow {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
     </style>
 </head>
 
@@ -509,29 +525,23 @@
 
 
 
-   <div class="main-wrapper">
-    <div class="header-box d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
-        
-        <div>
-            <div class="d-flex align-items-center">
-                <h2 class="fw-bold m-0 text-white d-flex align-items-center flex-wrap">
-                    Bank <span style="color: #4cc9f0; margin-left: 8px;">Soal Essay</span>
-                </h2>   
-                <button class="info-trigger ms-2" data-bs-toggle="modal" data-bs-target="#modalInfo">i</button>
-            </div>
-            <p class="small opacity-75 m-0 text-primary">Kelola daftar pertanyaan ujian dengan sistem cerdas.</p>
-        </div>
-        
-        <div class="d-flex flex-column flex-sm-row gap-2 w-100 w-md-auto">
-            <button class="btn-glow btn-green w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#modalOtomatis">
-                <i class="bi bi-magic me-1"></i> Buat Otomatis
-            </button>
-            <button class="btn-glow btn-blue w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#modalTambah">
-                + Tambah Manual
-            </button>
-        </div>
+    <div class="main-wrapper">
+        <div class="header-box d-flex justify-content-between align-items-center">
+            <div>
+                <div class="d-flex align-items-center">
+                  <h2 class="fw-bold m-0 text-white d-flex align-items-center">
+                     Bank <span style="color: #4cc9f0; margin-left: 8px;">Soal Essay</span>
+                  </h2>   
+                  <button class="info-trigger ms-2"  data-bs-toggle="modal" data-bs-target="#modalInfo">i</button>
+                </div>
+               <p class="small opacity-75 m-0 text-primary">Kelola daftar pertanyaan ujian dengan sistem cerdas.</p>
+            </div>    
 
-    </div>
+            <div class="d-flex gap-3">
+                <button class="btn-glow btn-green" data-bs-toggle="modal" data-bs-target="#modalOtomatis"><i class="bi bi-magic me-1"></i> Buat Otomatis</button>
+                <button class="btn-glow btn-blue" data-bs-toggle="modal" data-bs-target="#modalTambah">+ Tambah Manual</button>
+            </div>
+        </div>
   
     
 
