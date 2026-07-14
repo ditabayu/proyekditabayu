@@ -498,8 +498,7 @@
         width: 100% !important;
     }
 
-    /* Tabel Pembungkus Scroll Otomatis */
-    .table-custom {
+ .table-custom {
         display: block !important;
         width: 100% !important;
         overflow-x: auto !important;
@@ -507,16 +506,40 @@
         -webkit-overflow-scrolling: touch;
     }
 
-    /* Jarak biar scroll ga mepet */
+    /* scrollbar hori */
+    .table-custom::-webkit-scrollbar { 
+        height: 10px !important; 
+    }
+    .table-custom::-webkit-scrollbar-track { 
+        background: rgba(255, 255, 255, 0.03) !important; 
+        border-radius: 10px !important;
+    }
+    .table-custom::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #4cc9f0, #4361ee) !important; 
+        border-radius: 10px !important;
+        box-shadow: 0 0 8px rgba(76, 201, 240, 0.5) !important;
+    }
+
     .table-custom th, .table-custom td {
         padding: 12px 10px !important;
     }
 
-    /* Pagination  */
-    .glass-card > .d-flex.justify-content-between.mt-4 {
+
+    .glass-card .d-flex.justify-content-between.align-items-center.mt-4 {
         flex-direction: column !important;
+        align-items: flex-start !important; /* rata kiri di HP */
         gap: 15px !important;
-        text-align: center  !important;
+    }
+
+            #modalEdit .text-end {
+        display: flex !important;
+        flex-direction: column !important; /* Tombol otomatis bertumpuk 
+        gap: 10px !important;
+    }
+
+    #modalEdit .text-end button {
+        width: 100% !important; /* Tombol melebar penuh di HP */
+        margin: 0 !important;  
     }
 
 }
