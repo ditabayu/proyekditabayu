@@ -132,58 +132,54 @@
 
 
 /* =======================================================
-   OPSI A: MENU GRID RINGKAS (KHUSUS HP < 768px)
+   OPSI B: MENU GESER HORIZONTAL (KHUSUS HP < 768px)
    ======================================================= */
 @media screen and (max-width: 768px) {
-    /* Atur ulang container utama */
     .main-content, .content-area {
         margin-left: 0 !important;
         padding: 20px 15px !important;
         width: 100% !important;
     }
 
-    /* Ubah sidebar jadi bar menu horizontal di atas */
+    /* Ubah sidebar jadi baris memanjang ke kanan */
     .sidebar {
         position: relative;
         width: 100%;
         height: auto;
         left: 0;
         top: 0;
-        padding: 15px;
-        margin-bottom: 20px;
+        padding: 12px;
+        margin-bottom: 25px;
         border-radius: 20px;
     }
 
-    /* Susun link menu jadi grid 4 kolom */
+    /* Paksa navigasi sejajar ke kanan dan aktifkan scroll */
     .sidebar nav {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+        padding-bottom: 5px;
     }
 
-    /* Sederhanakan tombol menu: hanya ikon di tengah */
-    .menu-link {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 5px;
-        font-size: 0; /* Sembunyikan teks biar gak menonjol/sumpek */
-        margin-bottom: 0;
-        border-radius: 12px;
-    }
-
-    /* Besarkan sedikit ikon menu di HP agar mudah ditekan */
-    .img-menu-icon {
-        width: 24px;
-        margin-right: 0;
-    }
-
-    /* Sembunyikan profile section & tombol keluar bawaan agar tidak merusak layout grid */
-    .sidebar .profile-section, .menu-link[href="Login.html"] {
+    /* Hilangkan scrollbar bawaan biar estetik */
+    .sidebar nav::-webkit-scrollbar {
         display: none;
     }
 
-    /* Header text & Prodi filter otomatis vertikal */
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0; /* Mencegah menu gepeng */
+        padding: 8px 14px;
+    }
+
+    /* Sembunyikan bagian profil agar hemat ruang */
+    .sidebar .profile-section {
+        display: none;
+    }
+
+    /* Rapikan header */
     .main-content .row.mb-4 > div {
         flex-direction: column !important;
         align-items: flex-start !important;
