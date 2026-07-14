@@ -130,18 +130,16 @@
 
 
 
-
-/* =======================================================
-   OPSI B: MENU GESER HORIZONTAL (KHUSUS HP < 768px)
-   ======================================================= */
+  
 @media screen and (max-width: 768px) {
+    /* container utama biar penuh */
     .main-content, .content-area {
         margin-left: 0 !important;
-        padding: 20px 15px !important;
+        padding: 15px 12px !important; 
         width: 100% !important;
     }
 
-    /* Ubah sidebar jadi baris memanjang ke kanan */
+    /* sidebar jadi baris geser horizontal */
     .sidebar {
         position: relative;
         width: 100%;
@@ -149,20 +147,26 @@
         left: 0;
         top: 0;
         padding: 12px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     }
 
-    /* Paksa navigasi sejajar ke kanan dan aktifkan scroll */
+    /* Sembunyikan judul UPKSAINTEK  */
+    .sidebar h4 {
+        display: none !important;
+    }
+
+    /* Paksa navigasi sejajar ke kanan & aktifkan scroll */
     .sidebar nav {
         display: flex;
         overflow-x: auto;
         white-space: nowrap;
-        gap: 10px;
+        gap: 8px;
         padding-bottom: 5px;
     }
 
-    /* Hilangkan scrollbar bawaan biar estetik */
+    /* Hilangkan scrollbar bawaan  */
     .sidebar nav::-webkit-scrollbar {
         display: none;
     }
@@ -170,24 +174,36 @@
     .menu-link {
         display: inline-flex;
         margin-bottom: 0;
-        flex-shrink: 0; /* Mencegah menu gepeng */
+        flex-shrink: 0;
         padding: 8px 14px;
     }
 
-    /* Sembunyikan bagian profil agar hemat ruang */
+    /* Sembunyikan bagian profil bawah di sidebar */
     .sidebar .profile-section {
-        display: none;
+        display: none !important;
     }
 
-    /* Rapikan header */
+    /* =======================================================
+       REKAYASA HEADER 
+       ======================================================= */
     .main-content .row.mb-4 > div {
         flex-direction: column !important;
         align-items: flex-start !important;
     }
+
+    /* Kecilkan font welcome */
+    .main-content h2 {
+        font-size: 1.4rem !important; 
+        line-height: 1.3;
+        margin-top: 5px;
+    }
+
+    /* Modifikasi dropdown Prodi */
     .filter-prodi-box {
-        margin-top: 12px;
+        margin-top: 15px;
         width: 100%;
-        justify-content: center;
+        justify-content: space-between; /* Rata kanan-kiri di HP */
+        padding: 10px 15px;
     }
 }
     </style>
