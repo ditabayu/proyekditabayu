@@ -284,16 +284,15 @@ select.form-select {
 
 
 
-
-        @media screen and (max-width: 768px) {
-    /* container utama biar penuh */
-    .main-content, .content-area {
+@media screen and (max-width: 768px) {
+    /* container utama melebar sempurna */
+    .main-wrapper {
         margin-left: 0 !important;
-        padding: 15px 12px !important; 
+        padding: 15px 12px !important;
         width: 100% !important;
     }
 
-    /* sidebar jadi baris geser horizontal */
+    /*  Menu Geser Horizontal */
     .sidebar {
         position: relative;
         width: 100%;
@@ -306,12 +305,10 @@ select.form-select {
         box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     }
 
-    /* Sembunyikan judul UPKSAINTEK  */
-    .sidebar h4 {
+    .sidebar h4, .sidebar .profile-section {
         display: none !important;
     }
 
-    /* Paksa navigasi sejajar ke kanan & aktifkan scroll */
     .sidebar nav {
         display: flex;
         overflow-x: auto;
@@ -320,7 +317,6 @@ select.form-select {
         padding-bottom: 5px;
     }
 
-    /* Hilangkan scrollbar bawaan  */
     .sidebar nav::-webkit-scrollbar {
         display: none;
     }
@@ -332,35 +328,82 @@ select.form-select {
         padding: 8px 14px;
     }
 
-    /* Sembunyikan bagian profil bawah di sidebar */
-    .sidebar .profile-section {
-        display: none !important;
+    /* Kartu Statistik bertumpuk ke bawah */
+    .main-wrapper .row.g-4.mb-4 > div {
+        width: 100% !important;
+    }
+    
+    .stat-card {
+        padding: 15px;
     }
 
-    /* =======================================================
-       REKAYASA HEADER 
-       ======================================================= */
-    .main-content .row.mb-4 > div {
+    /* Kotak Utama & Rekayasa Judul + Tombol Excel */
+    .glass-container {
+        padding: 20px 15px;
+        border-radius: 20px;
+        margin-top: 25px !important;
+    }
+
+    .glass-container > div.d-flex {
         flex-direction: column !important;
         align-items: flex-start !important;
+        gap: 15px;
+        margin-bottom: 25px !important;
     }
 
-    /* Kecilkan font welcome */
-    .main-content h2 {
-        font-size: 1.4rem !important; 
-        line-height: 1.3;
-        margin-top: 5px;
+    .glass-container h2 {
+        font-size: 1.4rem !important;
     }
 
-    /* Modifikasi dropdown Prodi */
-    .filter-prodi-box {
-        margin-top: 15px;
+    .btn-export-all {
         width: 100%;
-        justify-content: space-between; /* Rata kanan-kiri di HP */
-        padding: 10px 15px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Kolom Filter & Pencarian */
+    .glass-container .row.g-3 {
+        flex-direction: column !important;
+    }
+
+    .glass-container .row.g-3 > div {
+        width: 100% !important;
+    }
+
+    .glass-container .text-end.align-self-end {
+        text-align: left !important;
+        margin-top: 10px;
+    }
+
+    /* Paksa input cari nama agar memenuhi lebar layar HP */
+    .glass-container .text-end.align-self-end input {
+        width: 100% !important;
+    }
+
+    /* Tabel Bungkus pke scroll horizontal biar gak patah */
+    .scroll-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 15px;
+    }
+
+    .table-custom {
+        min-width: 600px; /* spacing data tetap ideal saat di-scroll */
+    }
+
+    .table-custom tbody td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Pagination bawah  vertikal/tengah */
+    .glass-container > div.mt-4.d-flex {
+        flex-direction: column !important;
+        gap: 15px;
+        text-align: center;
     }
 }
-
 </style>
 </head>
 
