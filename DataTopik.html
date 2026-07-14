@@ -33,7 +33,7 @@
         .menu-link {
             display: flex; align-items: center; color: #adb5bd; text-decoration: none;
             padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
-            transition: 0.3s; font-size: 0.85rem; 
+            transition: 0.3s; font-size: 0.85rem;
         }
 
          /* EFEK HOVER NYA */
@@ -43,7 +43,7 @@
             color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
             box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
-        .img-menu-icon { width: 22px;  margin-right: 12px; transition: 0.3s; }
+        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
         .menu-link.active .img-menu-icon { filter: brightness(0); } 
         .profile-section {
             margin-top: auto; background: rgba(255, 255, 255, 0.07);
@@ -236,6 +236,23 @@
 
 
 
+/* --- TABEL BIRU UNGU MHS --- */
+        .table-custom {width: 100%; border-collapse: separate; border-spacing: 0 15px;}
+        .table-custom thead th {color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem;}
+        
+        .table-custom tbody tr {background: rgba(255, 255, 255, 0.02); transition: 0.4s ease;}
+
+        .table-custom tbody td {padding: 18px 15px; border: none;
+                                vertical-align: middle; font-weight: 500;}
+
+        .table-custom tbody tr td:first-child {border-top-left-radius: 15px;
+                                               border-bottom-left-radius: 15px;}
+
+        .table-custom tbody tr td:last-child {border-top-right-radius: 15px;
+                                              border-bottom-right-radius: 15px;}
+  
+        .table-custom tbody tr:hover {background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
+                                      transform: translateX(8px);}
 
         .btn-pill {background: #ffd700; border-radius: 45px; padding: 8px 20px; border: none; font-weight: 700;
                    font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;  margin-top: 10px;
@@ -247,268 +264,6 @@
                    font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
                    transition: 0.3s; text-decoration: none;}
         .btn-warning:hover {transform: scale(1.03); box-shadow: 0 0 5px #ff4b4b;}
-
-
-
-/* ================= RESPONSIVE ================= */
-        /* LAPTOP KECIL */
-@media (max-width: 1200px){
-
-    .sidebar{
-        width: 240px;
-    }
-
-    .main-wrapper{
-        margin-left: 270px;
-        padding: 35px 22px;
-    }
-
-    .header-box{
-        padding: 24px;
-    }
-
-    .glass-card{
-        padding: 24px;
-    }
-}
-
-
-/* TABLET */
-@media (max-width: 991px){
-
-    .sidebar{
-        width: 220px;
-        left: 14px;
-        top: 14px;
-        height: calc(100vh - 28px);
-        border-radius: 24px;
-        padding: 20px 12px;
-    }
-
-    .main-wrapper{
-        margin-left: 248px;
-        padding: 28px 18px;
-    }
-
-    .header-box{
-        padding: 22px;
-        border-radius: 24px;
-    }
-
-    .glass-card{
-        padding: 22px;
-        border-radius: 24px;
-    }
-
-    .table-custom{
-        min-width: 760px;
-    }
-
-    .table-responsive-custom{
-        overflow-x: auto;
-    }
-
-    .btn-glow{
-        font-size: 0.82rem;
-        padding: 10px 18px;
-    }
-}
-
-
-
-
-
-
-/* HP KECIL */
-@media (max-width: 480px){
-
-    .sidebar{
-        padding: 16px 12px;
-    }
-
-    .menu-link{
-        font-size: 0.76rem;
-        padding: 10px 12px;
-    }
-
-    .header-box{
-        padding: 18px 15px;
-    }
-
-    .header-box h2{
-        font-size: 1.2rem;
-    }
-
-    .glass-card{
-        padding: 15px;
-    }
-
-    .btn-glow{
-        padding: 10px 14px;
-        font-size: 0.78rem;
-    }
-
-    .page-link-custom{
-        width: 34px;
-        height: 34px;
-        font-size: 0.8rem;
-    }
-
-    .table-custom tbody td{
-        font-size: 0.75rem;
-    }
-
-    .table-custom thead th{
-        font-size: 0.72rem;
-    }
-
-}
-@media (max-width: 768px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-        width: calc(100% - 20px);
-        height: auto;
-        position: relative;
-        top: 10px;
-        left: 0;
-        margin: 0 auto 20px auto;
-        border-radius: 24px;
-        padding: 18px;
-    }
-
-    .menu-link {
-        font-size: 0.82rem;
-        padding: 11px 14px;
-    }
-
-    .img-menu-icon {
-        width: 20px;
-    }
-
-    /* MAIN */
-    .main-wrapper {
-        margin-left: 0 !important;
-        padding: 20px 12px 40px;
-    }
-
-    /* HEADER */
-    .d-flex.justify-content-between.align-items-end.mb-5 {
-        flex-direction: column;
-        align-items: stretch !important;
-        gap: 18px;
-        margin-bottom: 25px !important;
-    }
-
-    .d-flex.justify-content-between.align-items-end.mb-5 h2 {
-        font-size: 1.5rem;
-    }
-
-    .btn-toggle-form {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        padding: 12px;
-    }
-
-    /* CARD */
-    .glass-card {
-        padding: 18px;
-        border-radius: 24px;
-        overflow: hidden;
-    }
-
-    /* FORM */
-    .row.g-4 > div {
-        width: 100%;
-    }
-
-    .pill-input,
-    .form-select,
-    .form-control {
-        font-size: 0.82rem !important;
-        padding: 11px 18px;
-    }
-
-    textarea.deskripsi-box {
-        min-height: 120px;
-    }
-
-    /* SEARCH + FILTER */
-    .glass-card .d-flex.justify-content-between.align-items-center.mb-4 {
-        flex-direction: column;
-        align-items: stretch !important;
-        gap: 14px;
-    }
-
-    .glass-card .form-control.pill-input {
-        width: 100% !important;
-    }
-
-    /* TABLE WRAPPER */
-    .table-wrapper {
-        overflow-x: auto;
-        width: 100%;
-        border-radius: 18px;
-    }
-
-    .table-wrapper::-webkit-scrollbar {
-        height: 5px;
-    }
-
-    .table-wrapper::-webkit-scrollbar-thumb {
-        background: #4cc9f0;
-        border-radius: 20px;
-    }
-
-    .table-custom {
-        min-width: 720px;
-    }
-
-    .table-custom thead th {
-        font-size: 0.72rem;
-        white-space: nowrap;
-    }
-
-    .table-custom tbody td {
-        font-size: 0.78rem;
-        padding: 15px 12px;
-        white-space: nowrap;
-    }
-
-    /* BUTTON */
-    .btn-edit,
-    .btn-delete {
-        font-size: 0.72rem;
-        padding: 7px 12px;
-    }
-
-    /* PAGINATION */
-    .pagination-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .d-flex.justify-content-between.align-items-center.mt-4 {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center !important;
-        text-align: center;
-    }
-
-    /* MODAL */
-    .modal-dialog {
-        margin: 15px;
-    }
-
-    .modal-content {
-        border-radius: 24px !important;
-    }
-}
 
 </style>
 </head>
@@ -534,7 +289,7 @@
                 <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
             </a>
              <a href="DataMataKuliah.html" class="menu-link">
-                <img src="mata kuliah (2).png" class="img-menu-icon"> Data Mata Kuliah
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
             </a>
             <a href="DataTopik.html" class="menu-link active">
                 <img src="data topik.png" class="img-menu-icon"> Data Topik
@@ -617,12 +372,12 @@
                         <option>50</option>
                     </select>
                 </div>
-                <input type="text" class="form-control pill-input" placeholder="Cari topik..." style="width: 280px; font-size: 0.85rem;">
+                <input type="text" class="form-control pill-input w-25" placeholder="Cari topik...">
             </div>
 
 
 
-            <div class="table-wrapper">
+
             <table class="table-custom w-100">
                 <thead>
                     <tr>
@@ -695,7 +450,6 @@
                     </tr>
                 </tbody>
             </table>
-            </div>
         
 
           <div class="d-flex justify-content-between align-items-center mt-4">
@@ -753,7 +507,7 @@
                     <button class="btn btn-warning py-2 fw-bold justify-content-center" style="border-radius: 50px; background:#ff4b4b; border:none;">Ya, Hapus</button>
                     <button class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batal</button>
                 </div>
-            </div>
+            </di>
         </div>
     </div>
     </div>
