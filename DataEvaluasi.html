@@ -243,32 +243,67 @@
         .page-link-custom.active {background: #4cc9f0; color: #0d1b2a; font-weight: bold;
                                  box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); border: none;}
 
-
-
-
   .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
 
 
 
 
+
+        @media screen and (max-width: 768px) {
+    /* container utama biar penuh */
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
+
+    /* sidebar jadi baris geser horizontal */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Sembunyikan judul UPKSAINTEK  */
+    .sidebar h4 {
+        display: none !important;
+    }
+
+    /* Paksa navigasi sejajar ke kanan & aktifkan scroll */
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+
+    /* Hilangkan scrollbar bawaan  */
+    .sidebar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        padding: 8px 14px;
+    }
+
+    /* Sembunyikan bagian profil bawah di sidebar */
+    .sidebar .profile-section {
+        display: none !important;
+    }
+}
+
 </style>
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <body>
@@ -307,7 +342,7 @@
         <div class="profile-section mt-4">
             <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
-                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="small fw-bold mb-0 text-white" id="sidebarNama">Dosen ABC</p>
                 <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
