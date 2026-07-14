@@ -92,10 +92,29 @@ body {
 
 
 
-          .btn-pill {background: #ffd700; border-radius: 45px; padding: 8px 20px; border: none; font-weight: 700;
-                   font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
-                   transition: 0.3s; text-decoration: none;}
-        .btn-pill:hover {transform: scale(1.03); box-shadow: 0 0 5px #ffd700;}
+       .btn-pill, .btn-simpan {
+    background: #ffd700 !important; 
+    color: #0d1b2a !important; 
+    border: none !important;
+    border-radius: 50px !important; 
+    padding: 12px 25px !important; 
+    font-weight: 700 !important;
+    transition: all 0.2s ease-in-out !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important; /* Lebar penuh selaras dengan input */
+}
+
+        .btn-pill:hover, .btn-simpan:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4) !important;
+    background: #ffe033 !important;
+}
+
+        .btn-pill:active, .btn-simpan:active {
+    transform: scale(0.95) !important; /* Efek membal mengecil/membesar saat ditekan */
+}
 
 
 /* --- TABEL BIRU UNGU --- */
@@ -134,13 +153,7 @@ body {
 
 
 
-        .btn-simpan { 
-                   background: #4cc9f0 !important; 
-                   border: 1px solid rgb(76, 201, 240) !important;
-                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700}
-        .btn-simpan:hover { 
-                   background: #4cc9f0 !important; color: #0d1b2a !important; 
-                   box-shadow: 0 0 7px rgb(76, 201, 240);}
+    
 
 /* STAT CARD */
 .stat-card {
@@ -176,10 +189,11 @@ body {
 .modal-glass {
     background: rgba(13,27,42,0.95);
     backdrop-filter: blur(20px);
-    border-radius: 30px !important; border: 1px solid rgba(76, 201, 240, 0.3); color: white;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);}
-}
-         
+    border-radius: 30px !important; 
+    border: 1px solid rgba(76, 201, 240, 0.3) !important; /* Garis tipis transparan */
+    color: white;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+} 
 
 
 
@@ -579,7 +593,7 @@ select.form-select {
     </div>
 </div>
 
-    <div class="modal fade" id="editModal" tabindex="-1">
+  <div class="modal fade" id="editModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
                 <div class="modal-header border-0">
@@ -587,14 +601,16 @@ select.form-select {
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <label class="small mb-2">Nama Lengkap</label>
-                    <input type="text" class="form-custom pill-input w-100">
-                   
-                    <label class="small mb-2">Email</label>
-                    <input type="email" class="form-custom pill-input w-100">
+                    <div class="mb-3"> <label class="small mb-2">Nama Lengkap</label>
+                        <input type="text" class="form-custom pill-input w-100">
+                    </div>
+                    
+                    <div class="mb-3"> <label class="small mb-2">Email</label>
+                        <input type="email" class="form-custom pill-input w-100">
+                    </div>
                 </div>
                 <div class="modal-footer border-0">
-                     <button type="button" class="btn btn-pill w-100 py-3 fw-bold shadow justify-content-center"  style="border-radius: 50px; background: #ffd700; color: #0d1b2a; border: none;" data-bs-dismiss="modal">Simpan Perubahan</button>
+                     <button type="button" class="btn btn-pill" data-bs-dismiss="modal">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -603,11 +619,15 @@ select.form-select {
     <div class="modal fade" id="noteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
-                <h5 class="fw-bold mb-3">Catatan Dosen</h5>
-                <textarea class="form-control pill-control" style="height: 150px; border-radius: 20px;"></textarea>
-                <div class="d-flex gap-2 mt-4">
-                    
-                    <button class="btn-simpan flex-grow-1 justify-content-center">Simpan Note</button>
+                <div class="modal-header border-0 p-0 mb-3 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold m-0" style="color: #4cc9f0;">Catatan Dosen</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <textarea class="form-control pill-control w-100" style="height: 150px; border-radius: 20px;" placeholder="Masukkan catatan untuk mahasiswa..."></textarea>
+                </div>
+                <div class="modal-footer border-0 p-0 mt-4">
+                    <button class="btn-simpan" data-bs-dismiss="modal">Simpan Note</button>
                 </div>
             </div>
         </div>
