@@ -226,7 +226,7 @@
                                  box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); border: none;}
 
 /* DETAIL SCROLLBAR */
-         ::-webkit-scrollbar {width: 6px;}
+         ::-webkit-scrollbar {width: 8px;}
 
          ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
@@ -364,6 +364,10 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin-top: 10px;
+    }
+
+    .table-custom::-webkit-scrollbar { 
+        height: 10px !important; 
     }
 
     .table-custom thead, .table-custom tbody {
