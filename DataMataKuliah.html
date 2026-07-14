@@ -193,7 +193,123 @@
          ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
                                     border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
-       
+
+
+
+
+
+
+
+
+    @media screen and (max-width: 768px) {
+    /* Container Utama Melebar Penuh */
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
+
+    /* Menu Geser Horizontal */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .sidebar h4, .sidebar .profile-section {
+        display: none !important;
+    }
+
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+
+    .sidebar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        padding: 8px 14px;
+    }
+
+    /*  Header Judul & Cari Matkul */
+    .content-area > .d-flex.justify-content-between {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 15px;
+        margin-bottom: 25px !important;
+    }
+
+    /* Input cari  */
+    .content-area > .d-flex.justify-content-between input.pill-input {
+        width: 100% !important;
+    }
+
+    /* Form Cepat Tambah Matkul */
+    .add-matkul-box {
+        padding: 15px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .add-matkul-box .row.g-3 {
+        flex-direction: column !important;
+    }
+
+    .add-matkul-box .row.g-3 > div {
+        width: 100% !important;
+    }
+
+    .add-matkul-box label {
+        padding-left: 10px !important;
+    }
+
+    /* Bungkus Tabel  */
+    .table-container-glass {
+        padding: 20px 15px !important;
+        border-radius: 25px !important;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-custom {
+        min-width: 650px; /* jarak kolom  */
+    }
+
+    .table-custom tbody td {
+        padding: 12px 10px !important;
+        font-size: 0.85rem;
+    }
+
+    /* Pagination bawah dibuat tengah  */
+    .table-container-glass > .d-flex.justify-content-between {
+        flex-direction: column !important;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* 6. Efek Klik  */
+    .btn-tambah, .btn-pill, .btn-warning {
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    .btn-tambah:active, .btn-pill:active, .btn-warning:active {
+        transform: scale(0.95) !important;
+    }
+}
             
     </style>
 </head>
@@ -239,7 +355,7 @@
         <div class="profile-section mt-4">
             <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
-                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="small fw-bold mb-0 text-white" id="sidebarNama">Dosen ABC</p>
                 <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
@@ -405,6 +521,18 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        window.onload = function() {
+            // Ambil data nama dari localStorage browser
+            const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
+            const sidebarNama = document.getElementById("sidebarNama");
+            if (sidebarNama) {
+                sidebarNama.innerText = namaDosen;
+            }
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
