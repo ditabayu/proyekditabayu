@@ -10,17 +10,17 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            background: radial-gradient(circle at top right, #1b263b 0%, #0d1b2a 100%);
             color: white; 
             min-height: 100vh; 
             margin: 0;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        .wrapper {
-            display: flex;
-            width: 100%;
-            min-height: 100vh;
+        @media (min-width: 992px) {
+            body { flex-direction: row; }
         }
 
         /* --- SIDEBAR UTAMA (DESKTOP) --- */
@@ -55,33 +55,36 @@
             margin-bottom: 8px;
             transition: 0.3s; 
             font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         .menu-link:hover, .menu-link.active {
-            background: linear-gradient(90deg, #4cc9f0, #4361ee);
+            background: linear-gradient(90deg, #4cc9f0, #4361ee) !important;
             color: #0d1b2a !important; 
             font-weight: 600;
             border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.6), 0 5px 15px rgba(67, 97, 238, 0.4);
         }
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
-        .menu-link.active .img-menu-icon { filter: brightness(0); } 
+        .menu-link.active .img-menu-icon, .menu-link:hover .img-menu-icon { filter: brightness(0); } 
         
         .profile-section {
             margin-top: auto; 
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.05);
             padding: 15px; 
-            border-radius: 20px; 
+            border-radius: 16px; 
             display: flex; 
             align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* --- CONTENT AREA (DESKTOP) --- */
         .content-area { 
             margin-left: 300px; 
-            padding: 50px 40px; 
+            padding: 50px 50px 50px 20px; 
             width: calc(100% - 300px);
+            flex-grow: 1;
         }
 
         /* --- FORM STYLING ASLI --- */
@@ -177,69 +180,81 @@
             color: white;
         }
 
-        /* --- MENU BAWAH / BOTTOM NAV --- */
+        /* --- PREMIUM MOBILE NAVIGATION SYSTEM (SAMA DENGAN DASHBOARD) --- */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            height: 70px;
-            background: rgba(27, 38, 59, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            width: 100%;
+            height: 75px;
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-around;
+            display: none; /* Hanya muncul di HP */
+            flex-direction: row;
+            justify-content: flex-start;
             align-items: center;
-            z-index: 2000;
-            padding-bottom: env(safe-area-inset-bottom);
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.3);
-            display: none; 
+            z-index: 9999;
+            padding: 0 15px;
+            gap: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
         }
+
+        /* Sembunyikan scrollbar navigasi bawah biar estetik */
+        .bottom-nav::-webkit-scrollbar { display: none; }
 
         .bottom-nav-link {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #adb5bd;
+            color: #8a99ad;
             text-decoration: none;
-            font-size: 0.62rem;
-            width: 12.5%;
+            font-size: 0.7rem;
+            min-width: 70px;
             height: 100%;
-            transition: 0.2s;
+            transition: all 0.3s ease;
             text-align: center;
+            background: transparent;
         }
 
         .bottom-nav-link img {
-            width: 18px;
-            height: 18px;
-            margin-bottom: 4px;
-            opacity: 0.6;
+            width: 20px;
+            height: 20px;
+            margin-bottom: 5px;
+            transition: 0.3s;
         }
 
         .bottom-nav-link span {
             display: block;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
         }
 
+        /* Efek Menyala / Glowing Blue Nav Aktif */
         .bottom-nav-link.active {
-            color: #4cc9f0;
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(67, 97, 238, 0.2)) !important;
+            color: #4cc9f0 !important;
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.4) !important;
+            border: 1px solid rgba(76, 201, 240, 0.3);
+            border-radius: 15px;
             font-weight: 600;
         }
 
         .bottom-nav-link.active img {
-            opacity: 1;
-            filter: drop-shadow(0 0 5px rgba(76, 201, 240, 0.6));
+            filter: drop-shadow(0px 0px 5px rgba(76, 201, 240, 0.8));
         }
 
         /* ==========================================================================
-           RESPONSIVE ENGINE
+           RESPONSIVE ENGINE - OPTIMASI PENUH UNTUK HP & TABLET
            ========================================================================== */
         @media (max-width: 991.98px) {
+            body { 
+                padding-bottom: 90px; 
+            }
             .sidebar {
                 display: none !important;
             }
@@ -249,7 +264,7 @@
             .content-area {
                 margin-left: 0 !important;
                 width: 100% !important;
-                padding: 20px 15px 95px 15px !important;
+                padding: 20px 16px 40px !important;
             }
         }
 
@@ -280,6 +295,7 @@
 <body>
 
     <div class="wrapper">
+        <!-- SIDEBAR UNTUK DESKTOP -->
         <div class="sidebar">
             <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
             <nav>
@@ -287,25 +303,28 @@
                     <img src="dashboard (1).png" class="img-menu-icon" alt="icon"> Dashboard
                 </a>
                 <a href="DataMahasiswa.html" class="menu-link">
-                    <img src="data mahasiswa.png" class="img-menu-icon" alt="icon"> Data Mahasiswa
+                    <img src="data mahasiswa.png" class="img-menu-icon" alt="icon"> Mahasiswa
                 </a>
                 <a href="DataNilai.html" class="menu-link active">
-                    <img src="data nilai.png" class="img-menu-icon" alt="icon"> Data Nilai
+                    <img src="data nilai.png" class="img-menu-icon" alt="icon"> Nilai
                 </a>
                 <a href="DataKelas.html" class="menu-link">
-                    <img src="data kelas (2).png" class="img-menu-icon" alt="icon"> Data Kelas
+                    <img src="data kelas (2).png" class="img-menu-icon" alt="icon"> Kelas
                 </a>
                 <a href="DataMataKuliah.html" class="menu-link">
-                    <img src="mata kuliah (2).png" class="img-menu-icon" alt="icon"> Data Mata Kuliah
+                    <img src="mata kuliah (2).png" class="img-menu-icon" alt="icon"> Matkul
                 </a>
                 <a href="DataTopik.html" class="menu-link">
-                    <img src="data topik.png" class="img-menu-icon" alt="icon"> Data Topik
+                    <img src="data topik.png" class="img-menu-icon" alt="icon"> Topik
                 </a>
                 <a href="DataSoal.html" class="menu-link">
-                    <img src="bank.png" class="img-menu-icon" alt="icon"> Data Soal
+                    <img src="bank.png" class="img-menu-icon" alt="icon"> Soal
                 </a>
                 <a href="DataEvaluasi.html" class="menu-link">
-                    <img src="evaluation.png" class="img-menu-icon" alt="icon"> Data Evaluasi
+                    <img src="evaluation.png" class="img-menu-icon" alt="icon"> Evaluasi
+                </a>
+                <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
+                    <img src="log-out.png" class="img-menu-icon" alt="icon"> Keluar
                 </a>
             </nav>
 
@@ -399,6 +418,7 @@
         </div>
     </div>
 
+    <!-- MODAL EDIT NILAI -->
     <div class="modal fade" id="modalEditNilai" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass">
@@ -423,6 +443,7 @@
         </div>
     </div>
 
+    <!-- MODAL HAPUS NILAI -->
     <div class="modal fade" id="modalHapusNilai" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content modal-glass p-4 text-center">
@@ -438,15 +459,32 @@
         </div>
     </div>
 
+    <!-- PREMIUM BOTTOM NAV UNTUK HP -->
     <div class="bottom-nav">
-        <a href="DashboardDosen.html" class="bottom-nav-link"><img src="dashboard (1).png" alt="icon"><span>Dashboard</span></a>
-        <a href="DataMahasiswa.html" class="bottom-nav-link"><img src="data mahasiswa.png" alt="icon"><span>Mahasiswa</span></a>
-        <a href="DataNilai.html" class="bottom-nav-link active"><img src="data nilai.png" alt="icon"><span>Nilai</span></a>
-        <a href="DataKelas.html" class="bottom-nav-link"><img src="data kelas (2).png" alt="icon"><span>Kelas</span></a>
-        <a href="DataMataKuliah.html" class="bottom-nav-link"><img src="mata kuliah (2).png" alt="icon"><span>Matkul</span></a>
-        <a href="DataTopik.html" class="bottom-nav-link"><img src="data topik.png" alt="icon"><span>Topik</span></a>
-        <a href="DataSoal.html" class="bottom-nav-link"><img src="bank.png" alt="icon"><span>Soal</span></a>
-        <a href="DataEvaluasi.html" class="bottom-nav-link"><img src="evaluation.png" alt="icon"><span>Evaluasi</span></a>
+        <a href="DashboardDosen.html" class="bottom-nav-link">
+            <img src="dashboard (1).png" alt="icon"><span>Dashboard</span>
+        </a>
+        <a href="DataMahasiswa.html" class="bottom-nav-link">
+            <img src="data mahasiswa.png" alt="icon"><span>Mahasiswa</span>
+        </a>
+        <a href="DataNilai.html" class="bottom-nav-link active">
+            <img src="data nilai.png" alt="icon"><span>Nilai</span>
+        </a>
+        <a href="DataKelas.html" class="bottom-nav-link">
+            <img src="data kelas (2).png" alt="icon"><span>Kelas</span>
+        </a>
+        <a href="DataMataKuliah.html" class="bottom-nav-link">
+            <img src="mata kuliah (2).png" alt="icon"><span>Matkul</span>
+        </a>
+        <a href="DataTopik.html" class="bottom-nav-link">
+            <img src="data topik.png" alt="icon"><span>Topik</span>
+        </a>
+        <a href="DataSoal.html" class="bottom-nav-link">
+            <img src="bank.png" alt="icon"><span>Soal</span>
+        </a>
+        <a href="DataEvaluasi.html" class="bottom-nav-link">
+            <img src="evaluation.png" alt="icon"><span>Evaluasi</span>
+        </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
