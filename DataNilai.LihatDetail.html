@@ -133,6 +133,113 @@
          ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;}
 
 
+
+
+     @media screen and (max-width: 768px) {
+    /* Container Utama Melebar Penuh */
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
+
+    /* Menu Geser Horizontal  */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .sidebar h4, .sidebar .profile-section {
+        display: none !important;
+    }
+
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+
+    .sidebar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        padding: 8px 14px;
+    }
+
+    /* Header Judul & Stats Mini Jadi Bertumpuk */
+    .glass-container .row.align-items-center {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px;
+    }
+
+    .glass-container .col-md-7 {
+        width: 100% !important;
+    }
+
+    /* Stats mini berbaris rapi 2  */
+    .glass-container .col-md-5.d-flex {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+
+    .stat-card-mini {
+        flex: 1;
+        min-width: unset;
+    }
+
+    /* Scroll Horizontal Tabel Nilai */
+    .glass-container {
+        padding: 20px 15px;
+        border-radius: 25px;
+    }
+
+    /* pembungkus scroll agar tabel tidak gepeng */
+    .table-evo {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-evo thead, .table-evo tbody {
+        display: table;
+        width: 100%;
+        min-width: 500px; /* ukuran kolom  */
+    }
+
+    /* Tombol Export */
+    .d-flex.justify-content-end.mt-5 {
+        width: 100% !important;
+    }
+
+    .btn-export {
+        width: 100% !important;
+        text-align: center;
+        padding: 12px;
+    }
+
+    /* Efek klik Tutup & Export */
+    .btn-pill, .btn-export {
+        transition: all 0.2s ease-in-out !important;
+    }
+    .btn-pill:active, .btn-export:active, .btn-kembali:active {
+        transform: scale(0.95) !important;
+    }
+}
     </style>
 </head>
 
@@ -177,7 +284,7 @@
         <div class="profile-section mt-4">
             <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
-                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="small fw-bold mb-0 text-white" id="sidebarNama">Dosen ABC</p>
                 <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
@@ -312,6 +419,17 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+    window.onload = function() {
+        const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
+        const sidebarNama = document.getElementById("sidebarNama");
+        if (sidebarNama) {
+            sidebarNama.innerText = namaDosen;
+        }
+    }
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
