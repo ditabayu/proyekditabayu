@@ -463,10 +463,6 @@
 
 
 
-
-
-
-
 <body>
       <div class="sidebar">
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
@@ -513,25 +509,30 @@
 
 
 
-    <div class="main-wrapper">
-        <div class="header-box d-flex justify-content-between align-items-center">
-            <div>
-                <div class="d-flex align-items-center">
-                  <h2 class="fw-bold m-0 text-white d-flex align-items-center">
-                     Bank <span style="color: #4cc9f0; margin-left: 8px;">Soal Essay</span>
-                  </h2>   
-                  <button class="info-trigger ms-2"  data-bs-toggle="modal" data-bs-target="#modalInfo">i</button>
-                </div>
-  
-               <p class="small opacity-75 m-0 text-primary">Kelola daftar pertanyaan ujian dengan sistem cerdas.</p>
+   <div class="main-wrapper">
+    <div class="header-box d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        
+        <div>
+            <div class="d-flex align-items-center">
+                <h2 class="fw-bold m-0 text-white d-flex align-items-center flex-wrap">
+                    Bank <span style="color: #4cc9f0; margin-left: 8px;">Soal Essay</span>
+                </h2>   
+                <button class="info-trigger ms-2" data-bs-toggle="modal" data-bs-target="#modalInfo">i</button>
             </div>
-            
-            <div class="d-flex gap-3">
-                <button class="btn-glow btn-green" data-bs-toggle="modal" data-bs-target="#modalOtomatis"><i class="bi bi-magic me-1"></i> Buat Otomatis</button>
-                <button class="btn-glow btn-blue" data-bs-toggle="modal" data-bs-target="#modalTambah">+ Tambah Manual</button>
-
-            </div>
+            <p class="small opacity-75 m-0 text-primary">Kelola daftar pertanyaan ujian dengan sistem cerdas.</p>
         </div>
+        
+        <div class="d-flex flex-column flex-sm-row gap-2 w-100 w-md-auto">
+            <button class="btn-glow btn-green w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#modalOtomatis">
+                <i class="bi bi-magic me-1"></i> Buat Otomatis
+            </button>
+            <button class="btn-glow btn-blue w-100 w-sm-auto" data-bs-toggle="modal" data-bs-target="#modalTambah">
+                + Tambah Manual
+            </button>
+        </div>
+
+    </div>
+  
     
 
         <div class="glass-card">
