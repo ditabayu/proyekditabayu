@@ -8,318 +8,199 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-            color: white; 
-            min-height: 100vh; 
-            margin: 0;
-            overflow-x: hidden;
-        }
 
-        /* --- SIDEBAR LAYOUT --- */
-        .sidebar {
-            background-color: #1b263b; 
-            height: 85vh; 
-            padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            display: flex; 
-            flex-direction: column;
-            position: fixed; 
-            width: 260px; 
-            top: 7.5vh; 
-            left: 20px; 
-            border-radius: 30px;
-            z-index: 1000; 
-            overflow-y: auto; 
-            overflow-x: hidden;
+        body {font-family: 'Poppins', sans-serif;
+              background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+              color: white; min-height: 100vh; margin: 0;}
+
+
+        
+/* --- FULL SIDEBAR KIRI + SCROLL  --- */
+ .sidebar {
+            background-color: #1b263b; height: 85vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
+            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; overflow-y: auto; overflow-x: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
         }
 
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
         .menu-link {
-            display: flex; 
-            align-items: center; 
-            color: #adb5bd; 
-            text-decoration: none;
-            padding: 12px 15px; 
-            border-radius: 15px; 
-            margin-bottom: 8px;
-            transition: 0.3s; 
-            font-size: 0.85rem;
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+            transition: 0.3s; font-size: 0.85rem;
         }
 
+        /* EFEK HOVER NYA */
         .menu-link:hover, .menu-link.active {
-            background: linear-gradient(90deg, #4cc9f0, #4361ee);
-            border: none; 
-            border-radius: 20px; 
-            padding: 12px 15px;
-            color: #0d1b2a !important; 
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
-        }
+            background:linear-gradient(90deg,#4cc9f0,#4361ee);
+            border:none; border-radius:20px; padding:12px;
+            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
         .menu-link.active .img-menu-icon { filter: brightness(0); } 
-        
         .profile-section {
-            margin-top: auto; 
-            background: rgba(255, 255, 255, 0.07);
-            padding: 15px; 
-            border-radius: 20px; 
-            display: flex; 
-            align-items: center;
-        }
+            margin-top: auto; background: rgba(255, 255, 255, 0.07);
+            padding: 15px; border-radius: 20px; display: flex; align-items: center;}
 
-        /* --- CONTENT AREA AREA --- */
-        .content-area { 
-            margin-left: 300px; 
-            padding: 50px 40px; 
-            width: calc(100% - 300px);
-            transition: all 0.3s ease;
-        }
 
-        /* --- DESAIN INPUT & FORM --- */
-        .pill-input, .form-custom {
-            border-radius: 50px !important; 
-            background: rgba(255, 255, 255, 0.08) !important;
-            color: white !important; 
-            padding: 12px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            outline: none;
-            transition: 0.3s;
-        }
 
-        .pill-input:focus, .form-custom:focus {
-            border-color: #4cc9f0 !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 0 15px rgba(76, 201, 240, 0.3) !important;
-            color: white !important;
-        }
 
-        .pill-input option, select.form-custom option { background: #1b263b; color: white; }
-        .pill-input::placeholder { color: rgba(255, 255, 255, 0.6) !important; font-size: 0.85rem; }
+
+        .content-area, .main-wrapper { margin-left: 300px !important; padding: 50px 40px; }
+
+
+/* DESAIN INPUT */
+        .pill-input {border-radius: 50px; background: rgba(255, 255, 255, 0.08) !important;
+                    color: white !important; padding: 10px 25px;
+                    outline: none;}
+
+        .pill-input:focus {border-color: #4cc9f0 !important;
+                           background: rgba(255, 255, 225, 0.1) !important;
+                           box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
+                           outline: none; color: white !important;}
+
+        .pill-input option {background: #0d1b2a; color: white;}
+        .pill-input::placeholder {color: white !important; opacity: 0.8; font-size: 0.85rem;}
+        .pill-input::-webkit-input-placeholder {color: white !important;}
         
+        
+
+
+
+/* --- KOTAK TENGAH ATO MAIN ATO KONTAINER + PER TULISAN DI TABEL--- */    
+        .table-container-glass {background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(25px);
+                                border-radius: 30px; padding: 30px;
+                                box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+                                border: 1px solid rgba(76, 201, 240, 0.2)}
+
+
+/* --- TABEL BIRU UNGU --- */
+        .table-custom {width: 100%; border-collapse: separate; border-spacing: 0 15px;}
+        .table-custom thead th {color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem;}
+        
+        .table-custom tbody tr {background: rgba(255, 255, 255, 0.02); transition: 0.4s ease;}
+
+        .table-custom tbody td {padding: 18px 15px; border: none;
+                                vertical-align: middle; font-weight: 500;}
+
+        .table-custom tbody tr td:first-child {border-top-left-radius: 15px;
+                                               border-bottom-left-radius: 15px;}
+
+        .table-custom tbody tr td:last-child {border-top-right-radius: 15px;
+                                              border-bottom-right-radius: 15px;}
+  
+        .table-custom tbody tr:hover {background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
+                                      transform: translateX(8px);}
+
+        
+/* --- BUTTON +TAMBAH ANIMASI,CAHAYA --- */
+        .btn-tambah {background: #4cc9f0; color: #0d1b2a; border-radius: 50px; border: none;
+                     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                     position: relative; overflow: hidden;}
+
+        .btn-tambah:hover {
+                    transform: scale(1.08);
+                    background: #4cc9f0;
+                    box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+                    color: #0d1b2a;}
+
+
+/* --- BUTTON EDIT KUNING, BUTTON DELETE MERAH  + DALEMANNYA --- */
+        .btn-edit { 
+                   background: rgba(255, 215, 0, 0.1) !important; 
+                   color: #ffd700 !important; 
+                   border: 1px solid rgba(255, 215, 0, 0.3) !important;
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 600}
+        .btn-edit:hover { 
+                   background: #ffd700 !important; color: #0d1b2a !important; 
+                   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);}
+
+        .btn-delete { 
+                   background: rgba(255, 75, 75, 0.1) !important; color: #ff4b4b !important; 
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;}
+        .btn-delete:hover {background: #ff4b4b !important; color: white !important;}
+
+
+        .btn-pill {background: #ffd700; border-radius: 45px; padding: 8px 20px; border: none; font-weight: 700;
+                   font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
+                   transition: 0.3s; text-decoration: none;}
+        .btn-pill:hover {transform: scale(1.03); box-shadow: 0 0 5px #ffd700;}
+        .btn-warning {background: #ff4b4b; border-radius: 45px; padding: 8px 20px; border: none; font-weight: 700;
+                   font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
+                   transition: 0.3s; text-decoration: none;}
+        .btn-warning:hover {transform: scale(1.03); box-shadow: 0 0 5px #ff4b4b;}
+
+
+
+/* --- INPUT & PILIH --- */
+        .form-custom { 
+            background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 50px !important; color: white; padding: 12px 20px; transition: 0.3s;}
+
+        .form-custom:focus { border-color: #4cc9f0; outline: none; background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(76, 201, 240, 0.2); color: white; }
+
         select.form-custom {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; 
-            background-position: right 20px center; 
-            padding-right: 45px;
-        }
+            background-repeat: no-repeat; background-position: right 20px center; padding-right: 45px;}
 
-        /* --- GLASS CONTAINER & TABLE --- */    
-        .table-container-glass {
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 30px; 
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border: 1px solid rgba(76, 201, 240, 0.2);
-        }
+        select.form-custom option { background-color: #1b263b; color: white; }
 
-        .table-custom { width: 100%; border-collapse: separate; border-spacing: 0 15px; }
-        .table-custom thead th { color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem; }
-        .table-custom tbody tr { background: rgba(255, 255, 255, 0.02); transition: 0.4s ease; }
-        .table-custom tbody td { padding: 18px 15px; border: none; vertical-align: middle; font-weight: 500; }
-        .table-custom tbody tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
-        .table-custom tbody tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
-  
-        .table-custom tbody tr:hover {
-            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
-            transform: translateX(8px);
-        }
 
-        /* --- BUTTONS --- */
-        .btn-tambah {
-            background: #4cc9f0; 
-            color: #0d1b2a; 
-            border-radius: 50px; 
-            border: none;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
 
-        .btn-tambah:hover {
-            transform: scale(1.05);
-            background: #4cc9f0;
-            box-shadow: 0 0 20px rgba(76, 201, 240, 0.5);
-            color: #0d1b2a;
-        }
 
-        .btn-edit { 
-            background: rgba(255, 215, 0, 0.1) !important; 
-            color: #ffd700 !important; 
-            border: 1px solid rgba(255, 215, 0, 0.3) !important;
-            border-radius: 12px; 
-            padding: 6px 15px; 
-            font-size: 0.75rem; 
-            transition: 0.3s; 
-            font-weight: 600;
-        }
-        .btn-edit:hover { 
-            background: #ffd700 !important; 
-            color: #0d1b2a !important; 
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
+/* --- HALAMAN NOMOR. KANAN --- */
+        .page-link-custom {width: 38px; height: 38px; display: flex;
+                       align-items: center; justify-content: center;
+                       text-decoration: none; color: white;
+                       background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+                       border-radius: 12px; transition: 0.3s; font-weight: 600;}
 
-        .btn-delete { 
-            background: rgba(255, 75, 75, 0.1) !important; 
-            color: #ff4b4b !important; 
-            border: 1px solid rgba(255, 75, 75, 0.3) !important;
-            border-radius: 12px; 
-            padding: 6px 15px; 
-            font-size: 0.75rem; 
-            transition: 0.3s; 
-            font-weight: 600;
-        }
-        .btn-delete:hover { background: #ff4b4b !important; color: white !important; }
+        .page-link-custom:hover {background: rgba(76, 201, 240, 0.2);
+                              color: #4cc9f0;
+                              border-color: #4cc9f0;}
 
-        .btn-pill { 
-            background: #ffd700; 
-            border-radius: 45px; 
-            padding: 8px 20px; 
-            border: none; 
-            font-weight: 700;
-            font-size: 0.8rem; 
-            transition: 0.3s;
-        }
-        .btn-pill:hover { transform: scale(1.03); box-shadow: 0 0 10px #ffd700; }
+        .page-link-custom.active {background: #4cc9f0; color: #0d1b2a;
+                              box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
+                              border: none;}
 
-        .btn-warning-custom { 
-            background: #ff4b4b; 
-            border-radius: 45px; 
-            padding: 8px 20px; 
-            border: none; 
-            font-weight: 700;
-            font-size: 0.8rem; 
-            color: white;
-            transition: 0.3s;
-        }
-        .btn-warning-custom:hover { transform: scale(1.03); box-shadow: 0 0 10px #ff4b4b; color: white;}
+        .menu-link {display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+                 padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+                 transition: 0.3s; font-size: 0.85rem;}
 
-        /* --- PAGINATION --- */
-        .page-link-custom {
-            width: 38px; 
-            height: 38px; 
-            display: flex;
-            align-items: center; 
-            justify-content: center;
-            text-decoration: none; 
-            color: white;
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px; 
-            transition: 0.3s; 
-            font-weight: 600;
-        }
-        .page-link-custom:hover { background: rgba(76, 201, 240, 0.2); color: #4cc9f0; border-color: #4cc9f0; }
-        .page-link-custom.active { background: #4cc9f0; color: #0d1b2a; box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); border: none; }
 
-        /* --- MODAL EFFECT --- */
+
+/* --- KOTAK NGAMBANG SI EDIT & HAPUS--- */
         .modal-glass {
-            background: rgba(13, 27, 42, 0.95) !important; 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 35px !important; 
-            border: 1px solid rgba(76, 201, 240, 0.3); 
-            color: white;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
+            background: rgba(13, 27, 42, 0.95) !important; backdrop-filter: blur(20px);
+            border-radius: 35px !important; border: 1px solid rgba(76, 201, 240, 0.3); color: white;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);}
 
         .sks-badge {
-            font-size: 0.7rem; 
-            padding: 4px 10px; 
-            border-radius: 8px; 
-            font-weight: bold;
-            background: rgba(76, 201, 240, 0.1); 
-            color: #4cc9f0; 
-            border: 1px solid rgba(76, 201, 240, 0.3);
-        }
+            font-size: 0.7rem; padding: 4px 10px; border-radius: 8px; font-weight: bold;
+            background: rgba(76, 201, 240, 0.1); color: #4cc9f0; border: 1px solid rgba(76, 201, 240, 0.3);}
 
-        /* GLOBAL WEBKIT SCROLLBAR */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(13, 27, 42, 0.98); }
-        ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(180deg, #4cc9f0, #4361ee); 
-            border-radius: 10px; 
-        }
 
-        /* ==========================================================================
-           RESPONSIVE MEDIA QUERIES (BREAKPOINTS FIX)
-           ========================================================================== */
-        
-        /* Tablet & Layar Kecil (Kurang dari 992px) */
-        @media (max-width: 991.98px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                top: 0;
-                left: 0;
-                margin: 20px 0;
-                border-radius: 25px;
-                padding: 20px;
-            }
-            .content-area {
-                margin-left: 0;
-                width: 100%;
-                padding: 20px 15px;
-            }
-        }
 
-        /* Smartphone Mode (Kurang dari 768px) */
-        @media (max-width: 767.98px) {
-            .content-area .d-flex.justify-content-between {
-                flex-direction: column;
-                align-items: flex-start !important;
-                gap: 15px;
-            }
-            .content-area .d-flex.justify-content-between input {
-                width: 100% !important;
-            }
-            .table-container-glass {
-                padding: 15px;
-                border-radius: 20px;
-                overflow-x: auto; /* Membuat tabel bisa di-scroll horizontal secara aman di HP */
-            }
-            .table-custom {
-                min-width: 650px;
-            }
-            .table-custom tbody td {
-                padding: 12px 10px;
-                font-size: 0.8rem;
-            }
-            .btn-tambah {
-                width: 100%;
-                padding: 12px;
-            }
-            .d-flex.justify-content-between.align-items-center.mt-4 {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-        }
+/* DETAIL SCROLLBAR */
+         ::-webkit-scrollbar {width: 6px;}
 
-        /* Extra Small Phone (Kurang dari 576px) */
-        @media (max-width: 575.98px) {
-            .btn-edit, .btn-delete {
-                display: block;
-                width: 100%;
-                margin: 4px 0;
-            }
-            .menu-link {
-                font-size: 0.8rem;
-            }
-            .content-area h2 {
-                font-size: 1.4rem;
-            }
-        }
+         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+       
+            
     </style>
 </head>
+
+
+
+
 
 <body>
 
@@ -327,42 +208,44 @@
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
         <nav>
             <a href="DashboardDosen.html" class="menu-link">
-                <img src="dashboard (1).png" class="img-menu-icon" alt="icon"> Dashboard
+                <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
             </a>
             <a href="DataMahasiswa.html" class="menu-link">
-                <img src="data mahasiswa.png" class="img-menu-icon" alt="icon"> Data Mahasiswa
+                <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
             </a>
-            <a href="DataNilai.html" class="menu-link">
-                <img src="data nilai.png" class="img-menu-icon" alt="icon"> Data Nilai
+             <a href="DataNilai.html" class="menu-link">
+                <img src="data nilai.png" class="img-menu-icon"> Data Nilai
             </a>
             <a href="DataKelas.html" class="menu-link">
-                <img src="data kelas (2).png" class="img-menu-icon" alt="icon"> Data Kelas
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
             </a>
-            <a href="DataMataKuliah.html" class="menu-link active">
-                <img src="mata kuliah (2).png" class="img-menu-icon" alt="icon"> Data Mata Kuliah
+             <a href="DataMataKuliah.html" class="menu-link active">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
             </a>
             <a href="DataTopik.html" class="menu-link">
-                <img src="data topik.png" class="img-menu-icon" alt="icon"> Data Topik
+                <img src="data topik.png" class="img-menu-icon"> Data Topik
             </a>
             <a href="DataSoal.html" class="menu-link">
-                <img src="bank.png" class="img-menu-icon" alt="icon"> Data Soal
+                <img src="bank.png" class="img-menu-icon"> Data Soal
             </a>
             <a href="DataEvaluasi.html" class="menu-link">
-                <img src="evaluation.png" class="img-menu-icon" alt="icon"> Data Evaluasi
+                <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
             </a>
             <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
-                <img src="log-out.png" class="img-menu-icon" alt="icon"> Keluar
+                <img src="log-out.png" class="img-menu-icon"> Keluar
             </a>
         </nav>
 
         <div class="profile-section mt-4">
-            <img src="reading-book.png" class="rounded-circle me-2" width="35" alt="profile">
+            <img src="reading-book.png" class="rounded-circle me-2" width="35">
             <div class="overflow-hidden">
                 <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
                 <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
     </div>
+
+
 
     <div class="content-area">
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -375,20 +258,20 @@
 
         <div class="add-matkul-box" style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
             <div class="row g-3 align-items-end">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-md-4">
                     <label class="small mb-2 opacity-50 ps-3">Nama Mata Kuliah</label>
-                    <input type="text" class="form-custom w-100" placeholder="Input nama matkul...">
+                    <input type="text" class="form-custom pill-input w-100" placeholder="Input nama matkul...">
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-md-3">
                     <label class="small mb-2 opacity-50 ps-3">Kelas</label>
                     <select class="form-custom w-100">
                         <option selected disabled>Pilih</option>
                         <option>01 ILKOM</option>
                         <option>01 TI</option>
-                        <option>01 PTI</option>
+                         <option>01 PTI</option>
                     </select>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-md-2">
                     <label class="small mb-2 opacity-50 ps-3">Bobot Sks</label>
                     <select class="form-custom w-100">
                         <option>2 SKS</option>
@@ -396,17 +279,17 @@
                         <option>4 SKS</option>
                     </select>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-md-3">
                     <button class="btn btn-info w-100 fw-bold py-2 btn-tambah">+ TAMBAH</button>
                 </div>
             </div>
         </div>
 
         <div class="table-container-glass">
-            <table class="table-custom">
+            <table class="table-custom w-100">
                 <thead>
                     <tr>
-                        <th class="text-center" style="width: 50px;">No</th>
+                        <th class="text-center">No</th>
                         <th>Kelas / SKS</th>
                         <th>Semester</th>
                         <th>Mata Kuliah</th>
@@ -416,7 +299,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="text-center">01</td>
+                        <td>01</td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge bg-dark border border-secondary" style="font-size: 0.65rem;">01 ILKOM</span>
@@ -432,7 +315,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="text-center">02</td>
+                        <td>02</td>
                         <td>
                             <div class="d-flex align-items-center gap-2">
                                 <span class="badge bg-dark border border-secondary" style="font-size: 0.65rem;">01 PTI</span>
@@ -443,20 +326,22 @@
                         <td class="fw-bold text-info">Profesi Pendidikan</td>
                         <td>Dosen PTI ABC</td>
                         <td class="text-center">
-                            <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
+                            <button class="btn-edit
+                            " data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
                             <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        
 
             <div class="d-flex justify-content-between align-items-center mt-4">
-                <p class="small m-0" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 mata kuliah</p>
+                <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 mata kuliah</p>
                 <div class="pagination-container d-flex gap-2">
                     <a href="#" class="page-link-custom">«</a> 
                     <a href="#" class="page-link-custom active">1</a>
                     <a href="#" class="page-link-custom">2</a>
-                    <a href="#" class="page-link-custom">3</a>
+                     <a href="#" class="page-link-custom">3</a>
                     <a href="#" class="page-link-custom">»</a>
                 </div>
             </div>
@@ -467,7 +352,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass">
                 <div class="modal-header border-0 px-4 pt-4">
-                    <h5 class="fw-bold text-warning m-0">Edit Data Matkul</h5>
+                    <h5 class="fw-bold text-warning">Edit Data Matkul</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body px-4 pb-4">
@@ -478,29 +363,29 @@
                     <div class="mb-3">
                         <label class="small mb-2 opacity-50 ps-3">Kelas</label>
                         <select class="form-custom w-100">
-                            <option>01 TI</option>
-                            <option>01 PTI</option>
-                            <option selected>01 ILKOM</option>
+                              <option>01 TI</option>
+                              <option>01 PTI</option>
+                              <option>01 Ilkom</option>
                         </select>
                     </div>
-                    <div class="row g-3 mb-4">
+                    <div class="row mb-4">
                         <div class="col-6">
                             <label class="small mb-2 opacity-50 ps-3">Bobot Sks</label>
                             <select class="form-custom w-100">
-                                <option>2 SKS</option>
-                                <option selected>3 SKS</option>
+                                <option selected>2 SKS</option>
+                                <option>3 SKS</option>
                                 <option>4 SKS</option>
                             </select>
                         </div>
                         <div class="col-6">
                             <label class="small mb-2 opacity-50 ps-3">Semester</label>
                             <select class="form-custom w-100">
-                                <option>Ganjil</option>
-                                <option selected>Genap</option>
+                                <option selected>Ganjil</option>
+                                <option>Genap</option>
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-pill w-100 py-3 fw-bold text-center">Simpan Perubahan</button>
+                    <button class="btn btn-pill w-100 py-3 fw-bold shadow justify-content-center" style="border-radius: 50px; background: #ffd700; color: #0d1b2a; border: none;">Simpan Perubahan</button>
                 </div>
             </div>
         </div>
@@ -509,11 +394,11 @@
     <div class="modal fade" id="modalHapus" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content modal-glass p-4 text-center">
-                <div class="modal-body p-0">
+                <div class="modal-body">
                     <h5 class="fw-bold text-danger">Hapus Matkul?</h5>
                     <p class="small opacity-50 mb-4">Data ini akan hilang dari sistem secara permanen.</p>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-warning-custom py-2 fw-bold">Ya, Hapus</button>
+                        <button class="btn btn-warning py-2 fw-bold justify-content-center" style="border-radius:50px; background:#ff4b4b; border:none;">Ya, Hapus</button>
                         <button class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
                     </div>
                 </div>
