@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-body { 
+body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
     color: white;
@@ -141,14 +141,16 @@ body {
         .btn-edit { 
                    background: #ffd700 !important; 
                    border: 1px solid rgba(255, 215, 0, 0.3) !important;
-                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700}
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700;
+                   white-space: nowrap;}
         .btn-edit:hover { 
                    background: #ffd700 !important; color: #0d1b2a !important; 
                    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);}
 
         .btn-note { 
                    background: rgba(255, 75, 75, 0.1) !important; color: #9a9090 !important; 
-                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;}
+                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;
+                   white-space: nowrap;}
         .btn-note:hover {background: #9a9090 !important; color: white !important;}
 
 
@@ -294,20 +296,33 @@ select.form-select {
     appearance: none;
 }
 
-/* DETAIL SCROLLBAR */
-         ::-webkit-scrollbar {width: 6px;}
+/* DETAIL SCROLLBAR UTAMA */
+::-webkit-scrollbar {width: 6px;}
+::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                            border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
-         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
-         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
-                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
-         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+/* GLOWING SCROLLBAR KHUSUS TABEL */
+.scroll-wrapper::-webkit-scrollbar {
+    height: 8px; /* Mengatur tinggi scrollbar horizontal */
+}
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(13, 27, 42, 0.5);
+    border-radius: 10px;
+}
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #4cc9f0, #4361ee); 
+    border-radius: 10px; 
+    box-shadow: 0 0 12px rgba(76, 201, 240, 0.6);
+}
+.scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #4cc9f0;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 1);
+}
 
 
-
-
-
-
-
+        
 
 @media screen and (max-width: 768px) {
     /* container utama melebar sempurna */
@@ -553,13 +568,15 @@ select.form-select {
                             <td class="fw-bold">Dita Damayanti<span class="badge bg-success ms-2" style="font-size: 0.5rem;">Online</span></td>
                             <td>Dita123@gmail.com</td>
                             <td>Kelas 01</td>
-                            <td class="text-center">
-                                <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    Edit
-                                </button>
-                                <button class="btn-note " style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal" >
-                                    Note
-                                </button>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
+                                        Edit
+                                    </button>
+                                    <button class="btn-note" style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal" >
+                                        Note
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -567,13 +584,15 @@ select.form-select {
                             <td class="fw-bold">Wayan Winatta<span class="badge bg-danger ms-2" style="font-size: 0.5rem;">Off</span></td>
                             <td>Wayan456@gmail.com</td>
                             <td>Kelas 01</td>
-                            <td class="text-center">
-                                <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
-                                    Edit
-                                </button>
-                                <button class="btn-note" style="background: rgba(255,255,255,0.1); color: rgb(255, 255, 255);" data-bs-toggle="modal" data-bs-target="#noteModal">
-                                    Note
-                                </button>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
+                                        Edit
+                                    </button>
+                                    <button class="btn-note" style="background: rgba(255,255,255,0.1); color: rgb(255, 255, 255);" data-bs-toggle="modal" data-bs-target="#noteModal">
+                                        Note
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
