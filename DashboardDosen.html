@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB NEXT GEN - Dashboard Dosen 📊</title>
-    <!-- Bootstrap 5 & Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
@@ -83,42 +82,6 @@
             margin-left: 300px; 
             padding: 50px 40px; 
             width: calc(100% - 300px);
-        }
-
-        /* --- GLASS PANEL CARD --- */
-        .card-glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 25px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-stats:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(76, 201, 240, 0.15);
-            border-color: rgba(76, 201, 240, 0.3);
-        }
-
-        .icon-box {
-            width: 55px;
-            height: 55px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        /* --- PROGRESS BAR CUSTOM --- */
-        .progress-custom {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
         }
 
         /* --- MENU BAWAH / BOTTOM NAV --- */
@@ -202,7 +165,6 @@
 <body>
 
     <div class="wrapper">
-        <!-- SIDEBAR (Desktop Only) -->
         <div class="sidebar">
             <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
             <nav>
@@ -241,134 +203,15 @@
             </div>
         </div>
 
-        <!-- MAIN CONTENT AREA -->
         <div class="content-area">
-            <!-- Header Section -->
-            <div class="mb-5">
-                <h2 class="fw-bold m-0">Selamat Datang,<span style="color: #4cc9f0;"> Dosen ABC</span> 👋</h2>
-                <p class="small opacity-75 m-0 text-primary">Berikut ringkasan aktivitas akademik dan statistik mahasiswa Anda hari ini.</p>
+            <div>
+                <h2 class="fw-bold m-0">Dashboard<span style="color: #4cc9f0;"> Dosen</span></h2>
+                <p class="small opacity-75 m-0 text-primary">Selamat datang di panel utama dosen.</p>
             </div>
-
-            <!-- Stats Grid Section -->
-            <div class="row g-4 mb-5">
-                <!-- Card 1: Total Mahasiswa -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-glass card-stats d-flex align-items-center justify-content-between">
-                        <div>
-                            <p class="small opacity-50 mb-1">Total Mahasiswa</p>
-                            <h3 class="fw-bold m-0">120</h3>
-                            <span class="text-info small fw-bold" style="font-size: 11px;">Aktif Semester Ini</span>
-                        </div>
-                        <div class="icon-box" style="background: rgba(76, 201, 240, 0.1); color: #4cc9f0;">👨‍🎓</div>
-                    </div>
-                </div>
-                <!-- Card 2: Mata Kuliah -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-glass card-stats d-flex align-items-center justify-content-between">
-                        <div>
-                            <p class="small opacity-50 mb-1">Mata Kuliah</p>
-                            <h3 class="fw-bold m-0">4</h3>
-                            <span class="text-warning small fw-bold" style="font-size: 11px;">2 Program Studi</span>
-                        </div>
-                        <div class="icon-box" style="background: rgba(255, 215, 0, 0.1); color: #ffd700;">📖</div>
-                    </div>
-                </div>
-                <!-- Card 3: Evaluasi Selesai -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-glass card-stats d-flex align-items-center justify-content-between">
-                        <div>
-                            <p class="small opacity-50 mb-1">Ujian / Evaluasi</p>
-                            <h3 class="fw-bold m-0">12</h3>
-                            <span class="text-success small fw-bold" style="font-size: 11px;">Telah Terlaksana</span>
-                        </div>
-                        <div class="icon-box" style="background: rgba(40, 167, 69, 0.1); color: #28a745;">📝</div>
-                    </div>
-                </div>
-                <!-- Card 4: Rata-rata Nilai -->
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-glass card-stats d-flex align-items-center justify-content-between">
-                        <div>
-                            <p class="small opacity-50 mb-1">Rata-rata Nilai</p>
-                            <h3 class="fw-bold m-0">83.5</h3>
-                            <span class="text-danger small fw-bold" style="font-size: 11px;">Target Tercapai</span>
-                        </div>
-                        <div class="icon-box" style="background: rgba(255, 75, 75, 0.1); color: #ff4b4b;">📈</div>
-                    </div>
-                </div>
+            
             </div>
-
-            <div class="row g-4">
-                <!-- Progres Input Nilai Kelas -->
-                <div class="col-lg-7">
-                    <div class="card-glass h-100">
-                        <h5 class="fw-bold mb-4">Status Penginputan Nilai Kelas</h5>
-                        
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="small fw-semibold">01 ILKOM - Pemrograman Web</span>
-                                <span class="small text-info fw-bold">100% Selesai</span>
-                            </div>
-                            <div class="progress-custom">
-                                <div class="progress-bar bg-info" style="width: 100%"></div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="small fw-semibold">01 TI - Pemrograman Berorientasi Objek</span>
-                                <span class="small text-warning fw-bold">75% Proses</span>
-                            </div>
-                            <div class="progress-custom">
-                                <div class="progress-bar bg-warning" style="width: 75%"></div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span class="small fw-semibold">02 ILKOM - Basis Data</span>
-                                <span class="small text-danger fw-bold">40% Awal</span>
-                            </div>
-                            <div class="progress-custom">
-                                <div class="progress-bar bg-danger" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agenda Terdekat Dosen -->
-                <div class="col-lg-5">
-                    <div class="card-glass h-100">
-                        <h5 class="fw-bold mb-4">Agenda Terdekat</h5>
-                        
-                        <div class="d-flex align-items-start mb-3 p-3 rounded-3" style="background: rgba(255,255,255,0.02)">
-                            <div class="me-3 text-center bg-primary rounded-3 px-2 py-1" style="min-width: 50px;">
-                                <p class="m-0 small fw-bold text-dark">15</p>
-                                <p class="m-0 opacity-75 text-dark" style="font-size: 9px; font-weight: 700;">JUL</p>
-                            </div>
-                            <div>
-                                <h6 class="m-0 fw-bold small">Input Nilai Tugas Susulan</h6>
-                                <p class="m-0 opacity-50 small" style="font-size: 11px;">Batas waktu jam 23:59 WIB</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start mb-2 p-3 rounded-3" style="background: rgba(255,255,255,0.02)">
-                            <div class="me-3 text-center bg-info rounded-3 px-2 py-1" style="min-width: 50px;">
-                                <p class="m-0 small fw-bold text-dark">17</p>
-                                <p class="m-0 opacity-75 text-dark" style="font-size: 9px; font-weight: 700;">JUL</p>
-                            </div>
-                            <div>
-                                <h6 class="m-0 fw-bold small">Rapat Evaluasi Kurikulum UPK</h6>
-                                <p class="m-0 opacity-50 small" style="font-size: 11px;">Ruang Rapat Utama / Zoom</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </div>
 
-    <!-- MENU BAWAH / BOTTOM NAV (Mobile Version) -->
     <div class="bottom-nav">
         <a href="DashboardDosen.html" class="bottom-nav-link active"><img src="dashboard (1).png" alt="icon"><span>Dashboard</span></a>
         <a href="DataMahasiswa.html" class="bottom-nav-link"><img src="data mahasiswa.png" alt="icon"><span>Mahasiswa</span></a>
