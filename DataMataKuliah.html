@@ -201,115 +201,67 @@
 
 
 
-    @media screen and (max-width: 768px) {
-    /* Container Utama Melebar Penuh */
-    .main-content, .content-area {
-        margin-left: 0 !important;
-        padding: 15px 12px !important; 
-        width: 100% !important;
-    }
+   @media screen and (max-width: 768px) {
+            .content-area {
+                margin-left: 0 !important;
+                padding: 15px 12px !important; 
+                width: 100% !important;
+            }
 
-    /* Menu Geser Horizontal */
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        left: 0;
-        top: 0;
-        padding: 12px;
-        margin-bottom: 20px;
-        border-radius: 20px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
+            /* Menu Geser Horizontal Sidebar */
+            .sidebar {
+                position: relative; width: 100%; height: auto; left: 0; top: 0;
+                padding: 12px; margin-bottom: 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            }
+            .sidebar h4, .sidebar .profile-section { display: none !important; }
+            .sidebar nav { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding-bottom: 5px; }
+            .sidebar nav::-webkit-scrollbar { display: none; }
+            .menu-link { display: inline-flex; margin-bottom: 0; flex-shrink: 0; padding: 8px 14px; }
 
-    .sidebar h4, .sidebar .profile-section {
-        display: none !important;
-    }
+            /* Header Atas Judul & Cari */
+            .content-area > .d-flex.justify-content-between {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 15px; margin-bottom: 25px !important;
+            }
+            .content-area > .d-flex.justify-content-between input.pill-input { width: 100% !important; }
 
-    .sidebar nav {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 8px;
-        padding-bottom: 5px;
-    }
+            /* Form Cepat Tambah Matkul  Vertikal */
+            .add-matkul-box { padding: 15px !important; margin-bottom: 25px !important; }
+            .add-matkul-box .row.g-3 { flex-direction: column !important; }
+            .add-matkul-box .row.g-3 > div { width: 100% !important; }
+            .add-matkul-box label { padding-left: 10px !important; }
 
-    .sidebar nav::-webkit-scrollbar {
-        display: none;
-    }
+            /* MKontainer Utama  Flat */
+            .table-container-glass { padding: 20px 15px !important; border-radius: 25px !important; }
 
-    .menu-link {
-        display: inline-flex;
-        margin-bottom: 0;
-        flex-shrink: 0;
-        padding: 8px 14px;
-    }
+            /* Pembungkus Khusus Scrollbar Tepat Di Bawah Tabel */
+            .table-scroll-wrapper {
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin-bottom: 15px;
+            }
+            .table-custom { min-width: 650px; margin-top: 5px; }
+            .table-custom tbody td { padding: 12px 10px !important; font-size: 0.85rem; }
+            
+            /*  Tombol Aksi Kanan */
+            .table-custom tbody td:last-child {
+                white-space: nowrap !important;
+                width: 150px !important;
+            }
 
-    /*  Header Judul & Cari Matkul */
-    .content-area > .d-flex.justify-content-between {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 15px;
-        margin-bottom: 25px !important;
-    }
+            /* Pagination Bawah */
+            .table-container-glass > .d-flex.justify-content-between {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 15px;
+            }
 
-    /* Input cari  */
-    .content-area > .d-flex.justify-content-between input.pill-input {
-        width: 100% !important;
-    }
-
-    /* Form Cepat Tambah Matkul */
-    .add-matkul-box {
-        padding: 15px !important;
-        margin-bottom: 25px !important;
-    }
-
-    .add-matkul-box .row.g-3 {
-        flex-direction: column !important;
-    }
-
-    .add-matkul-box .row.g-3 > div {
-        width: 100% !important;
-    }
-
-    .add-matkul-box label {
-        padding-left: 10px !important;
-    }
-
-    /* Bungkus Tabel  */
-    .table-container-glass {
-        padding: 20px 15px !important;
-        border-radius: 25px !important;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .table-custom {
-        min-width: 650px; /* jarak kolom  */
-    }
-
-    .table-custom tbody td {
-        padding: 12px 10px !important;
-        font-size: 0.85rem;
-    }
-
-    /* Pagination bawah dibuat tengah  */
-    .table-container-glass > .d-flex.justify-content-between {
-        flex-direction: column !important;
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* 6. Efek Klik  */
-    .btn-tambah, .btn-pill, .btn-warning {
-        transition: all 0.2s ease-in-out !important;
-    }
-
-    .btn-tambah:active, .btn-pill:active, .btn-warning:active {
-        transform: scale(0.95) !important;
-    }
-}
+            /* Efek Klik */
+            .btn-tambah, .btn-pill, .btn-warning, .btn-edit, .btn-delete { transition: all 0.2s ease-in-out !important; }
+            .btn-tambah:active, .btn-pill:active, .btn-warning:active, .btn-edit:active, .btn-delete:active { transform: scale(0.95) !important; }
+        }
             
     </style>
 </head>
