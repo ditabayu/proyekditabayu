@@ -3,42 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB NEXT GEN - Data Nilai</title>
+    <title>WEB NEXT GEN 😎</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top right, #1b263b 0%, #0d1b2a 100%);
-            color: white; 
-            min-height: 100vh; 
-            margin: 0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (min-width: 992px) {
-            body { flex-direction: row; }
-        }
-
-        /* --- SIDEBAR UTAMA (DESKTOP) --- */
-        .sidebar {
-            background-color: #1b263b; 
-            height: 85vh; 
-            padding: 25px 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            display: flex; 
-            flex-direction: column;
-            position: fixed; 
-            width: 260px; 
-            top: 7.5vh; 
-            left: 20px; 
-            border-radius: 30px;
-            z-index: 1000; 
-            overflow-y: auto; 
-            overflow-x: hidden;
+        body {font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+              color: white; min-height: 100vh; margin: 0; overflow-x: hidden;}
+          
+   .sidebar {
+            background-color: #1b263b; height: 85vh; padding: 25px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
+            position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
+            z-index: 1000; overflow-y: auto; overflow-x: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
@@ -46,537 +23,331 @@
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
 
         .menu-link {
-            display: flex; 
-            align-items: center; 
-            color: #adb5bd; 
-            text-decoration: none;
-            padding: 12px 15px; 
-            border-radius: 15px; 
-            margin-bottom: 8px;
-            transition: 0.3s; 
-            font-size: 0.85rem;
-            white-space: nowrap;
+            display: flex; align-items: center; color: #adb5bd; text-decoration: none;
+            padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
+            transition: 0.3s; font-size: 0.85rem;
         }
 
+         /* EFEK HOVER NYA */
         .menu-link:hover, .menu-link.active {
-            background: linear-gradient(90deg, #4cc9f0, #4361ee) !important;
-            color: #0d1b2a !important; 
-            font-weight: 600;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(76, 201, 240, 0.6), 0 5px 15px rgba(67, 97, 238, 0.4);
-        }
+            background:linear-gradient(90deg,#4cc9f0,#4361ee);
+            border:none; border-radius:20px; padding:12px;
+            color:white; font-weight:600; transition:0.3s;; color: #0d1b2a !important; font-weight: 600;
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
         .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
-        .menu-link.active .img-menu-icon, .menu-link:hover .img-menu-icon { filter: brightness(0); } 
-        
+        .menu-link.active .img-menu-icon { filter: brightness(0); } 
         .profile-section {
-            margin-top: auto; 
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px; 
-            border-radius: 16px; 
-            display: flex; 
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+            margin-top: auto; background: rgba(255, 255, 255, 0.07);
+            padding: 15px; border-radius: 20px; display: flex; align-items: center;}
 
-        /* --- CONTENT AREA (DESKTOP) --- */
-        .content-area { 
-            margin-left: 300px; 
-            padding: 50px 50px 50px 20px; 
-            width: calc(100% - 300px);
-            flex-grow: 1;
-        }
 
-        /* --- FORM STYLING ASLI --- */
-        .form-custom {
-            border-radius: 50px !important; 
-            background: rgba(255, 255, 255, 0.08) !important;
-            color: white !important; 
-            padding: 12px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            outline: none;
-            transition: 0.3s;
-        }
 
-        .form-custom:focus {
-            border-color: #4cc9f0 !important;
-            background: rgba(255, 255, 255, 0.1) !important;
-            box-shadow: 0 0 15px rgba(76, 201, 240, 0.3) !important;
-            color: white !important;
-        }
 
-        .form-custom option { background: #1b263b; color: white; }
-        .form-custom::placeholder { color: rgba(255, 255, 255, 0.5) !important; font-size: 0.85rem; }
+ 
+
+        .content-area {margin-left: 300px; padding: 50px 40px;}
+
+
+    
         
-        select.form-custom {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; 
-            background-position: right 20px center; 
-        }
+/* DESAIN EXCEL */      
+        .btn-export-all {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white; border: none; border-radius: 50px; padding: 10px 25px;
+            font-weight: 600; transition: 0.3s; box-shadow: 0 5px 8px #2ecc714d;}
 
-        /* --- GLASS CONTAINER & TABLES ASLI --- */    
-        .table-container-glass {
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 30px; 
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border: 1px solid rgba(76, 201, 240, 0.2);
-        }
+        .btn-export-all:hover { transform: scale(1.05); box-shadow: 0 0 8px #2ecc7180; }
+        .btn-excel {background: rgba(46, 204, 113, 0.15); border: 1px solid rgba(46, 204, 113, 0.4);
+                    border-radius: 12px; padding: 8px 12px; transition: 0.3s;}
 
-        .table-custom { width: 100%; border-collapse: separate; border-spacing: 0 15px; }
-        .table-custom thead th { color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem; }
-        .table-custom tbody tr { background: rgba(255, 255, 255, 0.02); transition: 0.4s ease; }
-        .table-custom tbody td { padding: 18px 15px; border: none; vertical-align: middle; font-weight: 500; }
-        .table-custom tbody tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
-        .table-custom tbody tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
-  
-        .table-custom tbody tr:hover {
-            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
-            transform: translateX(8px);
-        }
+        .btn-excel:hover {background: #2ecc71;box-shadow: 0 0 10px rgba(46,204,113,0.6);}
+        .btn-excel img,
+        .btn-export-all img {filter: none !important;}
 
-        /* --- TOMBOL-TOMBOL ASLI --- */
-        .btn-tambah {
-            background: #4cc9f0; 
-            color: #0d1b2a; 
-            border-radius: 50px; 
-            border: none;
-            transition: all 0.3s ease;
-        }
-        .btn-tambah:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(76, 201, 240, 0.5);
-            color: #0d1b2a;
-        }
 
-        .btn-edit { 
-            background: rgba(255, 215, 0, 0.1) !important; 
-            color: #ffd700 !important; 
-            border: 1px solid rgba(255, 215, 0, 0.3) !important;
-            border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; font-weight: 600; transition: 0.3s;
-        }
-        .btn-edit:hover { background: #ffd700 !important; color: #0d1b2a !important; }
 
-        .btn-delete { 
-            background: rgba(255, 75, 75, 0.1) !important; 
-            color: #ff4b4b !important; 
-            border: 1px solid rgba(255, 75, 75, 0.3) !important;
-            border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; font-weight: 600; transition: 0.3s;
-        }
-        .btn-delete:hover { background: #ff4b4b !important; color: white !important; }
+/* --- SIMBOL i --- */
+        .info-trigger {
+            cursor: pointer; background: rgba(76, 201, 240, 0.1); color: #4cc9f0;
+            border: 1px solid rgba(76, 201, 240, 0.3); width: 32px; height: 32px;
+            border-radius: 50%; font-weight: bold; transition: 0.3s;}
+        .info-trigger:hover {background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 8px #4cc9f0; }
 
-        .btn-pill { background: #ffd700; border-radius: 45px; padding: 10px 20px; border: none; font-weight: 700; font-size: 0.85rem; color: #0d1b2a; }
-        .btn-warning-custom { background: #ff4b4b; border-radius: 45px; padding: 10px 20px; border: none; font-weight: 700; font-size: 0.85rem; color: white; }
+        
 
+/* --- CARD MEMANJANG KE KANAN --- */
+        .class-row-card {
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px);
+            border-radius: 30px; padding: 30px; border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 25px; transition: 0.4s ease;}
+        .class-row-card h3 {font-weight: 700;}
+        .class-row-card p {font-weight: 500;}
+     
+
+        .class-row-card:hover {transform: translateX(6px); border-color: rgba(76, 201, 240, 0.3); }
+
+        .border-ti {border-left: 10px solid #4cc9f0 !important; }
+        .border-ilkom {border-left: 10px solid #9b59b2 !important; }
+
+
+/* --- PROGRESS BAR LEBAR --- */
+        .progress-custom {height: 12px; background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; width: 250px; }
+        .bar-fill {height: 100%; border-radius: 20px; box-shadow: 0 0 4px currentColor; }
+
+
+
+/* --- SUB-ITEM MATKUL --- */
+        .activity-strip {background: rgba(255, 255, 255, 0.04); border-radius: 20px;
+                         padding: 18px 20px; margin-top: 20px; border: 1px solid rgba(255, 255, 255, 0.05);
+                         display: flex; align-items: center; justify-content: space-between;
+                         transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform;
+                         box-shadow: 0 5px 15px rgba(0,0,0,0.15);}
+
+        .activity-strip:hover {
+                              background: rgba(255, 255, 255, 0.08);
+                              border-color: rgba(76, 201, 240, 0.5);
+                              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);}
+
+        .activity-strip h5 {font-weight: 600;}    
+        .activity-strip span {font-weight: 500;} 
+        .activity-strip .small {font-weight: 500 !important; font-size: 0.8rem;}  
+
+        .btn-lihat-custom {background: rgba(76, 201, 240, 0.1); color: #4cc9f0; 
+                           border: 1px solid rgba(76, 201, 240, 0.3); border-radius: 15px; 
+                           padding: 10px 25px; font-weight: 600; transition: 0.3s;}
+
+        .btn-lihat-custom:hover {background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 8px #4cc9f0;}
+
+
+
+
+/* --- SIMBOL --- */
         .modal-glass {
-            background: rgba(13, 27, 42, 0.95) !important; 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 35px !important; 
-            border: 1px solid rgba(76, 201, 240, 0.3); 
-            color: white;
-        }
+            background: rgba(13, 27, 42, 0.7) !important; backdrop-filter: blur(25px) !important;
+            border-radius: 40px !important; border: 1px solid rgba(76, 201, 240, 0.3) !important;
+            color: white !important; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 100%;}
 
-        /* --- PREMIUM MOBILE NAVIGATION SYSTEM (SAMA DENGAN DASHBOARD) --- */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 75px;
-            background: rgba(13, 27, 42, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: none; /* Hanya muncul di HP */
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-            z-index: 9999;
-            padding: 0 15px;
-            gap: 10px;
-            overflow-x: auto;
-            overflow-y: hidden;
-            -webkit-overflow-scrolling: touch;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
-        }
+        .glow-dot {width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 10px;}
 
-        /* Sembunyikan scrollbar navigasi bawah biar estetik */
-        .bottom-nav::-webkit-scrollbar { display: none; }
 
-        .bottom-nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #8a99ad;
-            text-decoration: none;
-            font-size: 0.7rem;
-            min-width: 70px;
-            height: 100%;
-            transition: all 0.3s ease;
-            text-align: center;
-            background: transparent;
-        }
 
-        .bottom-nav-link img {
-            width: 20px;
-            height: 20px;
-            margin-bottom: 5px;
-            transition: 0.3s;
-        }
 
-        .bottom-nav-link span {
-            display: block;
-            white-space: nowrap;
-        }
+        .btn-pill {background: #4cc9f0; border-radius: 50px; padding: 8px 20px; border: none; font-weight: 700;
+                   font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;
+                   transition: 0.3s; text-decoration: none;}
+        .btn-pill:hover {transform: scale(1.04); box-shadow: 0 0 5px #4cc9f0;}
+        .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
+        .info-list-item {background: rgba(255,255,255,0.03); border-radius: 15px; padding: 12px 18px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05);}
 
-        /* Efek Menyala / Glowing Blue Nav Aktif */
-        .bottom-nav-link.active {
-            background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(67, 97, 238, 0.2)) !important;
-            color: #4cc9f0 !important;
-            box-shadow: 0 0 15px rgba(76, 201, 240, 0.4) !important;
-            border: 1px solid rgba(76, 201, 240, 0.3);
-            border-radius: 15px;
-            font-weight: 600;
-        }
+        
+        
+        .badge {font-weight: 600 !important; letter-spacing: 0.2px;}
 
-        .bottom-nav-link.active img {
-            filter: drop-shadow(0px 0px 5px rgba(76, 201, 240, 0.8));
-        }
 
-        /* ==========================================================================
-           RESPONSIVE ENGINE - OPTIMASI PENUH UNTUK HP & TABLET
-           ========================================================================== */
-        @media (max-width: 991.98px) {
-            body { 
-                padding-bottom: 90px; 
-            }
-            .sidebar {
-                display: none !important;
-            }
-            .bottom-nav {
-                display: flex;
-            }
-            .content-area {
-                margin-left: 0 !important;
-                width: 100% !important;
-                padding: 20px 16px 40px !important;
-            }
-        }
+/* DETAIL SCROLLBAR */
+         ::-webkit-scrollbar {width: 6px;}
 
-        @media (max-width: 767.98px) {
-            .content-area .d-flex.justify-content-between {
-                flex-direction: column;
-                align-items: flex-start !important;
-                gap: 15px;
-            }
-            .content-area .d-flex.justify-content-between .form-custom {
-                width: 100% !important;
-            }
-            .table-container-glass {
-                padding: 15px;
-                border-radius: 20px;
-                overflow-x: auto;
-            }
-            .table-custom {
-                min-width: 750px;
-            }
-            .btn-tambah {
-                width: 100%;
-            }
-        }
+         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+
     </style>
 </head>
 
+
+
+
+
+
 <body>
 
-    <div class="wrapper">
-        <!-- SIDEBAR UNTUK DESKTOP -->
-        <div class="sidebar">
-            <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
-            <nav>
-                <a href="DashboardDosen.html" class="menu-link">
-                    <img src="dashboard (1).png" class="img-menu-icon" alt="icon"> Dashboard
-                </a>
-                <a href="DataMahasiswa.html" class="menu-link">
-                    <img src="data mahasiswa.png" class="img-menu-icon" alt="icon"> Mahasiswa
-                </a>
-                <a href="DataNilai.html" class="menu-link active">
-                    <img src="data nilai.png" class="img-menu-icon" alt="icon"> Nilai
-                </a>
-                <a href="DataKelas.html" class="menu-link">
-                    <img src="data kelas (2).png" class="img-menu-icon" alt="icon"> Kelas
-                </a>
-                <a href="DataMataKuliah.html" class="menu-link">
-                    <img src="mata kuliah (2).png" class="img-menu-icon" alt="icon"> Matkul
-                </a>
-                <a href="DataTopik.html" class="menu-link">
-                    <img src="data topik.png" class="img-menu-icon" alt="icon"> Topik
-                </a>
-                <a href="DataSoal.html" class="menu-link">
-                    <img src="bank.png" class="img-menu-icon" alt="icon"> Soal
-                </a>
-                <a href="DataEvaluasi.html" class="menu-link">
-                    <img src="evaluation.png" class="img-menu-icon" alt="icon"> Evaluasi
-                </a>
-                <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
-                    <img src="log-out.png" class="img-menu-icon" alt="icon"> Keluar
-                </a>
-            </nav>
+    <div class="sidebar">
+        <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
+        <nav>
+            <a href="DashboardDosen.html" class="menu-link">
+                <img src="dashboard (1).png" class="img-menu-icon"> Dashboard
+            </a>
+            <a href="DataMahasiswa.html" class="menu-link">
+                <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
+            </a>
+             <a href="DataNilai.html" class="menu-link active">
+                <img src="data nilai.png" class="img-menu-icon"> Data Nilai
+            </a>
+            <a href="DataKelas.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
+            </a>
+             <a href="DataMataKuliah.html" class="menu-link">
+                <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
+            </a>
+            <a href="DataTopik.html" class="menu-link">
+                <img src="data topik.png" class="img-menu-icon"> Data Topik
+            </a>
+            <a href="DataSoal.html" class="menu-link">
+                <img src="bank.png" class="img-menu-icon"> Data Soal
+            </a>
+            <a href="DataEvaluasi.html" class="menu-link">
+                <img src="evaluation.png" class="img-menu-icon"> Data Evaluasi
+            </a>
+            <a href="Login.html" class="menu-link mt-4" style="color: #ff4d4d;">
+                <img src="log-out.png" class="img-menu-icon"> Keluar
+            </a>
+        </nav>
 
-            <div class="profile-section mt-4">
-                <img src="reading-book.png" class="rounded-circle me-2" width="35" alt="profile">
-                <div class="overflow-hidden">
-                    <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
-                    <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
-                </div>
+
+
+        <div class="profile-section mt-4">
+            <img src="reading-book.png" class="rounded-circle me-2" width="35">
+            <div class="overflow-hidden">
+                <p class="small fw-bold mb-0 text-white">Dosen ABC</p>
+                <p class="mb-0 text-white opacity-50" style="font-size: 9px;">ID: 123456789</p>
             </div>
         </div>
+    </div>
 
-        <div class="content-area">
+
+    
+   
+
+
+    <div class="content-area">   
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <div class="d-flex align-items-center gap-3">
+                    <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Data <span style="color: #4cc9f0;">Nilai</span></h2>
+                    <button class="info-trigger" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
+                </div>
+                <p class="small opacity-75 m-0 text-primary">Ringkasan aktivitas akademik per kelas.</p>
+            </div>
+            <button class="btn-export-all">
+                <img src="excel (2).png" width="18" class="me-2"> Export Gabungan
+            </button>
+        </div>
+
+        <div class="class-row-card border-ti">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
-                    <h2 class="fw-bold m-0">Data<span style="color: #4cc9f0;"> Nilai </span></h2>
-                    <p class="small opacity-75 m-0 text-primary">Rekapitulasi dan evaluasi nilai mahasiswa.</p>
+                    <h3 class="fw-bold m-0">Kelas 01</h3>
+                    <p class="small opacity-50 m-0">Teknologi Informasi • 6 Mahasiswa</p>
                 </div>
-                <input type="text" class="form-custom" placeholder="Cari mahasiswa atau NIM..." style="width: 280px; font-size: 0.85rem;">
+                <div class="text-end">
+                    <span class="fw-bold text-info d-block mb-1">80% Terdata</span>
+                    <div class="progress-custom">
+                        <div class="bar-fill" style="width: 80%; background: #4cc9f0; color: #4cc9f0;"></div>
+                    </div>
+                </div>
             </div>
 
-            <form id="formInputNilai" style="background: rgba(255, 255, 255, 0.03); border-radius: 25px; padding: 25px; margin-bottom: 30px; border: 1px solid rgba(255, 255, 255, 0.05);">
-                <div class="row g-3 align-items-end">
-                    <div class="col-lg-3 col-md-6">
-                        <label class="small mb-2 opacity-50 ps-3">Pilih Kelas</label>
-                        <select id="inputKelas" class="form-custom w-100" required>
-                            <option selected disabled value="">Pilih Kelas</option>
-                            <option>01 ILKOM</option>
-                            <option>01 TI</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <label class="small mb-2 opacity-50 ps-3">Mata Kuliah</label>
-                        <select id="inputMatkul" class="form-custom w-100" required>
-                            <option selected disabled value="">Pilih Mata Kuliah</option>
-                            <option>Pemrograman Web</option>
-                            <option>Pemrograman Berorientasi Objek</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2 col-md-6">
-                        <label class="small mb-2 opacity-50 ps-3">Nilai Angka</label>
-                        <input id="inputNilai" type="number" class="form-custom w-100" placeholder="0-100" required min="0" max="100" step="0.01">
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <button type="submit" class="btn btn-info w-100 fw-bold py-2 btn-tambah">+ INPUT NILAI</button>
+            <div class="activity-strip">
+                <div class="d-flex align-items-center gap-4">
+                    <span class="badge bg-opacity-10 bg-info text-info px-3 py-2" style="border-radius: 10px;">Basis Data </span>
+                    <div>
+                        <h5 class="fw-bold m-0">Kuis Basis Data 01</h5>
+                        <div class="d-flex align-items-center mt-1">
+                            <span class="glow-dot" style="background: #ff4757; box-shadow: 0 0 10px #ff4757;"></span>
+                            <span class="small text-white">Perlu Tinjauan Nilai</span>
+                        </div>
                     </div>
                 </div>
-            </form>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn-excel" title="Export Excel">
+                        <img src="excel (2).png" width="18">
+                    </button>
+                    <button class="btn-lihat-custom" onclick="window.location.href='DataNilai.LihatDetail.html'">Lihat Detail</button>
+                </div>
+            </div>
 
-            <div class="table-container-glass">
-                <table class="table-custom">
-                    <thead>
-                        <tr>
-                            <th class="text-center" style="width: 60px;">No</th>
-                            <th>NIM</th>
-                            <th>Nama Mahasiswa</th>
-                            <th>Mata Kuliah</th>
-                            <th class="text-center">Nilai Tugas</th>
-                            <th class="text-center">Nilai Ujian</th>
-                            <th class="text-center" style="width: 180px;">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabelNilaiBody">
-                        <tr>
-                            <td class="text-center">01</td>
-                            <td class="fw-bold text-info">220101032</td>
-                            <td>Dita Bayu Ananda</td>
-                            <td>Pemrograman Web</td>
-                            <td class="text-center nilai-tugas">85</td>
-                            <td class="text-center nilai-ujian">90</td>
-                            <td class="text-center">
-                                <button type="button" class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
-                                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">02</td>
-                            <td class="fw-bold text-info">220101054</td>
-                            <td>Ahmad Rian</td>
-                            <td>Pemrograman Web</td>
-                            <td class="text-center nilai-tugas">78</td>
-                            <td class="text-center nilai-ujian">82</td>
-                            <td class="text-center">
-                                <button type="button" class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
-                                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            
+
+            <div class="activity-strip">
+                <div class="d-flex align-items-center gap-4">
+                    <span class="badge bg-opacity-10 bg-info text-info px-3 py-2" style="border-radius: 10px;">TI</span>
+                    <div>
+                        <h5 class="fw-bold m-0">UTS Jaringan Komputer</h5>
+                        <div class="d-flex align-items-center mt-1">
+                            <span class="glow-dot" style="background: #2ed573; box-shadow: 0 0 10px #2ed573;"></span>
+                            <span class="small text-white">Selesai Dinilai</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn-excel">
+                        <img src="excel (2).png" width="18">
+                    </button>
+                    <button class="btn-lihat-custom" onclick="window.location.href='DataNilai.LihatDetail.html'">Lihat Detail</button>
+                </div>
             </div>
         </div>
+
+        <div class="class-row-card border-ilkom">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="fw-bold m-0">Kelas 01</h3>
+                    <p class="small opacity-50 m-0">Ilmu Komputer • 14 Mahasiswa</p>
+                </div>
+                <div class="text-end">
+                    <span class="fw-bold d-block mb-1" style="color: #9b59b2;">30% Terdata</span>
+                    <div class="progress-custom">
+                        <div class="bar-fill" style="width: 30%; background: #9b59b2; color: #9b59b2;"></div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <div class="activity-strip">
+                <div class="d-flex align-items-center gap-4">
+                     <span class="badge bg-opacity-10 bg-info text-info px-3 py-2" style="border-radius: 10px;">Mobile Programming</span>
+                    
+                    <div>
+                        <h5 class="fw-bold m-0">Konsep Dasar Basis Data</h5>
+                        <div class="d-flex align-items-center mt-1">
+                            <span class="glow-dot" style="background: #adb5bd;"></span>
+                            <span class="small text-white">Menunggu Pengerjaan</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn-excel">
+                        <img src="excel (2).png" width="18">
+                    </button>
+                    <button class="btn-lihat-custom" onclick="window.location.href='DataNilai.LihatDetail.html'">Lihat Detail </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- MODAL EDIT NILAI -->
-    <div class="modal fade" id="modalEditNilai" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="infoModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-glass">
-                <div class="modal-header border-0 px-4 pt-4">
-                    <h5 class="fw-bold text-warning m-0">Edit Data Nilai</h5>
+            <div class="modal-content modal-glass p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-info">Struktur Data Nilai &<span style="color: #ffd166;">Tampilan Data</style></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body px-4 pb-4">
-                    <form id="formEditNilai">
-                        <div class="mb-3">
-                            <label class="small mb-2 opacity-50 ps-3">Nilai Tugas</label>
-                            <input type="number" id="editNilaiTugas" class="form-custom w-100" required min="0" max="100" step="0.01">
-                        </div>
-                        <div class="mb-4">
-                            <label class="small mb-2 opacity-50 ps-3">Nilai Ujian</label>
-                            <input type="number" id="editNilaiUjian" class="form-custom w-100" required min="0" max="100" step="0.01">
-                        </div>
-                        <button type="submit" class="btn btn-pill w-100 py-3 fw-bold text-center">Simpan Perubahan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL HAPUS NILAI -->
-    <div class="modal fade" id="modalHapusNilai" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content modal-glass p-4 text-center">
-                <div class="modal-body p-0">
-                    <h5 class="fw-bold text-danger">Hapus Nilai?</h5>
-                    <p class="small opacity-50 mb-4">Tindakan ini akan menghapus permanen rekapan nilai mahasiswa ini.</p>
-                    <div class="d-grid gap-2">
-                        <button type="button" id="konfirmasiHapusBtn" class="btn btn-warning-custom py-2 fw-bold">Ya, Hapus</button>
-                        <button type="button" class="btn btn-link text-white-50 text-decoration-none small" data-bs-dismiss="modal">Batalkan</button>
+                 <div class="modal-body p-4">
+                    <div class="info-list-item">
+                        <h6 class="fw-bold m-0" style="color: #4cc9f0;">------------</h6>
+                        <p class="small m-0 opacity-50"> Halaman data Nilai digunakan untuk melihat dan mengelola hasil penilaian siswa dari berbagai kelas yang anda mampu. Data disusun secara bertingkat agar mudah di pahami dan di pantau. </p>
                     </div>
-                </div>
+                     <div class="info-list-item">
+                        <h6 class="fw-bold m-0" style="color: #ffd166;">------------</h6>
+                        <p class="small m-0 opacity-50">
+                              ● Kelas: menampilkan jumlah siswa & total aktivitas evaluasi. 
+                         <br> ● Mata pelajaran: dikelompokan didalam setiap kelas.
+                         <br> ● Topik: berisi kumpulan aktivitas penilaian.
+                         <br> ● Aktivitas: tempat siswa mengerjakan soal dan memperoleh nilai.</p>
+                    </div>
+                </div> 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-pill w-100 py-2 fw-bold justify-content-center" style="border-radius: 15px; background: #4cc9f0; color: #0d1b2a;" data-bs-dismiss="modal">Tutup</button>
+                </div>                                                
             </div>
         </div>
-    </div>
-
-    <!-- PREMIUM BOTTOM NAV UNTUK HP -->
-    <div class="bottom-nav">
-        <a href="DashboardDosen.html" class="bottom-nav-link">
-            <img src="dashboard (1).png" alt="icon"><span>Dashboard</span>
-        </a>
-        <a href="DataMahasiswa.html" class="bottom-nav-link">
-            <img src="data mahasiswa.png" alt="icon"><span>Mahasiswa</span>
-        </a>
-        <a href="DataNilai.html" class="bottom-nav-link active">
-            <img src="data nilai.png" alt="icon"><span>Nilai</span>
-        </a>
-        <a href="DataKelas.html" class="bottom-nav-link">
-            <img src="data kelas (2).png" alt="icon"><span>Kelas</span>
-        </a>
-        <a href="DataMataKuliah.html" class="bottom-nav-link">
-            <img src="mata kuliah (2).png" alt="icon"><span>Matkul</span>
-        </a>
-        <a href="DataTopik.html" class="bottom-nav-link">
-            <img src="data topik.png" alt="icon"><span>Topik</span>
-        </a>
-        <a href="DataSoal.html" class="bottom-nav-link">
-            <img src="bank.png" alt="icon"><span>Soal</span>
-        </a>
-        <a href="DataEvaluasi.html" class="bottom-nav-link">
-            <img src="evaluation.png" alt="icon"><span>Evaluasi</span>
-        </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-    let barisYangDipilih = null;
-
-    // Mendeteksi Klik Tombol Edit/Hapus Pada Tabel (Termasuk baris yang baru ditambahkan)
-    document.getElementById('tabelNilaiBody').addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn-edit')) {
-            barisYangDipilih = e.target.closest('tr');
-            // Mengambil nilai asli dari kolom tabel
-            const nilaiTugas = barisYangDipilih.querySelector('.nilai-tugas').innerText;
-            const nilaiUjian = barisYangDipilih.querySelector('.nilai-ujian').innerText;
-            
-            // Set nilai ke dalam field input modal
-            document.getElementById('editNilaiTugas').value = nilaiTugas;
-            document.getElementById('editNilaiUjian').value = nilaiUjian;
-        }
-        
-        if (e.target.classList.contains('btn-delete')) {
-            barisYangDipilih = e.target.closest('tr');
-        }
-    });
-
-    // Eksekusi Simpan Perubahan Edit Nilai
-    document.getElementById('formEditNilai').addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (barisYangDipilih) {
-            const tugasBaru = document.getElementById('editNilaiTugas').value;
-            const ujianBaru = document.getElementById('editNilaiUjian').value;
-            
-            barisYangDipilih.querySelector('.nilai-tugas').innerText = tugasBaru;
-            barisYangDipilih.querySelector('.nilai-ujian').innerText = ujianBaru;
-
-            // Tutup modal secara otomatis menggunakan getOrCreateInstance agar tidak error
-            const modalEditEl = document.getElementById('modalEditNilai');
-            const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEditEl);
-            modalInstance.hide();
-        }
-    });
-
-    // Eksekusi Konfirmasi Hapus Data Baris
-    document.getElementById('konfirmasiHapusBtn').addEventListener('click', function() {
-        if (barisYangDipilih) {
-            barisYangDipilih.remove();
-            
-            // Tutup modal hapus menggunakan getOrCreateInstance
-            const modalHapusEl = document.getElementById('modalHapusNilai');
-            const modalInstance = bootstrap.Modal.getOrCreateInstance(modalHapusEl);
-            modalInstance.hide();
-            
-            // Mengatur ulang nomor urut tabel (No) setelah ada data terhapus
-            const tbody = document.getElementById('tabelNilaiBody');
-            Array.from(tbody.rows).forEach((row, index) => {
-                const currentNo = index + 1;
-                row.cells[0].innerText = currentNo < 10 ? '0' + currentNo : currentNo;
-            });
-        }
-    });
-
-    // Eksekusi Tambah Data / Input Nilai Baru
-    document.getElementById('formInputNilai').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const kelas = document.getElementById('inputKelas').value;
-        const matkul = document.getElementById('inputMatkul').value;
-        const nilai = document.getElementById('inputNilai').value;
-        const tbody = document.getElementById('tabelNilaiBody');
-        
-        const rowCount = tbody.rows.length + 1;
-        const formatNo = rowCount < 10 ? '0' + rowCount : rowCount;
-        const randomNIM = "2201010" + Math.floor(10 + Math.random() * 90);
-        const dummyNama = "Mahasiswa Baru (" + kelas + ")";
-
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td class="text-center">${formatNo}</td>
-            <td class="fw-bold text-info">${randomNIM}</td>
-            <td>${dummyNama}</td>
-            <td>${matkul}</td>
-            <td class="text-center nilai-tugas">${nilai}</td>
-            <td class="text-center nilai-ujian">${nilai}</td>
-            <td class="text-center">
-                <button type="button" class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEditNilai">Edit</button>
-                <button type="button" class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapusNilai">Hapus</button>
-            </td>
-        `;
-
-        tbody.appendChild(newRow);
-        document.getElementById('formInputNilai').reset();
-    });
-</script>
 </body>
 </html>
