@@ -113,7 +113,8 @@
 
         .btn-delete { 
             background: rgba(255, 75, 75, 0.1) !important; color: #ff4b4b !important; 
-            border-radius: 12px; padding: 8px 18px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;
+            border: 1px solid rgba(255, 75, 75, 0.3) !important;
+            border-radius: 12px; padding: 8px 18px; font-size: 0.75rem; transition: 0.3s; font-weight: 600;
         }
         .btn-delete:hover { 
             background: #ff4b4b !important; color: white !important;
@@ -172,7 +173,6 @@
         .table-scroll-wrapper::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); border-radius: 10px; }
         .table-scroll-wrapper::-webkit-scrollbar-thumb { 
             background: linear-gradient(90deg, #4cc9f0, #4361ee); border-radius: 10px;
-           
         }
 
         /* DETAIL SCROLLBAR WINDOW */
@@ -185,16 +185,15 @@
 
 
 
-
-
-   @media screen and (max-width: 768px) {
+        
+        @media screen and (max-width: 768px) {
             .content-area {
                 margin-left: 0 !important;
                 padding: 15px 12px !important; 
                 width: 100% !important;
             }
 
-            /* Menu Geser Horizontal Sidebar */
+            /* Menu Hori */
             .sidebar {
                 position: relative; width: 100%; height: auto; left: 0; top: 0;
                 padding: 12px; margin-bottom: 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
@@ -231,7 +230,7 @@
             .table-custom { min-width: 650px; margin-top: 5px; }
             .table-custom tbody td { padding: 12px 10px !important; font-size: 0.85rem; }
             
-            /*  Tombol Aksi Kanan */
+            /* Tombol Aksi Kanan */
             .table-custom tbody td:last-child {
                 white-space: nowrap !important;
                 width: 150px !important;
@@ -251,13 +250,7 @@
             
     </style>
 </head>
-
-
-
-
-
-
-    <body>
+<body>
 
     <div class="sidebar">
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
@@ -348,7 +341,7 @@
                             <th>Semester</th>
                             <th>Mata Kuliah</th>
                             <th>Dosen Pengampu</th>
-                            <th class="text-center" style="width: 160px;">Aksi</th>
+                            <th class="text-center" style="width: 180px;">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -364,8 +357,10 @@
                             <td class="fw-bold text-info">Java Dasar</td>
                             <td>Dosen Ilkom ABC</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
-                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
+                                    <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -380,13 +375,17 @@
                             <td class="fw-bold text-info">Profesi Pendidikan</td>
                             <td>Dosen PTI ABC</td>
                             <td class="text-center">
-                                <button class="btn-edit me-1" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
-                                <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#modalEdit">Edit</button>
+                                    <button class="btn-delete" data-bs-toggle="modal" data-bs-target="#modalHapus">Hapus</button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
-            </div> <div class="d-flex justify-content-between align-items-center mt-4">
+            </div> 
+            
+            <div class="d-flex justify-content-between align-items-center mt-4">
                 <p class="text-small m-0" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 mata kuliah</p>
                 <div class="pagination-container d-flex gap-2">
                     <a href="#" class="page-link-custom">«</a> 
@@ -466,10 +465,6 @@
             }
         }
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
