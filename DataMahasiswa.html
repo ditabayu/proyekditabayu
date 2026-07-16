@@ -91,7 +91,7 @@ body {
         .pill-input::-webkit-input-placeholder {color: white !important;}
 
 
-
+        /* --- TOMBOL DI DALAM MODAL --- */
        .btn-pill, .btn-simpan {
     background: #ffd700 !important; 
     color: #0d1b2a !important; 
@@ -103,7 +103,7 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100% !important; /* Lebar penuh selaras dengan input */
+    width: 100% !important; 
 }
 
         .btn-pill:hover, .btn-simpan:hover {
@@ -113,7 +113,29 @@ body {
 }
 
         .btn-pill:active, .btn-simpan:active {
-    transform: scale(0.95) !important; /* Efek membal mengecil/membesar saat ditekan */
+    transform: scale(0.95) !important; 
+}
+
+/* TOMBOL NOTE */
+.btn-simpan-note {
+    background: #4cc9f0 !important; 
+    color: #0d1b2a !important; 
+    border: none !important;
+    border-radius: 50px !important; 
+    padding: 12px 25px !important; 
+    font-weight: 700 !important;
+    transition: all 0.2s ease-in-out !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+}
+.btn-simpan-note:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4) !important;
+}
+.btn-simpan-note:active {
+    transform: scale(0.95) !important;
 }
 
 
@@ -137,25 +159,35 @@ body {
 
 
 
-/* BUTTON */
+/* --- UKURAN & EFEK TOMBOL AKSI  --- */
         .btn-edit { 
-                   background: #ffd700 !important; 
+                   background: rgba(255, 215, 0, 0.1) !important; 
+                   color: #ffd700 !important;
                    border: 1px solid rgba(255, 215, 0, 0.3) !important;
-                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; transition: 0.3s; font-weight: 700;
+                   border-radius: 12px; padding: 8px 18px; font-size: 0.75rem; transition: 0.3s; font-weight: 600;
                    white-space: nowrap;}
         .btn-edit:hover { 
-                   background: #ffd700 !important; color: #0d1b2a !important; 
-                   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);}
+                   background: rgba(255, 215, 0, 0.2) !important; 
+                   box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);}
+        .btn-edit:active {
+                   background: #ffd700 !important;
+                   color: #0d1b2a !important;
+        }
 
         .btn-note { 
-                   background: rgba(255, 75, 75, 0.1) !important; color: #9a9090 !important; 
-                   border-radius: 12px; padding: 6px 15px; font-size: 0.75rem; border: none; transition: 0.3s; font-weight: 600;
+                   background: rgba(76, 201, 240, 0.1) !important; 
+                   color: #4cc9f0 !important; 
+                   border: 1px solid rgba(76, 201, 240, 0.3) !important;
+                   border-radius: 12px; padding: 8px 18px; font-size: 0.75rem; transition: 0.3s; font-weight: 600;
                    white-space: nowrap;}
-        .btn-note:hover {background: #9a9090 !important; color: white !important;}
+        .btn-note:hover {
+                   background: rgba(76, 201, 240, 0.2) !important; 
+                   box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);}
+        .btn-note:active {
+                   background: #4cc9f0 !important;
+                   color: #0d1b2a !important;
+        }
 
-
-
-    
 
 /* STAT CARD */
 .stat-card {
@@ -185,23 +217,15 @@ body {
 }
 
 
-
-
-/* MODAL */
+/* --- MODAL GLASS --- */
 .modal-glass {
-    background: rgba(13,27,42,0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 30px !important; 
-    border: 1px solid rgba(76, 201, 240, 0.3) !important; /* Garis tipis transparan */
+    background: rgba(13, 27, 42, 0.85) !important; /* SEMI TRASNFARAN*/
+    backdrop-filter: blur(25px) !important;          /* Efek blur kaca */
+    border-radius: 35px !important; 
+    border: 1px solid rgba(76, 201, 240, 0.25) !important; 
     color: white;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(76, 201, 240, 0.1);
 } 
-
-
-
-
-
-
 
 .modal.fade .modal-dialog {
     transform: scale(0.8);
@@ -215,8 +239,7 @@ body {
 }
 
 
-
-            /* --- HALAMAN NOMOR. KANAN --- */
+/* --- HALAMAN NOMOR. KANAN --- */
         .page-link-custom {width: 38px; height: 38px; display: flex;
                        align-items: center; justify-content: center;
                        text-decoration: none; color: white;
@@ -230,10 +253,6 @@ body {
         .page-link-custom.active {background: #4cc9f0; color: #0d1b2a;
                               box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
                               border: none;}
-
-        .menu-link {display: flex; align-items: center; color: #adb5bd; text-decoration: none;
-                 padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
-                 transition: 0.3s; font-size: 0.85rem;}
               
 
 /* DESAIN EXCEL */      
@@ -250,21 +269,6 @@ body {
         .btn-excel img,
         .btn-export-all img {filter: none !important;}
 
-.btn-note {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: none;
-}
-
-.btn-note:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-.btn-pill img {
-    filter: none !important;
-}
-
-
 
 /* FIX DROPDOWN DARK MODE */
 .pill-control {
@@ -272,19 +276,15 @@ body {
     color: white !important; padding: 15px; border-color: #4cc9f0;
 }
 
-/* OPTION DALAM DROPDOWN */
 .pill-control option {
-   
     color: white !important;
 }
 
-/* BIAR SELECT NYA IKUT DARK */
 select.form-select {
     background-color: rgba(255, 255, 255, 0.08) !important;
     color: white !important;
 }
 
-/* ARROW DROPDOWN BIAR GA PUTIH  */
 select.form-select:focus {
     box-shadow: 0 0 5px #4cc9f0;
     border-color: #4cc9f0;
@@ -303,9 +303,12 @@ select.form-select {
                             border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
 ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
 
-/* GLOWING SCROLLBAR KHUSUS TABEL */
+
+
+        
+/* GLOWING SCROLLBARTABEL */
 .scroll-wrapper::-webkit-scrollbar {
-    height: 8px; /* tinggi scrollbar  */
+    height: 8px; 
 }
 .scroll-wrapper::-webkit-scrollbar-track {
     background: rgba(13, 27, 42, 0.5);
@@ -324,18 +327,16 @@ select.form-select {
 
 
 
-        
-        
 
+
+        
 @media screen and (max-width: 768px) {
-    /* container utama  */
     .main-wrapper {
         margin-left: 0 !important;
         padding: 15px 12px !important;
         width: 100% !important;
     }
 
-    /*  Menu Geser Horizontal */
     .sidebar {
         position: relative;
         width: 100%;
@@ -371,7 +372,6 @@ select.form-select {
         padding: 8px 14px;
     }
 
-    /* Kartu tumpuk ke bawah */
     .main-wrapper .row.g-4.mb-4 > div {
         width: 100% !important;
     }
@@ -380,7 +380,6 @@ select.form-select {
         padding: 15px;
     }
 
-    /* Kotak Utama & Rekayasa Judul + Tombol Excel */
     .glass-container {
         padding: 20px 15px;
         border-radius: 20px;
@@ -404,7 +403,6 @@ select.form-select {
         padding: 10px;
     }
 
-    /* Kolom Filter & Pencarian */
     .glass-container .row.g-3 {
         flex-direction: column !important;
     }
@@ -418,12 +416,10 @@ select.form-select {
         margin-top: 10px;
     }
 
-    /* Input cari nama  */
     .glass-container .text-end.align-self-end input {
         width: 100% !important;
     }
 
-    /* Tabel Bungkus pke scroll horizontal  */
     .scroll-wrapper {
         width: 100%;
         overflow-x: auto;
@@ -432,7 +428,7 @@ select.form-select {
     }
 
     .table-custom {
-        min-width: 600px; /* jarak data */
+        min-width: 600px; 
     }
 
     .table-custom tbody td {
@@ -440,7 +436,6 @@ select.form-select {
         font-size: 0.85rem;
     }
 
-    /* Pagination bawah  */
     .glass-container > div.mt-4.d-flex {
         flex-direction: column !important;
         gap: 15px;
@@ -449,9 +444,6 @@ select.form-select {
 }
 </style>
 </head>
-
-
-
 
 <body>
 
@@ -520,8 +512,6 @@ select.form-select {
     </div>
 </div>
 
-
-
         <div class="glass-container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h2 class="fw-bold m-0">Data Siswa <span style="color: #4cc9f0;" id="judulProdi">Per Kelas</span></h2>
@@ -576,7 +566,7 @@ select.form-select {
                                     <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                         Edit
                                     </button>
-                                    <button class="btn-note" style="background: rgba(255,255,255,0.1); color: white;" data-bs-toggle="modal" data-bs-target="#noteModal" >
+                                    <button class="btn-note" data-bs-toggle="modal" data-bs-target="#noteModal" >
                                         Note
                                     </button>
                                 </div>
@@ -592,7 +582,7 @@ select.form-select {
                                     <button class="btn-edit" data-bs-toggle="modal" data-bs-target="#editModal">
                                         Edit
                                     </button>
-                                    <button class="btn-note" style="background: rgba(255,255,255,0.1); color: rgb(255, 255, 255);" data-bs-toggle="modal" data-bs-target="#noteModal">
+                                    <button class="btn-note" data-bs-toggle="modal" data-bs-target="#noteModal">
                                         Note
                                     </button>
                                 </div>
@@ -615,6 +605,7 @@ select.form-select {
     </div>
 </div>
 
+  <!-- MODAL EDIT MAHASISWA -->
   <div class="modal fade" id="editModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
@@ -638,18 +629,20 @@ select.form-select {
         </div>
     </div>
 
+    <!-- MODAL NOTE MAHASISWA -->
     <div class="modal fade" id="noteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
                 <div class="modal-header border-0 p-0 mb-3 d-flex justify-content-between align-items-center">
-                    <h5 class="fw-bold m-0" style="color: #ffd700;">Catatan Dosen</h5>
+                    <h5 class="fw-bold m-0" style="color: #4cc9f0;">Catatan Dosen</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <textarea class="form-costum pill-input w-100" style="height: 150px; border-radius: 20px;" placeholder="Masukkan catatan untuk mahasiswa..."></textarea>
+                    <!-- Perbaikan Typo Class form-costum ke form-custom -->
+                    <textarea class="form-custom pill-input w-100" style="height: 150px; border-radius: 20px;" placeholder="Masukkan catatan untuk mahasiswa..."></textarea>
                 </div>
                 <div class="modal-footer border-0 p-0 mt-4">
-                    <button class="btn-simpan" data-bs-dismiss="modal">Simpan Note</button>
+                    <button class="btn-simpan-note" data-bs-dismiss="modal">Simpan Note</button>
                 </div>
             </div>
         </div>
@@ -658,16 +651,13 @@ select.form-select {
 
 <script>
     window.onload = function() {
-        // Ambil data dari penyimpanan browser
         const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
         const prodiPilihan = localStorage.getItem("selectedFocus") || "TI";
 
-        
         document.getElementById("sidebarNama").innerText = namaDosen;
         document.getElementById("statProdi").innerText = prodiPilihan;
         document.getElementById("judulProdi").innerText = "Prodi " + prodiPilihan;
 
-       
         const select = document.getElementById("filterKelas");
         if(prodiPilihan === "TI") {
             select.innerHTML = '<option>Kelas 01 (TI)</option>';
@@ -677,9 +667,7 @@ select.form-select {
             select.innerHTML = '<option>Kelas 01 (Ilkom)</option>';
         }
     }
-
 </script>
-
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
