@@ -139,6 +139,33 @@ body {
 }
 
 
+/* --- KOTAK INPUT CATATAN DOSEN */
+.textarea-note {
+    border-radius: 15px !important; 
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(76, 201, 240, 0.4) !important;
+    color: white !important;
+    padding: 15px 20px !important;
+    outline: none;
+    resize: none; 
+    transition: 0.3s;
+}
+
+.textarea-note:focus {
+    border-color: #4cc9f0 !important;
+    background: rgba(255, 255, 225, 0.1) !important;
+    box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
+}
+
+.textarea-note::placeholder {
+    color: white !important;
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
+
+
+        
+
 /* --- TABEL BIRU UNGU --- */
         .table-custom {width: 100%; border-collapse: separate; border-spacing: 0 15px;}
         .table-custom thead th {color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem;}
@@ -629,7 +656,8 @@ select.form-select {
         </div>
     </div>
 
-    <!-- MODAL NOTE MAHASISWA -->
+
+    <!-- MODAL NOTE DOSEN-->
     <div class="modal fade" id="noteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-glass p-4">
@@ -638,8 +666,7 @@ select.form-select {
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <!-- Perbaikan Typo Class form-costum ke form-custom -->
-                    <textarea class="form-custom pill-input w-100" style="height: 150px; border-radius: 20px;" placeholder="Masukkan catatan untuk mahasiswa..."></textarea>
+                    <textarea class="textarea-note w-100" style="height: 150px;" placeholder="Masukkan catatan untuk mahasiswa..."></textarea>
                 </div>
                 <div class="modal-footer border-0 p-0 mt-4">
                     <button class="btn-simpan-note" data-bs-dismiss="modal">Simpan Note</button>
