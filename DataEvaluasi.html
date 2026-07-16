@@ -249,25 +249,60 @@
   .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
 
 
+@media screen and (max-width: 768px) {
+    /* container utama biar penuh */
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
 
+    /* sidebar jadi baris geser horizontal */
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Sembunyikan judul UPKSAINTEK  */
+    .sidebar h4 {
+        display: none !important;
+    }
+
+    /* Paksa navigasi sejajar ke kanan & aktifkan scroll */
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+
+    /* Hilangkan scrollbar bawaan  */
+    .sidebar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        padding: 8px 14px;
+    }
+
+    /* Sembunyikan bagian profil bawah di sidebar */
+    .sidebar .profile-section {
+        display: none !important;
+    }
 
 </style>
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -379,8 +414,6 @@
 </div>
 </div>
 </div>
-
-
 
 
 
@@ -501,9 +534,6 @@
 </div>
 
 </div>
-
-
-
 
 
 
