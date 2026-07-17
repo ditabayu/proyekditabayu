@@ -11,10 +11,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-            color: white; 
-            min-height: 100vh; 
-            margin: 0; 
-            overflow-x: hidden;
+            color: white; min-height: 100vh; margin: 0; overflow-x: hidden;
         }
 
         /* --- SIDEBAR KIRI FULL + SCROLL --- */
@@ -35,7 +32,6 @@
             transition: 0.3s; font-size: 0.85rem;
         }
 
-        /* EFEK HOVER MENU UTAMA */
         .menu-link:hover, .menu-link.active {
             background: linear-gradient(90deg, #4cc9f0, #4361ee);
             border: none; border-radius: 20px; padding: 12px;
@@ -54,7 +50,6 @@
         /* --- BAGIAN KOTAK TENGAH --- */
         .content-area { margin-left: 280px; padding: 50px 40px; }
 
-        /* TOMBOL KEMBALI */
         .btn-kembali {
             background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(10px);
             color: rgba(255, 255, 255, 0.8); border: 1px solid #4cc9f0;
@@ -77,43 +72,35 @@
             min-width: 140px; text-align: center;
         }
 
-        /* --- WRAPPER UNTUK SCROLL TABEL BIAR GA GEPENG --- */
+        /* SCROLLBAR TABEL BAWAH */
         .table-scroll-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-
-        /* SCROLLBAR TABEL BAWAH */
         .table-scroll-wrapper::-webkit-scrollbar { height: 10px; }
         .table-scroll-wrapper::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.03); border-radius: 10px; }
         .table-scroll-wrapper::-webkit-scrollbar-thumb { 
-            background: linear-gradient(90deg, #4cc9f0, #4361ee); 
-            border-radius: 10px;
-            box-shadow: none !important;
+            background: linear-gradient(90deg, #4cc9f0, #4361ee); border-radius: 10px; box-shadow: none !important;
         }
 
-        /* TABEL DESAIN TERINCI */
+       
         .table-evo { width: 100%; border-collapse: separate; border-spacing: 0 12px; }
         
-        /* EFEK KLIK */
+       
         .table-evo tbody tr { 
             background: rgba(255, 255, 255, 0.02); 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            transition: 0.4s ease; 
             cursor: pointer; 
         }
+          /* HOVER KEMBALI NATURAL (TRANSPARAN TYPICAL GLASSMORPHISM) */
         .table-evo tbody tr:hover, .table-evo tbody tr:active { 
-            background: linear-gradient(90deg, #4cc9f0, #4361ee); 
+            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15)); 
             transform: translateX(8px); 
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
         }
 
-        /* ISIANNYA */
-        .table-evo tbody tr:hover td, .table-evo tbody tr:active td { color: #0d1b2a !important; }
-        .table-evo tbody tr:hover td h5, .table-evo tbody tr:active td h5 { color: #0d1b2a !important; }
-
         .table-evo tbody tr td:first-child { font-weight: 600; opacity: 0.7; }
-        .table-evo td { padding: 20px; vertical-align: middle; border: none; transition: color 0.3s; }
+        .table-evo td { padding: 20px; vertical-align: middle; border: none; }
         .table-evo td:first-child { border-radius: 20px 0 0 20px; }
         .table-evo td:last-child { border-radius: 0 20px 20px 0; }
         
@@ -123,14 +110,13 @@
         }
 
         /* STATUS BADGE */
-        .status-remedial { background: rgba(255, 71, 87, 0.1); color: #ff4757; border: 1px solid #ff4757; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; transition: all 0.3s; }
-        .status-lulus { background: rgba(46, 213, 115, 0.1); color: #2ed573; border: 1px solid #2ed573; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; transition: all 0.3s; }
-        .status-belum { background: rgba(173, 181, 189, 0.1); color: #adb5bd; border: 1px solid #adb5bd; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; transition: all 0.3s; }
+        .status-remedial { background: rgba(255, 71, 87, 0.1); color: #ff4757; border: 1px solid #ff4757; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; display: inline-block; white-space: nowrap; }
+        .status-lulus { background: rgba(46, 213, 115, 0.1); color: #2ed573; border: 1px solid #2ed573; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; display: inline-block; white-space: nowrap; }
+        .status-belum { background: rgba(173, 181, 189, 0.1); color: #adb5bd; border: 1px solid #adb5bd; border-radius: 10px; padding: 6px 15px; font-weight: 600; font-size: 0.8rem; display: inline-block; white-space: nowrap; }
 
-        /* PENANDA STATUS. ADAPTIF */
-        .table-evo tbody tr:hover .status-remedial { background: #ff4757; color: white; }
-        .table-evo tbody tr:hover .status-lulus { background: #2ed573; color: white; }
-        .table-evo tbody tr:hover .status-belum { background: #adb5bd; color: #0d1b2a; }
+        /* Sembunyikan text versi HP secara default */
+        .txt-desktop { display: inline; }
+        .txt-mobile { display: none; }
 
         /* MODAL */
         .modal-glass {
@@ -138,7 +124,6 @@
             border-radius: 40px !important; border: 1px solid rgba(76, 201, 240, 0.3) !important;
             color: white; box-shadow: 0 30px 60px rgba(0,0,0,0.7) !important;
         }
-
         .modal-header { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px; }
         .info-list-item { background: rgba(255,255,255,0.03); border-radius: 15px; padding: 12px 18px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.05); }
         .btn-pill { 
@@ -154,7 +139,6 @@
         }
         .btn-export:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3); }
     
-        /* SIMBOL i */        
         .info-trigger {
             cursor: pointer; background: rgba(76, 201, 240, 0.1); color: #4cc9f0;
             border: 1px solid rgba(76, 201, 240, 0.3); width: 32px; height: 32px;
@@ -162,122 +146,52 @@
         }
         .info-trigger:hover { background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 8px #4cc9f0; }
 
-        /* SCROLLBAR WINDOW UTAMA */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: rgba(13, 27, 42, 0.98); }
         ::-webkit-scrollbar-thumb { 
-            background: linear-gradient(180deg, #4cc9f0, #4361ee); 
-            border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5); 
+            background: linear-gradient(180deg, #4cc9f0, #4361ee); border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5); 
         }
-        ::-webkit-scrollbar-thumb:hover { background: #4cc9f0; }
-
-
 
 
 
         
         @media screen and (max-width: 768px) {
             .main-content, .content-area {
-                margin-left: 0 !important;
-                padding: 15px 12px !important; 
-                width: 100% !important;
+                margin-left: 0 !important; padding: 15px 12px !important; width: 100% !important;
             }
 
             /* Menu Geser Hori */
             .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                left: 0;
-                top: 0;
-                padding: 12px;
-                margin-bottom: 20px;
-                border-radius: 20px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                position: relative; width: 100%; height: auto; left: 0; top: 0; padding: 12px; margin-bottom: 20px; border-radius: 20px;
             }
+            .sidebar h4, .sidebar .profile-section { display: none !important; }
+            .sidebar nav { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding-bottom: 5px; }
+            .sidebar nav::-webkit-scrollbar { display: none; }
+            .menu-link { display: inline-flex; margin-bottom: 0; flex-shrink: 0; padding: 8px 14px; }
 
-            .sidebar h4, .sidebar .profile-section {
-                display: none !important;
-            }
+            /* TULISAN SINGKAT KHUSUS HP */
+            .txt-desktop { display: none; }
+            .txt-mobile { display: inline; }
 
-            .sidebar nav {
-                display: flex;
-                overflow-x: auto;
-                white-space: nowrap;
-                gap: 8px;
-                padding-bottom: 5px;
-            }
+            .glass-container .row.align-items-center { flex-direction: column !important; align-items: flex-start !important; gap: 20px; }
+            .glass-container .col-md-7 { width: 100% !important; }
+            .glass-container .col-md-5.d-flex { width: 100% !important; justify-content: space-between !important; }
+            .stat-card-mini { flex: 1; min-width: unset; }
+            .glass-container { padding: 20px 15px; border-radius: 25px; }
 
-            .sidebar nav::-webkit-scrollbar {
-                display: none;
-            }
+            .table-evo { display: table !important; width: 100% !important; min-width: 520px; }
+            .table-evo thead, .table-evo tbody { display: table-row-group !important; }
 
-            .menu-link {
-                display: inline-flex;
-                margin-bottom: 0;
-                flex-shrink: 0;
-                padding: 8px 14px;
-            }
-
-            /* Header Judul + Stats Mini  */
-            .glass-container .row.align-items-center {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 20px;
-            }
-
-            .glass-container .col-md-7 {
-                width: 100% !important;
-            }
-
-            /* Stats mini rapi 2 */
-            .glass-container .col-md-5.d-flex {
-                width: 100% !important;
-                justify-content: space-between !important;
-            }
-
-            .stat-card-mini {
-                flex: 1;
-                min-width: unset;
-            }
-
-            .glass-container {
-                padding: 20px 15px;
-                border-radius: 25px;
-            }
-
-           
-            .table-evo {
-                display: table !important; 
-                width: 100% !important;
-                min-width: 600px; 
-            }
-            .table-evo thead, .table-evo tbody {
-                display: table-row-group !important;
-            }
-
-            /* Tombol Export */
-            .d-flex.justify-content-end.mt-5 {
-                width: 100% !important;
-            }
-
-            .btn-export {
-                width: 100% !important;
-                text-align: center;
-                padding: 12px;
-            }
-
-            /* Efek klik Tutup & Export */
-            .btn-pill, .btn-export {
-                transition: all 0.2s ease-in-out !important;
-            }
-            .btn-pill:active, .btn-export:active, .btn-kembali:active {
-                transform: scale(0.95) !important;
-            }
+            .d-flex.justify-content-end.mt-5 { width: 100% !important; }
+            .btn-export { width: 100% !important; text-align: center; padding: 12px; }
+            .btn-pill, .btn-export { transition: all 0.2s ease-in-out !important; }
+            .btn-pill:active, .btn-export:active, .btn-kembali:active { transform: scale(0.95) !important; }
         }
     </style>
 </head>
 
+
+    
 <body>
 
     <div class="sidebar">
@@ -353,7 +267,6 @@
         </div>
 
         <div class="glass-container">
-            <!-- TAMBAHAN WRAPPER DI SINI AGAR STRUKTUR TABEL TETAP SEJAJAR SEMPURNA -->
             <div class="table-scroll-wrapper">
                 <table class="table-evo">
                     <thead>
@@ -381,7 +294,12 @@
                             <td>3</td>
                             <td class="fw-bold">Tika</td>
                             <td class="text-center"><h5 class="fw-bold m-0 text-secondary">0</h5></td>
-                            <td class="text-center"><span class="status-belum">Belum Mengerjakan</span></td>
+                            <td class="text-center">
+                                <span class="status-belum">
+                                    <span class="txt-desktop">Belum Mengerjakan</span>
+                                    <span class="txt-mobile">Belum</span>
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -399,7 +317,12 @@
                             <td>6</td>
                             <td class="fw-bold">Asiah</td>
                             <td class="text-center"><h5 class="fw-bold m-0 text-secondary">0</h5></td>
-                            <td class="text-center"><span class="status-belum">Belum Mengerjakan</span></td>
+                            <td class="text-center">
+                                <span class="status-belum">
+                                    <span class="txt-desktop">Belum Mengerjakan</span>
+                                    <span class="txt-mobile">Belum</span>
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
