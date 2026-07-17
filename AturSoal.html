@@ -196,8 +196,39 @@
     }
 
   
-    .sidebar {
-        display: none !important; 
+  .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .sidebar h4, .sidebar .profile-section {
+        display: none !important;
+    }
+
+    .sidebar nav {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 8px;
+        padding-bottom: 5px;
+    }
+
+    .sidebar nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu-link {
+        display: inline-flex;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        padding: 8px 14px;
     }
 
 
