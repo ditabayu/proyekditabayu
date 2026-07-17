@@ -230,6 +230,21 @@
             .sidebar .profile-section { display: none !important; }
             .filter-row { flex-direction: column; gap: 12px; align-items: flex-start !important; }
             .filter-controls { width: 100%; justify-content: space-between; }
+
+    
+  .table-custom { min-width: 700px; }
+            .table-responsive-custom {
+                width: 100%;
+                overflow-x: auto;
+               -webkit-overflow-scrolling: touch;}
+            
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
+            
+
         }
 
 </style>
@@ -363,8 +378,9 @@
 </div>
 
 <!-- TABLE -->
-    <table class="table-custom">
-          <thead class="table-header">
+   <div class="table-responsive-custom">
+                <table class="table-custom">
+                      <thead class="table-header">
                 <tr>
                      <th class="text-center" width="60">No</th>
                         <th width="200">Detail</th>
@@ -373,7 +389,7 @@
                         <th class="text-center" width="160">Aksi</th>
                         </tr>
          </thead>
-               <tbody>
+         <tbody>
                  <tr>
                   <td>
                    <b>1</b><br>
