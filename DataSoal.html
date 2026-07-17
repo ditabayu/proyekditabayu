@@ -407,8 +407,19 @@
 
 
 
-
         @media screen and (max-width: 768px) {
+              .table-custom { min-width: 700px; }
+            .table-responsive-custom {
+                width: 100%;
+                overflow-x: auto;
+               -webkit-overflow-scrolling: touch;}
+            
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
+            
     /* Sidebar Hori */
     .sidebar {
         position: relative !important;
@@ -631,8 +642,9 @@
                 <input type="text" class="form-control pill-input py-1" style="width: 250px;" placeholder="Cari...">
             </div>
 
-            <table class="table-custom w-100">
-                <thead>
+            <div class="table-responsive-custom">
+                <table class="table-custom">
+                      <thead class="table-header">
                     <tr>
                         <th class="text-center" width="60">No</th>
                         <th width="200">Matkul & Level</th>
@@ -1000,6 +1012,8 @@
     </div></div>
 </div>
 
+
+        
     <script>
         window.onload = function() {
             const namaDosen = localStorage.getItem("userName") || "Dosen ABC";
