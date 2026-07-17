@@ -357,7 +357,7 @@
         border-radius: 25px !important;
     }
 
-    /* Tabel bisa digeser */
+    /* Tabel dan scroll hori */
     .table-custom {
         display: block;
         width: 100%;
@@ -368,6 +368,15 @@
 
     .table-custom::-webkit-scrollbar { 
         height: 10px !important; 
+    }
+    .table-custom::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+    }
+    .table-custom::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #4cc9f0, #4361ee); 
+        border-radius: 10px;
+        box-shadow: 0 0 8px rgba(76, 201, 240, 0.4);
     }
 
     .table-custom thead, .table-custom tbody {
