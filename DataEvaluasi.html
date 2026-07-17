@@ -221,7 +221,11 @@
 
 
 @media screen and (max-width: 768px) {
-            .content-area { margin-left: 0 !important; padding: 15px 12px !important; width: 100% !important; }
+    .main-content, .content-area {
+        margin-left: 0 !important;
+        padding: 15px 12px !important; 
+        width: 100% !important;
+    }
             .sidebar { position: relative; width: 100%; height: auto; left: 0; top: 0; padding: 12px; margin-bottom: 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
             .sidebar h4 { display: none !important; }
             .sidebar nav { display: flex; overflow-x: auto; white-space: nowrap; gap: 8px; padding-bottom: 5px; }
@@ -232,20 +236,12 @@
             .filter-controls { width: 100%; justify-content: space-between; }
 
     
-  .table-custom { min-width: 700px; }
-            .table-responsive-custom {
-                width: 100%;
-                overflow-x: auto;
-               -webkit-overflow-scrolling: touch;}
-            
-    .main-content, .content-area {
-        margin-left: 0 !important;
-        padding: 15px 12px !important; 
-        width: 100% !important;
+.table-custom {
+        min-width: 700px;
     }
-            
+}
 
-        }
+        
 
 </style>
 </head>
