@@ -8,23 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-            color: white; 
-            min-height: 100vh; 
-            margin: 0; 
-            overflow-x: hidden;
-        }
+          body {font-family: 'Poppins', sans-serif;
+              background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+              color: white; min-height: 100vh; margin: 0; overflow-x: hidden;}
 
-        /* --- SIDEBAR KIRI FULL + SCROLL --- */
+/* --- SIDEBAR KIRI  FULL + SCROLL--- */
         .sidebar {
             background-color: #1b263b; height: 85vh; padding: 25px 15px;
             border: 1px solid rgba(255, 255, 255, 0.1); display: flex; flex-direction: column;
             position: fixed; width: 260px; top: 7.5vh; left: 20px; border-radius: 30px;
             z-index: 1000; overflow-y: auto; overflow-x: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);}
 
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { background: rgba(76, 201, 240, 0.3); border-radius: 10px; }
@@ -32,169 +26,201 @@
         .menu-link {
             display: flex; align-items: center; color: #adb5bd; text-decoration: none;
             padding: 12px 15px; border-radius: 15px; margin-bottom: 8px;
-            transition: 0.3s; font-size: 0.85rem;
-        }
+            transition: 0.3s; font-size: 0.85rem;}
 
-        /* EFEK HOVER NYA */
-        .menu-link:hover, .menu-link.active {
-            background: linear-gradient(90deg, #4cc9f0, #4361ee);
-            border: none; border-radius: 20px; padding: 12px;
-            font-weight: 600; transition: 0.3s; 
-            color: #0d1b2a !important;
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);
-        }
+/* EFEK HOVER NYA */
+        .menu-link:hover, .menu-link.active {background:linear-gradient(90deg,#4cc9f0,#4361ee);
+                      border:none; border-radius:20px; padding:12px;
+                      color:white; font-weight:600; transition:0.3s; 
+                      color: #0d1b2a !important; font-weight: 600;
+                      box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4);}
 
-        .img-menu-icon { width: 22px; margin-right: 12px; transition: 0.3s; }
-        .menu-link.active .img-menu-icon { filter: brightness(0); } 
-        .profile-section { margin-top: auto; background: rgba(255, 255, 255, 0.07); padding: 15px; border-radius: 20px; display: flex; align-items: center; }
+        .img-menu-icon {width: 22px; margin-right: 12px; transition: 0.3s;}
+        .menu-link.active .img-menu-icon {filter: brightness(0);} 
+        .profile-section {margin-top: auto; background: rgba(255, 255, 255, 0.07);
+                         padding: 15px; border-radius: 20px; display: flex; align-items: center;}
 
-        .content-area { margin-left: 300px; padding: 50px 40px; overflow-x: hidden; }
+
+        .content-area {margin-left: 300px; padding: 50px 40px; overflow-x: hidden;}
     
-        /* INPUT */
-        ::placeholder { color: white !important; opacity: 0.85; }
+/* INPUT */
+        ::placeholder{color:white !important; opacity:0.85;}
 
-        .input-premium {
-            background: rgba(255,255,255,0.06) !important;
-            border: 1px solid rgba(255,255,255,0.11) !important;
-            border-radius: 15px !important;
-            color: white !important; padding: 12px 14px;
-        }
+        .input-premium{background:rgba(255,255,255,0.06)!important;
+                      border:1px solid rgba(255,255,255,0.11)!important;
+                      border-radius:15px!important;
+                      color:white!important; padding:12px 14px;}
 
-        .input-premium:focus {
-            border-color: #4cc9f0 !important;
-            box-shadow: 0 0 12px rgba(76,201,240,0.3) !important;
-        }
+        .input-premium:focus{border-color:#4cc9f0 !important;
+                             box-shadow:0 0 12px rgba(76,201,240,0.3)!important;}
 
-        /* TANPA SPINNER */
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none; margin: 0;
-        }
+/* TANPA SPINNER */
+         input[type=number]::-webkit-inner-spin-button,
+         input[type=number]::-webkit-outer-spin-button{
+                -webkit-appearance:none;
+                 margin:0;}
 
-        .pill-input {
-            border-radius: 49px; background: rgba(255, 255, 255, 0.08) !important;
-            border: 1px solid rgba(76, 201, 240, 0.4) !important;
-            color: white !important; padding: 12px 14px; outline: none;
-        }
 
-        .pill-input:focus {
-            border-color: #4cc9f0 !important;
-            background: rgba(255, 255, 225, 0.1) !important;
-            box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
-            outline: none; color: white !important;
-        }
+        .pill-input {border-radius: 49px; background: rgba(255, 255, 255, 0.08) !important;
+                    border: 1px solid rgba(76, 201, 240, 0.4) !important;
+                    color: white !important; padding: 12px 14px;
+                    outline: none;}
 
-        .pill-input option { background: #0d1b2a; color: white; }
-        .pill-input::placeholder { color: white !important; opacity: 0.8; font-size: 0.85rem; }
+        .pill-input:focus {border-color: #4cc9f0 !important;
+                           background: rgba(255, 255, 225, 0.1) !important;
+                           box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
+                           outline: none; color: white !important;}
 
-        /* TOMBOL TUTUP AKSI 5 */
-        .btn-tutup {
-            background-color: #4cc9f0; border: none; border-radius: 15px;
-            padding: 10px 25px; transition: 0.3s ease-in-out; font-weight: 600;
-        }
-        .btn-tutup:hover { transform: scale(1.01); }
+        .pill-input option {background: #0d1b2a; color: white;}
+        .pill-input::placeholder {color: white !important; opacity: 0.8; font-size: 0.85rem;}
+        .pill-input::-webkit-input-placeholder {color: white !important;}
 
-        /* TOGGLE FORM WITH SMOOTH INTERACTION */
-        .form-hidden { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(-10px); }
-        .form-show { max-height: 1000px; opacity: 1; transform: translateY(0); margin-bottom: 20px; }
 
-        /* CARD */
-        .glass-card { background: rgba(255,255,255,0.03); border-radius: 25px; padding: 25px; border: 1px solid rgba(255,255,255,0.08); }
+/* TOMBOL TUTUP AKSI 5 */
+        .btn-tutup {background-color:#4cc9f0; border: none; border-radius: 15px;
+                   padding: 10px 25px; transition: 0.3s ease-in-out;font-weight: 600}
+        .btn-tutup:hover {transform: scale(1.01);}
 
-        /* CALENDAR KUSTOM */ 
-        .calendar-wrapper { position: relative; }
-        .calendar-input { padding-right: 45px !important; cursor: pointer; }
-        .calendar-input::-webkit-calendar-picker-indicator {
-            opacity: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0; cursor: pointer;
-        }
-        .calendar-wrapper::after {
-            content: '📅'; position: absolute; right: 15px;
-            top: 50%; transform: translateY(-50%); font-size: 1rem; opacity: 0.7; pointer-events: none;
-        }
-        .calendar-wrapper:hover::after { opacity: 1; }
+/* TOGGLE FORM */
+        .form-hidden{max-height:0; opacity: 0; overflow:hidden; transition: all 0.35s ease; transform: translateY(-10px);}
+        .form-show{max-height:1000px; opacity: 1;}
 
-        /* TABEL RESPONSIVE CONTAINER */
-        .table-responsive-custom {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
+/* CARD */
+        .glass-card{background:rgba(255,255,255,0.03); border-radius:25px; padding:25px;
+                    border:1px solid rgba(255,255,255,0.08); margin-bottom: 15px;}
 
-        .table-custom { width: 100%; border-collapse: separate; border-spacing: 0 15px; min-width: 750px; }
-        .table-custom thead th { color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem; }
-        .table-custom tbody tr { background: rgba(255, 255, 255, 0.02); transition: 0.4s ease; }
-        .table-custom tbody td { padding: 18px 15px; border: none; vertical-align: middle; font-weight: 500; }
-        .table-custom tbody tr td:first-child { border-top-left-radius: 15px; border-bottom-left-radius: 15px; }
-        .table-custom tbody tr td:last-child { border-top-right-radius: 15px; border-bottom-right-radius: 15px; }
-        .table-custom tbody tr:hover { 
-            background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
-            transform: translateX(8px); 
-        }
+/* CALENDAR KUSTOM*/ 
+        .calendar-wrapper{position:relative;}
+        .calendar-input{padding-right:45px !important; cursor:pointer;}
+        .calendar-input::-webkit-calendar-picker-indicator{
+                        opacity:0;
+                        position:absolute;
+                        width:100%;
+                        height:100%;
+                        cursor:pointer;}
 
-        /* BADGE KECIL */
-        .badge-adaptif {
-            background: rgba(76,201,240,0.15); color: #4cc9f0; padding: 6px 14px;
-            border-radius: 20px; font-size: 0.7rem; border: 1px solid rgba(76,201,240,0.3);
-            backdrop-filter: blur(4px);
-        }
+/* ICON */
+       .calendar-wrapper::after{content:'📅'; position:absolute; right:15px;
+                                top:50%; transform:translateY(-50%); font-size:1rem;
+                                opacity:0.7;}
 
-        /* CARI TOPIK */
-        .search-box {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255, 255, 225, 0.1) !important;
-            border-radius: 50px; padding: 9px 15px; color: white; outline: none;
-        }
-        .search-box:focus {
-            border-color: #4cc9f0 !important;
-            background: rgba(255, 255, 225, 0.1) !important;
-            box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
-        }
+        .calendar-wrapper:hover::after{opacity:1;}
 
-        /* DROPDOWN */
-        select { background: #1b263b !important; color: white !important; }
+/* TABEL */
+        .table-custom {width: 100%; border-collapse: separate; border-spacing: 0 15px;}
+        .table-custom thead th {color: #4cc9f0; border: none; padding: 15px; font-size: 0.85rem;}
+        
+        .table-custom tbody tr {background: rgba(255, 255, 255, 0.02); transition: 0.4s ease;}
 
-        /* SIMBOL i */
+        .table-custom tbody td {padding: 18px 15px; border: none;
+                                vertical-align: middle; font-weight: 500;}
+
+        .table-custom tbody tr td:first-child {border-top-left-radius: 15px;
+                                               border-bottom-left-radius: 15px;}
+
+        .table-custom tbody tr td:last-child {border-top-right-radius: 15px;
+                                              border-bottom-right-radius: 15px;}
+  
+        .table-custom tbody tr:hover {background: linear-gradient(90deg, rgba(76, 201, 240, 0.15), rgba(114, 9, 183, 0.15));
+                                      transform: translateX(8px);}
+
+/* BADGE KECIL */
+        .badge-adaptif{background:rgba(76,201,240,0.15); color:#4cc9f0; padding:6px 14px;
+                       border-radius:20px; font-size:0.7rem; border:1px solid rgba(76,201,240,0.3);
+                       backdrop-filter: blur(4px);}
+
+        .badge-non{background:rgba(255,255,255,0.2);padding:6px 12px;border-radius:10px;font-size:0.7rem;}
+
+
+/* CARI TOPIK */
+        .search-box{background:rgba(255,255,255,0.05);  border:1px solid rgba(255, 255, 225, 0.1) !important;
+                    border:none; border-radius:50px; padding:9px 9px; color:white;}
+        .search-box:focus {border-color: #4cc9f0 !important;
+                           background: rgba(255, 255, 225, 0.1) !important;
+                           box-shadow: 0 0 10px rgba(76, 201, 240, 0.3) !important;
+                           outline: none; color: white !important;}
+
+        .search-box option {background: #0d1b2a; color: white;}
+        .search-box::placeholder {color: white !important; opacity: 0.8; font-size: 0.85rem;}
+        .search-box::-webkit-input-placeholder {color: white !important;}
+
+/* DROPDOWN */
+        select{background:#1b263b!important;color:white!important;}
+
+/* --- SIMBOL i --- */
         .info-btn {
             cursor: pointer; background: rgba(76, 201, 240, 0.1); color: #4cc9f0;
             border: 1px solid rgba(76, 201, 240, 0.3); width: 32px; height: 32px;
-            border-radius: 50%; font-weight: bold; transition: 0.3s;
-        }
-        .info-btn:hover { background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 7px #4cc9f0; }
+            border-radius: 50%; font-weight: bold; transition: 0.3s;}
+        .info-btn:hover {background: #4cc9f0; color: #0d1b2a; box-shadow: 0 0 7px #4cc9f0;}
+
        
-        .table-header th { font-size: 0.85rem; font-weight: 600; color: #4cc9f0; opacity: 0.8; padding: 10px 18px; }
-        .table-header th:last-child { text-align: right; padding-right: 25px; }
+        .table-header th{font-size:0.85rem;font-weight:600;color:#4cc9f0; opacity:0.8;
+                         padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.02);}
 
-        .btn-animate { transition: all 0.35s ease; }
-        .btn-animate:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 9px 15px rgba(87, 204, 153, 0.2); }
+        .table-header th:last-child{text-align:right;padding-right:25px;}
 
-        .glass-section { background: rgba(255,255,255,0.02); border-radius: 20px; padding: 20px; border: 1px solid rgba(76, 201, 240, 0.2); }
 
-        /* IKON AKSI GLO & HOVER */
-        .action-group { display: flex; gap: 12px; justify-content: flex-end; }
-        .action-icon { width: 28px; height: 32px; cursor: pointer; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .action-icon:hover { transform: scale(1.3) rotate(8deg); filter: drop-shadow(0 0 9px #4cc9f0); }
-        .action-icon[title="Hapus"]:hover { filter: drop-shadow(0 0 10px #ff4d4d) !important; }
-        .action-icon[title="Edit"]:hover { filter: drop-shadow(0 0 10px #ffb703) !important; }
-        .action-icon[title="Lihat"]:hover { filter: drop-shadow(0 0 10px #4cc9f0) !important; }
-        .action-icon[title="AturSoal"]:hover { filter: drop-shadow(0 0 10px #57cc99) !important; }
-        .action-icon[title="Paket Soal"]:hover { filter: drop-shadow(0 0 10px #4361ee) !important; }
+       .btn-animate{transition: all 0.35s ease;}
 
-        .btn-glow {
-            background: rgba(87, 204, 153, 0.1); border: 1px solid #57cc99;
-            color: #57cc99; border-radius: 15px; padding: 10px 25px;
-            font-weight: 600; font-size: 0.85rem; transition: 0.3s;
-        }
-        .btn-glow:hover { background: #57cc99; color: #0d1b2a; box-shadow: 0 0 20px rgba(87, 204, 153, 0.6); }
+       .btn-animate:hover{transform: translateY(-3px) scale(1.03);box-shadow: 0 9px 15px rgba(87, 204, 153, 0.2);}
 
-        /* PAGINATION */
-        .page-link-custom {
-            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
-            text-decoration: none; color: white; background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; transition: 0.3s;
-        }
-        .page-link-custom:hover { background: rgba(76, 201, 240, 0.2); color: #4cc9f0; border-color: #4cc9f0; }
-        .page-link-custom.active { background: #4cc9f0; color: #0d1b2a; font-weight: bold; box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); border: none; }
+       .glass-section{background: rgba(255,255,255,0.02);
+                    border-radius:20px;padding:20px; border: 1px solid rgba(76, 201, 240, 0.2)}
 
-        /* SCROLLBAR MEDIA SCREEN */
-        @media screen and (max-width: 768px) {
+
+
+/* --- IKON AKSI 5. GERAK & GLOW + WARNA GG --- */
+        .action-group{display:flex;gap:12px;}
+        .action-icon {width: 28px; height: 32px; cursor: pointer; 
+                     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
+        .action-icon:hover {transform: scale(1.3) rotate(8deg); 
+                            filter: drop-shadow(0 0 9px #4cc9f0);}
+        .action-icon[title="Hapus"]:hover {filter: drop-shadow(0 0 10px #ff4d4d) !important;}
+        .action-icon[title="Edit"]:hover {filter: drop-shadow(0 0 10px #ffb703) !important;}
+        .action-icon[title="Lihat"]:hover {filter: drop-shadow(0 0 10px #4cc9f0) !important;}
+        .action-icon[title="Atur Soal"]:hover {filter: drop-shadow(0 0 10px #57cc99) !important;}
+        .action-icon[title="Paket Soal"]:hover {filter: drop-shadow(0 0 10px #4361ee) !important;}
+
+        .btn-close-white {filter: invert(1) grayscale(100%) brightness(200%);}
+
+
+         .btn-glow {background: rgba(87, 204, 153, 0.1); border: 1px solid #57cc99;
+                          color: #57cc99; border-radius: 15px; padding: 10px 25px;
+                          font-weight: 600; font-size: 0.85rem; transition: 0.3s;}
+
+        .btn-glow:hover {background: #57cc99; color: #0d1b2a; box-shadow: 0 0 20px rgba(87, 204, 153, 0.6);}
+
+
+        .btn-glow-danger {background: linear-gradient(45deg, #ff4d4d, #ff8080); border: none;
+                         color: white; 
+                         transition: all 0.3s ease;}
+
+        .btn-glow-danger:hover {transform: translateY(-2px); box-shadow: 0 4px 4px rgba(255, 77, 77, 0.3);
+                                background: linear-gradient(45deg, #ff1a1a, #ff4d4d);}
+
+/* DETAIL SCROLLBAR */
+         ::-webkit-scrollbar {width: 6px;}
+
+         ::-webkit-scrollbar-track {background: rgba(13, 27, 42, 0.98);}
+         ::-webkit-scrollbar-thumb {background: linear-gradient(180deg, #4cc9f0, #4361ee); 
+                                    border-radius: 10px; box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);}
+         ::-webkit-scrollbar-thumb:hover {background: #4cc9f0;} 
+
+
+/* --- HALAMAN NOMOR --- */
+        .page-link-custom {width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+                          text-decoration: none; color: white; background: rgba(255, 255, 255, 0.03);
+                          border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; transition: 0.3s;}
+
+        .page-link-custom:hover {background: rgba(76, 201, 240, 0.2); color: #4cc9f0; border-color: #4cc9f0;}
+        .page-link-custom.active {background: #4cc9f0; color: #0d1b2a; font-weight: bold;
+                                 box-shadow: 0 5px 15px rgba(76, 201, 240, 0.4); border: none;}
+
+  .modal-header {border-bottom: 1px solid rgba(255,255,255,0.05); padding: 25px 30px;}
+
+
+@media screen and (max-width: 768px) {
             .content-area { margin-left: 0 !important; padding: 15px 12px !important; width: 100% !important; }
             .sidebar { position: relative; width: 100%; height: auto; left: 0; top: 0; padding: 12px; margin-bottom: 20px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
             .sidebar h4 { display: none !important; }
@@ -205,11 +231,13 @@
             .filter-row { flex-direction: column; gap: 12px; align-items: flex-start !important; }
             .filter-controls { width: 100%; justify-content: space-between; }
         }
-    </style>
+
+</style>
 </head>
 
+
 <body>
-    <div class="sidebar">
+     <div class="sidebar">
         <h4 class="fw-bold mb-5 text-center mt-2">UPK<span style="color: #4cc9f0;">SAINTEK</span></h4>
         <nav>
             <a href="DashboardDosen.html" class="menu-link">
@@ -218,13 +246,13 @@
             <a href="DataMahasiswa.html" class="menu-link">
                 <img src="data mahasiswa.png" class="img-menu-icon"> Data Mahasiswa
             </a>
-            <a href="DataNilai.html" class="menu-link">
+             <a href="DataNilai.html" class="menu-link">
                 <img src="data nilai.png" class="img-menu-icon"> Data Nilai
             </a>
             <a href="DataKelas.html" class="menu-link">
                 <img src="data kelas (2).png" class="img-menu-icon"> Data Kelas
             </a>
-            <a href="DataMataKuliah.html" class="menu-link">
+             <a href="DataMataKuliah.html" class="menu-link">
                 <img src="data kelas (2).png" class="img-menu-icon"> Data Mata Kuliah
             </a>
             <a href="DataTopik.html" class="menu-link">
@@ -250,153 +278,181 @@
         </div>
     </div>
 
-    <div class="content-area">                     
-        <div class="d-flex align-items-center gap-3 mb-4">
-            <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Data <span style="color:#4cc9f0">Evaluasi</span></h2>
-            <button class="info-btn" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
+        <div class="content-area">                     
+                 <div class="d-flex align-items-center gap-3 mb-3">
+                        <hr style="border-color: rgba(255,255,255,0.08); margin-bottom:25px;">
+                        <h2 class="fw-bold m-0" style="font-size: 2.2rem;">Data <span style="color:#4cc9f0">Evaluasi</span></h2>
+                        <button class="info-btn" data-bs-toggle="modal" data-bs-target="#infoModal">i</button>
         </div>
 
-        <div class="glass-section mb-4">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-                <h6 class="fw-bold text-white mb-0" style="color: #57cc99 !important;">Manajemen Evaluasi</h6>
-                <button class="btn-glow btn-animate" onclick="toggleForm()">+ Tambah Aktivitas</button>
-            </div>
+           <div class="glass-section mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="fw-bold mb-4" style="color: #57cc99;">Manajemen Evaluasi</h5>
+             <button class="btn-glow btn-animate mb-3" onclick="toggleForm()">+ Tambah Aktivitas</button>
+           </div>
 
-            <!-- FORM BOX COLLAPSIBLE -->
-            <div id="formBox" class="form-hidden">
-                <div class="glass-card mt-3">
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <input type="text" class="form-control input-premium" placeholder="Judul Aktivitas">
-                        </div>
-                        <div class="col-md-4">
-                            <select class="form-select pill-input">
-                                <option selected disabled>Pilih Topik</option>
-                                <option>Basis Data</option>
-                                <option>Algoritma</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="calendar-wrapper">
-                                <input type="datetime-local" class="form-control input-premium calendar-input">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="number" class="form-control input-premium" placeholder="Durasi (menit)">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="number" class="form-control input-premium" placeholder="KKM">
-                        </div>
-                        <div class="col-md-3 d-flex align-items-center">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="modeAdaptif" checked>
-                                <label class="ms-2" for="modeAdaptif">Mode Adaptif</label>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn-glow w-100">Simpan</button>
-                        </div>
+<!-- FORM -->
+     <div id="formBox" class="form-hidden">
+        <div class="glass-card">
+        <div class="row g-3">
+
+        <div class="col-md-4">
+        <input type="text" class="form-control input-premium" placeholder="Judul Aktivitas">
+    </div>
+
+    <div class="col-md-4">
+     <select class="form-select pill-input">
+        <option selected disabled>Pilih Topik</option>
+        <option>Basis Data</option>
+    <option>Algoritma</option>
+    </select>
+    </div>
+
+          <div class="col-md-4">
+            <div class="calendar-wrapper">
+            <input type="datetime-local" class="form-control input-premium calendar-input">
+           </div>
+          </div>
+
+<div class="col-md-3">
+<input type="number" class="form-control input-premium" placeholder="Durasi (menit)">
+</div>
+
+<div class="col-md-3">
+<input type="number" class="form-control input-premium" placeholder="KKM">
+</div>
+
+<div class="col-md-3 d-flex align-items-center">
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" checked>
+<label class="ms-2">Mode Adaptif</label>
+</div>
+</div>
+
+<div class="col-md-3">
+<button class="btn-glow w-100">Simpan</button>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+
+<!-- FILTER -->
+ <div style="height: 30px;"></div>
+ <div class="glass-section">
+<div class="d-flex justify-content-between align-items-center mb-3">
+
+    <div style="font-size:0.9rem; font-weight: 600;">
+        Menampilkan data evaluasi
+    </div>
+
+    <div class="d-flex gap-2">
+        <select class="pill-input">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+        </select>
+
+        <input class="search-box" placeholder=" Cari aktivitas...">
+    </div>
+
+</div>
+
+<!-- TABLE -->
+    <table class="table-custom">
+          <thead class="table-header">
+                <tr>
+                     <th class="text-center" width="60">No</th>
+                        <th width="200">Detail</th>
+                        <th>Waktu</th>
+                        <th>Status</th>
+                        <th class="text-center" width="160">Aksi</th>
+                        </tr>
+         </thead>
+               <tbody>
+                 <tr>
+                  <td>
+                   <b>1</b><br>
+                  </td>
+                   <td>
+                    <b>Kuis Basis Data</b><br>
+                    <div style="font-size:0.8rem; opacity:0.7;">
+                    Topik: <span style="color:#4cc9f0; font-weight:500;">Basis Data</span>
                     </div>
-                </div>
-            </div>
-        </div>
+                   </td>
+                      <td>
+                  <div style="font-weight:600;">18 Des 2025</div>
+                <div style="font-size:0.75rem; opacity:0.6;">
+                Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
+                  </div>
+                  </td>
 
-        <!-- FILTER & TABLE LIST SECTION -->
-        <div class="glass-section">
-            <div class="d-flex justify-content-between align-items-center filter-row mb-3">
-                <div style="font-size:0.9rem; font-weight: 600;">
-                    Menampilkan data evaluasi
-                </div>
-                <div class="d-flex gap-2 filter-controls">
-                    <select class="pill-input py-1 px-3">
-                        <option>10</option>
-                        <option>25</option>
-                        <option>50</option>
-                    </select>
-                    <input class="search-box" placeholder=" Cari aktivitas...">
-                </div>
-            </div>
+                     <td>
+                    <span class="badge-adaptif">Adaptif</span>
+                      </td>
+                      <td>
+                      <div class="action-group">
+                        <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
+                        <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
+                        <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>  
+                        <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
+                        <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
+                        
+                       </div>
+                     </td>
+                  </tr>
+                   <tr>
+                  <td>
+                   <b>2</b><br>
+                  </td>
+                   <td>
+                    <b>Kuis Statistika Terapan</b><br>
+                    <div style="font-size:0.8rem; opacity:0.7;">
+                    Topik: <span style="color:#4cc9f0; font-weight:500;">Statistika</span>
+                    </div>
+                   </td>
+                      <td>
+                  <div style="font-weight:600;">18 Des 2025</div>
+                <div style="font-size:0.75rem; opacity:0.6;">
+                     Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
+                  </div>
+                  </td>
 
-            <!-- TABLE WITH AUTO-SCROLL CONTEXT -->
-            <div class="table-responsive-custom">
-                <table class="table-custom">
-                    <thead class="table-header">
-                        <tr>
-                            <th class="text-center" width="60">No</th>
-                            <th width="220">Detail</th>
-                            <th width="180">Waktu</th>
-                            <th width="120">Status</th>
-                            <th class="text-end" width="200" style="padding-right: 25px;">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center"><b>1</b></td>
-                            <td>
-                                <b>Kuis Basis Data</b><br>
-                                <div style="font-size:0.8rem; opacity:0.7;">
-                                    Topik: <span style="color:#4cc9f0; font-weight:500;">Basis Data</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div style="font-weight:600;">18 Des 2025</div>
-                                <div style="font-size:0.75rem; opacity:0.6;">
-                                    Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
-                                </div>
-                            </td>
-                            <td><span class="badge-adaptif">Adaptif</span></td>
-                            <td>
-                                <div class="action-group">
-                                    <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
-                                    <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
-                                    <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>  
-                                    <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
-                                    <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center"><b>2</b></td>
-                            <td>
-                                <b>Kuis Statistika Terapan</b><br>
-                                <div style="font-size:0.8rem; opacity:0.7;">
-                                    Topik: <span style="color:#4cc9f0; font-weight:500;">Statistika</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div style="font-weight:600;">18 Des 2025</div>
-                                <div style="font-size:0.75rem; opacity:0.6;">
-                                    Kelas 10 • <span style="color:#4cc9f0;">Ganjil</span>
-                                </div>
-                            </td>
-                            <td><span class="badge-adaptif">Adaptif</span></td>
-                            <td>
-                                <div class="action-group">
-                                    <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
-                                    <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
-                                    <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>
-                                    <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
-                                    <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                     <td>
+                    <span class="badge-adaptif">Adaptif</span>
+                      </td>
+                      <td>
+                      <div class="action-group">
+                        <img src="ikon melihat untuk keperluan dosen.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalLihat" title="Lihat">
+                        <img src="edit (2).png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalEdit" title="Edit">
+                        <a href="AturSoal.html"><img src="atur soal.png" class="action-icon" title="AturSoal"></a>
+                        <img src="paket soal.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalPaket" title="Paket Soal">
+                        <img src="hapus.png" class="action-icon" data-bs-toggle="modal" data-bs-target="#modalHapus" title="Hapus">
+                       </div>
+                     </td>
+                  </tr>
+              </tbody>
+       </table>
 
-            <!-- PAGINATION -->
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <p class="text-small mb-0" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 Evaluasi</p>
-                <div class="pagination-container d-flex gap-2">
-                    <a href="#" class="page-link-custom">«</a> 
-                    <a href="#" class="page-link-custom active">1</a>
-                    <a href="#" class="page-link-custom">2</a>
-                    <a href="#" class="page-link-custom">3</a>
-                    <a href="#" class="page-link-custom">»</a>
-                </div>
-            </div>
+ <div class="d-flex justify-content-between align-items-center mt-4">
+          <p class="text-small" style="color: #4cc9f0;">Menampilkan 1 - 10 dari 55 Evaluasi</p>
+          <div class="pagination-container d-flex gap-2">
+              <a href="#" class="page-link-custom">«</a> 
+              <a href="#" class="page-link-custom active">1</a>
+              <a href="#" class="page-link-custom">2</a>
+              <a href="#" class="page-link-custom">3</a>
+              <a href="#" class="page-link-custom">»</a>
+           </div>
         </div>
     </div>
+</div>
+</div>
+
+</div>
 
 <!-- ISI MODAL i NGAMBANG -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
