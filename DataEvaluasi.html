@@ -245,46 +245,46 @@
     }
 
     .table-responsive-custom::-webkit-scrollbar {
-        height: 10px !important; /* Membuat scrollbar horizontal di bawah tabel lebih tebal */
+        height: 10px !important; 
     }
     .table-responsive-custom::-webkit-scrollbar-track {
         background: rgba(255, 255, 255, 0.03);
         border-radius: 10px;
     }
     .table-responsive-custom::-webkit-scrollbar-thumb {
-        background: linear-gradient(90deg, #4cc9f0, #4361ee); /* Warna gradasi yang sama */
+        background: linear-gradient(90deg, #4cc9f0, #4361ee); 
         border-radius: 10px;
         box-shadow: 0 0 8px rgba(76, 201, 240, 0.4);
     }
 
-    /* 2. MERAPIKAN BAGIAN ATAS (Menampilkan data + Dropdown + Cari Aktivitas) BIAR TIDAK OFF-SIDE */
+    /* BAGIAN ATAS (Menampilkan data + Dropdown + Cari Aktivitas */
     .glass-section .d-flex.justify-content-between.align-items-center.mb-3 {
-        flex-direction: column !important; /* Kita ubah menumpuk vertikal dengan rapi di HP */
+        flex-direction: column !important; 
         align-items: stretch !important;
         gap: 12px;
     }
     
-    /* Membungkus dropdown '10' dan 'Cari' agar sejajar horizontal tapi muat di layar */
+    /* 10 + cari, hori */
     .glass-section .d-flex.gap-2 {
         display: flex !important;
         width: 100% !important;
     }
 
     .pill-input {
-        flex-shrink: 0; /* Dropdown angka '10' tetap kecil */
+        flex-shrink: 0; 
     }
 
     .search-box {
-        flex-grow: 1; /* Kolom cari akan melebar otomatis memenuhi sisa ruang secara pas */
+        flex-grow: 1; 
         width: 100% !important;
-        max-width: 100% !important; /* Mencegah kolom meluncur keluar layar */
+        max-width: 100% !important; 
         box-sizing: border-box;
     }
 
-    /* 3. MERAPIKAN PAGINATION DAN TULISAN "Menampilkan 1-10..." DI HP */
+   
     .glass-section .d-flex.justify-content-between.align-items-center.mt-4 {
-        flex-direction: column !important; /* Menumpuk vertikal dengan rapi */
-        align-items: center !important;
+        flex-direction: column !important; 
+        align-items: flex-start !important;
         text-align: center;
         gap: 15px;
     }
